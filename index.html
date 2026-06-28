@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Eternal Trivium — Series Codex</title>
+<style>
+  :root{
+    /* Thematic — the three Paramounts */
+    --mind:#9d6bff;      --mind-soft:#241a3d;   --mind-edge:#7c4dff;
+    --body:#e2445c;      --body-soft:#3a1620;   --body-edge:#ff5d72;
+    --spirit:#f3c969;    --spirit-soft:#34301a; --spirit-edge:#ffd97a;
+    --spirit-cy:#62d7d0; --spirit-cy-soft:#13302f;
+    /* Per-Brand colors (match Anima Brand Symbols) */
+    --a-origin:#7fe7e0;  --a-hallow:#e58fd8;  --a-feii:#7da7f0;
+    --a-wylde:#7ed98f;   --a-grymm:#b89fe6;   --a-qhaos:#f0b56a;
+    --a-arcane:#d8dde0;  --a-ardor:#b03048;   --a-aether:#c9a227;
+    /* Status */
+    --locked:#4ec98a;    --locked-soft:#10231a;
+    --open:#f0a23c;      --open-soft:#2c1f0c;
+    /* Base — deep grimoire */
+    --bg:#0c0b12;        --bg-2:#13111d;  --panel:#171423; --panel-2:#1d1930;
+    --ink:#ece8f5;       --ink-dim:#a59fbe; --ink-faint:#6f6987;
+    --rule:#2a2640;      --rule-soft:#211d33;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:
+      radial-gradient(1200px 800px at 80% -10%, #1a1430 0%, transparent 55%),
+      radial-gradient(900px 700px at -10% 20%, #161a2e 0%, transparent 50%),
+      var(--bg);
+    color:var(--ink);
+    font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    line-height:1.62; font-size:17px; letter-spacing:.1px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:880px; margin:0 auto; padding:0 26px 120px}
+
+  /* ---- Masthead ---- */
+  header.mast{
+    text-align:center; padding:78px 0 30px; position:relative;
+  }
+  .eyebrow{
+    font-family:"Avenir Next",Avenir,"Segoe UI",sans-serif;
+    text-transform:uppercase; letter-spacing:.42em; font-size:11.5px;
+    color:var(--ink-faint); font-weight:600; margin-bottom:22px;
+  }
+  h1.title{
+    font-size:clamp(34px,7vw,62px); line-height:1.02; margin:0 0 6px;
+    font-weight:600; letter-spacing:.5px;
+    background:linear-gradient(100deg,var(--mind) 0%,var(--spirit) 50%,var(--body) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .subtitle{
+    font-style:italic; color:var(--ink-dim); font-size:19px; margin-top:10px;
+  }
+  .triglyph{
+    display:flex; gap:18px; justify-content:center; margin:30px 0 8px;
+  }
+  .triglyph span{
+    width:13px; height:13px; border-radius:50%; opacity:.9;
+    box-shadow:0 0 16px 1px currentColor;
+  }
+  .tg-mind{color:var(--mind);background:var(--mind)}
+  .tg-spirit{color:var(--spirit);background:var(--spirit)}
+  .tg-body{color:var(--body);background:var(--body)}
+
+  /* ---- Legend ---- */
+  .legend{
+    display:flex; flex-wrap:wrap; gap:10px 14px; justify-content:center;
+    margin:34px auto 8px; padding:16px 18px; max-width:760px;
+    background:var(--panel); border:1px solid var(--rule); border-radius:14px;
+  }
+  .legend .lbl{
+    font-family:"Avenir Next",Avenir,sans-serif; font-size:11px;
+    text-transform:uppercase; letter-spacing:.16em; color:var(--ink-faint);
+    width:100%; text-align:center; margin-bottom:2px;
+  }
+  .chip{
+    font-family:"Avenir Next",Avenir,sans-serif; font-size:12px; font-weight:600;
+    letter-spacing:.08em; padding:4px 11px; border-radius:999px;
+    border:1px solid; display:inline-flex; align-items:center; gap:7px;
+  }
+  .chip::before{content:""; width:8px; height:8px; border-radius:50%; background:currentColor}
+  .c-mind{color:var(--mind); border-color:var(--mind-edge); background:var(--mind-soft)}
+  .c-body{color:var(--body); border-color:var(--body-edge); background:var(--body-soft)}
+  .c-spirit{color:var(--spirit); border-color:var(--spirit-edge); background:var(--spirit-soft)}
+  .c-locked{color:var(--locked); border-color:var(--locked); background:var(--locked-soft)}
+  .c-open{color:var(--open); border-color:var(--open); background:var(--open-soft)}
+
+  /* ---- TOC ---- */
+  nav.toc{
+    margin:30px 0 0; padding:22px 26px; background:var(--bg-2);
+    border:1px solid var(--rule); border-radius:14px;
+    column-count:2; column-gap:34px;
+  }
+  nav.toc a{
+    display:block; color:var(--ink-dim); text-decoration:none;
+    font-size:14.5px; padding:3px 0; break-inside:avoid;
+    border-bottom:1px solid transparent; transition:.18s;
+  }
+  nav.toc a:hover{color:var(--ink); border-bottom-color:var(--rule)}
+  nav.toc a .n{color:var(--ink-faint); font-variant-numeric:tabular-nums; margin-right:9px}
+
+  /* ---- Sections ---- */
+  section{margin-top:54px; scroll-margin-top:20px}
+  h2{
+    font-size:13px; font-family:"Avenir Next",Avenir,sans-serif; font-weight:700;
+    text-transform:uppercase; letter-spacing:.22em; color:var(--ink-faint);
+    margin:0 0 4px; display:flex; align-items:baseline; gap:12px;
+  }
+  h2 .num{color:var(--mind); font-variant-numeric:tabular-nums; letter-spacing:0}
+  h2 + .h2title{
+    font-size:30px; margin:0 0 18px; font-weight:600; letter-spacing:.3px;
+    padding-bottom:14px; border-bottom:1px solid var(--rule);
+  }
+  h3{
+    font-size:21px; margin:30px 0 8px; font-weight:600; letter-spacing:.2px;
+  }
+  p{margin:10px 0}
+  .lede{color:var(--ink-dim); font-style:italic}
+  strong{color:#fff; font-weight:600}
+  em{color:var(--ink-dim)}
+
+  /* ---- Status badges inline ---- */
+  .badge{
+    font-family:"Avenir Next",Avenir,sans-serif; font-size:10.5px; font-weight:700;
+    letter-spacing:.12em; text-transform:uppercase; padding:2px 8px;
+    border-radius:6px; border:1px solid; vertical-align:middle;
+    white-space:nowrap; position:relative; top:-1px;
+  }
+  .b-locked{color:var(--locked); border-color:var(--locked); background:var(--locked-soft)}
+  .b-open{color:var(--open); border-color:var(--open); background:var(--open-soft)}
+
+  /* ---- Callout cards ---- */
+  .card{
+    background:var(--panel); border:1px solid var(--rule);
+    border-left:3px solid var(--rule); border-radius:12px;
+    padding:16px 20px; margin:18px 0;
+  }
+  .card .tag{
+    font-family:"Avenir Next",Avenir,sans-serif; font-size:11px; font-weight:700;
+    text-transform:uppercase; letter-spacing:.16em; display:block; margin-bottom:6px;
+  }
+  .payoff{border-left-color:var(--spirit-cy)} .payoff .tag{color:var(--spirit-cy)}
+  .hook{border-left-color:var(--open)} .hook .tag{color:var(--open)}
+  .note{border-left-color:var(--mind)} .note .tag{color:var(--mind)}
+
+  /* ---- Tables ---- */
+  table{width:100%; border-collapse:collapse; margin:20px 0; font-size:15px}
+  caption{text-align:left; color:var(--ink-faint); font-size:13px; font-style:italic; padding-bottom:8px}
+  th{
+    font-family:"Avenir Next",Avenir,sans-serif; font-size:11px; font-weight:700;
+    text-transform:uppercase; letter-spacing:.14em; color:var(--ink-faint);
+    text-align:left; padding:10px 14px; border-bottom:1px solid var(--rule);
+  }
+  td{padding:11px 14px; border-bottom:1px solid var(--rule-soft); vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  td.glyph{font-family:"Avenir Next",sans-serif; font-size:13px; color:var(--ink-faint)}
+
+  /* ---- Brand-group panels ---- */
+  .group{
+    border-radius:14px; padding:22px 24px; margin:20px 0;
+    border:1px solid var(--rule); position:relative; overflow:hidden;
+  }
+  .group::before{
+    content:""; position:absolute; inset:0 auto 0 0; width:4px;
+  }
+  .group.mind{background:linear-gradient(120deg,var(--mind-soft),var(--panel) 60%)}
+  .group.mind::before{background:var(--mind)}
+  .group.body{background:linear-gradient(120deg,var(--body-soft),var(--panel) 60%)}
+  .group.body::before{background:var(--body)}
+  .group.spirit{background:linear-gradient(120deg,var(--spirit-soft),var(--panel) 60%)}
+  .group.spirit::before{background:var(--spirit)}
+  .group .gname{font-size:22px; font-weight:600; margin:0 0 2px; display:flex; align-items:center; gap:12px}
+  .group .gname .dot{width:11px;height:11px;border-radius:50%;box-shadow:0 0 12px currentColor}
+  .group.mind .gname{color:var(--mind)} .group.mind .dot{background:var(--mind);color:var(--mind)}
+  .group.body .gname{color:var(--body)} .group.body .dot{background:var(--body);color:var(--body)}
+  .group.spirit .gname{color:var(--spirit)} .group.spirit .dot{background:var(--spirit);color:var(--spirit)}
+  .group .gmeta{font-style:italic; color:var(--ink-dim); font-size:14.5px; margin:0 0 14px}
+  .aspect{
+    display:grid; grid-template-columns:130px 1fr; gap:4px 16px;
+    padding:9px 0; border-top:1px solid var(--rule-soft);
+  }
+  .aspect .an{font-weight:600}
+  .aspect .ad{color:var(--ink-dim); font-size:15px}
+
+  /* ---- Chain / list ---- */
+  ul.clean{list-style:none; padding:0; margin:12px 0}
+  ul.clean li{padding:7px 0 7px 26px; position:relative; border-bottom:1px solid var(--rule-soft)}
+  ul.clean li:last-child{border-bottom:none}
+  ul.clean li::before{
+    content:""; position:absolute; left:4px; top:15px; width:7px; height:7px;
+    border-radius:50%; background:var(--mind); box-shadow:0 0 8px var(--mind);
+  }
+  .chain{
+    font-family:"Avenir Next",Avenir,sans-serif; font-size:14px; line-height:2.1;
+    color:var(--ink-dim); background:var(--bg-2); border:1px solid var(--rule);
+    border-radius:12px; padding:16px 20px; margin:16px 0;
+  }
+  .chain b{color:var(--body)} .chain .arr{color:var(--ink-faint); margin:0 7px}
+
+  /* ---- Checklist ---- */
+  .checklist{margin:14px 0}
+  .checklist .row{display:flex; gap:12px; padding:10px 0; border-bottom:1px solid var(--rule-soft); align-items:flex-start}
+  .checklist .box{
+    flex:none; width:17px; height:17px; border:1.5px solid var(--ink-faint);
+    border-radius:4px; margin-top:4px;
+  }
+  .checklist .pri .box{border-color:var(--open)}
+  .checklist .pri{color:var(--ink)}
+
+  /* ---- Rank list ---- */
+  ol.rank{counter-reset:r; list-style:none; padding:0; margin:14px 0}
+  ol.rank li{
+    counter-increment:r; padding:12px 0 12px 52px; position:relative;
+    border-bottom:1px solid var(--rule-soft);
+  }
+  ol.rank li::before{
+    content:counter(r); position:absolute; left:0; top:11px;
+    width:32px; height:32px; border-radius:8px; display:grid; place-items:center;
+    font-family:"Avenir Next",sans-serif; font-weight:700; font-size:15px;
+    color:var(--spirit); background:var(--spirit-soft); border:1px solid var(--spirit-edge);
+  }
+
+  /* ---- Footer ---- */
+  footer{margin-top:70px; padding-top:24px; border-top:1px solid var(--rule); text-align:center;
+    color:var(--ink-faint); font-size:13px; font-style:italic}
+
+  a.top{display:inline-block; margin-top:6px; color:var(--mind); text-decoration:none; font-size:12px;
+    font-family:"Avenir Next",sans-serif; letter-spacing:.08em}
+
+  /* Character cards */
+  .char{
+    border-radius:14px; padding:22px 24px; margin:20px 0;
+    border:1px solid var(--rule); background:linear-gradient(120deg,var(--spirit-soft),var(--panel) 62%);
+    position:relative; overflow:hidden;
+  }
+  .char::before{content:""; position:absolute; inset:0 auto 0 0; width:4px; background:var(--spirit)}
+  .char.lead{background:linear-gradient(120deg,var(--spirit-cy-soft),var(--panel) 62%)}
+  .char.lead::before{background:var(--spirit-cy)}
+  .char .cname{font-size:23px; font-weight:600; color:var(--spirit); margin:0 0 2px}
+  .char.lead .cname{color:var(--spirit-cy)}
+  .char .crole{font-style:italic; color:var(--ink-dim); font-size:14.5px; margin:0 0 12px}
+  .char .stat{
+    display:inline-block; font-family:"Avenir Next",sans-serif; font-size:11px; font-weight:700;
+    letter-spacing:.08em; padding:3px 10px; border-radius:999px; margin:0 6px 10px 0;
+    background:var(--bg-2); border:1px solid var(--rule); color:var(--ink-dim);
+  }
+  .prophecy{
+    font-style:italic; color:var(--ink-dim); line-height:1.9; text-align:center;
+    background:var(--bg-2); border:1px solid var(--rule); border-radius:12px;
+    padding:22px 26px; margin:18px 0; font-size:15.5px;
+  }
+  .prophecy .last{color:var(--spirit); font-weight:600; font-style:normal; display:block; margin-top:8px}
+
+  @media (max-width:620px){
+    nav.toc{column-count:1}
+    .aspect{grid-template-columns:1fr}
+    .wrap{padding:0 18px 90px}
+  }
+  @media print{
+    body{background:#fff; color:#1a1a1a}
+    .group,.card,.chain,nav.toc,.legend{break-inside:avoid}
+  }
+
+  /* ===== Sidebar navigation app shell ===== */
+  body.app-mode .wrap{max-width:none; padding:0; margin:0}
+  .app-layout{display:flex; align-items:flex-start; gap:0; min-height:100vh}
+  .sidenav{
+    position:sticky; top:0; align-self:flex-start;
+    width:268px; min-width:268px; height:100vh; overflow-y:auto;
+    background:var(--bg-2); border-right:1px solid var(--line);
+    padding:22px 14px 40px; box-sizing:border-box;
+  }
+  .sidenav .nav-brand{font-family:var(--serif,Georgia,serif); font-size:18px; font-weight:700; color:var(--ink); padding:0 10px 4px; letter-spacing:.2px}
+  .sidenav .nav-sub{font-size:11px; text-transform:uppercase; letter-spacing:.14em; color:var(--ink-dim); padding:0 10px 16px}
+  .navsearch{width:100%; box-sizing:border-box; margin:0 0 14px; padding:9px 11px; font-size:13px;
+    background:var(--bg-1); border:1px solid var(--line); border-radius:9px; color:var(--ink); outline:none}
+  .navsearch:focus{border-color:var(--spirit-cy)}
+  .navsearch::placeholder{color:var(--ink-dim)}
+  .navlist{list-style:none; margin:0; padding:0}
+  .navlist li{margin:1px 0}
+  .navlink{
+    display:flex; align-items:center; gap:10px; width:100%; box-sizing:border-box;
+    padding:8px 11px; border-radius:8px; cursor:pointer; border:none; text-align:left;
+    background:transparent; color:var(--ink-dim); font-size:13.5px; font-family:inherit;
+    transition:background .12s,color .12s;
+  }
+  .navlink:hover{background:var(--bg-1); color:var(--ink)}
+  .navlink.active{background:var(--spirit-cy-soft); color:var(--ink)}
+  .navlink.active .navnum{color:var(--spirit-cy)}
+  .navlink .navnum{font-size:11px; font-variant-numeric:tabular-nums; color:var(--ink-dim); min-width:26px; font-weight:600}
+  .navlink.dim{display:none}
+  .main-col{flex:1; min-width:0; max-width:920px; margin:0 auto; padding:30px 28px 80px; box-sizing:border-box}
+  body.app-mode section{display:none}
+  body.app-mode section.active-section{display:block; animation:fadeSection .22s ease}
+  @keyframes fadeSection{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
+  body.app-mode .mast,body.app-mode .legend{display:none}
+  .sec-nav{display:flex; justify-content:space-between; gap:12px; margin:34px 0 0; padding-top:20px; border-top:1px solid var(--line)}
+  .sec-nav button{
+    background:var(--bg-2); border:1px solid var(--line); color:var(--ink-dim); font-family:inherit;
+    padding:10px 16px; border-radius:9px; cursor:pointer; font-size:13px; transition:border-color .12s,color .12s; max-width:48%;
+  }
+  .sec-nav button:hover:not(:disabled){border-color:var(--spirit-cy); color:var(--ink)}
+  .sec-nav button:disabled{opacity:.32; cursor:default}
+  .navtoggle{display:none}
+  @media (max-width:860px){
+    .navtoggle{
+      display:flex; align-items:center; gap:8px; position:sticky; top:0; z-index:30;
+      width:100%; box-sizing:border-box; padding:13px 18px; background:var(--bg-2);
+      border:none; border-bottom:1px solid var(--line); color:var(--ink); font-family:inherit; font-size:15px; font-weight:600; cursor:pointer;
+    }
+    .app-layout{flex-direction:column}
+    .sidenav{
+      position:fixed; top:0; left:0; z-index:40; height:100vh; width:84%; max-width:320px;
+      transform:translateX(-100%); transition:transform .22s ease; box-shadow:2px 0 24px rgba(0,0,0,.5);
+    }
+    body.nav-open .sidenav{transform:none}
+    .nav-scrim{display:none; position:fixed; inset:0; z-index:35; background:rgba(0,0,0,.55)}
+    body.nav-open .nav-scrim{display:block}
+    .main-col{padding:22px 18px 70px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <button class="navtoggle" id="navToggle" aria-label="Open navigation">&#9776;&nbsp; Contents</button>
+  <div class="nav-scrim" id="navScrim"></div>
+
+  <div class="app-layout">
+    <nav class="sidenav" id="sidenav">
+      <div class="nav-brand">Eternal Trivium</div>
+      <div class="nav-sub">Series Codex</div>
+      <input type="text" class="navsearch" id="navSearch" placeholder="Filter sections…" autocomplete="off">
+      <ul class="navlist" id="navList"></ul>
+    </nav>
+
+    <div class="main-col" id="mainCol">
+
+  <header class="mast">
+    <div class="eyebrow">Working Series Codex · World of Vi&rsquo;talitas</div>
+    <h1 class="title">Eternal Trivium</h1>
+    <div class="subtitle">A framework for Animancy and the war over the Sea of Lights</div>
+    <div class="triglyph"><span class="tg-mind"></span><span class="tg-spirit"></span><span class="tg-body"></span></div>
+  </header>
+
+  <div class="legend">
+    <span class="lbl">How to read this document</span>
+    <span class="chip c-mind">Mind · A&rsquo;thule · Astroverse</span>
+    <span class="chip c-spirit">Spirit · A&rsquo;kana · Pneumaverse</span>
+    <span class="chip c-body">Body · A&rsquo;thesis · Materiaverse</span>
+    <span class="chip c-locked">Locked &mdash; decided</span>
+    <span class="chip c-open">Open &mdash; to decide</span>
+    <span class="chip" style="color:var(--spirit-cy);border-color:var(--spirit-cy);background:var(--spirit-cy-soft)">Cyan &mdash; protagonists</span>
+  </div>
+
+  <section id="pitch">
+    <h2><span class="num">&#10022;</span> The Pitch</h2>
+    <div class="h2title">Eternal Trivium <span class="badge b-locked">Locked</span></div>
+    <div class="card lead" style="border-left-color:var(--spirit-cy); background:var(--spirit-cy-soft)">
+      <span class="tag" style="color:var(--spirit-cy)">Teaser &mdash; one line</span>
+      <em style="font-size:18px; color:var(--ink)">In a world where magic is memory spent, three orphaned siblings are the reincarnated gods who once died to save it &mdash; and they don&rsquo;t remember why.</em>
+    </div>
+    <div class="card" style="border-left-color:var(--spirit)">
+      <span class="tag" style="color:var(--spirit)">Short pitch &mdash; back-cover</span>
+      On the world of <strong>Vi&rsquo;talitas</strong>, magic is <strong>Animancy</strong> &mdash; the art of burning your own memories for power, paid not in mana but in the feeling you lose forever. When a tear in reality begins flooding the world with <strong>Stigma</strong>, a corruption that hollows souls into monsters, the only ones who can seal it are three siblings raised in a home for lost children: <strong>Omin</strong>, who traded her sight to perceive the unseen; <strong>Amoz</strong>, who devours the wicked to free their souls; and <strong>I&rsquo;onnie</strong>, who hears the dead but is deaf to the living. They are the last incarnations of the fallen god-souls who lost the first war &mdash; and to win this one, they must Recall the lives they died living. An epic of <strong>memory, mercy, and the cost of power.</strong>
+    </div>
+    <div class="card" style="border-left-color:var(--mind)">
+      <span class="tag" style="color:var(--mind)">Long pitch &mdash; the deeper hook</span>
+      The Great Mother <strong>A&rsquo;kana</strong> gave her children the gift of <strong>Anima</strong> &mdash; the power to know and tend a soul &mdash; and was betrayed twice: once by her brother <strong>A&rsquo;thule</strong>, who forged <strong>Stigma</strong> to unmake creation, and once from within, when one of her own protectors corrupted the divine <strong>Eversouls</strong> in a war that broke the world. A&rsquo;kana spent the last of herself sealing the wound, scattering her surviving children into mortal rebirth with their memories wiped. Generations later, the seal is failing. The three who must mend it &mdash; the <strong>Elloyd siblings</strong> &mdash; live as ordinary, distrusted <strong>Medians</strong>, casters who pull power from their own past lives at the price of greying away, memory by memory, toward the same Stigma they&rsquo;re sworn to fight. As they uncover what they were, they inherit not just power but guilt: the betrayer was family, the war was kin against kin, and the mercy they deliver to the corrupted &mdash; releasing trapped souls back to the cycle &mdash; is the same mercy one sister once gave the brother she was forced to strike down. <em>Eternal Trivium</em> braids a coming-of-age, a slow-burn tragedy of reincarnated love, and a cosmology where the only cure for corruption is to <strong>return to where you began.</strong>
+    </div>
+    <div class="card" style="border-left-color:var(--spirit); margin-top:18px">
+      <span class="tag" style="color:var(--spirit)">Title &amp; Branding <span class="badge b-locked">Locked</span></span>
+      <strong>Series / world title: Eternal Trivium</strong> (no &ldquo;The&rdquo;). Names the whole structure of reality &mdash; the three-Pillar cosmos governed by the Twelve Laws &mdash; so every story sits beneath it. Iconic shape (adjective + weighty noun), a canon term rather than a bolted-on name, clean and sayable, and it quietly encodes the &ldquo;three&rdquo; that organizes the world. <strong>Animancy</strong> is the magic <em>within</em> the world (its &ldquo;Force&rdquo;), not the title. Three-tier brand: world title &rarr; magic system &rarr; book subtitles (e.g. <em>Eternal Trivium: Sea of Lights</em>).
+    </div>
+
+    <h3 style="margin-top:34px">The Core Premise <span class="badge b-locked">Locked</span></h3>
+    <p>The series takes place primarily within the <strong>Spiritual Dimension</strong>. When a person dies, they choose: return to the mortal realm, or remain in the Spiritual Realm to exist.</p>
+    <p>Power in this world is called <strong>Animancy</strong>. Those who wield it are <strong>Medians</strong>. Those who cannot are <strong>Generics</strong>.</p>
+  </section>
+
+  <!-- 2 -->
+  <section id="s2">
+    <h2><span class="num">01</span> Cosmology</h2>
+    <div class="h2title">The Cosmology</div>
+
+    <h3>The Omneity <span class="badge b-locked">Locked</span></h3>
+    <p>A singular, boundless consciousness &mdash; &ldquo;Fate&rdquo; or &ldquo;Destiny&rdquo; in mortal terms. All and nothing, everywhere and nowhere, beyond beginning or ending. To stand before it is to stand at the edge of all Truths. It understood that true life and true death require <strong>true balance</strong> &mdash; and so divided itself into structure.</p>
+
+    <h3>The Tri-Dimensional Pillars &mdash; The Trivium <span class="badge b-locked">Locked</span></h3>
+    <p>The three Pillars are the <strong>structure</strong> of reality, each governed by a sibling Paramount.</p>
+    <table>
+      <caption>Domain mapping is foundational &mdash; the nine brands descend from it.</caption>
+      <tr><th>Pillar</th><th>Domain</th><th>Paramount</th><th>Epithet</th><th>Substance</th><th>Fate</th></tr>
+      <tr><td style="color:var(--mind)"><strong>Astroverse</strong></td><td style="color:var(--mind)">Mind</td><td><strong>A&rsquo;thule</strong></td><td class="glyph">of Many Faces</td><td class="glyph">Dark Matter</td><td>Betrayer; sealed</td></tr>
+      <tr><td style="color:var(--body)"><strong>Materiaverse</strong></td><td style="color:var(--body)">Body</td><td><strong>A&rsquo;thesis</strong></td><td class="glyph">of Many Eyes</td><td class="glyph">Matter</td><td>Slain defending A&rsquo;kana</td></tr>
+      <tr><td style="color:var(--spirit)"><strong>Pneumaverse</strong></td><td style="color:var(--spirit)">Spirit</td><td><strong>A&rsquo;kana</strong></td><td class="glyph">of Many Souls · Great Mother</td><td class="glyph">Anti-Matter</td><td>Sealed A&rsquo;thule; now sleeps</td></tr>
+    </table>
+    <div class="card note"><span class="tag">The matter-trinity <span class="badge b-locked">Locked</span></span>The Paramounts are formed of the three substances of existence &mdash; A&rsquo;thule = <strong>Dark Matter</strong> (Mind, the unseen pull), A&rsquo;thesis = <strong>Matter</strong> (Body), A&rsquo;kana = <strong>Anti-Matter</strong> (Soul, the inversion-force that can seal and cleanse).</div>
+
+    <h3>The Twelve Eternal Laws <span class="badge b-locked">Locked</span></h3>
+    <p>If the Trivium is the <strong>structure</strong>, the Twelve Laws are its <strong>constitution</strong> &mdash; the principles that maintain <strong>balance across the three dimensions</strong> (Mind, Body, Soul), <strong>four to each.</strong> They are taught as maxims a Median lives and trains by &mdash; practical wisdom and cosmic principle at once.</p>
+    <div class="card note"><span class="tag">Who keeps them <span class="badge b-locked">Locked</span></span>The <strong>Eversouls</strong> upheld the Twelve <strong>collectively</strong> &mdash; not one keeper per Law, but a shared upkeep, like a choir holding a chord. When the Body line fell and the Spirit line broke, no single Law snapped; the <em>whole balance thinned</em> for want of keepers. This is why the present world slips even though the Laws still stand.</div>
+
+    <div class="group mind" style="padding-top:18px">
+      <div class="gname" style="font-size:18px"><span class="dot"></span>Laws of the Mind</div>
+      <ul class="clean">
+        <li><strong>The Memory is the Source</strong> &mdash; Memory is what Anima draws from; the root of all casting.</li>
+        <li><strong>Prepare the Mind, the Body will follow</strong> &mdash; mental discipline precedes physical power.</li>
+        <li><strong>Emotion does not equate to fact</strong> &mdash; feeling is not truth; the Neurolist&rsquo;s discipline and a rebuke of Stigma.</li>
+        <li><strong>Sight is not truth</strong> &mdash; perception deceives. The Law <strong>Silas</strong> (Illusion) violates; echoed in the prophecy&rsquo;s <em>&ldquo;Believe not what your plain eyes see.&rdquo;</em></li>
+      </ul>
+    </div>
+    <div class="group body" style="padding-top:18px">
+      <div class="gname" style="font-size:18px"><span class="dot"></span>Laws of the Body</div>
+      <ul class="clean">
+        <li><strong>Action is always louder than thought</strong> &mdash; the Body&rsquo;s counterweight to the Mind; the vessel <em>speaks.</em></li>
+        <li><strong>The vessel does not forget</strong> &mdash; memory lives in flesh as well as mind (pairs with &ldquo;The Memory is the Source&rdquo;).</li>
+        <li><strong>Revere your flesh. Let it speak for you</strong> &mdash; the body as honest expression.</li>
+        <li><strong>What is broken still serves</strong> &mdash; the flawed vessel is the truest; the doomed-born carry the strongest will. <em>(The protagonists embodied.)</em></li>
+      </ul>
+    </div>
+    <div class="group spirit" style="padding-top:18px">
+      <div class="gname" style="font-size:18px"><span class="dot"></span>Laws of the Soul <span style="font-size:13px;font-style:italic;color:var(--ink-dim)">&mdash; in A&rsquo;kana&rsquo;s own words</span></div>
+      <ul class="clean">
+        <li><strong>The Living will Die</strong> &mdash; no incarnate state is permanent.</li>
+        <li><strong>The Dead will Live</strong> &mdash; death is not an end; the dead return to living.</li>
+        <li><strong>From Anima we Emerge; To Anima we Return</strong> &mdash; the conservation Law that <strong>Stigma violates</strong> by refusing return.</li>
+        <li><strong>So thy Soul will always Endure</strong> &mdash; the soul persists. <em>Comfort to the faithful, sentence to the damned</em> (Silas endures; A&rsquo;thule endures).</li>
+      </ul>
+    </div>
+    <div class="prophecy">
+      The Living will Die. / The Dead will Live. /<br>
+      From Anima we Emerge / To Anima we Return /<br>
+      So thy Soul will always Endure.
+      <span class="last">This is the Eternal Trivium. &mdash; A&rsquo;kana</span>
+    </div>
+    <div class="card note"><span class="tag">How the Laws function <span class="badge b-locked">Locked</span></span>Ordinary Animancy operates <em>within</em> the Laws. <strong>Bending or breaking a Law</strong> is the source of forbidden power and a doorway for Stigma. The corrupted don&rsquo;t break <em>assigned</em> Laws &mdash; they fail the <strong>balance their dimension was meant to keep</strong> (the fallen Body line: Desire, Ego, Morality, Integrity unbalanced; Silas violating <em>Sight is not truth</em>).</div>
+
+    <h3>The Eternal Cataclysm <span class="badge b-locked">Locked</span></h3>
+    <p>A&rsquo;thule, ruler of the Mind, came to covet his siblings&rsquo; contentment and the Omneity&rsquo;s authority. He struck first at A&rsquo;kana, believing her benevolence made her weak. A&rsquo;thesis intervened and was destroyed defending her; his remains were cast adrift among the Pillars. Enraged, A&rsquo;kana spent vast energy to tear A&rsquo;thule from the Astroverse and seal him in a parallel plane just outside the three Pillars &mdash; the <strong>False Pillars</strong> &mdash; fortified with <strong>Aether</strong>.</p>
+
+    <h3>Aether &amp; the Aegis Grid <span class="badge b-locked">Locked</span></h3>
+    <p><strong>Aether</strong> is the Force of Life &mdash; A&rsquo;kana&rsquo;s substance. With it she built the <strong>Aegis Grid</strong>: aetheric currents separating the Pillars so they never directly intersect (which would collapse the balance, one realm engulfing another). The Grid&rsquo;s powerful rivers form <strong>Leylines</strong>; their crossings are <strong>Leypoints</strong>. The Aegis has two jobs: keep the dimensions apart, and <strong>keep A&rsquo;thule sealed</strong>.</p>
+    <div class="card payoff"><span class="tag">Design payoff</span>Leypoints = natural high-stakes zones / dungeons / contested territory, where the membrane between dimensions thins.</div>
+
+    <h3>The Ley &mdash; the Sea of Lights <span class="badge b-locked">Locked</span></h3>
+    <p>The vast in-between of prismatic light where all soulstuff is collected and transformed into hallowed energy &mdash; the <strong>rebirth cycle</strong>. Souls return here and re-emerge as mortals with only faint echoes of past lives. <strong>Anima itself emerges from the Ley.</strong></p>
+
+    <h3>A&rsquo;kana&rsquo;s Slumber, the Polestar &amp; Ne&rsquo;haris <span class="badge b-locked">Locked</span></h3>
+    <p>Weakened beyond repair, A&rsquo;kana created a sanctuary deep in the Pneumaverse. Her incorporeal body became <strong>The Polestar</strong> &mdash; a core of raw, chaotic, radiant aether &mdash; which birthed the realm <strong>Ne&rsquo;haris</strong>, haven to the <em>Unborn, Unliving, and Unseen</em>, the divine nucleus of the Pneumaverse. There she sleeps, beyond the reach of A&rsquo;thule&rsquo;s taint.</p>
+
+    <h3>The Aether Crux &mdash; The Great Mother Tree <span class="badge b-locked">Locked</span></h3>
+    <p>A&rsquo;kana&rsquo;s sleeping essence is also a <strong>living World Tree.</strong> The <strong>Aether Crux</strong> (Anima Crux, Tree of Life) is the <strong>sentient remaining essence of A&rsquo;kana of Many Souls</strong> &mdash; the source of Ne&rsquo;haris and a system of webbed tendrils spanning the world. Mortals know her as <em>Yggdrasil, the Kabbalah, the World Tree</em>; to Ne&rsquo;haris she is simply <strong>&ldquo;Great Mother A&rsquo;kana.&rdquo;</strong> Beyond white &mdash; <strong>luminance</strong>, radiating living light; her bark and leaves make the finest healing remedies known.</p>
+    <ul class="clean">
+      <li><strong>Beacon of Anima:</strong> saturated with soul-energy, she flows Anima out through her roots into worlds beyond &mdash; lending influence to <strong>all worlds she connects to.</strong></li>
+      <li><strong>The Leylines are her roots:</strong> the Ley Lines are the <strong>Roots of A&rsquo;kana</strong>, like blood vessels. A new world gets a root that <strong>feeds it Anima</strong>; the network connects all living worlds to the Soul Space, recycling energy for <strong>Balance.</strong> Sever a root or kill a world, and it withers back to the Soul Realm.</li>
+      <li><strong>The Aurora:</strong> the Crux birthed the <strong>Northern Lights</strong> &mdash; a gateway into the Sea of Lights through which souls traverse.</li>
+      <li><strong>Eight Pillars:</strong> rune-carved wards around the tree, representing the pathways of Anima, <strong>Light and Dark.</strong></li>
+    </ul>
+    <div class="card note"><span class="tag">Why A&rsquo;thule is limited <span class="badge b-locked">Locked</span></span>A&rsquo;kana is mother of <em>all</em> Anima &mdash; every pathway is hers to govern, <strong>even the Anima A&rsquo;thule wields.</strong> This is why <strong>A&rsquo;thule can use only a fraction of his full power:</strong> her hold over the Anima Domains throttles him. Even sleeping, the Great Mother keeps her hand on the betrayer&rsquo;s strength.</div>
+
+    <h3>Matrux &mdash; The Skeleton of Ne&rsquo;haris <span class="badge b-locked">Locked</span></h3>
+    <p>If Anima is the <strong>blood</strong> of Ne&rsquo;haris, <strong>Matrux</strong> is its <strong>skeleton.</strong> It is <strong>crystallized Animus</strong> &mdash; a heightened, volatile conduit, &ldquo;a small battery.&rdquo; It fuels everything made in Ne&rsquo;haris and later Vi&rsquo;talitas.</p>
+    <div class="prophecy">As Animus be the Life Blood / And Matrux be the Growing Bone /<br>May Sea Lights be the Shifting Breath / That Guides you Home<span class="last">&mdash; of the Matrux</span></div>
+    <ul class="clean">
+      <li><strong>Alive &amp; volatile:</strong> a <strong>living crystal</strong>, almost always active. To wear it safely needs extraordinary control of Spiritual Energy &mdash; or the bearer may <strong>combust.</strong> Only trained specialists handle it.</li>
+      <li><strong>Not truly a mineral:</strong> it is a <strong>resin</strong> &mdash; hardened <strong>sap of the Anima Crux.</strong> It grows as far as the Tree&rsquo;s roots reach, and those roots run <strong>through the Aegis Grid.</strong></li>
+      <li><strong>Mining:</strong> safely mined within the <strong>Singing Caves</strong> and at various <strong>Leypoints</strong> &mdash; sites where the Tree&rsquo;s roots run closest to the surface.</li>
+      <li><strong>How A&rsquo;thule got some:</strong> via the roots threading the Aegis &mdash; a limited but potent amount. But it <strong>cannot survive the Outer Sectors</strong> and withers there.</li>
+      <li><strong>Imprinting:</strong> Matrux <strong>imprints on its user</strong>; once attuned it becomes an <strong>extension of the soul</strong>, letting them call <strong>Anima Spells.</strong></li>
+      <li><strong>Matrux-Altera:</strong> as the taint spread, <strong>corrupted dark versions</strong> formed. (Normal Matrux is <strong>white fire opal</strong>; Altera is its corrupted variant.)</li>
+    </ul>
+    <div class="card hook"><span class="tag">D&rsquo;vita&rsquo;s Ring <span class="badge b-locked">Locked</span></span>Every Eversoul bore a white-fire-opal Matrux <strong>ring.</strong> D&rsquo;vita&rsquo;s was especially potent (her Aetheric affinity) &mdash; <strong>where most of her power resided</strong>, an extension of her soul. On her transition into the Sleeping, <strong>her ring was left within her memory</strong>; a bearer&rsquo;s ring stays <strong>tethered to the moon</strong> in the Spirit Realm. A recoverable artifact of immense power, waiting &mdash; a strong Omin hook.</div>
+
+    <h3>The Eversouls &mdash; A&rsquo;kana&rsquo;s Children <span class="badge b-locked">Locked</span></h3>
+    <p>To defend the Pneumaverse, <strong>A&rsquo;kana created the Eversouls</strong> &mdash; her children, instrumental to the founding of <strong>Ne&rsquo;haris</strong> and protectors of its deepest secrets. They are a distinct tier of being: <strong>below the Paramounts but far above ordinary souls.</strong></p>
+    <table>
+      <caption>The tier of being &mdash; now four levels.</caption>
+      <tr><th>Level</th><th>Who</th></tr>
+      <tr><td>1</td><td>The Omneity</td></tr>
+      <tr><td>2</td><td>Paramounts &mdash; A&rsquo;thule, A&rsquo;thesis, A&rsquo;kana</td></tr>
+      <tr><td style="color:var(--spirit)">3</td><td style="color:var(--spirit)"><strong>Eversouls</strong> &mdash; A&rsquo;kana&rsquo;s children</td></tr>
+      <tr><td>4</td><td>Ordinary souls &mdash; Medians &amp; Generics</td></tr>
+    </table>
+    <div class="card payoff"><span class="tag">Why this deepens the system <span class="badge b-locked">Locked</span></span>The Eversouls are the Spirit lineage made manifest &mdash; the <em>true</em> reason <span style="color:var(--spirit)">Vitalists</span> are the rarest, most sacred Type. A true Vitalist may be a <strong>Neversoul</strong> (a fallen Eversoul living a mortal life) or their lineage. Rarity now has a bloodline, not just a probability. Likely tied to the <strong>Empyrons</strong> (A&rsquo;kana&rsquo;s beast-lineage) &mdash; exact relation <span class="badge b-open">Open</span>.</div>
+
+    <h3>The Betrayal of Silas <span class="badge b-locked">Locked</span></h3>
+    <p>In the War for Ne&rsquo;haris, <strong>many Eversouls were Stigmatized</strong> &mdash; through an <strong>inside betrayal by one of their own brothers, Silas.</strong> This is the cosmology&rsquo;s <em>second</em> betrayal-by-kin, rhyming one tier down from A&rsquo;thule: <strong>betrayal-by-family is the recurring engine</strong> from gods to children to mortals. It also resolves <em>how</em> Ne&rsquo;haris was wounded &mdash; from within, by one of its protectors. With particular cruelty, Silas <strong>killed his sister A&rsquo;sai <em>in incubation</em>, before she could be born</strong> (her status, <em>Unborn</em>, is literal) &mdash; yet she arrived anyway as <strong>I&rsquo;onnie.</strong></p>
+    <div class="card note"><span class="tag">The three (four) fates <span class="badge b-locked">Locked</span></span>The roster encodes how an Eversoul can fall: <strong>living</strong> (untouched), <strong>stigmatized</strong> (fell completely, lost &mdash; self dissolved), <strong>corrupted</strong> (Silas&rsquo;s distinct state: <strong>fully Stigmatized yet self-possessed</strong> &mdash; the singular being who kept his will through total corruption), and <strong>Neversoul</strong> (fell but <em>escaped full Stigmatization</em>). The present-day Elloyds are <strong>Neversouls</strong> &mdash; they did <strong>not</strong> die in the War. What they escaped may still lie dormant within them.</div>
+
+    <h3>The Children of A&rsquo;kana &mdash; The Eversoul Roster <span class="badge b-locked">Locked</span></h3>
+    <p>A&rsquo;kana&rsquo;s children divide across the <strong>same three-Pillar architecture</strong> as the brand-groups. Each is a living <strong>Essence</strong> of a faculty of existence, named for <strong>stars and constellations</strong> &mdash; children of the Sea of Lights.</p>
+    <p class="lede">Four fates: <span style="color:var(--ink)">living</span> (untouched) &middot; <span style="color:var(--body)">stigmatized</span> (fell completely) &middot; <span style="color:var(--mind)">corrupted</span> (Silas, the betrayer) &middot; <span style="color:var(--spirit-cy)">Neversoul</span> (fell but escaped full Stigmatization).</p>
+    <div class="card note"><span class="tag">Where the stigmatized went <span class="badge b-locked">Locked</span></span>The <strong>stigmatized</strong> Eversouls didn&rsquo;t merely die &mdash; <strong>Silas turned them into the Grey Makers</strong> (A&rsquo;thule&rsquo;s Lieutenant tier), aimed back at their own home. The fallen Body- and Spirit-line siblings are the <strong>founding Grey Makers</strong> (&sect;7). Facing a Grey Maker may mean facing corrupted family.</div>
+
+    <div class="group mind" style="padding-top:18px">
+      <div class="gname" style="font-size:18px"><span class="dot"></span>Children of Preservation &mdash; Mind</div>
+      <table style="margin:6px 0 0">
+        <tr><th>Eversoul</th><th>Essence</th><th>Status</th></tr>
+        <tr><td>Hamal</td><td>Crimson Essence of Intellect</td><td style="color:var(--ink-dim)">Living &mdash; whereabouts unknown</td></tr>
+        <tr><td>Procyon</td><td>Amber Essence of Volition</td><td style="color:var(--ink-dim)">Living &mdash; whereabouts unknown</td></tr>
+        <tr><td>Circinus</td><td>Cerulean Essence of Memory</td><td style="color:var(--ink-dim)">Living &mdash; whereabouts unknown</td></tr>
+        <tr><td>Lacaille</td><td>Saffron Essence of Imagination</td><td style="color:var(--ink-dim)">Living &mdash; whereabouts unknown</td></tr>
+        <tr><td>Cassiopeiae</td><td>Violet Essence of Judgment</td><td style="color:var(--ink-dim)">Living &mdash; whereabouts unknown</td></tr>
+        <tr><td style="color:var(--mind)"><strong>Silas</strong></td><td style="color:var(--mind)">Emerald Essence of <strong>Illusion</strong></td><td style="color:var(--mind)"><strong>Fallen &mdash; corrupted (Betrayer)</strong></td></tr>
+      </table>
+    </div>
+
+    <div class="group body" style="padding-top:18px">
+      <div class="gname" style="font-size:18px"><span class="dot"></span>Children of Deconstruction &mdash; Body</div>
+      <div class="gmeta">The entire line fell.</div>
+      <table style="margin:6px 0 0">
+        <tr><th>Eversoul</th><th>Essence</th><th>Status</th></tr>
+        <tr><td>Caelum</td><td>Golden Essence of Morality</td><td style="color:var(--body)">Stigmatized</td></tr>
+        <tr><td><strong>Mulu&rsquo;lizi</strong></td><td>Silver Essence of <strong>Integrity</strong></td><td style="color:var(--body)">Stigmatized &middot; cleansed by D&rsquo;vita &middot; <strong style="color:var(--spirit-cy)">&rarr; Maisel</strong></td></tr>
+        <tr><td>Capella</td><td>Copper Essence of Desire</td><td style="color:var(--body)">Stigmatized</td></tr>
+        <tr><td>Tseen Ke</td><td>Brass Essence of <em>[open]</em></td><td style="color:var(--body)">Stigmatized</td></tr>
+        <tr><td>Al Nair</td><td>Bronze Essence of <em>[open]</em></td><td style="color:var(--body)">Stigmatized</td></tr>
+        <tr><td>Eriandus</td><td>Steel Essence of Ego</td><td style="color:var(--body)">Stigmatized</td></tr>
+      </table>
+    </div>
+
+    <div class="group spirit" style="padding-top:18px">
+      <div class="gname" style="font-size:18px"><span class="dot"></span>Children of Restoration &mdash; Spirit</div>
+      <div class="gmeta">The protagonists&rsquo; line.</div>
+      <table style="margin:6px 0 0">
+        <tr><th>Eversoul</th><th>Essence</th><th>Status</th><th>Mortal form</th></tr>
+        <tr><td>Rubani</td><td>Stormy Essence of <em>[open]</em></td><td style="color:var(--body)">Stigmatized</td><td>&mdash;</td></tr>
+        <tr><td>Quasar</td><td>Blazing Essence of <em>[open]</em></td><td style="color:var(--body)">Stigmatized</td><td>&mdash;</td></tr>
+        <tr><td>Asterope</td><td>Misty Essence of <em>[open]</em></td><td style="color:var(--body)">Stigmatized</td><td>&mdash;</td></tr>
+        <tr><td style="color:var(--spirit-cy)"><strong>D&rsquo;vita</strong></td><td style="color:var(--spirit-cy)">Unbroken Essence of <strong>Aether</strong></td><td style="color:var(--spirit-cy)">Neversoul &mdash; reborn</td><td style="color:var(--spirit-cy)"><strong>&rarr; Omin</strong></td></tr>
+        <tr><td style="color:var(--spirit-cy)"><strong>I&rsquo;n&aacute;cio</strong></td><td style="color:var(--spirit-cy)">Untamed Essence of <strong>Ardor</strong></td><td style="color:var(--spirit-cy)">Neversoul &mdash; transformed</td><td style="color:var(--spirit-cy)"><strong>&rarr; Amoz</strong></td></tr>
+        <tr><td style="color:var(--spirit-cy)"><strong>A&rsquo;sai</strong></td><td style="color:var(--spirit-cy)">Untethered Essence of <strong>Arcane</strong></td><td style="color:var(--spirit-cy)">Unborn <em>(literal)</em></td><td style="color:var(--spirit-cy)"><strong>&rarr; I&rsquo;onnie</strong></td></tr>
+      </table>
+    </div>
+
+    <div class="card" style="border-left-color:var(--spirit-cy)"><span class="tag" style="color:var(--spirit-cy)">Neversoul <span class="badge b-locked">Locked</span></span>A <strong>fallen Eversoul who escaped or avoided <em>full</em> Stigmatization</strong> &mdash; touched by the corruption but not consumed. The third door between <em>living</em> and <em>fully stigmatized</em>. The Elloyds are Neversouls; whatever they escaped may still lie dormant (a likely source of Omin&rsquo;s &ldquo;over-the-edge&rdquo; episodes).</div>
+    <div class="card" style="border-left-color:var(--spirit-cy)"><span class="tag" style="color:var(--spirit-cy)">The three Restoration fates <span class="badge b-locked">Locked</span></span>Silas&rsquo;s betrayal struck each child differently. <strong>Reborn</strong> (D&rsquo;vita &rarr; Omin): fell, escaped, returned in a new form. <strong>Transformed</strong> (I&rsquo;n&aacute;cio &rarr; Amoz): fell, escaped, changed in place. <strong>Unborn</strong> (A&rsquo;sai &rarr; I&rsquo;onnie): <strong>literal</strong> &mdash; Silas killed her <em>in incubation, before she was ever born.</em> The word is meant doubly: Omin <em>perceives</em> the Unborn (trinity); A&rsquo;sai <em>was</em> one of the Unborn, now finally incarnate &mdash; a rhyme, not a collision.</div>
+    <div class="card hook"><span class="tag">Open threads</span><strong>Blank Essences:</strong> Tseen Ke, Al Nair, Rubani, Quasar, Asterope. &nbsp;<strong>How was A&rsquo;sai/I&rsquo;onnie born</strong> despite being killed in incubation? &nbsp;<em>(Maisel = Mulu&rsquo;lizi&rsquo;s survival is now resolved &mdash; cleansed by D&rsquo;vita &amp; reincarnated; see &sect;6/&sect;7.)</em></div>
+    <div class="card note"><span class="tag">The vanished Mind line <span class="badge b-locked">Locked</span> <span class="badge b-open">Why &mdash; open</span></span><strong>Hamal, Procyon, Circinus, Lacaille, and Cassiopeiae</strong> are <strong>fully functional, uncorrupted Eversouls</strong> &mdash; but their <strong>whereabouts are unknown.</strong> The only Eversouls still at full power <em>as themselves</em>: the Elloyds&rsquo; greatest potential allies, or threats if any have turned. Note <strong>Circinus (Memory)</strong> &mdash; where casting <em>is</em> spending memory and Omin&rsquo;s wound <em>is</em> lost memory, she may be the most important person Omin could ever find. <em>Why are they hidden? And &mdash; &ldquo;where were you?&rdquo;</em></div>
+
+    <h3>The Unresolved War <span class="badge b-locked">Locked as ambiguous</span></h3>
+    <p>A&rsquo;thule&rsquo;s forces warred to seize Ne&rsquo;haris &mdash; and through it, A&rsquo;kana&rsquo;s essence and endless aether. How the war ended is <strong>deliberately unknown in-world</strong>: some say Ne&rsquo;haris fell, some say it was saved, some say A&rsquo;kana abandoned it. <em>This ambiguity is a feature, not a gap.</em></p>
+
+    <h3>Vi&rsquo;talitas &mdash; the Bridge <span class="badge b-locked">Locked</span></h3>
+    <p>The world of Vi&rsquo;talitas is <strong>reborn from the core of a Paramount</strong> &mdash; A&rsquo;kana&rsquo;s renewal. This is <em>why the story happens here</em>: the planet is the renewing heart of the Great Mother, the very prize A&rsquo;thule seeks. <strong>Three siblings</strong> &mdash; the prophesied <strong>Elloyds</strong> (see &sect;6) &mdash; orchestrate its renewal toward the future of the Trivium.</p>
+    <div class="card" style="border-left-color:var(--locked)"><span class="tag" style="color:var(--locked)">Resolved <span class="badge b-locked">Locked</span></span>The three are the <strong>Elloyd siblings</strong> of the Whispers of the Mother, each embodying one of Ne&rsquo;haris&rsquo;s trinity (Unborn / Unliving / Unseen) &mdash; <em>not</em> mirrors of the Paramounts.</div>
+  </section>
+
+  <!-- 3 -->
+  <!-- Pneumosi order + Aspects (end of Section 2) -->
+  <section id="s2b">
+    <h2><span class="num">02</span> The Pneumosi</h2>
+    <div class="h2title">The Pneumosi &mdash; Inhabitants of the Spirit Realm <span class="badge b-locked">Locked (summary)</span></div>
+
+    <p>The inhabitants of the Spirit Realm (the <strong>Pneumosi</strong>, or <strong>Leykin</strong>) are the beings who <strong>best understand the Aegis/Leyline structure</strong>. They are ordered into a <strong>Three-Class System</strong> &mdash; the same Unborn / Unseen / Unliving trinity Ne&rsquo;haris shelters &mdash; plus a parallel <strong>fourth class, the Unmortal.</strong></p>
+    <table>
+      <tr><th>Class</th><th>Who dwells there</th></tr>
+      <tr><td><strong>Unborn</strong></td><td>The Omneity; the Paramounts; the <strong>Anima Aspects</strong> (below); the <strong>Primal Speakers</strong> (Empyron elders &mdash; Stasyss, Dynaass); the <strong>Celestial Keepers</strong> (Sphinx Sisters); the <strong>Children of the Trivium</strong> (Eversouls &amp; Neversouls); the <strong>Falseones of A&rsquo;thule</strong>; the <strong>Lawguides of A&rsquo;thesis.</strong></td></tr>
+      <tr><td><strong>Unseen</strong></td><td>The <strong>Umbral Union</strong> (Feii &amp; Nyph Council); the <strong>Matriarchs of Creation</strong> (future Goddesses, one born ~every 1,000 yrs); the <strong>Guardians of Mortals</strong>; <strong>Mythics &amp; Cryptics</strong>; the <strong>Deithist Court</strong> (every mortal pantheon&rsquo;s gods).</td></tr>
+      <tr><td><strong>Unliving</strong></td><td><strong>Incarnations</strong>; the giant <strong>Colossai</strong> (world-shapers who hear A&rsquo;kana best); <strong>Elans</strong> (summonable spirits); <strong>Wanderlights</strong> (the dead who roam); <strong>Spriggan</strong> (ecosystem-tenders).</td></tr>
+      <tr><td><strong>Unmortal</strong> <em>(parallel)</em></td><td><strong>Medians &amp; Generics</strong> and the mortal races (Hominus, Hybrinus, Nyphs, Feii, Fonixi, Ragnn, Neandus, Khimeran, Jengun, Centauri) &mdash; once-mortal, bound by <strong>soul-debt</strong> until they may return to mortal life anew.</td></tr>
+    </table>
+    <div class="card hook"><span class="tag">Expandable</span>Each sub-roster (Umbral Union, Falseones, Matriarchs, Deithist Court&hellip;) is a deep bench for later. The siblings each embody one class (Omin = Unseen, Amoz = Unliving, I&rsquo;onnie = Unborn). The <strong>Falseones</strong> are A&rsquo;thule&rsquo;s elite &mdash; their relation to the Grey Makers is to be reconciled (&sect;7).</div>
+
+    <div class="card note"><span class="tag">Connects to</span>The siblings each embody one class (Omin = Unseen, Amoz = Unliving, I&rsquo;onnie = Unborn); the <strong>Falseones</strong> are A&rsquo;thule&rsquo;s elite. The <strong>Nine Divine Aspects</strong> &mdash; guardians of the Brands &mdash; are now catalogued in &sect;3 (Anima &amp; Animancy).</div>
+    <div class="card hook"><span class="tag">Open thread</span>Do the Pneumosi <em>know</em> they live in A&rsquo;kana&rsquo;s renewal? Is the true history known, forbidden, or forgotten?</div>
+  </section>
+
+  <section id="s3">
+    <h2><span class="num">03</span> Anima &amp; Animancy</h2>
+    <div class="h2title">The Engine, the Nine Brands &amp; Soul Access</div>
+
+    <h3>Anima &mdash; the Source <span class="badge b-locked">Locked</span></h3>
+    <p>Anima is <strong>inherent</strong> and tied to the <strong>intensity of the soul</strong>. One soul lives many lives; each adds experience. The more lives lived, the more powerful the soul and the greater its base <strong>anima pool</strong>. Young souls have little; some have none.</p>
+    <div class="card note"><span class="tag">Origin of Anima <span class="badge b-locked">Locked</span></span>Anima is the <strong>&ldquo;magic&rdquo; substance of the world</strong> &mdash; a natural element permeating the entire <strong>Pneumaverse</strong>, the stuff the <strong>Aegis Grid</strong> is made of and that <strong>A&rsquo;kana&rsquo;s aura radiates.</strong> It originated <strong>from A&rsquo;kana as a gift:</strong> the means to navigate the existence and makeup of a <strong>Soul.</strong> So Animancy is not stolen or transgressive &mdash; it is a <em>birthright of the Pneumaverse</em>, the Great Mother&rsquo;s endowment. (A sacred gift, not a theft.)</div>
+    <div class="card note"><span class="tag">The Eye of the Aegis <span class="badge b-locked">Locked</span></span>Anima is <strong>produced at the Eye of the Aegis</strong> &mdash; the <strong>center and core of Vi&rsquo;talitas</strong>, where the <strong>Great Mother Tree</strong> stands. From this core, Anima wells up and pushes outward through A&rsquo;kana&rsquo;s roots (the Leylines) into the Aegis Grid and the worlds beyond. Because <strong>Vi&rsquo;talitas <em>is</em> Ne&rsquo;haris</strong>, the Eye is the single point where the Tree, the world&rsquo;s core, and the wellspring of all Anima coincide &mdash; the beating heart of the cosmos&rsquo;s soul-economy.</div>
+
+
+    <h3>Animate vs. Inanimate Souls <span class="badge b-locked">Locked</span></h3>
+    <p>Who can wield Animancy comes down to a soul&rsquo;s <strong>Anima frequency.</strong></p>
+    <table>
+      <tr><th>Soul</th><th>Nature</th></tr>
+      <tr><td><strong>Animate (Medians)</strong></td><td>Natural capacity to <strong>reincarnate</strong> without earning it &mdash; theory: they <strong>healed their souls</strong> last life, renewing their Anima connection. Fluent in Animancy after transition.</td></tr>
+      <tr><td><strong>Inanimate (Generics)</strong></td><td><strong>Low Anima frequency</strong>; cannot reincarnate naturally &mdash; theory: <strong>generational trauma</strong> or distancing <strong>life-choices</strong> frayed the connection. Most work to <strong>cleanse the taint</strong> for a future chance.</td></tr>
+    </table>
+    <div class="card note"><span class="tag">Implication</span>The Median/Generic divide isn&rsquo;t arbitrary talent &mdash; it&rsquo;s a <strong>soul-state.</strong> A Generic isn&rsquo;t lesser, but <strong>estranged from Anima</strong> (often through inherited or chosen wounds) and able to heal back toward it.</div>
+
+
+    <h3>Common vs. Elevated Animancy <span class="badge b-locked">Locked</span></h3>
+    <ul class="clean">
+      <li><strong>Common Animancy (&ldquo;Acts of Animancy&rdquo;):</strong> basic daily uses &mdash; ecosystem, agriculture, technology, travel, sustainability. Untrained inanimates are limited to this and lean on <strong>anima-infused materials</strong> (crystals, bones, runes, machinery &mdash; i.e. Archevims). The workaday magic that runs civilization.</li>
+      <li><strong>Elevated Animancy:</strong> Animancy as an <strong>art, not a tool.</strong> No infused materials &mdash; only natural ability, channeled through the self or an <strong>ancient relic.</strong> The Median&rsquo;s domain (and the rare trained Generic&rsquo;s aspiration).</li>
+    </ul>
+    <div class="card note"><span class="tag">Mastery is hard</span>Even an animate soul must discover its <strong>Anima Brand</strong> (the nine Aspect-Archetypes) and learn to wield it fully. Inanimates who can&rsquo;t cast directly are offered other roles working anima-infused materials &mdash; many build content lives this way.</div>
+
+
+    <h3 style="margin-top:34px">Three Groups, Nine Brands <span class="badge b-locked">Locked</span></h3>
+    <p class="lede">Each group descends from one Paramount and represents a distinct relationship to memory.</p>
+    <div class="group mind">
+      <div class="gname"><span class="dot"></span>Mind Preservation</div>
+      <div class="gmeta">Astroverse · A&rsquo;thule · memory as <strong>Information</strong> &mdash; low cost, high precision; utility, control, recon.</div>
+      <div class="aspect"><div class="an" style="color:var(--a-origin)">Origin</div><div class="ad">Manifestation &amp; Conjuration</div></div>
+      <div class="aspect"><div class="an" style="color:var(--a-hallow)">Hallow</div><div class="ad">Inspiration &amp; Divination</div></div>
+      <div class="aspect"><div class="an" style="color:var(--a-feii)">Feii</div><div class="ad">Manipulation &amp; Abjuration</div></div>
+    </div>
+
+    <div class="group body">
+      <div class="gname"><span class="dot"></span>Vessel Deconstruction</div>
+      <div class="gmeta">Materiaverse · A&rsquo;thesis · memory as <strong>Force</strong> &mdash; high cost, high impact; damage &amp; alteration. Greys fastest.</div>
+      <div class="aspect"><div class="an" style="color:var(--a-wylde)">Wylde</div><div class="ad">Elemental &amp; Transmutation</div></div>
+      <div class="aspect"><div class="an" style="color:var(--a-grymm)">Grymm</div><div class="ad">Necromation &amp; Abolition</div></div>
+      <div class="aspect"><div class="an" style="color:var(--a-qhaos)">Qhaos</div><div class="ad">Devastation &amp; Evocation</div></div>
+    </div>
+
+    <div class="group spirit">
+      <div class="gname"><span class="dot"></span>Soul Restoration</div>
+      <div class="gmeta">Pneumaverse · A&rsquo;kana · memory as <strong>Self</strong> &mdash; rare; acts inward on the caster&rsquo;s own soul. The immune system against Stigma.</div>
+      <div class="aspect"><div class="an" style="color:var(--a-arcane)">Arcane</div><div class="ad">Psionic &mdash; recover greying memory; access locked past lives.</div></div>
+      <div class="aspect"><div class="an" style="color:var(--a-ardor)">Ardor</div><div class="ad">Willful &mdash; overcharge memory; hold the self together past breaking.</div></div>
+      <div class="aspect"><div class="an" style="color:var(--a-aether)">Aether</div><div class="ad">Spiritual (rarest) &mdash; touch the boundaries between souls; share pools, anchor the dying, perceive other souls.</div></div>
+    </div>
+
+    <div class="card note">
+      <span class="tag">Why Soul Restoration is rare <span class="badge b-locked">Locked</span></span>
+      The six outward brands spend memory <em>onto the world</em>; Soul Restoration spends it <em>onto the soul itself</em> &mdash; surgery on the thing doing the surgery. It needs an unusually old or integrated soul, so rarity = soul-age = power = narrative weight, automatically.
+    </div>
+
+    <h3>Corruption Vulnerability by Group <span class="badge b-locked">Locked implication</span></h3>
+    <table>
+      <tr><th>Group</th><th>Relationship to Stigma</th><th>Moral texture</th></tr>
+      <tr><td style="color:var(--mind)">Mind Preservation</td><td>Closest to A&rsquo;thule &mdash; best at <em>detecting</em> Stigma <em>and</em> most tempted by it.</td><td>The betrayer&rsquo;s shadow</td></tr>
+      <tr><td style="color:var(--body)">Vessel Deconstruction</td><td>Falls through exhaustion &amp; recklessness &mdash; a cleaner danger.</td><td>The martyr&rsquo;s inheritance</td></tr>
+      <tr><td style="color:var(--spirit)">Soul Restoration</td><td>The immune system itself.</td><td>The mother&rsquo;s protection</td></tr>
+    </table>
+
+    <h3>Brand Symbols &mdash; Visual Identity <span class="badge b-locked">Locked</span></h3>
+    <p>Each Brand has a canonical <strong>Signet symbol</strong> and color (palette follows the dimensional coding: Mind cool, Body hot, Soul celestial).</p>
+    <table>
+      <tr><th>Brand</th><th>Group</th><th>Color</th><th>Symbol</th></tr>
+      <tr><td style="color:var(--a-origin)"><strong>Origin</strong></td><td>Mind</td><td><span style="display:inline-block;width:11px;height:11px;border-radius:50%;background:var(--a-origin);vertical-align:middle;margin-right:6px;border:1px solid rgba(255,255,255,.25)"></span>Light Cyan</td><td>Interlocking star-polygons around a filled core</td></tr>
+      <tr><td style="color:var(--a-hallow)"><strong>Hallow</strong></td><td>Mind</td><td><span style="display:inline-block;width:11px;height:11px;border-radius:50%;background:var(--a-hallow);vertical-align:middle;margin-right:6px;border:1px solid rgba(255,255,255,.25)"></span>Light Magenta</td><td>Paired up/down triangles on a barred axis, two orbs</td></tr>
+      <tr><td style="color:var(--a-feii)"><strong>Feii</strong></td><td>Mind</td><td><span style="display:inline-block;width:11px;height:11px;border-radius:50%;background:var(--a-feii);vertical-align:middle;margin-right:6px;border:1px solid rgba(255,255,255,.25)"></span>Cornflower Blue</td><td>Four outward triangles (compass) around a central orb</td></tr>
+      <tr><td style="color:var(--a-wylde)"><strong>Wylde</strong></td><td>Body</td><td><span style="display:inline-block;width:11px;height:11px;border-radius:50%;background:var(--a-wylde);vertical-align:middle;margin-right:6px;border:1px solid rgba(255,255,255,.25)"></span>Light Green</td><td>Circle-within-circle over a cross-and-orbs stem</td></tr>
+      <tr><td style="color:var(--a-grymm)"><strong>Grymm</strong></td><td>Body</td><td><span style="display:inline-block;width:11px;height:11px;border-radius:50%;background:var(--a-grymm);vertical-align:middle;margin-right:6px;border:1px solid rgba(255,255,255,.25)"></span>Light Purple</td><td>Bisected circle under an arc, detached orb below</td></tr>
+      <tr><td style="color:var(--a-qhaos)"><strong>Qhaos</strong></td><td>Body</td><td><span style="display:inline-block;width:11px;height:11px;border-radius:50%;background:var(--a-qhaos);vertical-align:middle;margin-right:6px;border:1px solid rgba(255,255,255,.25)"></span>Light Orange</td><td>Eight-rayed burst of arrows from a solid core</td></tr>
+      <tr><td style="color:var(--a-arcane)"><strong>Arcane</strong></td><td>Soul</td><td><span style="display:inline-block;width:11px;height:11px;border-radius:50%;background:var(--a-arcane);vertical-align:middle;margin-right:6px;border:1px solid rgba(255,255,255,.25)"></span>Silver</td><td>Many-rayed sunburst around a pale core</td></tr>
+      <tr><td style="color:var(--a-ardor)"><strong>Ardor</strong></td><td>Soul</td><td><span style="display:inline-block;width:11px;height:11px;border-radius:50%;background:var(--a-ardor);vertical-align:middle;margin-right:6px;border:1px solid rgba(255,255,255,.25)"></span>Dark Red Berry</td><td>Three nested triangles around a small core</td></tr>
+      <tr><td style="color:var(--a-aether)"><strong>Aether</strong></td><td>Soul</td><td><span style="display:inline-block;width:11px;height:11px;border-radius:50%;background:var(--a-aether);vertical-align:middle;margin-right:6px;border:1px solid rgba(255,255,255,.25)"></span>Dark Yellow</td><td>Atomic/orbital figure &mdash; nucleus, rings, points</td></tr>
+    </table>
+    <div class="card payoff"><span class="tag">Note</span>The Aether Brand symbol being a literal <strong>orbital/atom</strong> is apt &mdash; Aether is the substance of the Aegis and A&rsquo;kana&rsquo;s Force. The Brand symbols double as <strong>Median identification, Archevim engraving, and institutional heraldry.</strong></div>
+
+    <h3>The Nine Divine Aspects &amp; Brands <span class="badge b-locked">Locked</span></h3>
+    <p>The Aspects are the <strong>living Essences of the raw materials of existence</strong> &mdash; revered protectors of Anima who dwell in powerful <strong>Leypoints</strong> and fiercely defend them. If a seeker proves <strong>worthy</strong>, they teach the ways of Animancy. Each <strong>guards one of the Nine Brands</strong>, the master-teacher at the summit of each discipline. Each Brand also resonates with a <strong>family of emotion</strong> (the per-Brand expression of <em>emotion shapes the cast</em>) and surfaces its signets in a <strong>fixed location</strong> &mdash; placement <strong>announces a Median&rsquo;s Brand</strong>. <strong>Aether is the sole exception</strong>: its signets appear wherever that Median channels best.</p>
+    <table>
+      <tr><th>Aspect</th><th>Brand</th><th>Resonant Emotion</th><th>Fueling Memories</th><th>Signet Location</th></tr>
+      <tr><td>Genos</td><td style="color:var(--a-origin)"><strong>Origin</strong></td><td style="color:var(--a-origin)">Life / Growth</td><td>Serenity, Gratitude, Beauty, Awareness</td><td>The <strong>face</strong></td></tr>
+      <tr><td>Sacros</td><td style="color:var(--a-hallow)"><strong>Hallow</strong></td><td style="color:var(--a-hallow)">Love / Passion</td><td>Affection, Desire, Compassion, Sentiment</td><td>The <strong>torso</strong></td></tr>
+      <tr><td>Pseudus</td><td style="color:var(--a-feii)"><strong>Feii</strong></td><td style="color:var(--a-feii)">Surprise / Playfulness</td><td>Excitement, Confusion, Awe, Curiosity</td><td>The <strong>neck</strong></td></tr>
+      <tr><td>Ecos</td><td style="color:var(--a-wylde)"><strong>Wylde</strong></td><td style="color:var(--a-wylde)">Happiness / Contentment</td><td>Delight, Pride, Hope, Joy</td><td>The <strong>hands &amp; feet</strong></td></tr>
+      <tr><td>Alphus</td><td style="color:var(--a-grymm)"><strong>Grymm</strong></td><td style="color:var(--a-grymm)">Fear / Melancholy</td><td>Weakness, Insecurity, Threat, Anxiety</td><td>The <strong>shoulders &amp; shoulderblades</strong></td></tr>
+      <tr><td>Tumus</td><td style="color:var(--a-qhaos)"><strong>Qhaos</strong></td><td style="color:var(--a-qhaos)">Anger / Rage</td><td>Jealousy, Irritation, Resentment, Hatred</td><td>The <strong>back</strong></td></tr>
+      <tr><td>Delphi</td><td style="color:var(--a-arcane)"><strong>Arcane</strong></td><td style="color:var(--a-arcane)">Peace / Focus</td><td>Trust, Safety, Grounding, Peace</td><td>The <strong>forehead, temples, or crown</strong></td></tr>
+      <tr><td>Voliti</td><td style="color:var(--a-ardor)"><strong>Ardor</strong></td><td style="color:var(--a-ardor)">Strength / Willpower</td><td>Motivation, Worth, Faith, Respect</td><td>The <strong>arms &amp; legs</strong></td></tr>
+      <tr><td>Quintessi</td><td style="color:var(--a-aether)"><strong>Aether</strong></td><td style="color:var(--a-aether)">Identity / Autonomy</td><td>Freedom, Creativity, Purpose, Control</td><td><strong>No fixed location</strong></td></tr>
+    </table>
+    <div class="card payoff"><span class="tag">Design payoff</span>Each Brand has a <strong>master-quest</strong> &mdash; seek its Aspect in a Leypoint, prove worthy, learn the discipline&rsquo;s true depth. The resonances dovetail with casting: <strong>Qhaos</strong> (anger) leans toward <em>intensity/force</em>, <strong>Arcane</strong> (peace) toward <em>precision</em>, exactly as the emotion-tendencies predict. A Median isn&rsquo;t <em>limited</em> to their Brand&rsquo;s emotions, but those feelings are the <strong>most efficient fuel.</strong></div>
+
+    <h3>Casting &mdash; Recall &amp; Release <span class="badge b-locked">Locked</span></h3>
+    <p>A Median casts by <strong>Recalling</strong> a memory (surfacing it through auric-memory until its charge is raw) and <strong>Releasing</strong> that charge through a Brand, which shapes it into an effect &mdash; simply <strong>Recall &rarr; Release.</strong> Memory intensity equals cast intensity. The memory is the <strong>fuel</strong>; the Brand is the <strong>lens</strong> (any memory can fuel any Brand). The cost is <strong>felt, not numeric</strong>: Releasing a memory means temporarily losing access to its emotional charge. The act is fundamentally <strong>internal</strong> &mdash; the Median reaches inward rather than relying on an external mechanism.</p>
+    <div class="card hook"><span class="tag">Auric-Memory &mdash; the Eighth Sense <span class="badge b-locked">Locked</span></span>Every race on Vi&rsquo;talitas possesses <strong>auric-memory</strong> as a literal <em>sense</em> &mdash; alongside sight, sound, scent, taste, touch, movement, body-limit, and message-interpretation. It is the ability to <strong>identify memories from past lives and call upon them for present use.</strong> This is the sensory faculty that <strong>underlies all memory-casting</strong>: Animancy is auric-memory, <em>trained and spent.</em> The <strong>Feii</strong> are its master-teachers, and their connection to the Nyph ties the elemental peoples to this lineage.</div>
+    <div class="card note"><span class="tag">The visible signature &mdash; the Signets <span class="badge b-locked">Locked</span></span>Casting is <strong>subtractive</strong>, and the signature <em>is</em> the cost made visible. Where other powers add light to the world, Animancy briefly takes light <em>from the caster.</em> Every Median bears <strong>Signets</strong> &mdash; Anima-marks placed on the body at <strong>awakening</strong>, their location <strong>fixed by Brand</strong> so placement announces a Median&rsquo;s <em>discipline</em> (Origin on the face, Qhaos on the back, etc.; see the Brand Resonance table). <strong>Aether is the exception</strong>, surfacing where the Median channels best. They lie dormant until casting.</div>
+
+    <div class="group spirit" style="margin-top:14px">
+      <div class="gname"><span class="dot"></span>The Cast Cycle</div>
+      <div class="gmeta">Recall &rarr; Release &rarr; Recovery &mdash; one visible cascade of color leaving and returning.</div>
+      <div class="aspect"><div class="an" style="color:var(--spirit)">Recall</div><div class="ad">Color drains from the body and <strong>refocuses</strong> into the Signets and eyes, which ignite in the <strong>Brand&rsquo;s color.</strong> The eyes take the Brand hue regardless of natural color: <strong>sclera and iris both flood</strong> with it, leaving only the <strong>pupil</strong> as a point of normal black or white (by race). The Median&rsquo;s <strong>hair also shifts to the Brand&rsquo;s color</strong> for the cast. No white remains in the eye &mdash; a striking, faintly inhuman look.</div></div>
+      <div class="aspect"><div class="an" style="color:var(--spirit)">Release</div><div class="ad">The gathered charge fires through the Brand into the effect.</div></div>
+      <div class="aspect"><div class="an" style="color:var(--spirit)">Recovery</div><div class="ad">Color bleeds back into the body; Signets and eyes cool to normal. <strong>Recovery speed = power</strong> &mdash; brief for a master, lingering for the weak or overdrawn.</div></div>
+    </div>
+
+    <div class="card note"><span class="tag">Two tells, read at different moments <span class="badge b-locked">Locked</span></span><strong>Loud-novice / quiet-master</strong> reads <em>during</em> Release: a novice leaks, the Signet-mark blazing wild; a master bleeds almost nothing, the mark a near-silent whisper. <strong>Drain-and-recovery</strong> reads <em>after</em>: a master is quick in the return; the weak stay greyed. The axes aren&rsquo;t redundant &mdash; one reads in the firing, one in the aftermath. A true master is quiet in both.</div>
+
+    <div class="card hook"><span class="tag">Greying made visible <span class="badge b-locked">Locked</span></span>Because casting is &ldquo;color leaves, then returns,&rdquo; a <strong>greyed memory is one whose color never fully comes back.</strong> Overspend, and a Signet stays <strong>dull</strong>, an eye stays <strong>washed-out</strong> &mdash; a permanent, readable scar. A veteran&rsquo;s Signets map their <strong>history of loss</strong>; a sharp onlooker can read how much a Median has spent of themselves off their own body.</div>
+
+    <div class="char lead"><div class="cname">Omin &mdash; the signature in full <span class="badge b-locked">Locked</span></div><div class="crole">The complete drain-and-Signet cascade is precisely her tell.</div><p style="margin:0">The Aetherseer casts with the full cycle &mdash; drain, Signets and eyes alight in Aether&rsquo;s gold, recovery. The poignancy of how a <em>sightless</em> caster&rsquo;s lit eyes read &mdash; what it means to blaze with a light she cannot see &mdash; is reserved for her character pass.</p></div>
+
+    <h3 style="margin-top:34px">The Sequence &mdash; The Recall State <span class="badge b-locked">Locked</span></h3>
+    <p>Casting is not a single instantaneous act but an <strong>entered state</strong> that can then be spent from repeatedly &mdash; like a fighter&rsquo;s powered-up form.</p>
+    <div class="group spirit" style="margin-top:10px">
+      <div class="gname"><span class="dot"></span>Ignite &rarr; Sustain &rarr; Release (repeatable)</div>
+      <div class="aspect"><div class="an" style="color:var(--spirit)">Recall is ignition</div><div class="ad">Entering the charged state can be <strong>near-instant for the skilled</strong> &mdash; a master drops into Recall in a heartbeat; a novice is slow. <em>Speed of entry is itself a measure of skill.</em></div></div>
+      <div class="aspect"><div class="an" style="color:var(--spirit)">A sustained form</div><div class="ad">Once in the <strong>Recall State</strong>, the Median <strong>holds it</strong> &mdash; it persists for as long as their soul-stamina allows.</div></div>
+      <div class="aspect"><div class="an" style="color:var(--spirit)">Release doesn&rsquo;t end it</div><div class="ad">Firing a Release <strong>does not drop them out of Recall.</strong> They stay in the form and can <strong>Release as often as required</strong> while it holds &mdash; a barrage, not a single shot.</div></div>
+      <div class="aspect"><div class="an" style="color:var(--spirit)">Savvy is the fuel</div><div class="ad">What limits the form is <strong>Savvy</strong> (soul-stamina). Each Release and moment held draws on it; when it runs low the form <strong>dulls and collapses.</strong> (See Vitalitas &rarr; Savvy, Game System.)</div></div>
+      <div class="aspect"><div class="an" style="color:var(--spirit)">Endurance is trained</div><div class="ad">Holding the form longer and recovering Savvy faster is a <strong>discipline every Median must build</strong> &mdash; even masters worked to extend it. Soul age helps; endurance is <em>earned.</em></div></div>
+    </div>
+    <div class="card payoff"><span class="tag">Why it matters <span class="badge b-locked">Locked</span></span>This turns casting from a per-shot transaction into a <strong>resource-managed state</strong> &mdash; a Median chooses <em>when to enter</em> the form, then fights from inside it until their Savvy gives out. Combat gains a rhythm: <strong>ignite &rarr; barrage &rarr; burn down &rarr; recover</strong>. Soul-stamina, not per-cast cost, is the real ceiling on power in a fight.</div>
+
+    <h3 style="margin-top:34px">The Memory &mdash; Emotion Shapes the Cast <span class="badge b-locked">Locked</span></h3>
+    <p>A memory is not fuel of one flat kind. <strong>Every memory carries an emotion or sensation, and that feeling shapes the cast.</strong> Intensity of memory still sets intensity of effect &mdash; but the <em>character</em> of the feeling steers <em>how</em> that power expresses.</p>
+    <ul class="clean">
+      <li><strong>Tendencies, not a table.</strong> A memory invoking <strong>anger</strong> tends to <strong>increase intensity</strong> (force); one invoking <strong>calm</strong> tends to <strong>increase precision</strong> (control). Other feelings carry their own leanings &mdash; but two angry memories never produce identical spells. <em>(Real rules, human cost, never arithmetic.)</em></li>
+      <li><strong>Casting is autobiographical.</strong> The feeling is the steering, so a Median&rsquo;s magic reflects <em>who they have been.</em> A caster who fights well on rage is a different person from one who fights on grief or joy.</li>
+      <li><strong>Vs. Vitalitas:</strong> attributes are the <strong>baseline</strong>; emotion is the <strong>in-the-moment modulation.</strong> Tenacity sets how hard you <em>can</em> hit; casting on anger is how you <em>lean into</em> it now. They <strong>stack.</strong></li>
+    </ul>
+    <div class="card hook"><span class="tag">The core tension <span class="badge b-locked">Locked</span></span>The most emotionally intense memories are the most <strong>powerful</strong> fuel <em>and</em> the most <strong>dangerous</strong> (see Mania). The best Medians aren&rsquo;t those with the strongest memories &mdash; they&rsquo;re those who can ride strong memories <strong>without drowning.</strong></div>
+
+    <h3 style="margin-top:34px">The Mania &mdash; Losing Oneself to the Memory <span class="badge b-locked">Locked</span></h3>
+    <p>Because casting means feeling, a Median can <strong>Recall too much</strong> &mdash; pulling a memory so deep it stops being a tool and becomes a place. They tip into <strong>Mania</strong> (distinct from the Berserker Role). It has <strong>two faces, and the memory&rsquo;s emotion decides which strikes:</strong></p>
+    <div class="group spirit" style="margin-top:10px">
+      <div class="gname"><span class="dot"></span>The two faces of Mania</div>
+      <div class="aspect"><div class="an" style="color:var(--body)">Outward &mdash; loss of control</div><div class="ad">Memories that throw the cast outward (<strong>rage &rarr; force</strong>) throw the Median outward: the Brand fires <strong>wild and uncommanded</strong>, no aim, no off-switch &mdash; a danger to allies and self. The body acts; the steering is gone.</div></div>
+      <div class="aspect"><div class="an" style="color:var(--mind)">Inward &mdash; loss of self</div><div class="ad">Memories that turn the cast inward (<strong>grief, calm</strong>) pull the Median inward: consciousness <strong>submerges into the memory</strong>, leaving a <strong>coma-like state</strong> &mdash; present in body, absent in mind, trapped reliving it. They must <strong>find their way out.</strong></div></div>
+    </div>
+    <div class="card note"><span class="tag">The two bulwarks <span class="badge b-locked">Locked</span></span>Two Vitalitas attributes guard the two faces. <strong>Savvy</strong> holds the <em>form</em> (run out, the Recall State collapses); <strong>Actuality</strong> &mdash; <em>perceive and assert what is real</em> &mdash; anchors the <em>self</em> (run low, the memory swallows you). A Median can fail two ways: <strong>burn out</strong> (Savvy) or <strong>lose themselves</strong> (Actuality).</div>
+    <div class="card note"><span class="tag">Getting out <span class="badge b-locked">Locked</span></span><strong>Mild mania:</strong> the Median claws their own way out. <strong>Dire mania:</strong> a <strong>Soothsayer</strong> can reach in and guide the lost back &mdash; a vital role in combat and aftercare.</div>
+    <div class="card hook"><span class="tag">The lasting mark <span class="badge b-locked">Locked</span></span>Not a fixed penalty. Sometimes a memory is <strong>permanently altered or erased.</strong> Sometimes the Median loses <strong>several memories of the same emotion</strong> &mdash; a whole register drained at once (burn through grief, lose grief itself). Sometimes the cost is <strong>time</strong> &mdash; meditation and therapy to heal. The &ldquo;lose a whole emotion&rdquo; outcome is a character arc in a mechanic, and a road toward what Silas became.</div>
+    <div class="card lead" style="border-left-color:var(--body)"><span class="tag" style="color:var(--body)">Silas contrast <span class="badge b-locked">Locked</span></span>Mania is the <strong>inverse of Silas.</strong> He is fully Stigmatized yet <strong>self-possessed</strong> &mdash; the one being who <em>doesn&rsquo;t</em> lose himself. A Median lost to Mania is what it looks like to drown in the very thing Silas mastered.</div>
+
+    <h3>Recovery &amp; Greying <span class="badge b-locked">Locked</span></h3>
+    <ul class="clean">
+      <li><strong>Renewable by default</strong> &mdash; charge is exhausted, not destroyed. Rest restores it.</li>
+      <li><strong>Greying</strong> &mdash; drawing too deep, too fast, or too often on one memory keeps the facts but loses the feeling, then eventually the memory itself.</li>
+      <li><strong>Permanent loss</strong> &mdash; overspending past what rest can recover.</li>
+      <li><strong>Old souls</strong> rotate through many memories and last longer; <strong>young souls</strong> grey fast. This is the stamina curve <em>and</em> the power hierarchy in one mechanic.</li>
+    </ul>
+    <div class="card note"><span class="tag">Emotional weight</span>Memory is the only inheritance that survives death (if you stay out of the Ley). To spend memory is to spend your immortality.</div>
+  </section>
+
+  <!-- 6 -->
+  <section id="s6">
+    <h2><span class="num">04</span> Stigma &amp; Stigmants</h2>
+    <div class="h2title">The Corruption</div>
+    <p>Stigma is <strong>corrupted Anima</strong> &mdash; the antithesis of Anima, created by A&rsquo;thule to combat it. It swallows and corrupts Anima, corroding rifts into the Ley and the realms beyond.</p>
+    <p><strong>How it forms:</strong> Stigma is what <strong>greying becomes when taken all the way</strong> &mdash; anima that has lost connection to a true, lived self. A memory stripped of truth but still carrying charge is <em>a lie that still has power</em>. A soul running on charge with no authentic self behind it <em>is</em> Stigma: power that has forgotten what it was for.</p>
+    <table>
+      <tr><th>Anima</th><th>Stigma</th></tr>
+      <tr><td style="color:var(--spirit)">Individuation &mdash; separate souls, separate dimensions, the cycle.</td><td style="color:var(--body)">Dissolution &mdash; boundaries failing, everything merging toward A&rsquo;thule&rsquo;s unity.</td></tr>
+    </table>
+    <p>The personal struggle (resisting grey) and the cosmic war (resisting collapse) are <strong>the same fight at different scales</strong>.</p>
+
+    <div class="card note"><span class="tag">The closed loop <span class="badge b-locked">Locked</span></span>
+      Stigma corrodes <strong>Aether</strong> &mdash; and Aether powers <em>both</em> the Aegis <em>and</em> A&rsquo;thule&rsquo;s prison. So <strong>every soul that falls to Stigma feeds acid into the lock on A&rsquo;thule&rsquo;s cage.</strong> His weapon, goal, and escape are a single mechanism: spread Stigma.
+    </div>
+
+    <div class="card note"><span class="tag">Treating Stigmatization <span class="badge b-locked">Locked</span></span>The Stigma-sickness from exposure <strong>can be treated if caught early</strong> &mdash; <strong>Soothsayers</strong> are trained in it &mdash; but success is <strong>not guaranteed</strong>, especially once exposure is prolonged. (Stigmant parts can also treat the stigmatized &mdash; see &sect;4.)</div>
+
+    <div class="card hook"><span class="tag">Central tragedy &mdash; the cure <span class="badge b-locked">Locked</span></span>
+      A soul returns from Stigma only by <strong>returning to the Ley</strong> &mdash; total cleansing that <strong>erases the self entirely</strong>. The disease is fleeing the cycle; the only cure is the cycle. Saving a fallen soul and losing them forever are <em>the same act</em>.
+    </div>
+  </section>
+
+  <!-- 7 -->
+  <section id="s7">
+    <h2><span class="num">05</span> The World on the Ground</h2>
+    <div class="h2title">Society on Vi&rsquo;talitas</div>
+
+    <h3>Medians in Society <span class="badge b-locked">Locked</span></h3>
+    <p>Medians are now <strong>essential to Vi&rsquo;talitas &mdash; but it wasn&rsquo;t always so.</strong> For ages they were feared, ridiculed, condemned, and distrusted. Many Generics exploited young Medians through the <strong>Undertrade Exchange</strong>, a black market that stole newly orphaned Median children with untapped potential; the unluckiest never died clean deaths, and those who fought to live carried an unshakeable will. <strong>The arrival of Stigma changed much</strong> &mdash; reframing Medians from threat to necessity. Even now, an uncontrolled Median is treated as a <strong>liability</strong> &mdash; managed risk, not fear or worship.</p>
+    <div class="card hook"><span class="tag">Hook</span>The <strong>Undertrade Exchange</strong> &mdash; trafficking in stolen Median children &mdash; is a ready source of villains, backstory wounds, and rescue/origin arcs.</div>
+
+    <h3>The Asylum for Aberrant Aptitude &mdash; &ldquo;Triple-A&rdquo; <span class="badge b-locked">Locked</span></h3>
+    <p>The most proficient institution for studying Anima &mdash; and more than that, a <strong>home</strong> for Medians left without one. Students are studied ethically and taught to <strong>enter society safely and openly</strong>, without hiding their gifts. Its mission: guide as many young Medians as possible to <em>awaken their best self.</em></p>
+    <p><strong>Prime Soothsayer Maisel Wone &mdash; &ldquo;Mama Maisel&rdquo;</strong> has run the Triple-A for as long as most remember, <strong>never quite seeming to age.</strong> A <strong>born <span style="color:var(--spirit)">Vitalist</span></strong>, her power is a mystery; few dare test how fearsome a protector she can be. Warm to all who seek to train, fiercely protective of every student.</p>
+    <div class="card" style="border-left-color:var(--spirit-cy)"><span class="tag" style="color:var(--spirit-cy)">Maisel&rsquo;s secret <span class="badge b-locked">Locked</span></span>Maisel is the Eversoul <strong>Mulu&rsquo;lizi, Silver Essence of Integrity</strong> (the <strong>Body</strong> line, <em>not</em> the Restoration line her wards belong to). She was the <strong>caretaker older sibling</strong> &mdash; tending <strong>D&rsquo;vita and I&rsquo;n&aacute;cio</strong>, carrying <strong>guilt over losing A&rsquo;sai</strong> (the baby Silas killed in incubation). Then she fell &mdash; <strong>fully stigmatized.</strong> Of all the fallen, <strong>D&rsquo;vita could save only her:</strong> using <strong>Vaine&rsquo;s</strong> discovery of Silas&rsquo;s scheme, D&rsquo;vita <strong>cleansed her and returned her to the Ley</strong>, where she reincarnated as <strong>Maisel.</strong> The carer became the one who needed carrying; saving her meant <em>erasing</em> her.</div>
+    <div class="card note"><span class="tag">What Maisel knows now <span class="badge b-locked">Locked</span></span>Over time she has <strong>pieced much of her past back together.</strong> She knows the <strong>Eversouls existed</strong>, that she is one, and that her <strong>remaining kin are hidden to keep them safe.</strong> Much remains <strong>theory</strong> &mdash; she couldn&rsquo;t find every answer &mdash; but she understands that <strong>it falls to the three siblings to answer the rest.</strong> A knowing guide who withholds and waits, not an oblivious one.</div>
+    <div class="card note"><span class="tag">The instinct survived the erasure <span class="badge b-locked">Locked</span></span>Maisel now raises the <strong>reincarnations of the very siblings she once tended</strong> &mdash; D&rsquo;vita &rarr; Omin, I&rsquo;n&aacute;cio &rarr; Amoz, and the baby she couldn&rsquo;t save, A&rsquo;sai &rarr; I&rsquo;onnie. Mulu&rsquo;lizi&rsquo;s defining trait &mdash; <em>care, guilt, protection of her siblings</em> &mdash; outlasted the Ley&rsquo;s wipe and reassembled as &ldquo;Mama Maisel.&rdquo; What she &ldquo;recognized&rdquo; in their souls wasn&rsquo;t facts &mdash; it was <strong>her own children to protect.</strong></div>
+    <div class="card hook"><span class="tag">The buried debt</span>Maisel does <strong>not</strong> know any of this. She raises Omin without knowing Omin <em>is</em> D&rsquo;vita &mdash; the sister who saved her life by erasing her. If Omin recovers her past, she&rsquo;d find that the woman who raised her is the sister she once sent to die-and-return. A reunion waiting in the wings.</div>
+    <div class="card payoff"><span class="tag">Design payoff</span>The Triple-A is a natural <strong>player hub / tutorial home / faction base</strong>; Mama Maisel is a mentor whose unaging Vitalist nature is its own mystery hook.</div>
+
+    <h3>Generics &amp; Archevims <span class="badge b-locked">Locked</span></h3>
+    <p><strong>Generics</strong> lack natural talent and live ordinary lives &mdash; but many can deeply connect to <strong>Archevims</strong>: relics potent with <strong>ancient anima</strong> that let a Generic use their tiny output at a higher level.</p>
+    <ul class="clean">
+      <li>Must <strong>remain with the user at all times</strong> to be effective.</li>
+      <li>Most are <strong>small, wearable items</strong> &mdash; jewelry, trinkets, accessories.</li>
+      <li>A true Archevim takes <strong>two hands to make</strong>: an <strong>Aspect</strong> supplies the <strong>blessing</strong> and the <strong>rare Matrux drawn from its own form</strong>; an <strong>Anitech</strong> (a skilled mortal artificer) then <strong>crafts</strong> the device. Neither can make one alone &mdash; the mark of authenticity, and the reason they&rsquo;re scarce (each traces back to a pilgrimage to an Aspect, not just a forge).</li>
+      <li>Mysterious and <strong>dangerous in the wrong hands</strong>; an improperly attuned Archevim can <strong>overwhelm its user.</strong></li>
+    </ul>
+    <div class="card note"><span class="tag">The Nine Divine Aspects <span class="badge b-locked">Locked</span></span>Now named (&sect;3): the <strong>Anima Aspects</strong>, guardian-teachers of the nine Brands who dwell in Leypoints. They <strong>bless</strong> genuine Archevims and provide the rare body-Matrux they&rsquo;re built from, and they train the worthy.</div>
+    <div class="card note"><span class="tag">Anitechs &mdash; the crafter class <span class="badge b-locked">Locked</span></span>Mortal artificers who actually build Archevims from an Aspect&rsquo;s blessing and body-Matrux. A real profession with workshops and guilds; without an Aspect&rsquo;s materials, an Anitech makes only lesser anima-infused goods, never a true Archevim. <strong>To become a full Anitech, one must travel with the Aspects within their domains for a full year</strong>, learning their ways &mdash; the apprenticeship that turns a craftsperson into a true maker of relics.</div>
+    <div class="card payoff"><span class="tag">Design payoff</span>Generic + Archevims = a viable gear-dependent playstyle. Attunement risk = a built-in equip cost/curse mechanic.</div>
+    <div class="card note"><span class="tag">Stigma-charged Archevims <span class="badge b-locked">Locked</span></span>An Archevim <em>can</em> run on <strong>Stigma-charge</strong> &mdash; but it isn&rsquo;t built to, and <strong>breaks down from the strain over time.</strong> A villain&rsquo;s bargain with a built-in cost: cheaper, stronger, quietly damning, self-destroying.</div>
+
+    <h3>Ether Vessels <span class="badge b-locked">Locked</span></h3>
+    <p><strong>Spirit-energy vehicles</strong> &mdash; machines composed of spirit energy that let beings of the Spirit Realm travel across realms for extended periods. They were <strong>invented by I&rsquo;n&aacute;cio</strong>, and <strong>as Amoz he remembers the skillset</strong> &mdash; it has since become <strong>widely used across Vi&rsquo;talitas.</strong> A perfect demonstration of the core mechanic: a Recalled memory becoming a civilization-shaping craft. Eversouls thrive within <strong>Spirit Space</strong>, but outside it their power <strong>drains heavily</strong>; Ether Vessels solve the travel problem.</p>
+    <div class="group spirit" style="margin-top:10px">
+      <div class="gname"><span class="dot"></span>How a Vessel works</div>
+      <div class="aspect"><div class="an" style="color:var(--spirit)">Ether-Meter</div><div class="ad">Reads surrounding energy by <strong>type, molecular density, gravitational effect, and environmental reaction</strong>, then <strong>retunes its fuel function</strong> to feed on that location&rsquo;s ether and reach full power. A Vessel runs on the energy of wherever it enters.</div></div>
+      <div class="aspect"><div class="an" style="color:var(--spirit)">Shared source</div><div class="ad">Built to <strong>share its source energy with its pilot</strong> &mdash; Vessel and pilot power one another.</div></div>
+      <div class="aspect"><div class="an" style="color:var(--spirit)">Centrum</div><div class="ad">The core, <strong>infused with the pilot&rsquo;s essence</strong> &mdash; a security bond so <strong>only the pilot can run the ship smoothly.</strong> A stolen Vessel is a dead one.</div></div>
+      <div class="aspect"><div class="an" style="color:var(--spirit)">Sentient</div><div class="ad">Like everything born of Ne&rsquo;haris, Ether Vessels are <strong>sentient.</strong></div></div>
+    </div>
+
+    <h3>HEAT-SR Machines, the Trauma Contingency Troupe &amp; Sentries <span class="badge b-locked">Locked</span></h3>
+    <p>A militarized class of Ether Vessel, also of <strong>I&rsquo;n&aacute;cio&rsquo;s / Amoz&rsquo;s</strong> design lineage. <strong>HEAT-SR</strong> = <strong>Hyper Elevated Anima-Transfused Striker Regalia</strong> &mdash; sentient war-machines, the heaviest end of the craft. The <strong>Trauma Contingency Troupe (T.C.T.)</strong> is the <strong>organization</strong> that manages the integrity of the <strong>Aegis Grid</strong> and contains chaotic anomalies; <strong>Leywardens belong to it</strong> and operate <strong>Ether Vessels</strong> &mdash; they do <em>not</em> pilot HEAT-SR Machines. The HEAT-SR pilots are <strong>Sentries</strong> (also a Role open to any Median or Generic; see Roles). When not in their Machines, Sentries mount <strong>winged equines with ibex-like horned heads</strong> &mdash; noble steeds that train alongside them.</p>
+    <div class="card payoff"><span class="tag">I&rsquo;n&aacute;cio as originator <span class="badge b-locked">Locked</span></span>Ether Vessels, the HEAT-SR Machines, and more are <strong>I&rsquo;n&aacute;cio&rsquo;s creations</strong>, remembered <strong>as Amoz</strong> and spread into common use. Because I&rsquo;n&aacute;cio is the <strong>Essence of Ardor</strong> &mdash; <em>will itself</em> &mdash; this engineering reads as a discipline of relentless will made manifest. The T.C.T., in following his designs, in a sense follows <em>him.</em></div>
+
+    <h3>The Ragnn &amp; Fonixi &mdash; The Sky Peoples <span class="badge b-locked">Locked</span></h3>
+    <p>The Elloyds&rsquo; parent-races: two allied, <strong>matriarchal</strong> sky peoples descended from related deities &mdash; the <strong>Perennial Dragon</strong> and the <strong>Celestial Phoenix</strong>, who eternally chase one another.</p>
+    <div class="group body" style="padding-top:18px">
+      <div class="gname" style="font-size:18px"><span class="dot"></span>Ragnn &mdash; Dragon-descended</div>
+      <div class="gmeta">Subgroups: Flammas, Aquis, Tellus, Aeris.</div>
+      <p style="margin:0">Huge (7&ndash;9 ft), brute-strong, dense-boned; <strong>wings, horns, prehensile tail, rippling scales,</strong> hearty appetites. Proud, battle-ready &mdash; <em>&ldquo;brains as well as brawn.&rdquo;</em> Cannot self-reincarnate; they <strong>welcome death</strong> and ready for the next lifecycle.</p>
+    </div>
+    <div class="group spirit" style="padding-top:18px">
+      <div class="gname" style="font-size:18px"><span class="dot"></span>Fonixi &mdash; Phoenix-descended</div>
+      <div class="gmeta">Subgroups: Coastal, Marshland, Prairie, Forest.</div>
+      <p style="margin:0">Tall (6&ndash;7 ft), lean, delicate; powerful <strong>wings, taloned feet, feathered limbs,</strong> excellent vision; formidable aerial hunters. Can <strong>reincarnate themselves</strong> when the body fails &mdash; but only via a <strong>Fonixi High Priestess</strong> ritual &mdash; making them the <strong>second longest-lived race.</strong></p>
+    </div>
+    <div class="card note"><span class="tag">Lineage resonance <span class="badge b-locked">Locked</span></span>The siblings are a <strong>Ragnn-mother / Fonixi-father</strong> pairing (traditionally doomed). Their parent-deities, the Dragon &amp; Phoenix, are <strong>Stasyss &amp; Dynaass</strong> &mdash; the Empyrons held to be A&rsquo;kana&rsquo;s grandchildren. So the Elloyds descend, mortally, from the same divine line their Eversoul nature comes from.</div>
+
+    <h3>The Mortal Races of Vi&rsquo;talitas <span class="badge b-locked">Locked</span></h3>
+    <p>All races share one defining trait: <strong>auric-memory</strong> (below).</p>
+    <table>
+      <tr><th>Race</th><th>Profile</th></tr>
+      <tr><td><strong>Hominus</strong> <span class="gmeta">(Urban &amp; Rural)</span></td><td>Human-like but <strong>no lungs</strong> (air-tubes along the skeleton); bodies <strong>built for adaptive survival</strong> (stronger bone/tissue/senses). 4&ndash;6 ft.</td></tr>
+      <tr><td><strong>Hybrinus</strong> <span class="gmeta">(Feline, Canine, Avian)</span></td><td>A Hominus genus who <strong>shift into an animal form at will</strong>; &ldquo;inhabited by two spirits&rdquo; (self + ancient beast); auric-memory carries the beast&rsquo;s lifecycles.</td></tr>
+      <tr><td><strong>Nyph</strong> <span class="gmeta">(Wood, River, Sky, Ash)</span></td><td>Elemental humanoids who <strong>manipulate their primordial element</strong>; related to the Feii; pacifist but fierce defenders; master craftsmen. 4&ndash;5 ft.</td></tr>
+      <tr><td><strong>Feii</strong> <span class="gmeta">(Solar &amp; Lunar)</span></td><td>Enigmatic winged insectoids (max ~4 ft; can <strong>shrink to 5.5&ndash;10 in</strong>); deep grasp of Anima &amp; the <strong>Laws of Existence</strong>; likely the <strong>oldest race</strong>; master-teachers of auric-memory.</td></tr>
+      <tr><td><strong>Ragnn / Fonixi</strong></td><td>The sky peoples &mdash; see above (Dragon- &amp; Phoenix-descended).</td></tr>
+      <tr><td><strong>Neandus</strong> <span class="gmeta">(Dryland &amp; Highland)</span></td><td>An <strong>archaic ancestor of the Hominus.</strong> <em>(Detail pending.)</em></td></tr>
+      <tr><td><strong>Khimeran</strong> <span class="gmeta">(Stone / Crystal / Metal)</span></td><td>A mineral-bound people of the hard places. <em>Who dwells there:</em> <strong>Stone</strong> &mdash; quarries, cavern-cities, bedrock holds; <strong>Crystal</strong> &mdash; geode-caverns &amp; lattice-formations; <strong>Metal</strong> &mdash; ore-veins, forge-towns, mineral ridges. <em>(Profile pending.)</em></td></tr>
+      <tr><td><strong>Jengun</strong> <span class="gmeta">(Freshwater / Saltwater)</span></td><td>A water-bound people of the seas and rivers. <em>Who dwells there:</em> <strong>Freshwater</strong> &mdash; rivers, lakes, springs, wetlands; <strong>Saltwater</strong> &mdash; oceans, tidal reaches, deep brine. <em>(Profile pending.)</em></td></tr>
+      <tr><td><strong>Centauri</strong> <span class="gmeta">(Plains / Forest / Mountain)</span></td><td>A land-roaming people of the open and wild country. <em>Who dwells there:</em> <strong>Plains</strong> &mdash; grasslands, steppes, open range; <strong>Forest</strong> &mdash; deep woods, canopies, wildwood; <strong>Mountain</strong> &mdash; high ridges, passes, peaks. <em>(Profile pending.)</em></td></tr>
+    </table>
+    <div class="card note"><span class="tag">Auric-Memory</span>Every race possesses <strong>auric-memory</strong> &mdash; the sense that underlies all Animancy. Full definition in &sect;3 (Anima &amp; Animancy).</div>
+
+    <h3>Stigmants <span class="badge b-locked">Locked</span></h3>
+    <p>The monstrous manifestations of Stigma that <strong>pour from newly opened rifts</strong> &mdash; the on-the-ground threat beneath A&rsquo;thule and the Grey Makers. They hold <strong>volatile energies</strong>, and their <strong>parts are valuable</strong>: sold for analysis and, darkly, to <strong>treat those suffering the effects of being stigmatized</strong> &mdash; a partial remedy drawn from Stigma itself.</p>
+    <div class="card note"><span class="tag">Note</span>The Ley&rsquo;s Leylines and Leypoints also host monstrous entities of <strong>both Stigma and Anima</strong>, lethal to the untrained.</div>
+
+    <h3>The Fulcrum <span class="badge b-locked">Locked</span></h3>
+    <p>Every Stigmatized being carries a <strong>Fulcrum</strong> &mdash; the <strong>anchor-point where the corruption roots into the host&rsquo;s life-force</strong>, the locus holding the twisted form together. It is the Stigma-specific weak point.</p>
+    <div class="card hook"><span class="tag">A mercy, not a kill <span class="badge b-locked">Locked</span></span><strong>Destroy the Fulcrum and the host crumbles</strong> &mdash; the corrupted body collapses and the soul is <strong>released back to the Sea of Lights.</strong> A fully Stigmatized creature is already lost to madness and rot; shattering its Fulcrum <em>frees</em> the trapped soul rather than merely slaying a monster. (&ldquo;Destroy their fulcrums, and let them crumble&hellip; these poor things deserve a proper journey back to the Sea of Lights.&rdquo;) It literalizes the cosmology&rsquo;s central rule &mdash; the only cure for Stigma is <strong>returning to the Ley.</strong> Finding and reaching a Fulcrum in combat is the core skill of Stigma-fighting work, requiring <strong>archevims</strong> and a caster who can read where the corruption is anchored. Leywardens and Riftstalkers train for exactly this.</div>
+
+    <h3>Bestiary &mdash; Creatures of Vi&rsquo;talitas &amp; the Ley <span class="badge b-locked">Locked</span></h3>
+    <p>A growing catalogue of the non-mortal, non-Stigmant fauna of the world and its Leypoints. The <strong>Empyrons</strong> &mdash; A&rsquo;kana&rsquo;s own beast-lineage &mdash; are catalogued here as the apex entry (below).</p>
+    <div class="group body" style="margin-top:10px">
+      <div class="gname"><span class="dot"></span>Wyldervern</div>
+      <div class="gmeta">Large winged Leypoint predators, named in kinship with the <strong>Wylde</strong> Brand. Can tear an Ether Vessel out of mid-flight.</div>
+      <div class="aspect"><div class="an" style="color:var(--body)">Society</div><div class="ad">Migrate in <strong>hoards of 30&ndash;40</strong> led by a <strong>mating pair.</strong> Guard a clutch of <strong>unhatched eggs</strong> whose shells alone are worth a small fortune.</div></div>
+      <div class="aspect"><div class="an" style="color:var(--body)">Adolescents</div><div class="ad">Stay near the nest to defend it. Smaller but lethal up close; use <strong>wing-driven dust</strong> to blind prey before landing. Too young to breathe the adults&rsquo; <strong>poison.</strong></div></div>
+      <div class="aspect"><div class="an" style="color:var(--body)">Behavior</div><div class="ad">Intelligent enough to exploit a <strong>broken line of sight</strong>; normally avoid outsiders (why docile Leypoints like <strong>Xenith</strong> suit training). A hoard acting hostile, scattered, or thinned is a <strong>warning sign of Stigma.</strong></div></div>
+      <div class="aspect"><div class="an" style="color:var(--body)">Stigmatized</div><div class="ad">Wings rot with <strong>greying wounds</strong>; eyes lose all shine and intelligence; breath turns <strong>unnaturally cold</strong>; pure madness and aggression. Carry a <strong>Fulcrum</strong> &mdash; the mercy is to destroy it.</div></div>
+    </div>
+    <h3 style="margin-top:18px">The Empyrons &mdash; Beasts of Ne&rsquo;haris <span class="badge b-locked">Locked</span></h3>
+    <p>The apex entry of the Bestiary. Enormous beasts &mdash; a cross of <strong>lizard, avian, canine, and feline</strong> &mdash; usually winged, very long-lived. <strong>Age is read by wing-sets</strong> (more wings = older). They are <strong>typically of the Aether Brand</strong> &mdash; fitting, as their bodies run with pure Aether Anima &mdash; and the <strong>parent species of Dragons, Phoenixes, Sphinxes, and Gryphons.</strong></p>
+    <ul class="clean">
+      <li><strong>Society:</strong> native to Ne&rsquo;haris; live in <strong>Fleets</strong> with close familial bonds and <strong>heightened intelligence.</strong></li>
+      <li><strong>Nature:</strong> they <strong>thrive on Anima.</strong> Peaceful but <strong>not pacifists</strong> &mdash; fiercely <strong>territorial and protective of kin</strong>; politically neutral. The <strong>beast of representation for Ne&rsquo;haris</strong>, found the world over.</li>
+      <li><strong>The tragedy:</strong> hunted for their bodies &mdash; Empyr <strong>scales, claws, horns, and teeth are riddled with pure Aether Anima</strong>, more powerful than Anima crystals. A built-in poaching economy and moral wound.</li>
+    </ul>
+    <div class="card note"><span class="tag">Connects to</span>Stasyss (Immutable Dragon) &amp; Dynaass (Perennial Phoenix) are Empyrons / A&rsquo;kana&rsquo;s grandchildren &amp; the Ragnn/Fonixi progenitors. A&rsquo;kana herself first took the form of the <strong>first Empyron.</strong></div>
+    <div class="card note"><span class="tag">Elans <span class="badge b-locked">Locked</span></span>Companion creatures found <strong>across the Pneumaverse</strong>, varied in kind. Bonded to a <strong>Sentinel</strong> (Roles), an Elan scouts, defends, and fights alongside its wielder &mdash; these bonded companions are called <strong>&ldquo;acolytes.&rdquo;</strong> Elans <strong>do not gravitate to any specific Anima Brand</strong>; instead they <strong>imprint and share the Brand of whomever they bond to.</strong> The breadth of Elan types is an open catalogue &mdash; a natural home for companion/mount design.</div>
+  </section>
+
+  <!-- 7.5 Paths -->
+  <section id="s7b">
+    <h2><span class="num">5.5</span> The Medians</h2>
+    <div class="h2title">Types, Tiers, Access &amp; Paths</div>
+
+    <h3>Median Types &mdash; Archetypes <span class="badge b-locked">Locked</span></h3>
+    <p class="lede">Each Median&rsquo;s proficiency identity resonates with one brand-group. A Median finds their Type as they mature.</p>
+    <div class="group mind">
+      <div class="gname"><span class="dot"></span>Neurolist</div>
+      <div class="gmeta">Mind Preservation &mdash; <em>&ldquo;if you can think it, it can happen,&rdquo;</em> taken literally. Second most common.</div>
+      <p style="margin:0">Emotion is strongly tethered to their psionic power &mdash; <strong>constant emotional control is key</strong>. They fill education, governance, technology, and biological wellness.</p>
+    </div>
+    <div class="group body">
+      <div class="gname"><span class="dot"></span>Physiolist</div>
+      <div class="gmeta">Vessel Deconstruction &mdash; enhanced physical prowess. The most common Type.</div>
+      <p style="margin:0">Strength, speed, sight &mdash; sometimes extra limbs. Their gifts often <strong>manifest visibly in the body</strong>, the most distinctive Type to the eye. They fill agriculture, manufacturing, infrastructure, and environmental stewardship.</p>
+    </div>
+    <div class="group spirit">
+      <div class="gname"><span class="dot"></span>Vitalist</div>
+      <div class="gmeta">Soul Restoration &mdash; deep connection to the soul. The rarest Type.</div>
+      <p style="margin:0 0 10px">Uncannily natural command of Anima; they commune with the Living and Unliving alike and attune to the very material of the Ley.</p>
+      <div class="card" style="margin:0; background:var(--bg-2); border-left:3px solid var(--spirit)">
+        <span class="tag" style="color:var(--spirit)">The Vitalist&rsquo;s Sacrifice <span class="badge b-locked">Locked</span></span>
+        As they grow in skill, a Vitalist <strong>retracts one of the five senses</strong> (sight, sound, touch, taste, or scent) &mdash; deeper attunement may cost <strong>more than one</strong>. The personal price of the rarest gift, and a vivid character-design lever. In exchange, they have <strong>flexibility of technique</strong> the other Types lack.
+      </div>
+    </div>
+    <div class="card note"><span class="tag">On &ldquo;born&rdquo; Medians</span>A Median&rsquo;s essence is <em>infused</em> with Anima, awakening in adolescence (timing varies by race). This fits the soul-intensity premise: a soul intense enough carries enough Anima to <strong>awaken and infuse the vessel</strong>; Generics lack that intensity. The name <em>Median</em> comes from their eventual ability to cross the rifts into the Sea of Lights &mdash; they are &ldquo;in the middle&rdquo; of worlds.</div>
+    <div class="card note"><span class="tag">Alternate awakening <span class="badge b-locked">Locked</span></span>Under the right circumstances, <strong>severe trauma can awaken a Median&rsquo;s power early</strong> &mdash; even in infancy &mdash; bypassing normal adolescent timing. The Elloyd siblings awakened this way.</div>
+
+    <h3 style="margin-top:34px">Median Tiers &mdash; Power Level <span class="badge b-locked">Locked</span></h3>
+    <p>Independent of Type, every Median has a <strong>Tier</strong> &mdash; their level of power, expertise, and versatility.</p>
+    <table>
+      <tr><th>Tier</th><th>Meaning</th></tr>
+      <tr><td style="color:var(--spirit)"><strong>Tier 1</strong></td><td>Most exceptional &mdash; <em>most</em> attuned to their anima&rsquo;s source. Fewest in number.</td></tr>
+      <tr><td><strong>Tier 9</strong></td><td>Least attuned, regardless of effort. A Median typically peaks at a Tier and stays there for life.</td></tr>
+      <tr><td style="color:var(--body)"><strong>Tier 0</strong></td><td>Exceedingly rare. Fluctuates freely across Tiers 1&ndash;9 at will &mdash; <strong>but at a high cost.</strong></td></tr>
+    </table>
+    <div class="card payoff"><span class="tag">Tier-as-surname <span class="badge b-locked">Locked</span></span>Many Medians take their Tier number as a surname &mdash; first name + spelled number, styled to taste: <em>Ora Sevn, Tobin Nyne, Malia Aate, Calvis Tu.</em> Tier 0 is a natural endgame rarity with a built-in drawback to balance it.</div>
+
+    <h3 style="margin-top:34px">Born vs. Forged &mdash; Soul Restoration Access <span class="badge b-locked">Locked</span></h3>
+    <p>Soul Restoration is <strong>mostly birthright, rarely earned.</strong></p>
+    <table>
+      <tr><th>Path</th><th>Nature</th><th>Trade-off</th></tr>
+      <tr><td><strong>The Born</strong></td><td>Ancient/integrated souls; instinctive.</td><td>High efficiency, lower control, often don&rsquo;t know <em>how</em> they do it.</td></tr>
+      <tr><td><strong>The Forged</strong></td><td>Rare young/mid souls; earned through brutal trials.</td><td>Low efficiency, high mastery ceiling, total understanding.</td></tr>
+    </table>
+    <div class="card hook"><span class="tag">Hook &amp; payoff</span>The trials imply an <strong>institution or sacred site</strong> that runs them &mdash; a setting pillar with gatekeeping and politics. For the RPG, &ldquo;Born vs. Forged&rdquo; is a meaningful origin choice: discover-the-rules vs. earn-it-through-a-questline.</div>
+
+    <h3 style="margin-top:34px">Paths &mdash; The Professions <span class="badge b-locked">Locked</span></h3>
+    <p class="lede">After training, Medians take a Path &mdash; your class/career archetypes for the RPG.</p>
+    <table>
+      <tr><th>Path</th><th>Role</th><th>RPG archetype</th></tr>
+      <tr><td><strong>Lawseeker</strong></td><td>Scholars of Anima, Stigma, Medians &amp; Stigmants; unravel the Ley, the Eternal Laws, the Tri-Dimensions.</td><td>Lore-keepers / quest-givers</td></tr>
+      <tr><td><strong>Soothsayer</strong></td><td>Educate &amp; guide younger Medians; trained to <strong>treat Stigmatization</strong> early. <strong>Medians only</strong> &mdash; distinct from the Oracle Role. <em>(&ldquo;Not always for the better.&rdquo;)</em></td><td>Mentors (Mama Maisel&rsquo;s Path)</td></tr>
+      <tr><td><strong>Oathbound</strong></td><td>Hired for non-Ley jobs; an <strong>Oath binds them to finish</strong> &mdash; by any means. Respected to unlawful.</td><td>Mercenaries / fixers</td></tr>
+      <tr><td><strong>Realmwatcher</strong></td><td>Seal rifts; raise protective barriers &amp; <strong>sacred geometric soulcrafts</strong>. Largest &amp; most common Path, organized by region.</td><td>Frontline guardians</td></tr>
+      <tr><td><strong>Riftstalker</strong></td><td>Hunt &amp; capture <strong>Stigmants</strong> for pay and harvested parts; escorts &amp; extermination units.</td><td>Monster-hunters / bounty</td></tr>
+      <tr><td><strong>Lightwalker</strong></td><td>Cross rifts to explore <strong>Leypoints</strong>, retrieving relics &amp; anima-infused resources (incl. archevims) that sustain commerce.</td><td>Dungeon-delvers / treasure-hunters</td></tr>
+      <tr><td><strong>Leywarden</strong></td><td>Travel the <strong>Ley itself</strong>: investigate it, keep it balanced, slay its threats; can cross into realms beyond Vi&rsquo;talitas. <span style="color:var(--spirit)">Vitalists almost always qualify.</span></td><td>Elite, lore-deep endgame</td></tr>
+      <tr><td><strong>Anitech</strong></td><td>Crafter class: artificers who build <strong>Archevims</strong> &amp; anima-infused goods. Full details with the Archevim mechanics in &sect;5 (World on the Ground).</td><td>Crafter / artisan</td></tr>
+    </table>
+    <div class="card note"><span class="tag">Design note</span>Within the Ley, <em>time folds on itself and the veil is nonexistent</em>; the unfortified can <strong>unravel from existence.</strong> This gates Lightwalker/Leywarden access &mdash; a natural difficulty wall and a source of cosmic-horror set-pieces.</div>
+
+    <h3 style="margin-top:34px">Roles &mdash; Combat Archetypes &amp; Playstyles <span class="badge b-locked">Locked</span></h3>
+    <p>Distinct from <strong>Paths</strong> (professions), a <strong>Role</strong> is a <em>way of fighting and serving</em> &mdash; a combat archetype open to everyone.</p>
+    <div class="card hook"><span class="tag">The access rule <span class="badge b-locked">Locked</span></span><strong>Medians</strong> take Roles through their <strong>Path training</strong> &mdash; earned, channeled through the self. <strong>Generics</strong> achieve the same Roles through <strong>Archevims</strong>, working alongside Medians. A Role is open to anyone; only the <em>means</em> differs (innate craft vs. forged tool).</div>
+    <table>
+      <tr><th>Role</th><th>Essence</th></tr>
+      <tr><td><strong>Berserker</strong></td><td>All-out brawler who takes hits and dishes them just as hard. Endurance + raw force over finesse.</td></tr>
+      <tr><td><strong>Ascendent</strong></td><td>Devout to their beliefs til the very end&hellip; and beginning. Conviction that persists <strong>across the rebirth cycle</strong>; power scales with devotion. <strong>Most Lawseekers &amp; Soothsayers</strong> become Ascendents; Generic Ascendents of various beliefs use different Brands.</td></tr>
+      <tr><td><strong>Sentry</strong></td><td>Pilots of anima-fueled heavy machinery, including the <strong>HEAT-SR Machines</strong> of the T.C.T. The wall that holds the line.</td></tr>
+      <tr><td><strong>Oracle</strong></td><td>Arbiters of fate; dedicated to <strong>healing and empowering others.</strong> Open to <strong>Medians &amp; Generics</strong> &mdash; distinct from the Median-only Soothsayer.</td></tr>
+      <tr><td><strong>Augur</strong></td><td>Powerful <strong>anima eaters</strong> wielding deadly spells for mass damage. Glass-cannon area devastators.</td></tr>
+      <tr><td><strong>Conjurer</strong></td><td>Knowledgeable of <strong>ancient spells from the mortal dimension</strong> &mdash; power as recovered lore.</td></tr>
+      <tr><td><strong>Sentinel</strong></td><td>Elite wild survivalists with <strong>long-ranged weapons</strong>, accompanied by <strong>Elans</strong> they call <strong>&ldquo;acolytes.&rdquo;</strong> Beast-bonded marksmen.</td></tr>
+      <tr><td><strong>Weaver</strong></td><td>Talented and dangerous; skilled with Anima in <strong>past lives</strong>, now wielding <strong>pure Arcane Anima</strong> to immeasurable devastation. Must be an <strong>Arcane Median</strong> or a Generic with an <strong>Arcane Archevim.</strong></td></tr>
+      <tr><td><strong>Alternator</strong></td><td>Connected to <strong>Aether Anima</strong> across past lives; uses <strong>alchemic exchange</strong> on their own body to serve as a <strong>living ley conduit.</strong> Many Vitalists qualify &mdash; <strong>Omin is an Alternator.</strong></td></tr>
+      <tr><td><strong>Charmist</strong></td><td>Master of the senses &mdash; sight, sound, taste, scent, touch &mdash; used to sway their targets.</td></tr>
+    </table>
+  </section>
+
+  <!-- 8 Protagonists -->
+  <section id="s8">
+    <h2><span class="num">06</span> The Protagonists</h2>
+    <div class="h2title">The Elloyd Siblings <span class="badge b-locked">Locked</span></div>
+    <p>Three orphaned siblings, stolen as infants for the blood in their veins, raised by <strong>Mama Maisel</strong> at the Triple-A. All three are <strong>Vitalists</strong> whose power was <strong>awakened by trauma</strong> rather than natural growth. All reach <strong>Tier 0</strong> by graduation, and all take the surname <strong>Xero</strong>.</p>
+    <div class="card" style="border-left-color:var(--spirit)"><span class="tag" style="color:var(--spirit)">The &ldquo;Three&rdquo; of prophecy <span class="badge b-locked">Locked</span></span>They are the three foretold in the Whispers of the Mother &mdash; <em>&ldquo;Await the three who stir the Unborn, Unliving and Unseen.&rdquo;</em> Not mirrors of the Paramounts; they are <strong>Neversouls</strong> &mdash; Restoration Eversouls who fell but escaped full Stigmatization, now living mortal lives on Vi&rsquo;talitas. Each <strong>embodies one of the three Pneumosi classes</strong> &mdash; Omin = Unseen, Amoz = Unliving, I&rsquo;onnie = Unborn (&sect;2) &mdash; <em>because that is what they were made to be.</em></div>
+
+    <h3>Heritage &amp; Lineage <span class="badge b-locked">Locked</span></h3>
+    <ul class="clean">
+      <li>Born of a <strong>Ragnn</strong> mother and <strong>Fonixi</strong> father &mdash; peoples linked by belief in <strong>Stasyss the Immutable Dragon</strong> and <strong>Dynaass the Perennial Phoenix</strong>, held to be grandchildren of A&rsquo;kana, who first took the form of the primeval beast, the <strong>first Empyron</strong>.</li>
+      <li><strong>Empyrons</strong> protected Ne&rsquo;haris and its secrets; since its transition, none are seen except within the Ley.</li>
+      <li>Ragnn/Fonixi pairings are traditionally <strong>doomed</strong> &mdash; offspring rarely survive or are born handicapped. Each sibling is &ldquo;handicapped&rdquo; by a burden tied to their gift.</li>
+      <li><strong>Maisel recognized their souls</strong> as kin &mdash; they are <strong>Eversoul siblings</strong> of the Restoration line (see roster, &sect;1). The Elloyds are the <strong>Neversoul</strong> forms of three fallen Restoration children: <strong>D&rsquo;vita &rarr; Omin, I&rsquo;n&aacute;cio &rarr; Amoz, A&rsquo;sai &rarr; I&rsquo;onnie.</strong> They did not die in the War &mdash; they fell and escaped full Stigmatization.</li>
+      <li>They remember their Eversoul lives only as <strong>faint echoes and dreams.</strong> <em>(Omin&rsquo;s quest to learn what happened to Ne&rsquo;haris is secretly self-recovery: she survived the event she can&rsquo;t remember.)</em></li>
+    </ul>
+
+    <div class="char lead">
+      <div class="cname">Omin (Ominira) Xero &mdash; the Aetherseer</div>
+      <div class="crole">Primary protagonist &middot; eldest &middot; defensive, nurturing, matured before her time.<br><span style="color:var(--spirit-cy)">Eversoul form: <strong>D&rsquo;vita</strong>, Unbroken Essence of Aether (Neversoul &mdash; reborn).</span></div>
+      <span class="stat">Vitalist</span><span class="stat">Aether Anima</span><span class="stat">Tier 0 &mdash; only of her kind</span><span class="stat">Leywarden</span>
+      <ul class="clean">
+        <li><strong>Sense traded: sight.</strong> She sees the <strong>Unborn</strong> via Aether and can manipulate others&rsquo; Aether by linking it to her own &mdash; knowing someone to their core, sometimes seeing past lives they can&rsquo;t.</li>
+        <li><strong>Unique:</strong> the only Vitalist in the Asylum&rsquo;s history with <strong>no single spiritual guide</strong> &mdash; she communes with many beings beyond the veil.</li>
+        <li><strong>Tier 0 fluctuation</strong> keeps her <strong>undetectable</strong> to Medians and Stigmants &mdash; a combat edge.</li>
+        <li><strong>Cost:</strong> wakeful-dream events, depression, anxiety; her power often pushes her over the edge.</li>
+      </ul>
+      <div class="card" style="margin:8px 0 0; background:var(--bg-2); border-left:3px solid var(--spirit-cy)">
+        <span class="tag" style="color:var(--spirit-cy)">Character spine <span class="badge b-locked">Locked</span></span>
+        She can <em>see</em> truth but cannot <em>prove</em> it; she <em>knows</em> everyone yet is <em>known</em> by no one; and the truth she most needs &mdash; <strong>what really happened to Ne&rsquo;haris in the war</strong> &mdash; is the one the world insists can&rsquo;t be known. Her quest, isolation, and wound are the same paradox at three scales.
+        <ul class="clean" style="margin-top:8px">
+          <li><strong>Driving question:</strong> What happened to Ne&rsquo;haris? (Answerable, if anywhere, in the Ley &mdash; why Leywarden fits.)</li>
+          <li><strong>Relationship to power:</strong> conflicted &mdash; it isolates her from those she loves.</li>
+          <li><strong>Internal tension:</strong> the gap between what she perceives and what she can prove.</li>
+          <li><strong>Active engine:</strong> what is Omin willing to do to turn what she sees into something the world cannot deny?</li>
+          <li><strong>Loaded thread:</strong> she alone could read <strong>Maisel&rsquo;s</strong> Aether to solve the mystery &mdash; at the cost of betraying the person she loves most.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="char">
+      <div class="cname">Amoz Xero &mdash; the Soul Drinker</div>
+      <div class="crole">Middle child &middot; warm, funny, outgoing &mdash; the &ldquo;glue.&rdquo; Trauma-prone; his Anima constantly evolves.<br><span style="color:var(--spirit)">Eversoul form: <strong>I&rsquo;n&aacute;cio</strong>, Untamed Essence of Ardor (Neversoul &mdash; transformed).</span></div>
+      <span class="stat">Vitalist</span><span class="stat">Ardor Anima</span><span class="stat">Tier 0</span><span class="stat">Lightwalker</span>
+      <ul class="clean">
+        <li><strong>Gift:</strong> consumes the <strong>Unliving</strong> &mdash; feeds on <em>wicked</em> souls, transmutes them to energy, returns them <strong>purified to the Ley.</strong> Can go days without food.</li>
+        <li>Trained to drain only through his <strong>fingertips</strong>; keeps his hands <strong>gloved</strong> until he chooses otherwise.</li>
+        <li><strong>Tier 0 / Ardor:</strong> can temporarily wield <strong>any of the nine sources</strong> &mdash; at risk of <strong>mania</strong> (the strain of bending his will past its limit). A wild card and trouble-magnet.</li>
+      </ul>
+      <div class="card" style="margin:8px 0 0; background:var(--bg-2); border-left:3px solid var(--spirit)"><span class="tag" style="color:var(--spirit)">Who I&rsquo;n&aacute;cio was <span class="badge b-locked">Locked</span></span>Where most Eversouls were dutiful, I&rsquo;n&aacute;cio was <strong>the spark</strong> &mdash; the <strong>Essence of Ardor</strong> with the personality to match: mischief, fun, never a dull moment. <strong>D&rsquo;vita (elder) was forever wrangling her troublemaker brother;</strong> having survived Silas&rsquo;s attempt on the trio, they <strong>grew up closely.</strong> The trio&rsquo;s living heart.</div>
+      <div class="card" style="margin:8px 0 0; background:var(--bg-2); border-left:3px solid var(--body)"><span class="tag" style="color:var(--body)">His fall &mdash; patient zero <span class="badge b-locked">Locked</span></span>I&rsquo;n&aacute;cio guarded <strong>Ne&rsquo;haris&rsquo;s borders</strong> &mdash; a duty <strong>Silas and Null exploited.</strong> In a breach he took damage from a <strong>Stigmant &mdash; the first one anyone had ever seen.</strong> The border-guardian was the first wounded; his corruption is, in a sense, patient zero. The breach was led by <strong>Null</strong> &mdash; A&rsquo;thule&rsquo;s firstborn and most powerful Falseone, a shapeshifter &mdash; who watched, expecting a swift fall.</div>
+      <div class="card" style="margin:8px 0 0; background:var(--bg-2); border-left:3px solid var(--spirit)"><span class="tag" style="color:var(--spirit)">The will that held <span class="badge b-locked">Locked</span></span>Because he <em>is</em> the <strong>Essence of Ardor &mdash; will itself</strong> &mdash; I&rsquo;n&aacute;cio <strong>staved off the corruption far longer than any being should.</strong> He never wanted to turn; he fought to <strong>save those who lacked his strength</strong>, working with <strong>D&rsquo;vita</strong> and eventually <strong>Vaine</strong> to defend the borders he was made to guard. The Brand he was became his resistance.</div>
+      <div class="card hook" style="margin:8px 0 0"><span class="tag">The voice that called him &mdash; future reveal</span>As he weakened, a <strong>voice called him to keep going</strong> &mdash; an <strong>unborn soul from the Sea of Lights</strong> he came to <strong>love</strong>, whose essence helped him hold. A <em>distinct character &mdash; <strong>not</strong> A&rsquo;sai</em> &mdash; a romantic bond whose identity is a deliberate later reveal. Recorded as a force, withheld as a name.</div>
+      <div class="card" style="margin:8px 0 0; background:var(--bg-2); border-left:3px solid var(--spirit-cy)"><span class="tag" style="color:var(--spirit-cy)">The final clash &amp; what Amoz keeps <span class="badge b-locked">Locked</span></span>In a climactic battle, as Stigma overtook him, <strong>D&rsquo;vita and I&rsquo;n&aacute;cio went head to head.</strong> Prevailing, she <strong>cast him into the Astroverse to slumber</strong> &mdash; <em>rescuing</em> him from full corruption (&sect;7.5). Of the three, Amoz keeps the <strong>least intact memory</strong> &mdash; much twisted by the Stigma he endured &mdash; but he still feels that <strong>distant voice of his lover</strong>, and in time, the need to follow it. His private mystery, the engine of his own arc.</div>
+    </div>
+
+    <div class="char">
+      <div class="cname">I&rsquo;onnie (Ion) Xero &mdash; the Empath</div>
+      <div class="crole">Youngest &middot; soft-spoken, shy, fiercely protective; more welcoming than Omin.<br><span style="color:var(--spirit)">Eversoul form: <strong>A&rsquo;sai</strong>, Untethered Essence of Arcane &mdash; <strong>Unborn</strong> (killed in incubation by Silas before birth; arrived anyway as I&rsquo;onnie).</span></div>
+      <span class="stat">Vitalist</span><span class="stat">Arcane Anima</span><span class="stat">Tier 0</span><span class="stat">Soothsayer</span>
+      <ul class="clean">
+        <li><strong>Sense traded: hearing.</strong> She hears the <strong>Unseen</strong> (constantly &mdash; nearly maddening) but is <strong>deaf to the living</strong>; uses <strong>Arcane-charged earpieces</strong> &mdash; fittingly her <em>own</em> Brand powering the craft &mdash; and bonds temporarily with the Unseen to grant their will.</li>
+        <li>Conjures Anima through <strong>empathy / emotion</strong>; risks meltdown without control. Her discipline makes her output concise &mdash; often mistaken for a <strong>Neurolist.</strong></li>
+        <li><strong>Dream:</strong> teach at the Triple-A alongside Maisel.</li>
+      </ul>
+      <div class="card" style="margin:8px 0 0; background:var(--bg-2); border-left:3px solid var(--spirit)"><span class="tag" style="color:var(--spirit)">A&rsquo;sai&rsquo;s true nature <span class="badge b-locked">Locked</span></span>Killed in incubation before birth, A&rsquo;sai <strong>never lived a life as an Eversoul</strong> &mdash; sent back to the Sea early, she <strong>missed the entire War and fall.</strong> So she is the <strong>only <em>pure</em>, Stigma-untouched Eversoul of the three</strong> (like the sleeping I&rsquo;n&aacute;cio and the hidden Mind line) &mdash; and <strong>entirely unaware of her own being.</strong> Omin fell-and-escaped; Amoz fell-and-was-sealed; A&rsquo;sai simply <em>never fell.</em></div>
+      <div class="card hook" style="margin:8px 0 0"><span class="tag">The borrowed memories</span>Existing <strong>uninterrupted</strong> since, she receives <strong>fractured memories of what her siblings lived</strong> &mdash; good and bad &mdash; and her empathy struggles to place them. Part of her <strong>hears the calls of her Grey Maker siblings</strong> without knowing who they are. Her &ldquo;deaf to the living / hears the Unseen&rdquo; condition reads doubly: she is tuned to the kin she lost.</div>
+    </div>
+
+    <div class="card payoff"><span class="tag">The sibling trinity <span class="badge b-locked">Locked</span></span>Each sibling <strong>embodies one of the three Pneumosi classes</strong> (&sect;2). <strong>Omin = Unseen</strong> (traded sight; perceives the unseeable; moves undetected). <strong>Amoz = Unliving</strong> (the Soul Drinker who consumes the Unliving). <strong>I&rsquo;onnie = Unborn</strong> (<em>literally</em> &mdash; killed in incubation, never born). Cost asymmetry: Omin and I&rsquo;onnie pay via a <em>sacrificed sense</em>; Amoz via <em>mania + hunger.</em></div>
+
+    <h3>The Whispers of the Mother <span class="badge b-locked">Locked</span></h3>
+    <p>The first of three parts of a foretelling by <strong>&ldquo;A&rsquo;kana&rsquo;s Vestige.&rdquo;</strong> The first is well known to Ragnn/Fonixi believers; <strong>the other two linger in obscurity.</strong></p>
+    <div class="prophecy">
+      Concealed Figures / Hushed Chorus / Deep within the slumbering core of Vitalitas /<br>
+      Souls Adrift / Brilliance Eclipsed / Truth heard from the Mother&rsquo;s lips /<br>
+      Ripples in the Sea / Lingering in Eternity / Believe in not what your plain eyes see /<br>
+      Whispers within, they seep / Falseones, long released / His many eyes will never sleep /<br>
+      The Trivium has broken / The Lights have dimmed / Near the Makers of Grey, all will bleed /
+      <span class="last">Await the three who stir the Unborn, Unliving and Unseen</span>
+    </div>
+    <div class="card hook"><span class="tag">Open thread</span>Write the <strong>two obscure parts</strong> of the prophecy; reveal who <strong>A&rsquo;kana&rsquo;s Vestige</strong> is.</div>
+  </section>
+
+  <!-- 8 -->
+  <section id="s9">
+    <h2><span class="num">07</span> The Antagonists</h2>
+    <div class="h2title">Antagonist Architecture <span class="badge b-locked">Locked</span></div>
+    <p>A&rsquo;thule&rsquo;s forces form a <strong>military hierarchy</strong> descending from the sealed god to the individual soul.</p>
+    <ol class="rank">
+      <li><strong>A&rsquo;thule &mdash; Father of Corruption</strong> <em>(the sovereign).</em> Sealed Mind-Paramount of Many Faces. Cannot act directly; commands through his elite. Seduction, not force &mdash; he <em>convinces</em>.</li>
+      <li><strong>The Falseones</strong> <em>(the Generals).</em> A&rsquo;thule&rsquo;s <strong>children made of pure Stigma</strong> &mdash; the <em>anti-Eversouls</em>, each built to combat a specific Eversoul. Grown in the False Pillars &mdash; the &ldquo;Cold-Bloods&rdquo;: Advisor Null &ldquo;Malice,&rdquo; General Vaine &ldquo;Grinder,&rdquo; the <strong>Sons of Animosity</strong>, the <strong>Daughters of Deprivation.</strong> Two (<strong>Null</strong> &amp; <strong>Vaine</strong>) defect. Arc villains / boss tier &mdash; full nature below.</li>
+      <li><strong>The Grey Makers</strong> <em>(the Lieutenants).</em> Field officers who reach into the world &mdash; <strong>Silas&rsquo;s creations, answering to him.</strong> Their <strong>core is the stigmatized Eversouls Silas corrupted</strong> (turned against their own home); the ranks grew with other fallen souls since. They &ldquo;wear familiar faces&rdquo; because <em>the founding Grey Makers are family.</em></li>
+      <li style="list-style:none; margin-left:-8px; color:var(--ink-dim); font-style:italic"><strong style="color:var(--body)">&#8627; Silas</strong> sits in his own tier <em>beside</em> the ladder &mdash; he commands a <strong>unique private unit no one else does:</strong> the turned Eversouls (the Grey Makers). Above the Lieutenants (they&rsquo;re his); denied the Generals&rsquo; tier. (See his card.)</li>
+      <li><strong>Stigmants</strong> <em>(the infantry).</em> Mindless products of the spread, pouring from rifts (&sect;4).</li>
+    </ol>
+    <div class="card note"><span class="tag">The intimate scale</span>Beneath the hierarchy sits <strong>the Fallen Median</strong> &mdash; someone the heroes may have known, lost to Stigma; the threat the heroes could become. Not a rank in the army, but its most personal cost.</div>
+    <div class="chain">
+      <b>A&rsquo;thule</b> <span class="arr">&rarr;</span> Falseones (Generals) &amp; <b>Silas</b> <span class="arr">&rarr;</span> Grey Makers (Silas&rsquo;s corrupted-Eversoul unit) tempt <span class="arr">&rarr;</span> find the exhausted Median <span class="arr">&rarr;</span> the bargain <span class="arr">&rarr;</span> = <b>Stigma</b> <span class="arr">&rarr;</span> corrodes Aether/Aegis <span class="arr">&rarr;</span> weakens A&rsquo;thule&rsquo;s prison
+    </div>
+    <div class="char" style="background:linear-gradient(120deg,var(--body-soft),var(--panel) 62%)">
+      <div class="cname" style="color:var(--body)">Silas &mdash; The Betrayer Brother</div>
+      <div class="crole">The Eversoul brother whose betrayal Stigmatized his siblings in the War (see &sect;1). <span class="badge b-locked">Locked</span></div>
+      <div class="card note" style="margin:8px 0"><span class="tag">The author of the Grey Makers <span class="badge b-locked">Locked</span></span>Silas&rsquo;s true crime is bigger than personal betrayal: <strong>he tainted his own Eversoul siblings with Stigma and turned them into the Grey Makers</strong> &mdash; manufacturing A&rsquo;thule&rsquo;s entire Lieutenant tier out of his own family, aimed <em>inward</em> against their home. This is why the war devoured Ne&rsquo;haris from within.</div>
+      <ul class="clean">
+        <li>To the Elloyds and Maisel, Silas is the <strong>personal face of the cosmic threat</strong> &mdash; a betrayer with a face they half-remember.</li>
+        <li><strong>Rank:</strong> a <strong>tier of his own, beside the ladder.</strong> No General (A&rsquo;thule won&rsquo;t trust a kin-betrayer that far) but no mere Lieutenant &mdash; he <strong>commands a unique private unit:</strong> the turned Eversouls. Bitter irony: he <em>delivered an entire army of corrupted Eversouls</em> and is <strong>still</strong> capped below the Falseones, because a kin-betrayer will, by A&rsquo;thule&rsquo;s logic, <strong>betray anyone.</strong></li>
+        <li><strong>Motive:</strong> this galls him endlessly. He is forever <strong>trying to prove his worth</strong> &mdash; the antagonist most likely to overreach and stage bold, unsanctioned moves. He <em>auditions</em> rather than waits, and so collides with the heroes personally.</li>
+        <li><strong>Double exile:</strong> he betrayed his way <em>out</em> of one family (the Eversouls) and into a second that trusts him even less &mdash; twice an outsider, the second time permanent, by his own crime.</li>
+        <li><strong>Author of the Grey Makers:</strong> Silas <strong>tainted his own Eversoul siblings with Stigma and turned them into the Grey Makers</strong> &mdash; an army of corrupted kin aimed <em>inward</em> against their home. They are his to command; the heroes may face a Grey Maker who <em>was</em> family.</li>
+        <li><strong>The crack in A&rsquo;thule&rsquo;s army:</strong> A&rsquo;thule is probably <em>right</em> to distrust him &mdash; Silas&rsquo;s resentment is a fault line that could be turned, and <strong>Omin&rsquo;s Aether sight could read it.</strong></li>
+        <li><strong>Cruelest version of Omin&rsquo;s arc:</strong> the truth she hunts is <em>&ldquo;our brother betrayed us,&rdquo;</em> and the proof wears a face the world won&rsquo;t believe.</li>
+        <li><strong>The contrast:</strong> his Restoration siblings became <strong>Neversouls</strong>; Silas is <strong>corrupted</strong> &mdash; the betrayer who <em>caused</em> their fall, the Mind-child of <em>Illusion</em>, to the Eversouls what A&rsquo;thule is to the Paramounts.</li>
+        <li><strong>Why he persists:</strong> Silas <strong>refused the Ley</strong> &mdash; willfully. Where the cleansed are erased by return and the Neversoul siblings merely <em>escaped</em> full Stigmatization, Silas went <strong>all the way to full Stigmatization &mdash; yet kept control of himself.</strong> As far as anyone knows, he is the <strong>only Neversoul to become fully Stigmatized while remaining self-possessed</strong> &mdash; total corruption with total, deliberate will. This is what &ldquo;<strong>Corrupted</strong>&rdquo; has always meant.</li>
+        <li><strong>The mechanism:</strong> his willful refusal of the Ley is the very thing that <strong>holds his self together</strong> through full Stigma. He had no intention of returning &mdash; he means to <strong>continue the work he and A&rsquo;thule built.</strong> Refusal and survival are one mechanism (a mirror of A&rsquo;thule refusing his own cage).</li>
+        <li><strong>Still active:</strong> Silas is <strong>alive in the present</strong> &mdash; no longer an Eversoul, but a fully-Stigmatized, self-possessed being continuing the work. He is the <strong>living connective tissue between the ancient betrayal and the current war.</strong></li>
+      </ul>
+    </div>
+        <div class="card" style="border-left-color:var(--locked)"><span class="tag" style="color:var(--locked)">Grey Maker origin <span class="badge b-locked">Resolved</span></span>The Grey Makers&rsquo; <strong>core is the stigmatized Eversouls</strong> &mdash; A&rsquo;kana&rsquo;s own children, corrupted by <strong>Silas</strong> (Essence of Illusion) and turned <em>inward against Ne&rsquo;haris.</em> The ranks later grew with other fallen souls. Founding officers = the named fallen siblings (Caelum, Capella, Eriandus, Rubani, Quasar, Asterope&hellip;). A Grey Maker&rsquo;s intimacy isn&rsquo;t a power &mdash; it&rsquo;s a tragedy: <em>the first of them were family.</em></div>
+
+    <h3>The Falseones &mdash; A&rsquo;thule&rsquo;s Children <span class="badge b-locked">Locked</span></h3>
+    <p>The <strong>dark twin of the Eversouls</strong>: where A&rsquo;kana made her children from her essence to <em>protect</em> the Trivium, A&rsquo;thule made the Falseones from <strong>pure Stigma</strong> to <em>destroy</em> them. Each was built with a <strong>specific malignant purpose</strong>, often aimed at a particular Eversoul. Where Eversouls personify <em>faculties</em> (Memory, Integrity, Judgment), Falseones personify <em>afflictions</em> (Consumption, Despair, Terror, Torment). They are grown in the harsh False Pillars &mdash; hardened and &ldquo;perfected&rdquo; to A&rsquo;thule&rsquo;s preferences in the most wretched ways.</p>
+    <div class="card note"><span class="tag">The betrayal cascade <span class="badge b-locked">Locked</span></span>Betrayal-by-kin runs through <em>every</em> tier &mdash; A&rsquo;thule betrayed the Paramounts; <strong>Silas</strong> betrayed the Eversouls; <strong>Null &amp; Vaine</strong> betray A&rsquo;thule himself. But the direction inverts: the first two turned <em>toward</em> corruption; the Falseone defections turn <em>away</em> from it. He weaponized betrayal &mdash; and betrayal is recursive. You cannot forge an army from treachery and expect loyalty.</div>
+    <div class="card" style="border-left-color:var(--body)"><span class="tag" style="color:var(--body)">Roster (from source)</span>
+      <strong>Advisor Null</strong> &mdash; &ldquo;Malice,&rdquo; Son of Obscurity (Grymm Stigma) &mdash; <strong>A&rsquo;thule&rsquo;s firstborn &amp; most powerful Falseone</strong>, a shapeshifter; led the breach that fell I&rsquo;n&aacute;cio; <em>later a betrayer.</em> &nbsp; <strong>General Vaine</strong> &mdash; &ldquo;Grinder,&rdquo; Hound of Hatred (Eldritch Stigma) &mdash; <em>betrayer (below).</em><br>
+      <em>Sons of Animosity:</em> Vile (Consumption), Empty (Despair), Dread (Terror), Rupture (Blood), Blister (Damned), Scream (Torment). &nbsp; <em>Daughters of Deprivation:</em> Lechery, Paine, Covet, Misery, Guile.
+    </div>
+
+    <div class="char" style="background:linear-gradient(120deg,var(--body-soft),var(--panel) 62%)">
+      <div class="cname" style="color:var(--body)">Vaine &mdash; The Weapon Who Loved</div>
+      <div class="crole">General Falseone, &ldquo;Grinder&rdquo; &mdash; <strong>created to destroy D&rsquo;vita</strong>; the <em>pre-War advance weapon who defected to the world he was sent to destroy.</em></div>
+      <ul class="clean">
+        <li>A&rsquo;thule, told D&rsquo;vita was the <strong>greatest threat</strong>, forged Vaine and sent him through a <strong>tear into Ne&rsquo;haris to kill her</strong> &mdash; making Vaine the <strong>spear-tip of the attack on Ne&rsquo;haris itself.</strong></li>
+        <li>Then the impossible: sent to murder her, <strong>he fell madly in love with her instead</strong> &mdash; a feeling he had never known.</li>
+      </ul>
+      <div class="card" style="margin:8px 0 0; background:var(--bg-2); border-left:3px solid var(--spirit-cy)"><span class="tag" style="color:var(--spirit-cy)">Why it matters <span class="badge b-locked">Locked</span></span>Stigma is <em>anima with no true self</em> &mdash; power without authentic feeling. A Falseone of pure Stigma has <strong>no real interior.</strong> So when Vaine feels genuine love, <strong>a being made of Stigma generates something that is not Stigma.</strong> Not redemption-by-romance &mdash; the corruption <em>failing at the seam</em>, the first birth of a true self in a hollow weapon. <strong>Vaine&rsquo;s love is the anti-Stigma event.</strong></div>
+      <div class="card" style="margin:8px 0 0; background:var(--bg-2); border-left:3px solid var(--body)"><span class="tag" style="color:var(--body)">Silas &#10231; Vaine</span>Matched opposites. <strong>Silas:</strong> an Eversoul (protective essence) who betrayed <em>toward</em> corruption, serves A&rsquo;thule resentfully. <strong>Vaine:</strong> a Falseone (corruptive essence) who betrayed <em>toward</em> love, abandoned A&rsquo;thule. Born good, chose corruption / born corrupt, chose otherwise.</div>
+      <div class="card" style="margin:8px 0 0; background:var(--bg-2); border-left:3px solid var(--spirit-cy)"><span class="tag" style="color:var(--spirit-cy)">The turn &mdash; pre-War slow burn <span class="badge b-locked">Locked</span></span>His incursion comes <em>before</em> the great War. Contact with the world <strong>breaks his conditioning</strong> &mdash; Ne&rsquo;haris is &ldquo;nothing like he was told,&rdquo; its beauty refuting the lie he was built on. The disillusionment spreads through <strong>Vaine and his followers.</strong> (Consistent: a creature of pure Stigma meets genuine reality, and reality corrodes the lie that made him.)</div>
+      <div class="card" style="margin:8px 0 0; background:var(--bg-2); border-left:3px solid var(--body)"><span class="tag" style="color:var(--body)">The captivity dynamic <span class="badge b-locked">Locked</span></span><strong>D&rsquo;vita takes him prisoner.</strong> She doesn&rsquo;t trust him (rightly) &mdash; but she <strong>sees in him what he cannot see in himself.</strong> Asymmetry: Vaine <em>studied her</em> (built to kill her); she knows almost nothing of the Falseones (distant tales, never met). The captive knows the captor; the captor studies a living myth. A long <strong>love&ndash;hate, enemies-to-lovers</strong> bond forms.</div>
+      <div class="card" style="margin:8px 0 0; background:var(--bg-2); border-left:3px solid var(--body)"><span class="tag" style="color:var(--body)">The double agent <span class="badge b-locked">Locked</span></span>Vaine was a <strong>wardog &amp; tactical mastermind</strong> &mdash; built for infiltration and decapitation. Turned, he <strong>uses that design against A&rsquo;thule:</strong> fakes loyalty, sends <strong>false reports,</strong> and spends the bought time <strong>preparing Ne&rsquo;haris for the assault he knows is coming.</strong> Not passive softening &mdash; an active counter-operation by the one who knows A&rsquo;thule from the inside.</div>
+      <div class="card" style="margin:8px 0 0; background:var(--bg-2); border-left:3px solid var(--spirit-cy)"><span class="tag" style="color:var(--spirit-cy)">Love made operational <span class="badge b-locked">Locked</span></span>His intel didn&rsquo;t just <em>feel</em> like defection &mdash; it <strong>produced a rescue.</strong> Vaine&rsquo;s discovery of Silas&rsquo;s scheme gave <strong>D&rsquo;vita the knowledge to cleanse Mulu&rsquo;lizi</strong> (&rarr; Maisel) before she was lost. By now D&rsquo;vita and Vaine <strong>work together</strong> &mdash; the captive bond become partnership. The Falseone built to destroy her helped her save her sister.</div>
+      <div class="card hook" style="margin:8px 0 0"><span class="tag">The war from within &mdash; two brothers</span>Vaine secretly <em>defends</em> Ne&rsquo;haris from inside while <strong>Silas secretly devours it from inside</strong> (turning the Eversouls into Grey Makers). The realm is <strong>eaten and saved from within at once</strong>, by two brothers-from-opposite-families running mirror betrayals &mdash; the weapon became a protector; the protector became the weapon. Hence the war&rsquo;s &ldquo;deliberately unknown&rdquo; outcome: a chaos of loyalties.</div>
+      <div class="card note" style="margin:8px 0 0"><span class="tag">The War was inevitable <span class="badge b-locked">Locked</span></span>The romance did <strong>not</strong> trigger the War &mdash; A&rsquo;thule long planned it. Vaine&rsquo;s defection (and <strong>Null</strong>, working separately) were a <strong>wrench in his plans he didn&rsquo;t prepare for</strong> &mdash; a complication within the War, not its cause.</div>
+      <div class="card note" style="margin:8px 0 0"><span class="tag">The end of the War &mdash; D&rsquo;vita&rsquo;s choices <span class="badge b-locked">Locked</span></span>Ne&rsquo;haris was <strong>not destroyed</strong>, thanks to D&rsquo;vita. At the battle&rsquo;s end she made choices only she knew she had to make &mdash; to Vaine&rsquo;s heartbreak. She <strong>clashed with I&rsquo;n&aacute;cio</strong> (Stigmatized) and, to <em>save</em> him, <strong>cast him into the Astroverse to slumber</strong> &mdash; halting the full spread. She spent the rest of her Essence to <strong>shield the core of Ne&rsquo;haris</strong>, return her loved ones to the Sea, and <strong>place the Polestar in hiding.</strong></div>
+      <div class="card hook" style="margin:8px 0 0"><span class="tag">Vaine now <span class="badge b-locked">Locked</span></span>At the War&rsquo;s close Vaine was <strong>mortally wounded.</strong> As a Falseone, he <strong>wanders the Cosmos &mdash; whereabouts unknown.</strong> A living thread. Beneath Omin&rsquo;s present life lies this love and these final choices &mdash; the aching source of her wakeful dreams, carried without knowing.</div>
+    </div>
+  </section>
+
+  <!-- 7.6 The Cast -->
+  <section id="s_cast">
+    <h2><span class="num">7.6</span> The Cast</h2>
+    <div class="h2title">Dramatis Personae &mdash; by Faction</div>
+    <p>The character roster, grouped by organization and Path. Each entry lists <strong>Race</strong>, <strong>Rank</strong>, <strong>Mark</strong> (their Role), and <strong>Archetype</strong> (Median/Generic &middot; caster-type &middot; Brand). Blank fields are <strong>[OPEN]</strong> &mdash; to be filled.</p>
+
+    <h3 style="margin-top:28px">The Trauma Contingency Troupe (T.C.T.) &mdash; Division Xero</h3>
+    <div class="gmeta" style="margin-bottom:14px">Path of the Leywardens. Omin&rsquo;s unit; operates Aether Vessels in defense of the Aegis Grid.</div>
+
+    <div class="char lead">
+      <div class="cname">Director Omin Xero</div>
+      <div class="crole">Division Head &middot; Lead Tactical Strategist &middot; Aether Vessel Pilot</div>
+      <span class="stat">Aquis Ra&rsquo;gnn / Coastal Fonixi</span><span class="stat">Mark: Alternator</span><span class="stat">Median</span><span class="stat">Vitalist</span><span class="stat" style="color:var(--a-aether)">Aether</span>
+    </div>
+    <div class="char">
+      <div class="cname">Taskmaster Azhaza Oyne-Syxx</div>
+      <div class="crole">Second in Command &middot; Operational Control</div>
+      <span class="stat">Prairie Fonixi</span><span class="stat">Mark: Sentinel</span><span class="stat">Median</span><span class="stat">Vitalist</span><span class="stat" style="color:var(--a-aether)">Aether</span>
+    </div>
+    <div class="char">
+      <div class="cname">Captain Tizini ta Mishi Oyne-Fore</div>
+      <div class="crole">Navigational Authority &middot; Aether Vessel Co-Pilot</div>
+      <span class="stat">Solar Feii</span><span class="stat">Mark: Oracle</span><span class="stat">Median</span><span class="stat">Neurolist</span><span class="stat" style="color:var(--a-feii)">Feii</span>
+    </div>
+    <div class="char">
+      <div class="cname">Senior Melzn Tuu-Oyne</div>
+      <div class="crole">Front-Line Offensive Meister</div>
+      <span class="stat">Tellus Ra&rsquo;gnn</span><span class="stat">Mark: Berserker</span><span class="stat">Median</span><span class="stat">Physiolist</span><span class="stat" style="color:var(--a-qhaos)">Qhaos</span>
+    </div>
+    <div class="char">
+      <div class="cname">Senior Elvae Thryee-Thyree</div>
+      <div class="crole">Zone &amp; Route Recon Intelligence</div>
+      <span class="stat">Sky Nyph</span><span class="stat">Mark: Charmist</span><span class="stat">Median</span><span class="stat">Physiolist</span><span class="stat" style="color:var(--a-wylde)">Wylde</span>
+    </div>
+    <div class="char">
+      <div class="cname">Senior Fro&rsquo;drin Tuu-Sevn</div>
+      <div class="crole">Designated Marksman &middot; Long-Range Recon Specialist</div>
+      <span class="stat">Metal Khimeran</span><span class="stat">Mark: Sentinel</span><span class="stat">Median</span><span class="stat">Physiolist</span><span class="stat" style="color:var(--a-grymm)">Grymm</span>
+    </div>
+    <div class="char">
+      <div class="cname">Counselor Kien Fore-Syxx</div>
+      <div class="crole">Combat Medical Personnel</div>
+      <span class="stat">Plains Centauri</span><span class="stat">Mark: Ascendent</span><span class="stat">Median</span><span class="stat">Neurolist</span><span class="stat" style="color:var(--a-hallow)">Hallow</span>
+    </div>
+    <div class="char">
+      <div class="cname">Initiate Syvil Fe&rsquo;Gannus</div>
+      <div class="crole">Anitech Professional &amp; Equipment Technician</div>
+      <span class="stat">Felis Hybrinus</span><span class="stat">Mark: Sentry</span><span class="stat">Generic (Arcane Archevim)</span><span class="stat" style="color:var(--a-arcane)">Arcane</span>
+    </div>
+    <div class="char">
+      <div class="cname">Initiate Rune Nyne-Phor</div>
+      <div class="crole">Scout In-Training</div>
+      <span class="stat">Hominus</span><span class="stat">Mark: Augur</span><span class="stat">Median</span><span class="stat">Vitalist</span><span class="stat" style="color:var(--a-ardor)">Ardor</span>
+    </div>
+
+    <h3 style="margin-top:34px">The A.A.A. Institute</h3>
+    <div class="gmeta" style="margin-bottom:14px">Asylum for Aberrant Aptitude. Path of the Soothsayers &mdash; mentors and healers of young Medians.</div>
+
+    <div class="char">
+      <div class="cname">Soothsayer Maisel Wone &mdash; &ldquo;Mama Maisel&rdquo;</div>
+      <div class="crole">Prime</div>
+      <span class="stat">Race: [OPEN]</span><span class="stat">Mark: [OPEN]</span><span class="stat">Median</span><span class="stat">Vitalist</span><span class="stat" style="color:var(--a-arcane)">Arcane</span>
+    </div>
+    <div class="char">
+      <div class="cname">Soothsayer Ion Xero</div>
+      <div class="crole">Prime &mdash; <em>this is I&rsquo;onnie, the youngest Elloyd sibling (see The Protagonists)</em></div>
+      <span class="stat">Race: [OPEN]</span><span class="stat">Mark: [OPEN]</span><span class="stat">Median</span><span class="stat">Vitalist</span><span class="stat" style="color:var(--a-arcane)">Arcane</span>
+    </div>
+
+    <h3 style="margin-top:34px">The Aggregate Regency</h3>
+    <div class="gmeta" style="margin-bottom:14px">Path of the Lawseekers &mdash; the governing authority of Vi&rsquo;talitas.</div>
+
+    <div class="char">
+      <div class="cname">[Name OPEN]</div>
+      <div class="crole">Regency Cabinet Member</div>
+      <span class="stat">Race: [OPEN]</span><span class="stat">Mark: [OPEN]</span><span class="stat">Median</span><span class="stat">Neurolist</span><span class="stat" style="color:var(--a-origin)">Origin</span>
+    </div>
+    <div class="char">
+      <div class="cname">Lawseeker Thayis Tu-Nyne</div>
+      <div class="crole">Apprentice <em>(the dignitary from the Division Xero short story)</em></div>
+      <span class="stat">Race: [OPEN]</span><span class="stat">Mark: [OPEN]</span><span class="stat">Median</span><span class="stat">Neurolist</span><span class="stat" style="color:var(--a-origin)">Origin</span>
+    </div>
+
+    <h3 style="margin-top:34px">The Undertrade Exchange <span class="badge b-open">Open</span></h3>
+    <div class="card hook"><span class="tag">Open</span>Faction established by name; <strong>Path, leadership, and roster to be defined.</strong> The black-market / underworld counterpart to the lawful factions &mdash; a natural home for grey-economy Archevims, illicit Matrux, and morally complicated allies.</div>
+  </section>
+
+  <!-- 9 -->
+  <!-- 9.5 The Present Age -->
+  <section id="s9b">
+    <h2><span class="num">7.5</span> Where the Series Opens</h2>
+    <div class="h2title">The Present Age &mdash; The Inciting Event <span class="badge b-locked">Locked</span></div>
+    <p>For generations, <strong>Vi&rsquo;talitas was an ordinary world</strong> &mdash; mystical races coexisting, anima-rich but stable. Then its <strong>fabric gave way.</strong> A <strong>massive rift</strong> tore open, entangling Vi&rsquo;talitas with what lay beyond, and <strong>Stigma poured through</strong> &mdash; a corruptive miasma that burns the eyes and mouth, lethal by exposure. Those who gave in became <strong>Stigmants</strong>, flooding the world as the rift widened, consuming or corrupting people, beasts, plants, even the raw elements.</p>
+    <p><strong>At that darkest hour, the Medians awakened.</strong> Dormant anima rose across every region; <strong>past-life memories flooded back</strong> into the population, and the <strong>Polestar</strong> &mdash; nucleus of the Ley &mdash; awakened, and its people with it. Vi&rsquo;talitas began returning to what its people had only read of in ancient tomes.</p>
+    <p><strong>One group of Medians sealed the great breach</strong>, saving the reborn world at the cost of their anonymity &mdash; remembered only as <strong>Type Genesis</strong>, the first to show how far Animancy could grow. Their research <strong>confirmed Vi&rsquo;talitas was once Ne&rsquo;haris.</strong> Generations on, this is legend.</p>
+    <p>Today, <strong>Stigmants are a constant threat but no longer apocalyptic.</strong> Rifts still open; now there are Medians to subdue them and Generics to support. <em>This is the world the series opens in.</em></p>
+    <div class="card hook"><span class="tag">Type Genesis <span class="badge b-locked">Locked</span></span>The nameless first Medians who sealed the original breach, proved Animancy&rsquo;s potential, and confirmed Vitalitas = Ne&rsquo;haris. A ready legend, a possible secret lineage, and the root of the &ldquo;Type&rdquo; naming.</div>
+  </section>
+
+  <section id="s10">
+    <h2><span class="num">08</span> Building the Game</h2>
+    <div class="h2title">RPG Design Priorities</div>
+    <ol class="rank">
+      <li><strong>Tactical combat depth</strong> &mdash; memory &ldquo;loadouts&rdquo; as a spell hand; a natural rock-paper-scissors across the groups (Vessel = burst/fragile, Mind = control/setup, Soul = sustain). Party composition falls out on its own.</li>
+      <li><strong>Character progression / builds</strong> &mdash; acquire &amp; curate memories; unlock past lives; refine raw memories into practiced, efficient casts. A build = which lives + which memories + which brands.</li>
+      <li><strong>Exploration &amp; puzzle-solving</strong> &mdash; Leypoints as dungeons / thinned-rule zones.</li>
+      <li><strong>Social / narrative consequences</strong> &mdash; liability status, Paths, the moral economy of Stigma and Archevims.</li>
+    </ol>
+
+    <h3 style="margin-top:34px">V.I.T.A.L.I.T.A.S. &mdash; The Core Attributes <span class="badge b-locked">Locked</span></h3>
+    <div class="card note"><span class="tag">What is a Vitalitas?</span>The material that <strong>tethers a being together</strong> &mdash; bringing harmony to <strong>mind, body, and soul</strong> (one is not meant to be without the others; to be so is inharmonious). A Vitalitas is the <strong>nucleus of all existence</strong>, and the <strong>nine points</strong> of the shape it forms represent the vital aspects of one&rsquo;s individuality: the <strong>Mind&rsquo;s</strong> Lucidity, Ingenuity &amp; Illusion; the <strong>Vessel&rsquo;s</strong> Versatility, Tenacity &amp; Tangibility; the <strong>Soul&rsquo;s</strong> Animancy, Savvy &amp; Actuality. To be without is to be without purpose &mdash; <strong>stigmatized from growth.</strong></div>
+    <p>Like Attribute Modifiers in most TTRPGs, the nine attributes set a character&rsquo;s baseline capabilities. They group under the three Pillars and <strong>spell the world&rsquo;s own name.</strong></p>
+    <table>
+      <tr><th></th><th>Attribute</th><th>Pillar</th><th>Sub-qualities</th><th>Capacity to&hellip;</th></tr>
+      <tr><td><strong>V</strong></td><td style="color:var(--body)"><strong>Versatility</strong></td><td>Body</td><td>Subtlety &amp; Agility</td><td>move both swiftly and effectively.</td></tr>
+      <tr><td><strong>I</strong></td><td style="color:var(--mind)"><strong>Ingenuity</strong></td><td>Mind</td><td>Analysis &amp; Strategy</td><td>analyze situations and devise effective strategy.</td></tr>
+      <tr><td><strong>T</strong></td><td style="color:var(--body)"><strong>Tenacity</strong></td><td>Body</td><td>Courage &amp; Resolve</td><td>apply raw physical power into brute force.</td></tr>
+      <tr><td><strong>A</strong></td><td style="color:var(--spirit)"><strong>Animancy</strong></td><td>Soul</td><td>Essence &amp; Energy</td><td>channel raw Anima &mdash; the depth of one&rsquo;s casting power.</td></tr>
+      <tr><td><strong>L</strong></td><td style="color:var(--mind)"><strong>Lucidity</strong></td><td>Mind</td><td>Academic &amp; Comprehension</td><td>utilize logic with accurate precision.</td></tr>
+      <tr><td><strong>I</strong></td><td style="color:var(--mind)"><strong>Illusionary</strong></td><td>Mind</td><td>Imagination &amp; Interpretation</td><td>imagine, interpret, and shape perception and possibility.</td></tr>
+      <tr><td><strong>T</strong></td><td style="color:var(--body)"><strong>Tangibility</strong></td><td>Body</td><td>Physicality &amp; Force</td><td>give weight, solidity, and impact to what one does.</td></tr>
+      <tr><td><strong>A</strong></td><td style="color:var(--spirit)"><strong>Actuality</strong></td><td>Soul</td><td>Existence &amp; Truth</td><td>perceive and assert what is real &mdash; resist illusion, stay grounded in truth.</td></tr>
+      <tr><td><strong>S</strong></td><td style="color:var(--spirit)"><strong>Savvy</strong></td><td>Soul</td><td>Wisdom &amp; Memory</td><td>draw on accumulated wisdom &amp; experience &mdash; and the <strong>soul-stamina that sustains the Recall State.</strong></td></tr>
+    </table>
+    <div class="card hook"><span class="tag">Savvy &amp; the Recall State <span class="badge b-locked">Locked</span></span><strong>Savvy is the soul-stamina that fuels casting.</strong> Entering and holding the Recall State (&sect;3) and every Release drawn from it spend Savvy; when it runs low, the form dulls and collapses. Savvy is both an attribute <em>and</em> the in-fiction resource governing how long a Median fights in their charged form.</div>
+
+    <h3 style="margin-top:34px">Time &amp; Soul-Age <span class="badge b-locked">Locked</span></h3>
+    <p>Two scales measure the same passing time: <strong>Earth time</strong> (the mortal realm&rsquo;s ruler) and <strong>Pneuma time</strong> (the Spirit Realm&rsquo;s). They sit <strong>side by side</strong> for one purpose &mdash; to dramatize <strong>how staggeringly old most souls are.</strong> A mortal life is brief on the Earth scale; counted in Pneuma units, a soul&rsquo;s existence stretches almost beyond comprehension.</p>
+    <div class="card hook"><span class="tag">The felt comparison <span class="badge b-locked">Locked</span></span>The two are <strong>not a precise conversion</strong> &mdash; the equivalences are <em>felt, not arithmetic</em> (in keeping with &ldquo;the Between&rdquo;). A mortal <strong>century</strong> <em>feels like</em> a Pneuma <strong>Novam</strong>; a mortal <strong>hour</strong> <em>feels like</em> a Pneuma <strong>Aura.</strong> The point is the <strong>gap between the rulers</strong>: a long life in Earth years reads as a vast, deep age in Pneuma units &mdash; which is why an <strong>old soul</strong> carries such weight (its depth feeds its anima pool, instinct, and power; see &sect;4).</div>
+    <div style="display:flex; gap:20px; flex-wrap:wrap">
+      <table style="flex:1; min-width:280px">
+        <tr><th colspan="2">Earth Time</th></tr>
+        <tr><td>Century</td><td>100 Years</td></tr>
+        <tr><td>Decade</td><td>10 Years</td></tr>
+        <tr><td>Year</td><td>12 Months</td></tr>
+        <tr><td>Month</td><td>29&ndash;31 Days</td></tr>
+        <tr><td>Week</td><td>7 Days <em>(parallel to months)</em></td></tr>
+        <tr><td>Day</td><td>24 Hours</td></tr>
+        <tr><td>Hour</td><td>60 Minutes</td></tr>
+        <tr><td>Minute</td><td>60 Seconds</td></tr>
+        <tr><td>Second</td><td>1,000 Milliseconds</td></tr>
+      </table>
+      <table style="flex:1; min-width:280px">
+        <tr><th colspan="2">Pneuma Time</th></tr>
+        <tr><td>Novam</td><td>90 Aeons <em>(parallel grouping)</em></td></tr>
+        <tr><td>Hexam</td><td>6 Aeons <em>(parallel grouping)</em></td></tr>
+        <tr><td>Aeon</td><td>18 Waves</td></tr>
+        <tr><td>Wave</td><td>60&ndash;63 Beams <em>(variable, like a month)</em></td></tr>
+        <tr><td>Span</td><td>9 Beams <em>(side-unit, like a week)</em></td></tr>
+        <tr><td>Beam</td><td>72 Auras</td></tr>
+        <tr><td>Aura</td><td>180 Glints</td></tr>
+        <tr><td>Glint</td><td>180 Blinks</td></tr>
+        <tr><td>Blink</td><td>5,400 Lilliblinks</td></tr>
+        <tr><td>Lilliblink</td><td>smallest unit</td></tr>
+      </table>
+    </div>
+    <div class="card note"><span class="tag">Pneuma ladder vs. side-units</span>The main ladder nests <strong>Aeon &rarr; Wave &rarr; Beam &rarr; Aura &rarr; Glint &rarr; Blink &rarr; Lilliblink.</strong> <strong>Novam</strong> &amp; <strong>Hexam</strong> are parallel groupings of Aeons (like &ldquo;century&rdquo; and &ldquo;score&rdquo;); <strong>Span</strong> (9 Beams) sits beside the Wave&ndash;Beam ladder like a week beside the month.</div>
+
+    <h3>Currency &mdash; Tabs <span class="badge b-locked">Locked</span></h3>
+    <p>The world&rsquo;s money is the <strong>Tab</strong> &mdash; coins shaped like soda-can tabs, minted in three metals. (The <em>Lilliblink</em> shares conceptual space with the coinage, but Tabs are <strong>ordinary money</strong>, not literally spent time.)</p>
+    <table>
+      <tr><th>Tab</th><th>Value</th></tr>
+      <tr><td style="color:#c8843f"><strong>Bronze Tab</strong></td><td>base unit</td></tr>
+      <tr><td style="color:var(--a-aether)"><strong>Gold Tab</strong></td><td>100 Bronze Tabs</td></tr>
+      <tr><td style="color:var(--a-arcane)"><strong>Platinum Tab</strong></td><td>100 Gold Tabs (= 10,000 Bronze)</td></tr>
+    </table>
+  </section>
+
+  <!-- 10 -->
+  <section id="s11">
+    <h2><span class="num">09</span> The Roadmap</h2>
+    <div class="h2title">Open Threads &amp; Next Steps</div>
+
+    <p class="lede">Cosmology &amp; Eversouls.</p>
+    <div class="checklist">
+            <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Vaine&rsquo;s turn</strong> &mdash; pre-War slow burn; disillusionment + captivity; enemies-to-lovers with D&rsquo;vita.</div></div>
+      <div class="row"><div class="box"></div><div>Fill the <strong>blank Essences</strong>: Tseen Ke, Al Nair (Body); Rubani, Quasar, Asterope (Spirit).</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Magic-performance layer</strong> &mdash; the visible signature (the <strong>Signets</strong>: drain, eyes &amp; Signets in Brand color, recovery-speed tell, greying made visible) is locked. Remaining sub-passes: the Sequence, the Memory, the Failures.</div></div>
+      <div class="row"><div class="box"></div><div>Decide <strong>why the living Mind line is hidden</strong> &mdash; esp. what finding <strong>Circinus / Memory</strong> means for Omin.</div></div>
+      <div class="row"><div class="box"></div><div>Define the <strong>Eversouls</strong> more fully (number, nature, relation to the <strong>Empyrons</strong>).</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Origin of mortal Animancy</strong> &mdash; locked: a sacred gift from A&rsquo;kana, produced at the <strong>Eye of the Aegis.</strong></div></div>
+    </div>
+
+    <p class="lede" style="margin-top:22px">Lore &amp; world population.</p>
+    <div class="checklist">
+      <div class="row"><div class="box"></div><div>Write the <strong>two obscure parts</strong> of A&rsquo;kana&rsquo;s Vestige&rsquo;s prophecy; reveal who the <strong>Vestige</strong> is.</div></div>
+      <div class="row"><div class="box"></div><div>Detail the <strong>Empyrons</strong> further (Stasyss, Dynaass; Empyr Fleet) &mdash; partial: established as A&rsquo;kana&rsquo;s grandchildren &amp; Ragnn/Fonixi progenitors.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div>All <strong>nine Aspect&rarr;Brand</strong> pairings confirmed.</div></div>
+      <div class="row"><div class="box"></div><div>Expand the <strong>Pneumosi sub-rosters</strong> (Umbral Union, Falseones, Matriarchs, Deithist Court&hellip;).</div></div>
+      <div class="row"><div class="box"></div><div>Define the other <strong>mortal races</strong> (Hominus, Hybrinus, Nyphs, Feii, Neandus, Khimeran, Jengun, Centauri).</div></div>
+      <div class="row"><div class="box"></div><div>Decide what the <strong>Pneumosi know</strong> about the true history.</div></div>
+      <div class="row"><div class="box"></div><div>Decide whether <strong>Archevims can run on Stigma-charge</strong>.</div></div>
+      <div class="row"><div class="box"></div><div>Confirm whether the <strong>Triple-A</strong> also runs the <strong>Forging trials.</strong></div></div>
+    </div>
+
+    <p class="lede" style="margin-top:22px">Resolved (log).</p>
+    <div class="checklist">
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Magic system</strong> &mdash; memory-casting, greying, recovery.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Nine Brands, Types, Tiers, Paths</strong> &mdash; all defined.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Stigma</strong> mechanics, closed loop, Ley-only cure.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Triple-A</strong> &amp; <strong>Mama Maisel</strong> established.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Antagonist architecture</strong> &mdash; three scales.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>The three siblings</strong> &mdash; prophesied Elloyds; Neversoul forms of fallen Restoration Eversouls.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Eversouls</strong> &mdash; A&rsquo;kana&rsquo;s children; full roster; four fates.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Silas</strong> = betrayer brother (Mind / Illusion); cause of the fall &amp; Ne&rsquo;haris&rsquo;s wounding.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Maisel = Mulu&rsquo;lizi</strong> (Body / Integrity) &mdash; sole survivor of the Deconstruction line; kin across the Pillars.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Three Restoration fates</strong> &mdash; reborn (Omin), transformed (Amoz), Unborn-literal (A&rsquo;sai).</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Vi&rsquo;talitas</strong> confirmed canonical spelling.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>The Twelve Laws</strong> &mdash; defined, 4 per dimension; Soul Laws from A&rsquo;kana&rsquo;s verse; upheld collectively by the Eversouls.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Pneumosi order</strong> &mdash; four-class system established (summary).</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Nine Aspects</strong> named &amp; mapped to the Brands.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Ragnn &amp; Fonixi</strong> races defined.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Inciting event / Present Age</strong> &mdash; rift, Stigma, Median awakening, Type Genesis, Vitalitas = Ne&rsquo;haris.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Stigmatization treatable</strong> early (Soothsayers; not guaranteed).</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Paramount epithets &amp; substances</strong> &mdash; Faces/Dark Matter, Eyes/Matter, Souls/Anti-Matter.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Sibling&ndash;class mapping</strong> &mdash; Omin = Unseen, Amoz = Unliving, I&rsquo;onnie = Unborn.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Wylde</strong> confirmed canonical spelling.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Antagonist hierarchy</strong> &mdash; four tiers: A&rsquo;thule &rarr; Falseones (Generals) &rarr; Grey Makers (Lieutenants) &rarr; Stigmants.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Silas&rsquo;s rank</strong> &mdash; a tier between Falseone &amp; Grey Maker; under-promoted by A&rsquo;thule&rsquo;s distrust; motive = prove his worth.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Falseones defined</strong> &mdash; A&rsquo;thule&rsquo;s pure-Stigma children (anti-Eversouls); roster; Null &amp; Vaine as defectors.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Grey Makers&rsquo; origin</strong> &mdash; Silas&rsquo;s corrupted Eversouls (core) + later fallen souls; his personal unit, turned inward against Ne&rsquo;haris.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Vaine the double agent</strong> &mdash; wardog/mastermind faking loyalty to ready Ne&rsquo;haris; war fought from within by two opposed brothers.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>The War was inevitable</strong> &mdash; A&rsquo;thule long planned it; Vaine &amp; Null were unplanned wrenches.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>End of the War</strong> &mdash; Ne&rsquo;haris saved; I&rsquo;n&aacute;cio sealed in the Astroverse; Polestar hidden; loved ones returned to the Sea.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Vaine&rsquo;s fate</strong> &mdash; mortally wounded; wanders the Cosmos, whereabouts unknown.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Maisel knows much</strong> &mdash; reassembled her past by theory; knows kin are hidden; the three must answer the rest.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>A&rsquo;sai&rsquo;s nature</strong> &mdash; the only pure, unaware, Stigma-untouched Eversoul; receives fractured sibling-memories; hears the Grey Makers.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Silas refused the Ley</strong> &mdash; willfully, to continue his &amp; A&rsquo;thule&rsquo;s work; alive in the present as the only Neversoul <strong>fully Stigmatized yet self-possessed</strong> (his &ldquo;Corrupted&rdquo; state).</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Empyrons</strong> &mdash; full species profile (beasts of Ne&rsquo;haris; hunted for Aether-rich parts).</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Animate vs. Inanimate</strong> &amp; <strong>Common vs. Elevated</strong> Animancy defined.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Aether Crux (World Tree)</strong> &amp; <strong>Matrux</strong> &mdash; A&rsquo;kana as Tree of Life; Leylines = roots; why A&rsquo;thule is throttled; D&rsquo;vita&rsquo;s Ring.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Stigma-charged Archevims</strong> &mdash; possible but self-destroying.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Brand symbols &amp; Origin of Anima</strong> recorded.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Mortal races &amp; auric-memory</strong> &mdash; peoples detailed; auric-memory = the 8th sense underlying casting.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Brand colors</strong> applied per-Brand throughout.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Amoz / I&rsquo;n&aacute;cio backstory</strong> &mdash; spark personality; border-guardian fall (patient zero); Ardor-will resistance; unborn lover; final clash. <strong>Null</strong> defined.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Casting act &amp; signature</strong> &mdash; Recall &rarr; Release; greying; the <strong>Signets</strong> (drain into Signets &amp; eyes in Brand color, recovery-speed tell, greying made visible); loud-novice / quiet-master axis.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>How Maisel survived</strong> &mdash; fully stigmatized as Mulu&rsquo;lizi, cleansed by D&rsquo;vita (via Vaine&rsquo;s intel) &amp; reincarnated; the only sibling D&rsquo;vita could save.</div></div>
+    </div>
+  </section>
+
+  <!-- Glossary -->
+  <section id="gloss">
+    <h2><span class="num">&mdash;</span> Quick Reference</h2>
+    <div class="h2title">Glossary</div>
+    <table>
+      <tr><th>Term</th><th>Meaning</th></tr>
+      <tr><td><strong>A&rsquo;kana&rsquo;s Vestige</strong></td><td>Cryptic three-part prophet from aeons past.</td></tr>
+      <tr><td><strong>Advisor Null</strong></td><td>&ldquo;Malice&rdquo; &mdash; A&rsquo;thule&rsquo;s <strong>firstborn</strong> &amp; most powerful Falseone; a shapeshifter; led the breach that fell I&rsquo;n&aacute;cio; later a betrayer.</td></tr>
+      <tr><td><strong>Aegis Grid</strong></td><td>Aetheric barrier keeping dimensions apart &amp; A&rsquo;thule sealed.</td></tr>
+      <tr><td><strong>Aether</strong></td><td>The Force of Life; A&rsquo;kana&rsquo;s substance; powers the Aegis &amp; A&rsquo;thule&rsquo;s prison.</td></tr>
+      <tr><td><strong>Aether Crux / Anima Crux</strong></td><td>The Great Mother Tree &mdash; A&rsquo;kana&rsquo;s sentient essence; the World Tree; source of Anima; roots = the Leylines.</td></tr>
+      <tr><td><strong>Aetherseer</strong></td><td>Omin&rsquo;s epithet &mdash; sees the Unborn via Aether despite being sightless.</td></tr>
+      <tr><td><strong>Amoz Xero</strong></td><td>The Soul Drinker; Ardor Vitalist; Lightwalker.</td></tr>
+      <tr><td><strong>Anima</strong></td><td>Soul-intensity power, spent as memory-charge.</td></tr>
+      <tr><td><strong>Animancy</strong></td><td>The use of power (nine brands, three groups).</td></tr>
+      <tr><td><strong>Animate / Inanimate</strong></td><td>High vs. low Anima frequency &mdash; Medians (reincarnate naturally) vs. Generics (must heal soul-taint).</td></tr>
+      <tr><td><strong>Anitech</strong></td><td>The crafter class &mdash; mortal artificers who build Archevims from an Aspect&rsquo;s blessing and rare body-Matrux.</td></tr>
+      <tr><td><strong>Archetype</strong></td><td>The full spectrum descriptor of a Median or Generic: caster-class &middot; Type &middot; Brand &mdash; e.g. <em>Median &middot; Vitalist &middot; Ardor.</em></td></tr>
+      <tr><td><strong>Archevim</strong></td><td>Animancy-forged tool used by Generics; made from an Aspect&rsquo;s blessing and body-Matrux, crafted by an Anitech.</td></tr>
+      <tr><td><strong>Born / Forged</strong></td><td>Innate vs. earned Soul Restoration users.</td></tr>
+      <tr><td><strong>Centrum</strong></td><td>An Ether Vessel&rsquo;s core, infused with the pilot&rsquo;s essence; a security bond so only the pilot can run the ship smoothly.</td></tr>
+      <tr><td><strong>Children of A&rsquo;kana</strong></td><td>The Eversoul roster: Preservation / Deconstruction / Restoration.</td></tr>
+      <tr><td><strong>Colossai / Wanderlights</strong></td><td>Unliving-class beings: giant world-shapers / the dead who roam.</td></tr>
+      <tr><td><strong>Common / Elevated Animancy</strong></td><td>Material-aided basics vs. Animancy as a trained, material-free art.</td></tr>
+      <tr><td><strong>Division Xero</strong></td><td>Omin Xero&rsquo;s Leywarden unit.</td></tr>
+      <tr><td><strong>Elans</strong></td><td>Companion creatures from across the Pneumaverse; a Sentinel&rsquo;s bonded Elan is called an &ldquo;acolyte.&rdquo;</td></tr>
+      <tr><td><strong>Empyron</strong></td><td>Primeval beast-protectors of Ne&rsquo;haris; A&rsquo;kana was the first.</td></tr>
+      <tr><td><strong>Empyrons</strong></td><td>Enormous Anima-thriving beasts of Ne&rsquo;haris; parents of Dragons, Phoenixes, Sphinxes, Gryphons; aged by wing-sets.</td></tr>
+      <tr><td><strong>Essence</strong></td><td>A faculty of existence personified by an Eversoul (Memory, Illusion, Aether&hellip;).</td></tr>
+      <tr><td><strong>Eternal Cataclysm</strong></td><td>A&rsquo;thule&rsquo;s betrayal &amp; sealing.</td></tr>
+      <tr><td><strong>Ether Vessel</strong></td><td>Sentient spirit-energy vehicle invented by I&rsquo;n&aacute;cio (remembered as Amoz); adapts to local ether via the Ether-Meter; pilot-bonded through its Centrum core.</td></tr>
+      <tr><td><strong>Ether-Meter</strong></td><td>A Vessel&rsquo;s sensor reading ambient energy (type, density, gravity, environmental reaction) to retune its fuel function.</td></tr>
+      <tr><td><strong>Eye of the Aegis</strong></td><td>The center and core of Vi&rsquo;talitas where the Great Mother Tree stands; the point where Anima is produced and pushed out into the Leylines.</td></tr>
+      <tr><td><strong>False Pillars</strong></td><td>A&rsquo;thule&rsquo;s parallel prison.</td></tr>
+      <tr><td><strong>Falseones</strong></td><td>A&rsquo;thule&rsquo;s children made of pure Stigma &mdash; the anti-Eversouls; his Generals. Two (Null, Vaine) defect.</td></tr>
+      <tr><td><strong>Fulcrum</strong></td><td>The anchor-point where Stigma roots into a host; destroying it crumbles the corrupted form and releases the soul to the Sea of Lights. A mercy, not a kill.</td></tr>
+      <tr><td><strong>General Vaine</strong></td><td>Falseone (&ldquo;Grinder&rdquo;) made to destroy D&rsquo;vita; fell in love with her instead &mdash; defected.</td></tr>
+      <tr><td><strong>Generic</strong></td><td>One who cannot; channels via Archevims.</td></tr>
+      <tr><td><strong>Grey Makers</strong></td><td>The stigmatized Eversouls Silas corrupted (core) + later fallen souls; his personal unit; spread Stigma.</td></tr>
+      <tr><td><strong>Greying</strong></td><td>Memory corruption from overspending; gateway to Stigma.</td></tr>
+      <tr><td><strong>HEAT-SR</strong></td><td>Hyper Elevated Anima-Transfused Striker Regalia &mdash; a militarized, sentient Ether Vessel issued to Sentries; of I&rsquo;n&aacute;cio&rsquo;s design.</td></tr>
+      <tr><td><strong>I&rsquo;n&aacute;cio&rsquo;s lover</strong></td><td>An unborn soul from the Sea who anchored I&rsquo;n&aacute;cio against the Stigma; a distinct character, identity a deliberate later reveal.</td></tr>
+      <tr><td><strong>I&rsquo;onnie Xero</strong></td><td>The Empath; Arcane Vitalist; Soothsayer.</td></tr>
+      <tr><td><strong>L.W.V.E.</strong></td><td>Leywarden&rsquo;s Vigilant Ensemble &mdash; issued field gear, including thermal-optical goggles.</td></tr>
+      <tr><td><strong>Leylight flow within / Great Mother guide beyond</strong></td><td>The Leywardens&rsquo; call-and-response benediction.</td></tr>
+      <tr><td><strong>Leylines / Leypoints</strong></td><td>The Grid&rsquo;s currents / their crossings (thinned-rule zones).</td></tr>
+      <tr><td><strong>Leypoint Xenith</strong></td><td>A docile, &ldquo;muted&rdquo; Leypoint used for training and escort excursions.</td></tr>
+      <tr><td><strong>Leywarden</strong></td><td>Median Path; stewards and protectors of the Leypoints (Omin&rsquo;s profession; her unit is Division Xero).</td></tr>
+      <tr><td><strong>Mama Maisel</strong></td><td>Maisel Wone, Prime Soothsayer; born Vitalist; the Eversoul <strong>Mulu&rsquo;lizi</strong> (Body line, Essence of Integrity); runs the Triple-A.</td></tr>
+      <tr><td><strong>Mania</strong></td><td>Failure from Recalling a memory too deeply &mdash; two faces: loss of control (Brand runs wild) or loss of self (coma-like submersion). Resisted by Savvy &amp; Actuality; severe cases need a Soothsayer.</td></tr>
+      <tr><td><strong>Matrux</strong></td><td>Living crystallized Anima &mdash; hardened resin of the Tree of Life; volatile conduit; the &ldquo;skeleton&rdquo; of Ne&rsquo;haris. Mined safely in the Singing Caves and at various Leypoints.</td></tr>
+      <tr><td><strong>Matrux-Altera</strong></td><td>The corrupted dark variant of Matrux.</td></tr>
+      <tr><td><strong>Median</strong></td><td>One who wields Animancy.</td></tr>
+      <tr><td><strong>Ne&rsquo;haris</strong></td><td>Divine nucleus realm of the Pneumaverse; haven of the Unborn/Unliving/Unseen.</td></tr>
+      <tr><td><strong>Nine Divine Aspects</strong></td><td>The Anima Aspects (Genos, Sacros, Ecos, Pseudus, Alphus, Tumus, Voliti, Delphi, Quintessi) &mdash; guardian-teachers of the nine Brands; makers of Archevims.</td></tr>
+      <tr><td><strong>Nine Divine Aspects</strong></td><td>The Anima Aspects &mdash; guardian-teachers of the nine Brands, dwelling in Leypoints.</td></tr>
+      <tr><td><strong>Omneity</strong></td><td>The singular source consciousness; &ldquo;Fate/Destiny.&rdquo;</td></tr>
+      <tr><td><strong>Path</strong></td><td>A Median&rsquo;s chosen specialization/social role post-training.</td></tr>
+      <tr><td><strong>Paths</strong></td><td>Median professions: Lawseeker, Soothsayer, Oathbound, Realmwatcher, Riftstalker, Lightwalker, Leywarden.</td></tr>
+      <tr><td><strong>Pneumosi</strong></td><td>Inhabitants of the Spiritual Realm.</td></tr>
+      <tr><td><strong>Pneumosi / Leykin</strong></td><td>Spirit-Realm inhabitants; ordered Unborn / Unseen / Unliving / Unmortal.</td></tr>
+      <tr><td><strong>Polestar</strong></td><td>A&rsquo;kana&rsquo;s incorporeal core; birthed Ne&rsquo;haris.</td></tr>
+      <tr><td><strong>Ragnn / Fonixi</strong></td><td>The siblings&rsquo; parent-races; Dragon- &amp; Phoenix-descended sky peoples (matriarchal). Fro&rsquo;drin (of the short story) is a Ragnn.</td></tr>
+      <tr><td><strong>Recall State</strong></td><td>The sustained, powered-up form a Median enters to cast; holds until Savvy runs out; Releases fire repeatedly without leaving it.</td></tr>
+      <tr><td><strong>Regency / Regency Cabinet</strong></td><td>A governing authority of Vi&rsquo;talitas; the Lawseekers report to it.</td></tr>
+      <tr><td><strong>Roles</strong></td><td>Combat archetypes open to all &mdash; Medians earn them via Path training, Generics via Archevims: Berserker, Ascendent, Sentry, Oracle, Augur, Conjurer, Sentinel, Weaver, Alternator, Charmist.</td></tr>
+      <tr><td><strong>Sentry</strong></td><td>Role: pilots of HEAT-SR Machines and other anima-fueled heavy machinery.</td></tr>
+      <tr><td><strong>Signets</strong></td><td>A Median&rsquo;s Anima-marks, placed at awakening; location fixed by Brand (announcing their discipline; Aether the exception). Surface during casting as color drains from the body into them and the eyes (sclera and iris flood with the Brand&rsquo;s color; only the pupil stays black or white by race). The visible signature; greying shows on them as permanent dullness.</td></tr>
+      <tr><td><strong>Stasyss / Dynaass</strong></td><td>Immutable Dragon / Perennial Phoenix; A&rsquo;kana&rsquo;s grandchildren.</td></tr>
+      <tr><td><strong>Stigma</strong></td><td>Corrupted Anima; A&rsquo;thule&rsquo;s weapon; dissolution.</td></tr>
+      <tr><td><strong>Stigmant</strong></td><td>Monster of Stigma from a rift; parts are valuable.</td></tr>
+      <tr><td><strong>The Ley / Sea of Lights</strong></td><td>The rebirth cycle; source of Anima.</td></tr>
+      <tr><td><strong>The Underways</strong></td><td>Subterranean passage networks beneath the Leypoints, used for shelter and transit.</td></tr>
+      <tr><td><strong>Tier</strong></td><td>Power rank 1 (highest) to 9; Tier 0 = rare, fluctuating, costly.</td></tr>
+      <tr><td><strong>Trauma Contingency Troupe (T.C.T.)</strong></td><td>The organization defending the Aegis Grid; Leywardens belong to it and operate Ether Vessels. Its heavy-armor wing is staffed by Sentries (HEAT-SR pilots). (Formerly named the Crisis Core.)</td></tr>
+      <tr><td><strong>Triple-A</strong></td><td>Asylum for Aberrant Aptitude; Median institution &amp; home.</td></tr>
+      <tr><td><strong>Trivium</strong></td><td>The three-Pillar structure of reality.</td></tr>
+      <tr><td><strong>Twelve Eternal Laws</strong></td><td>The constitution of balance: 4 Mind + 4 Body + 4 Soul; upheld collectively by the Eversouls.</td></tr>
+      <tr><td><strong>Type Genesis</strong></td><td>The first Medians; sealed the original breach; confirmed Vitalitas = Ne&rsquo;haris.</td></tr>
+      <tr><td><strong>Undertrade Exchange</strong></td><td>Black market that trafficked stolen Median children.</td></tr>
+      <tr><td><strong>Unmortal</strong></td><td>Parallel 4th class &mdash; Medians, Generics &amp; mortal races bound by soul-debt.</td></tr>
+      <tr><td><strong>Vi&rsquo;talitas</strong></td><td>The world of the story; A&rsquo;kana&rsquo;s renewal.</td></tr>
+      <tr><td><strong>Whispers of the Mother</strong></td><td>First of three parts of A&rsquo;kana&rsquo;s Vestige&rsquo;s prophecy.</td></tr>
+      <tr><td><strong>Wyldervern</strong></td><td>Large winged Leypoint predators; hoards of 30&ndash;40 led by a mating pair; valuable eggshells; dangerous when Stigmatized.</td></tr>
+    </table>
+  </section>
+
+  <footer>
+    Eternal Trivium &mdash; Working Series Codex &middot; World of Vi&rsquo;talitas<br>
+    <a class="top" href="#">&uarr; Back to top</a>
+  </footer>
+
+    </div><!-- /.main-col -->
+  </div><!-- /.app-layout -->
+
+</div>
+
+<script>
+(function(){
+  var body = document.body;
+  body.classList.add('app-mode');
+  var sections = Array.prototype.slice.call(document.querySelectorAll('.main-col > section'));
+  var navList = document.getElementById('navList');
+  var mainCol = document.getElementById('mainCol');
+  var search = document.getElementById('navSearch');
+  var toggle = document.getElementById('navToggle');
+  var scrim = document.getElementById('navScrim');
+  var sidenav = document.getElementById('sidenav');
+
+  // Build nav entries from each section's h2 (number + title)
+  var entries = sections.map(function(sec){
+    var h2 = sec.querySelector('h2');
+    var num = '', title = sec.id;
+    if(h2){
+      var numEl = h2.querySelector('.num');
+      num = numEl ? numEl.textContent.trim() : '';
+      // title = h2 text minus the num
+      title = h2.textContent.replace(num, '').trim();
+    }
+    return {id: sec.id, num: num, title: title, sec: sec};
+  });
+
+  entries.forEach(function(e, i){
+    var li = document.createElement('li');
+    var btn = document.createElement('button');
+    btn.className = 'navlink';
+    btn.setAttribute('data-target', e.id);
+    // searchable text = title + a snippet of the section's body
+    var bodyText = (e.sec.textContent || '').toLowerCase();
+    btn.setAttribute('data-search', (e.title + ' ' + bodyText).toLowerCase());
+    btn.innerHTML = '<span class="navnum">'+ (e.num||'') +'</span><span class="navtxt">'+ e.title +'</span>';
+    btn.addEventListener('click', function(){ show(e.id); closeNav(); });
+    li.appendChild(btn);
+    navList.appendChild(li);
+  });
+
+  var links = Array.prototype.slice.call(navList.querySelectorAll('.navlink'));
+
+  function show(id, skipScroll){
+    sections.forEach(function(s){ s.classList.toggle('active-section', s.id === id); });
+    links.forEach(function(l){ l.classList.toggle('active', l.getAttribute('data-target') === id); });
+    if(!skipScroll){ mainCol.scrollIntoView({block:'start'}); window.scrollTo(0,0); }
+    try { history.replaceState(null, '', '#'+id); } catch (e) { /* sandboxed preview blocks history; ignore */ }
+    renderSecNav(id);
+  }
+
+  // Prev/Next footer nav inside each section
+  function renderSecNav(id){
+    var idx = entries.findIndex(function(e){ return e.id === id; });
+    sections.forEach(function(s){
+      var old = s.querySelector('.sec-nav'); if(old) old.remove();
+    });
+    var sec = entries[idx].sec;
+    var nav = document.createElement('div');
+    nav.className = 'sec-nav';
+    var prev = document.createElement('button');
+    var next = document.createElement('button');
+    if(idx > 0){ prev.innerHTML = '&larr; '+ entries[idx-1].title; prev.onclick = function(){ show(entries[idx-1].id); }; }
+    else { prev.textContent = '\u2190'; prev.disabled = true; }
+    if(idx < entries.length-1){ next.innerHTML = entries[idx+1].title +' &rarr;'; next.onclick = function(){ show(entries[idx+1].id); }; }
+    else { next.textContent = '\u2192'; next.disabled = true; }
+    nav.appendChild(prev); nav.appendChild(next);
+    sec.appendChild(nav);
+  }
+
+  // Search filter
+  search.addEventListener('input', function(){
+    var q = this.value.toLowerCase().trim();
+    links.forEach(function(l){
+      var hay = l.getAttribute('data-search') || l.textContent.toLowerCase();
+      l.classList.toggle('dim', q && hay.indexOf(q) === -1);
+    });
+  });
+
+  // Mobile drawer
+  function openNav(){ body.classList.add('nav-open'); }
+  function closeNav(){ body.classList.remove('nav-open'); }
+  if(toggle) toggle.addEventListener('click', openNav);
+  if(scrim) scrim.addEventListener('click', closeNav);
+
+  // Keyboard arrows for prev/next
+  document.addEventListener('keydown', function(ev){
+    if(ev.target && (ev.target.tagName === 'INPUT' || ev.target.tagName === 'TEXTAREA')) return;
+    var cur = document.querySelector('section.active-section');
+    if(!cur) return;
+    var idx = entries.findIndex(function(e){ return e.id === cur.id; });
+    if(ev.key === 'ArrowRight' && idx < entries.length-1) show(entries[idx+1].id);
+    if(ev.key === 'ArrowLeft' && idx > 0) show(entries[idx-1].id);
+  });
+
+  // Initial section: from hash or first
+  var start = (location.hash || '').replace('#','');
+  if(!entries.some(function(e){ return e.id === start; })) start = entries[0].id;
+  show(start, true);
+})();
+</script>
+</body>
+</html>
