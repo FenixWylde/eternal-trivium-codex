@@ -1,0 +1,31 @@
+# ===== Eternal Trivium Codex — .gitignore =====
+# Rename this file to ".gitignore" (with the leading dot) in your repo.
+
+# --- OS / system clutter ---
+.DS_Store
+Thumbs.db
+desktop.ini
+*~
+
+# --- Editor / IDE ---
+.vscode/
+.idea/
+*.swp
+*.tmp
+*.bak
+
+# --- Scratch / backup copies you don't want tracked ---
+# Uncomment any you use locally:
+# *_scratch.*
+# *_old.*
+# *_backup.*
+# /backups/
+
+# --- Notes ---
+# This repo intentionally TRACKS:
+#   index.html                          (the live site front page)
+#   Eternal_Trivium_Series_Codex.html   (named HTML copy)
+#   Eternal_Trivium_Series_Codex.md     (PRIMARY source of truth — edit this)
+#   Animancy_Character_Sheet.html       (prototype game sheet)
+#   Anima_Brand_Symbols.png             (brand art)
+#   README.md
