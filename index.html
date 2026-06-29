@@ -39,11 +39,10 @@
   html{scroll-behavior:smooth}
   body{
     margin:0; background:
-      radial-gradient(130% 115% at 50% 42%, rgba(205,184,136,0) 0%, rgba(205,184,136,0) 50%, rgba(120,90,40,.18) 100%),
-      linear-gradient(165deg, #e0d0aa 0%, #d8c69e 38%, #cdb888 100%),
-      radial-gradient(1200px 800px at 80% -10%, rgba(156,124,60,.12) 0%, transparent 55%),
-      radial-gradient(900px 700px at -10% 20%, rgba(120,90,40,.12) 0%, transparent 50%),
-      var(--bg);
+      radial-gradient(130% 115% at 50% 42%, rgba(150,115,55,0) 0%, rgba(150,115,55,0) 46%, rgba(90,62,28,.28) 100%),
+      linear-gradient(165deg, #c9b187 0%, #bea577 42%, #ac8f5e 100%),
+      var(--bg-2);
+    background-attachment: fixed;
     background-attachment: fixed;
     color:var(--ink);
     font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
@@ -283,34 +282,13 @@
     .group,.card,.chain,nav.toc,.legend{break-inside:avoid}
   }
 
-  /* ===== Sidebar navigation app shell ===== */
+  /* ===== App shell ===== */
   body.app-mode .wrap{max-width:none; padding:0; margin:0}
   .app-layout{display:flex; align-items:flex-start; gap:0; min-height:100vh}
-  .sidenav{
-    position:sticky; top:0; align-self:flex-start;
-    width:268px; min-width:268px; height:100vh; overflow-y:auto;
-    background:var(--bg-2); border-right:1px solid var(--line);
-    padding:22px 14px 40px; box-sizing:border-box;
-  }
-  .sidenav .nav-brand{font-family:var(--serif,Georgia,serif); font-size:18px; font-weight:700; color:var(--ink); padding:0 10px 4px; letter-spacing:.2px}
-  .sidenav .nav-sub{font-size:11px; text-transform:uppercase; letter-spacing:.14em; color:var(--ink-dim); padding:0 10px 16px}
-  .navsearch{width:100%; box-sizing:border-box; margin:0 0 14px; padding:9px 11px; font-size:13px;
+  .navsearch{width:100%; box-sizing:border-box; margin:0; padding:9px 11px; font-size:13px;
     background:var(--bg-1); border:1px solid var(--line); border-radius:9px; color:var(--ink); outline:none}
-  .navsearch:focus{border-color:var(--spirit-cy)}
+  .navsearch:focus{border-color:var(--gilt)}
   .navsearch::placeholder{color:var(--ink-dim)}
-  .navlist{list-style:none; margin:0; padding:0}
-  .navlist li{margin:1px 0}
-  .navlink{
-    display:flex; align-items:center; gap:10px; width:100%; box-sizing:border-box;
-    padding:8px 11px; border-radius:8px; cursor:pointer; border:none; text-align:left;
-    background:transparent; color:var(--ink-dim); font-size:13.5px; font-family:inherit;
-    transition:background .12s,color .12s;
-  }
-  .navlink:hover{background:var(--bg-1); color:var(--ink)}
-  .navlink.active{background:var(--spirit-cy-soft); color:var(--ink)}
-  .navlink.active .navnum{color:var(--spirit-cy)}
-  .navlink .navnum{font-size:11px; font-variant-numeric:tabular-nums; color:var(--ink-dim); min-width:26px; font-weight:600}
-  .navlink.dim{display:none}
   .main-col{flex:1; min-width:0; max-width:920px; margin:0 auto; padding:30px 28px 80px; box-sizing:border-box}
   body.app-mode section{display:none}
   body.app-mode section.active-section{display:block; animation:fadeSection .22s ease}
@@ -331,11 +309,6 @@
       border:none; border-bottom:1px solid var(--line); color:var(--ink); font-family:inherit; font-size:15px; font-weight:600; cursor:pointer;
     }
     .app-layout{flex-direction:column}
-    .sidenav{
-      position:fixed; top:0; left:0; z-index:40; height:100vh; width:84%; max-width:320px;
-      transform:translateX(-100%); transition:transform .22s ease; box-shadow:2px 0 24px rgba(0,0,0,.5);
-    }
-    body.nav-open .sidenav{transform:none}
     .nav-scrim{display:none; position:fixed; inset:0; z-index:35; background:rgba(0,0,0,.55)}
     body.nav-open .nav-scrim{display:block}
     .main-col{padding:22px 18px 70px}
@@ -398,8 +371,6 @@
 
   /* ===== Literary typography pass (whole codex) ===== */
   body{font-family:'Spectral',Georgia,serif}
-  .sidenav .nav-brand{font-family:'Cormorant Garamond',Georgia,serif; font-weight:600; font-size:24px}
-  .sidenav .nav-sub{font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.24em}
   h2{font-family:'IBM Plex Mono',monospace; letter-spacing:.28em; font-size:11px}
   h2 .num{font-family:'IBM Plex Mono',monospace}
   /* Big serif display title per section */
@@ -413,7 +384,8 @@
   h3{font-family:'Cormorant Garamond',Georgia,serif; font-weight:600; font-size:25px; letter-spacing:.3px}
 
   /* ===== Centered section title system ===== */
-  body.app-mode .main-col > section > h2{ text-align:center; }
+  body.app-mode .main-col > section > h2{ text-align:center; margin-bottom:34px; }
+  body.app-mode .main-col > section > h2 .num{ display:none; }
   body.app-mode .main-col > section > .h2title{
     text-align:center; text-transform:uppercase; letter-spacing:3px;
     font-family:'Cinzel',Georgia,serif; font-weight:600;
@@ -431,85 +403,21 @@
     width:90px; height:2px; margin:16px auto 30px;
     background:linear-gradient(90deg,transparent,var(--gilt),transparent); opacity:.7;
   }
-  .navlink{font-family:'Spectral',Georgia,serif}
+  /* embedded Soul Ledger */
+  .ledger-frame-wrap{
+    border:1px solid var(--gilt); border-radius:12px; overflow:hidden; margin:8px 0 4px;
+    box-shadow:0 4px 20px -10px rgba(80,55,20,.5); background:var(--bg);
+  }
+  .ledger-frame{
+    width:100%; height:1500px; border:none; display:block; background:var(--bg);
+  }
+  @media (max-width:760px){ .ledger-frame{height:2100px} }
   /* keep the outline section's own scoped fonts intact (already scoped above) */
 
-  /* ============================================================
-     SIDEBAR — single authoritative definition (consolidated)
-     ============================================================ */
-  .sidenav{
-    width:264px; min-width:264px;
-    display:flex; flex-direction:column; align-items:center;
-    padding:34px 0 44px;
-    background:linear-gradient(180deg, rgba(216,198,158,.5), rgba(203,184,138,.42));
-    border-right:1px solid rgba(120,90,40,.25);
-    box-shadow:none;
-  }
-  /* a single centered column inside the sidebar holds everything */
-  .sidenav > *{ width:200px; max-width:200px; }
-  .sidenav .nav-brand{
-    font-family:'Cinzel',Georgia,serif; font-weight:600; font-size:19px; letter-spacing:.5px;
-    text-align:left; padding:0; margin:0 0 2px;
-    background:linear-gradient(100deg, #5b3a6e, #a0502e 55%, #1f7a6b);
-    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent;
-  }
-  .sidenav .nav-sub{
-    font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:.26em; text-transform:uppercase;
-    color:var(--gilt); font-weight:600; text-align:left; padding:0 0 18px; margin:0;
-    border-bottom:1px solid rgba(120,90,40,.25);
-  }
-  .navsearch{
-    margin:18px 0 16px; padding:9px 12px; font-size:13px;
-    background:rgba(255,250,238,.5); border:1px solid var(--rule); border-radius:9px;
-    color:var(--ink); outline:none;
-  }
-  .navsearch:focus{border-color:var(--gilt)}
-  .navsearch::placeholder{color:var(--ink-faint)}
-  /* nav list with a slim gilt rail */
-  .navlist{position:relative; list-style:none; margin:0; padding:0 0 0 14px;}
-  .navlist::before{
-    content:""; position:absolute; left:3px; top:6px; bottom:6px; width:1.5px;
-    background:linear-gradient(180deg, transparent, var(--gilt) 10%, var(--gilt) 90%, transparent);
-    opacity:.35;
-  }
-  .navlist li{margin:3px 0}
-  .navlink{
-    position:relative; display:flex; align-items:center; gap:11px;
-    width:100%; box-sizing:border-box; padding:7px 10px; border-radius:7px;
-    cursor:pointer; border:none; text-align:left; background:transparent;
-    color:#5a4c30; font-family:'Spectral',Georgia,serif; font-size:14px; line-height:1.3;
-    transition:background .12s, color .12s;
-  }
-  .navlink .navnum{
-    font-family:'IBM Plex Mono',monospace; font-size:10.5px; font-weight:500;
-    color:#9a895f; min-width:22px; flex-shrink:0;
-  }
-  .navlink:hover{background:rgba(255,250,238,.5); color:#241c12}
-  .navlink.active{
-    background:linear-gradient(90deg, rgba(156,124,60,.3), rgba(156,124,60,.12));
-    color:#2c2110; font-weight:600;
-  }
-  .navlink.active .navnum{color:var(--gilt)}
-  .navlink.active::before{
-    content:""; position:absolute; left:-11.5px; top:50%; transform:translateY(-50%);
-    width:8px; height:8px; border-radius:50%; background:var(--gilt);
-    box-shadow:0 0 8px 1px var(--gilt); z-index:2;
-  }
-  .navlink.dim{display:none}
-  /* reading column — even gutter to the sidebar */
+  /* reading column base */
   .main-col{flex:1; min-width:0; max-width:840px; margin:0; padding:34px 44px 80px;}
-  .view-section{margin-top:26px; padding:18px 0 0; border-top:1px solid rgba(120,90,40,.3)}
 
-  /* Custom thin themed scrollbar */
-  .sidenav{scrollbar-width:thin; scrollbar-color:var(--gilt) transparent}
-  .sidenav::-webkit-scrollbar{width:7px}
-  .sidenav::-webkit-scrollbar-track{background:transparent}
-  .sidenav::-webkit-scrollbar-thumb{
-    background:linear-gradient(180deg,var(--gilt),#7a5f28); border-radius:6px;
-    border:1px solid rgba(255,250,238,.25);
-  }
-  .sidenav::-webkit-scrollbar-thumb:hover{background:var(--gilt-bright)}
-  /* Page scrollbar too */
+  /* Page scrollbar */
   html{scrollbar-width:thin; scrollbar-color:var(--gilt) var(--bg-2)}
   .main-col::-webkit-scrollbar, body::-webkit-scrollbar{width:9px}
   body::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--gilt),#7a5f28); border-radius:6px}
@@ -574,7 +482,15 @@
   .topbar .vt-stack{display:flex; flex-direction:column; line-height:1.15}
   .topbar .vt-hint{font-family:'Spectral',serif; font-size:9.5px; font-style:italic; color:var(--ink-faint); letter-spacing:0; text-transform:none}
   /* full-width reading column now */
-  body.app-mode .main-col{max-width:880px; margin:0 auto; padding:40px 32px 90px}
+  body.app-mode .main-col{
+    max-width:880px; margin:0 auto; padding:48px 48px 90px;
+    background:
+      linear-gradient(180deg, #ece0c2 0%, #e6d9b9 100%);
+    border-left:1px solid rgba(120,90,40,.2);
+    border-right:1px solid rgba(120,90,40,.2);
+    box-shadow:0 0 50px -10px rgba(80,55,20,.35);
+    min-height:100vh;
+  }
   /* search results dropdown */
   .tb-search-results{
     position:absolute; top:calc(100% + 6px); right:0; min-width:280px; max-height:60vh; overflow-y:auto;
@@ -588,8 +504,40 @@
     .tb-inner{height:54px; gap:14px}
   }
 
+  /* ===== Mobile navigation drawer ===== */
+  @media (max-width:920px){
+    .navtoggle{
+      display:flex; align-items:center; gap:8px; position:fixed; top:11px; right:14px; z-index:70;
+      background:rgba(255,250,238,.7); border:1px solid var(--gilt); color:#3a2c14;
+      font-family:'IBM Plex Mono',monospace; font-size:12px; padding:7px 12px; border-radius:8px; cursor:pointer;
+    }
+    .tb-inner{padding:0 16px; justify-content:space-between}
+    .topbar .navsearch{display:none}
+    /* slide-in drawer holds the grouped nav */
+    body.nav-open .tb-nav{
+      display:flex; flex-direction:column; align-items:stretch; gap:2px;
+      position:fixed; top:0; right:0; width:78%; max-width:320px; height:100vh; z-index:65;
+      background:linear-gradient(180deg,#e2d4b2,#d3bf90); border-left:2px solid var(--gilt);
+      padding:64px 16px 30px; overflow-y:auto; box-shadow:-10px 0 40px -10px rgba(80,55,20,.6);
+    }
+    body.nav-open .tb-group{width:100%}
+    body.nav-open .tb-top{
+      width:100%; text-align:left; font-size:13px; padding:11px 12px;
+      border-bottom:1px solid rgba(120,90,40,.2);
+    }
+    /* on mobile, show all children expanded under each group */
+    body.nav-open .tb-menu{
+      position:static; opacity:1; visibility:visible; transform:none; box-shadow:none;
+      border:none; background:transparent; padding:2px 0 8px 10px; min-width:0;
+    }
+    body.nav-open .tb-item{font-size:14px}
+    body.nav-open .view-toggle{display:flex; margin-top:18px; padding:14px 8px 0; border-top:1px solid var(--gilt)}
+    .nav-scrim{display:none; position:fixed; inset:0; z-index:60; background:rgba(40,28,12,.5)}
+    body.nav-open .nav-scrim{display:block}
+  }
+  @media (min-width:921px){ .navtoggle{display:none} }
+
   /* ===== Canon toggle (VIEW section in sidebar) ===== */
-  .view-section .view-lbl{font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.24em; color:var(--gilt); margin-bottom:11px}
   .view-toggle{display:flex; align-items:center; gap:10px; cursor:pointer; user-select:none}
   .view-switch{
     position:relative; width:42px; height:23px; border-radius:999px; flex-shrink:0;
@@ -602,7 +550,6 @@
   body.yours-only .view-switch{background:rgba(156,124,60,.4); border-color:var(--gilt)}
   body.yours-only .view-switch::before{transform:translateX(19px); background:var(--gilt); box-shadow:0 0 8px var(--gilt)}
   .view-toggle .vt-text{font-family:'Spectral',serif; font-size:13px; color:#4a3d27}
-  .view-note{font-size:11px; color:#7e6e4f; line-height:1.5; margin-top:10px; font-family:'Spectral',serif}
   /* Claude-developed content hidden when yours-only is active */
   body.yours-only .claude-made{display:none !important}
   /* subtle marker on Claude-made cards when shown */
@@ -765,7 +712,7 @@
 #s_outline .spine p { margin: 0; font-size: 1.18rem; font-style: italic; font-family: 'Cormorant Garamond', serif; line-height: 1.4; }
 #s_outline /* ---- Section ---- */
   section { margin-bottom: 1rem; }
-#s_outline h2 {
+#s_outline h2:not(:first-of-type) {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 600;
     font-size: 2rem;
@@ -774,7 +721,7 @@
     padding-top: 1.4rem;
     border-top: 1px solid var(--rule);
   }
-#s_outline h2 .num {
+#s_outline h2:not(:first-of-type) .num {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.9rem;
     font-weight: 500;
@@ -840,12 +787,13 @@
 #s_outline .tag-silas { background: var(--silas-bg); color: var(--silas); }
 #s_outline .tag-maisel { background: var(--maisel-bg); color: var(--maisel); }
 #s_outline .tag-conv {
-    background: var(--ink);
-    color: var(--parchment);
+    background: linear-gradient(90deg, var(--omin-bg), var(--silas-bg));
+    color: #5a3a4a;
   }
 #s_outline /* ---- End-of-movement marker ---- */
   .turn {
-    background: var(--parchment-deep);
+    background: var(--panel-2);
+    border:1px solid var(--rule);
     border-radius: 3px;
     padding: 1rem 1.3rem;
     margin: 1.4rem 0 0.5rem;
@@ -928,11 +876,11 @@
     margin: 3.4rem 0 1rem;
     padding: 2rem 1.8rem;
     background: var(--ink);
-    color: var(--parchment);
+    color: #ece2c8;
     border-radius: 4px;
   }
 #s_outline .theme h2 {
-    border: none; color: var(--parchment); margin: 0 0 0.8rem; padding: 0;
+    border: none; color: #ece2c8; margin: 0 0 0.8rem; padding: 0;
     font-size: 1.7rem;
   }
 #s_outline .theme p { color: #d8cfbd; margin-bottom: 0.8rem; }
@@ -944,7 +892,7 @@
 #s_outline .theme .p-maisel { background: rgba(181,138,30,0.3); }
 #s_outline .theme .p-silas { background: rgba(138,36,54,0.4); }
 #s_outline .theme .p-parents { background: rgba(47,125,107,0.3); }
-#s_outline .theme .four b { color: var(--parchment); display: block; margin-bottom: 0.2rem; }
+#s_outline .theme .four b { color: #ece2c8; display: block; margin-bottom: 0.2rem; }
 #s_outline /* ---- Open questions ranked ---- */
   .ranked { list-style: none; counter-reset: rq; padding: 0; margin: 1rem 0; }
 #s_outline .ranked li {
@@ -1544,7 +1492,7 @@
 
   <!-- 7 -->
   <section id="s7">
-    <h2><span class="num">05</span> The World on the Ground</h2>
+    <h2><span class="num">05</span> Present Day</h2>
     <div class="h2title">Worldview</div>
     <div class="h2sub">Society on Vi&rsquo;talitas</div>
     <div class="title-rule"></div>
@@ -2187,8 +2135,7 @@
     <div class="h2title">Bestiary</div>
     <div class="h2sub">Creatures of Vi&rsquo;talitas &amp; the Ley</div>
     <div class="title-rule"></div>
-<h3>Bestiary &mdash; Creatures of Vi&rsquo;talitas &amp; the Ley <span class="badge b-locked">Locked</span></h3>
-    <p>A growing catalogue of the non-mortal, non-Stigmant fauna of the world and its Leypoints. The <strong>Empyrons</strong> &mdash; A&rsquo;kana&rsquo;s own beast-lineage &mdash; are catalogued here as the apex entry (below).</p>
+<p>A growing catalogue of the non-mortal, non-Stigmant fauna of the world and its Leypoints. The <strong>Empyrons</strong> &mdash; A&rsquo;kana&rsquo;s own beast-lineage &mdash; are catalogued here as the apex entry (below).</p>
     <div class="group body" style="margin-top:10px">
       <div class="gname"><span class="dot"></span>Wyldervern</div>
       <div class="gmeta">Large winged Leypoint predators, named in kinship with the <strong>Wylde</strong> Brand. Can tear an Ether Vessel out of mid-flight.</div>
@@ -2197,13 +2144,13 @@
       <div class="aspect"><div class="an" style="color:var(--body)">Behavior</div><div class="ad">Intelligent enough to exploit a <strong>broken line of sight</strong>; normally avoid outsiders (why docile Leypoints like <strong>Xenith</strong> suit training). A hoard acting hostile, scattered, or thinned is a <strong>warning sign of Stigma.</strong></div></div>
       <div class="aspect"><div class="an" style="color:var(--body)">Stigmatized</div><div class="ad">Wings rot with <strong>greying wounds</strong>; eyes lose all shine and intelligence; breath turns <strong>unnaturally cold</strong>; pure madness and aggression. Carry a <strong>Fulcrum</strong> &mdash; the mercy is to destroy it.</div></div>
     </div>
-    <h3 style="margin-top:18px">The Empyrons &mdash; Beasts of Ne&rsquo;haris <span class="badge b-locked">Locked</span></h3>
-    <p>The apex entry of the Bestiary. Enormous beasts &mdash; a cross of <strong>lizard, avian, canine, and feline</strong> &mdash; usually winged, very long-lived. <strong>Age is read by wing-sets</strong> (more wings = older). They are <strong>typically of the Aether Brand</strong> &mdash; fitting, as their bodies run with pure Aether Anima &mdash; and the <strong>parent species of Dragons, Phoenixes, Sphinxes, and Gryphons.</strong></p>
-    <ul class="clean">
-      <li><strong>Society:</strong> native to Ne&rsquo;haris; live in <strong>Fleets</strong> with close familial bonds and <strong>heightened intelligence.</strong></li>
-      <li><strong>Nature:</strong> they <strong>thrive on Anima.</strong> Peaceful but <strong>not pacifists</strong> &mdash; fiercely <strong>territorial and protective of kin</strong>; politically neutral. The <strong>beast of representation for Ne&rsquo;haris</strong>, found the world over.</li>
-      <li><strong>The tragedy:</strong> hunted for their bodies &mdash; Empyr <strong>scales, claws, horns, and teeth are riddled with pure Aether Anima</strong>, more powerful than Anima crystals. A built-in poaching economy and moral wound.</li>
-    </ul>
+    <div class="group spirit" style="margin-top:18px">
+      <div class="gname"><span class="dot"></span>The Empyrons &mdash; Beasts of Ne&rsquo;haris <span class="badge b-locked">Locked</span></div>
+      <div class="gmeta">The apex entry of the Bestiary. Enormous beasts &mdash; a cross of <strong>lizard, avian, canine, and feline</strong> &mdash; usually winged, very long-lived. <strong>Age is read by wing-sets</strong> (more wings = older). <strong>Typically of the Aether Brand</strong> &mdash; their bodies run with pure Aether Anima &mdash; and the <strong>parent species of Dragons, Phoenixes, Sphinxes, and Gryphons.</strong></div>
+      <div class="aspect"><div class="an" style="color:var(--a-aether-tx)">Society</div><div class="ad">Native to Ne&rsquo;haris; live in <strong>Fleets</strong> with close familial bonds and <strong>heightened intelligence.</strong></div></div>
+      <div class="aspect"><div class="an" style="color:var(--a-aether-tx)">Nature</div><div class="ad">They <strong>thrive on Anima.</strong> Peaceful but <strong>not pacifists</strong> &mdash; fiercely <strong>territorial and protective of kin</strong>; politically neutral. The <strong>beast of representation for Ne&rsquo;haris</strong>, found the world over.</div></div>
+      <div class="aspect"><div class="an" style="color:var(--a-aether-tx)">The Tragedy</div><div class="ad">Hunted for their bodies &mdash; Empyr <strong>scales, claws, horns, and teeth are riddled with pure Aether Anima</strong>, more powerful than Anima crystals. A built-in poaching economy and moral wound.</div></div>
+    </div>
     <div class="card note"><span class="tag">Connects to</span>Stasyss (Immutable Dragon) &amp; Dynaass (Perennial Phoenix) are Empyrons / A&rsquo;kana&rsquo;s grandchildren &amp; the Ragnn/Fonixi progenitors. A&rsquo;kana herself first took the form of the <strong>first Empyron.</strong></div>
     <div class="card note"><span class="tag">Elans <span class="badge b-locked">Locked</span></span>Companion creatures found <strong>across the Pneumaverse</strong>, varied in kind. Bonded to a <strong>Sentinel</strong> (Roles), an Elan scouts, defends, and fights alongside its wielder &mdash; these bonded companions are called <strong>&ldquo;acolytes.&rdquo;</strong> Elans <strong>do not gravitate to any specific Anima Brand</strong>; instead they <strong>imprint and share the Brand of whomever they bond to.</strong> The breadth of Elan types is an open catalogue &mdash; a natural home for companion/mount design.</div>
   </section>
@@ -2224,8 +2171,11 @@
     <div class="h2title">Soul Ledger</div>
     <div class="h2sub">The prototype character sheet</div>
     <div class="title-rule"></div>
-    <p>The <strong>Soul Ledger</strong> is the prototype character sheet for the Animancy game system &mdash; an interactive build tool covering the V.I.T.A.L.I.T.A.S. attributes, the Recall State (Savvy / Actuality / Mania), the Signet body-map, the Memory Loadout, and Greying.</p>
-    <div class="card payoff"><span class="tag">Where it lives</span>The Soul Ledger is maintained as its own interactive file (<em>Animancy_Character_Sheet.html</em>), kept alongside the Codex. It is an explicitly <strong>unbalanced first-draft</strong> &mdash; a frame to playtest and push against, not a locked ruleset. <em>(A parchment re-theme to match the Codex is planned.)</em></div>
+    <p>The <strong>Soul Ledger</strong> is the prototype character sheet for the Animancy game system &mdash; an interactive build tool covering the V.I.T.A.L.I.T.A.S. attributes, the Recall State (Savvy / Actuality / Mania), the Signet body-map, the Memory Loadout, and Greying. Build a Median below; it&rsquo;s an explicitly <strong>unbalanced first-draft</strong> &mdash; a frame to playtest and push against, not a locked ruleset.</p>
+    <div class="ledger-frame-wrap">
+      <iframe class="ledger-frame" src="Animancy_Character_Sheet.html" title="Soul Ledger — interactive character sheet" loading="lazy"></iframe>
+    </div>
+    <p style="text-align:center; font-size:13px; color:var(--ink-faint); margin-top:10px"><em>The Soul Ledger is also available as its own file (<strong>Animancy_Character_Sheet.html</strong>) for full-screen use and printing.</em></p>
   </section>
 
   <!-- Color Palettes -->
@@ -2555,7 +2505,6 @@
   var search = document.getElementById('navSearch');
   var toggle = document.getElementById('navToggle');
   var scrim = document.getElementById('navScrim');
-  var sidenav = document.getElementById('sidenav');
 
   // Build nav entries from each section's h2 (number + title)
   var entries = sections.map(function(sec){
@@ -2598,7 +2547,7 @@
       item.className = 'tb-item';
       item.setAttribute('data-target', id);
       item.innerHTML = '<span class="ti-num">'+(e.num||'')+'</span><span>'+e.title+'</span>';
-      item.addEventListener('click', function(ev){ ev.stopPropagation(); show(id); closeAllGroups(); });
+      item.addEventListener('click', function(ev){ ev.stopPropagation(); show(id); closeAllGroups(); document.body.classList.remove('nav-open'); });
       menu.appendChild(item);
     });
     gEl.appendChild(menu);
