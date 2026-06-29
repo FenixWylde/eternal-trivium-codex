@@ -302,17 +302,6 @@
   .sec-nav button:hover:not(:disabled){border-color:var(--spirit-cy); color:var(--ink)}
   .sec-nav button:disabled{opacity:.32; cursor:default}
   .navtoggle{display:none}
-  @media (max-width:860px){
-    .navtoggle{
-      display:flex; align-items:center; gap:8px; position:sticky; top:0; z-index:30;
-      width:100%; box-sizing:border-box; padding:13px 18px; background:var(--bg-2);
-      border:none; border-bottom:1px solid var(--line); color:var(--ink); font-family:inherit; font-size:15px; font-weight:600; cursor:pointer;
-    }
-    .app-layout{flex-direction:column}
-    .nav-scrim{display:none; position:fixed; inset:0; z-index:35; background:rgba(0,0,0,.55)}
-    body.nav-open .nav-scrim{display:block}
-    .main-col{padding:22px 18px 70px}
-  }
 
   /* ============================================================
      STYLIZATION LAYER — illuminated-manuscript website polish
@@ -365,9 +354,6 @@
     background:rgba(255,250,238,.4); border:1px solid var(--rule); color:#4a3d27; font-family:var(--serif);
   }
   .sec-nav button:hover:not(:disabled){border-color:var(--gilt); color:#241c12; background:rgba(156,124,60,.12)}
-  @media (max-width:860px){
-    .navtoggle{background:linear-gradient(90deg,#d3bf90,#c9b485); border-bottom:2px solid var(--gilt); color:#3a2c14; font-family:var(--serif)}
-  }
 
   /* ===== Literary typography pass (whole codex) ===== */
   body{font-family:'Spectral',Georgia,serif}
@@ -467,6 +453,7 @@
     background:transparent; color:#4a3d27; font-family:'Spectral',serif; font-size:14.5px; white-space:nowrap;
   }
   .tb-item .ti-num{font-family:'IBM Plex Mono',monospace; font-size:10px; color:#9a895f; min-width:20px}
+  .tb-item .ti-num:empty{display:none; min-width:0}
   .tb-item:hover{background:rgba(156,124,60,.16); color:#241c12}
   .tb-item.active{background:linear-gradient(90deg,rgba(156,124,60,.3),rgba(156,124,60,.12)); color:#2c2110; font-weight:600}
   .tb-item.active .ti-num{color:var(--gilt)}
@@ -507,18 +494,22 @@
   /* ===== Mobile navigation drawer ===== */
   @media (max-width:920px){
     .navtoggle{
-      display:flex; align-items:center; gap:8px; position:fixed; top:11px; right:14px; z-index:70;
+      display:flex; align-items:center; gap:8px; position:fixed; top:11px; right:14px; z-index:80;
       background:rgba(255,250,238,.7); border:1px solid var(--gilt); color:#3a2c14;
       font-family:'IBM Plex Mono',monospace; font-size:12px; padding:7px 12px; border-radius:8px; cursor:pointer;
     }
     .tb-inner{padding:0 16px; justify-content:space-between}
     .topbar .navsearch{display:none}
+    /* raise the whole topbar above the scrim when the drawer is open,
+       so the drawer (a child of .topbar) can sit on top and stay clickable */
+    body.nav-open .topbar{z-index:75}
     /* slide-in drawer holds the grouped nav */
     body.nav-open .tb-nav{
       display:flex; flex-direction:column; align-items:stretch; gap:2px;
-      position:fixed; top:0; right:0; width:78%; max-width:320px; height:100vh; z-index:65;
+      position:fixed; top:0; right:0; width:78%; max-width:320px; height:100vh; z-index:78;
       background:linear-gradient(180deg,#e2d4b2,#d3bf90); border-left:2px solid var(--gilt);
       padding:64px 16px 30px; overflow-y:auto; box-shadow:-10px 0 40px -10px rgba(80,55,20,.6);
+      -webkit-overflow-scrolling:touch;
     }
     body.nav-open .tb-group{width:100%}
     body.nav-open .tb-top{
@@ -532,7 +523,8 @@
     }
     body.nav-open .tb-item{font-size:14px}
     body.nav-open .view-toggle{display:flex; margin-top:18px; padding:14px 8px 0; border-top:1px solid var(--gilt)}
-    .nav-scrim{display:none; position:fixed; inset:0; z-index:60; background:rgba(40,28,12,.5)}
+    /* scrim sits BELOW the topbar/drawer so it never intercepts taps on links */
+    .nav-scrim{display:none; position:fixed; inset:0; z-index:70; background:rgba(40,28,12,.5)}
     body.nav-open .nav-scrim{display:block}
   }
   @media (min-width:921px){ .navtoggle{display:none} }
@@ -1037,7 +1029,7 @@
   </div>
 
   <section id="pitch">
-    <h2><span class="num">&#10022;</span> Synopsis</h2>
+    <h2><span class="num"></span> Synopsis</h2>
     <div class="hero">
       <div class="hero-eyebrow">Synopsis &middot; World of Vi'talitas</div>
       <h1 class="hero-title"><span class="ht-eternal">Eternal</span><span class="ht-trivium">Trivium</span></h1>
@@ -1063,15 +1055,15 @@
     <div class="hero-rule"></div>
 
     <div class="card lead" style="border-left-color:var(--soul); background:var(--soul-soft); margin-top:22px">
-      <span class="tag" style="color:var(--soul)">Teaser &mdash; one line</span>
+      <span class="tag" style="color:var(--soul)">Teaser</span>
       <em style="font-size:18px; color:var(--ink)">In a world where magic is memory spent, three orphaned siblings are the reincarnated gods who once died to save it &mdash; and they don&rsquo;t remember why.</em>
     </div>
     <div class="card" style="border-left-color:var(--a-aether)">
-      <span class="tag" style="color:var(--a-aether-tx)">Short pitch &mdash; back-cover</span>
+      <span class="tag" style="color:var(--a-aether-tx)">Back Cover</span>
       On the world of <strong>Vi&rsquo;talitas</strong>, magic is <strong>Animancy</strong> &mdash; the art of burning your own memories for power, paid not in mana but in the feeling you lose forever. When a tear in reality begins flooding the world with <strong>Stigma</strong>, a corruption that hollows souls into monsters, the only ones who can seal it are three siblings raised in a home for lost children: <strong>Omin</strong>, who traded her sight to perceive the unseen; <strong>Amoz</strong>, who devours the wicked to free their souls; and <strong>I&rsquo;onnie</strong>, who hears the dead but is deaf to the living. They are the last incarnations of the fallen god-souls who lost the first war &mdash; and to win this one, they must Recall the lives they died living. An epic of <strong>memory, mercy, and the cost of power.</strong>
     </div>
     <div class="card" style="border-left-color:var(--mind)">
-      <span class="tag" style="color:var(--mind)">Long pitch &mdash; the deeper hook</span>
+      <span class="tag" style="color:var(--mind)">The Deeper Hook</span>
       The Great Mother <strong>A&rsquo;kana</strong> gave her children the gift of <strong>Anima</strong> &mdash; the power to know and tend a soul &mdash; and was betrayed twice: once by her brother <strong>A&rsquo;thule</strong>, who forged <strong>Stigma</strong> to unmake creation, and once from within, when one of her own protectors corrupted the divine <strong>Eversouls</strong> in a war that broke the world. A&rsquo;kana spent the last of herself sealing the wound, scattering her surviving children into mortal rebirth with their memories wiped. Generations later, the seal is failing. The three who must mend it &mdash; the <strong>Elloyd siblings</strong> &mdash; live as ordinary, distrusted <strong>Medians</strong>, casters who pull power from their own past lives at the price of greying away, memory by memory, toward the same Stigma they&rsquo;re sworn to fight. As they uncover what they were, they inherit not just power but guilt: the betrayer was family, the war was kin against kin, and the mercy they deliver to the corrupted &mdash; releasing trapped souls back to the cycle &mdash; is the same mercy one sister once gave the brother she was forced to strike down. <em>Eternal Trivium</em> braids a coming-of-age, a slow-burn tragedy of reincarnated love, and a cosmology where the only cure for corruption is to <strong>return to where you began.</strong>
     </div>
     <div class="card claude-made" style="border-left-color:var(--spirit); margin-top:18px">
@@ -1086,7 +1078,7 @@
 
   <!-- 2 -->
   <section id="s2">
-    <h2><span class="num">01</span> Cosmology</h2>
+    <h2><span class="num"></span> Cosmology</h2>
     <div class="h2title">Cosmology</div>
     <div class="h2sub">The structure of reality, the Paramounts, and the Twelve Laws</div>
     <div class="title-rule"></div>
@@ -1104,6 +1096,44 @@
       <tr><td style="color:var(--spirit)"><strong>Pneumaverse</strong></td><td style="color:var(--spirit)">Spirit</td><td><strong>A&rsquo;kana</strong></td><td class="glyph">of Many Souls · Great Mother</td><td class="glyph">Anti-Matter</td><td>Sealed A&rsquo;thule; now sleeps</td></tr>
     </table>
     <div class="card note"><span class="tag">The matter-trinity <span class="badge b-locked">Locked</span></span>The Paramounts are formed of the three substances of existence &mdash; A&rsquo;thule = <strong>Dark Matter</strong> (Mind, the unseen pull), A&rsquo;thesis = <strong>Matter</strong> (Body), A&rsquo;kana = <strong>Anti-Matter</strong> (Soul, the inversion-force that can seal and cleanse).</div>
+
+    <h3>The Six Pillars &mdash; True &amp; False <span class="badge b-locked">Locked</span></h3>
+    <p>Each Pillar carries an <strong>epithet</strong> and is anchored by a <strong>Core</strong>. The <strong>three True Pillars</strong> are the dimensions of creation; the <strong>three False Pillars</strong> are the parallel planes just outside them where A&rsquo;thule was sealed &mdash; the corrupted mirror of the Trivium.</p>
+    <table>
+      <caption>The True Pillars &mdash; the dimensions of creation.</caption>
+      <tr><th>Pillar</th><th>Epithet</th><th>Core</th></tr>
+      <tr><td style="color:var(--mind)"><strong>Materiaverse of the Mind</strong></td><td class="glyph">The Unseen Grey</td><td>Core of Awareness: <strong>Pith</strong></td></tr>
+      <tr><td style="color:var(--body)"><strong>Astroverse of the Body</strong></td><td class="glyph">The Unknown Dark</td><td>Core of Embodiment: <strong>Dyad</strong></td></tr>
+      <tr><td style="color:var(--spirit)"><strong>Pneumaverse of the Soul</strong></td><td class="glyph">The Sea of Lights</td><td>Core of Vitality: <strong>Ne&rsquo;haris</strong></td></tr>
+    </table>
+    <table>
+      <caption>The False Pillars &mdash; the sealed, parallel planes.</caption>
+      <tr><th>Pillar</th><th>Epithet</th><th>Core</th></tr>
+      <tr><td><strong>The Eerieverse of the Beyond</strong></td><td class="glyph">The Unspoken Excess</td><td>Core of Lunacy: <strong>Aridam</strong></td></tr>
+      <tr><td><strong>The Umbraverse of the Lost</strong></td><td class="glyph">The Living Darkness</td><td>Core of Silences: <strong>Aza</strong></td></tr>
+      <tr><td><strong>The Netherverse of the Abyss</strong></td><td class="glyph">The Faded Chasm</td><td>Core of Ruin: <strong>Ammit</strong></td></tr>
+    </table>
+
+    <h3>Environment of Ne&rsquo;haris &mdash; the Core of Vitality <span class="badge b-locked">Locked</span></h3>
+    <p>The structure of the Soul Pillar&rsquo;s core, <strong>Ne&rsquo;haris</strong> &mdash; its planetary heart, the divine currents that run through it, and the elemental planes that orbit it.</p>
+    <ul class="clean">
+      <li><strong>Y Planet Core:</strong> the <strong>Kaba&rsquo;akh Vortex.</strong></li>
+    </ul>
+    <table>
+      <caption>The Divine Currents &mdash; the three axes of Ne&rsquo;haris.</caption>
+      <tr><th>Axis</th><th>Current</th><th>Name</th></tr>
+      <tr><td><strong>Z Axis</strong></td><td>Blood of Asar</td><td class="glyph">Current of Tumult</td></tr>
+      <tr><td><strong>X Axis</strong></td><td>Tear of Ause</td><td class="glyph">Current of Totality</td></tr>
+      <tr><td><strong>Y Axis</strong></td><td>Gift of Anima</td><td class="glyph">Current of Tunings</td></tr>
+    </table>
+    <table>
+      <caption>The Orbiting Planes &mdash; the elemental planes of Ne&rsquo;haris.</caption>
+      <tr><th>Plane</th><th>Element</th></tr>
+      <tr><td><strong>Rah</strong></td><td>Plane of Primal Ignis</td></tr>
+      <tr><td><strong>Nun</strong></td><td>Plane of Primal Aquis</td></tr>
+      <tr><td><strong>Geb</strong></td><td>Plane of Primal Terris</td></tr>
+      <tr><td><strong>Shu</strong></td><td>Plane of Primal Aeris</td></tr>
+    </table>
 
     <h3>The Twelve Eternal Laws <span class="badge b-locked">Locked</span></h3>
     <p>If the Trivium is the <strong>structure</strong>, the Twelve Laws are its <strong>constitution</strong> &mdash; the principles that maintain <strong>balance across the three dimensions</strong> (Mind, Body, Soul), <strong>four to each.</strong> They are taught as maxims a Median lives and trains by &mdash; practical wisdom and cosmic principle at once.</p>
@@ -1273,7 +1303,7 @@
   <!-- 3 -->
   <!-- Pneumosi order + Aspects (end of Section 2) -->
   <section id="s2b">
-    <h2><span class="num">02</span> The Pneumosi</h2>
+    <h2><span class="num"></span> The Pneumosi</h2>
     <div class="h2title">Pneumosi</div>
     <div class="h2sub">Inhabitants of the Spirit Realm</div>
     <div class="title-rule"></div>
@@ -1293,7 +1323,7 @@
   </section>
 
   <section id="s3">
-    <h2><span class="num">03</span> Anima &amp; Animancy</h2>
+    <h2><span class="num"></span> Anima &amp; Animancy</h2>
     <div class="h2title">Anima</div>
     <div class="h2sub">The engine, the Nine Brands, and soul access</div>
     <div class="title-rule"></div>
@@ -1459,7 +1489,7 @@
 
   <!-- 6 -->
   <section id="s6">
-    <h2><span class="num">04</span> Stigma &amp; Stigmants</h2>
+    <h2><span class="num"></span> Stigma &amp; Stigmants</h2>
     <div class="h2title">Stigma</div>
     <div class="h2sub">The corruption that hollows souls into monsters</div>
     <div class="title-rule"></div>
@@ -1492,10 +1522,17 @@
 
   <!-- 7 -->
   <section id="s7">
-    <h2><span class="num">05</span> Present Day</h2>
+    <h2><span class="num"></span> Present Day</h2>
     <div class="h2title">Worldview</div>
     <div class="h2sub">Society on Vi&rsquo;talitas</div>
     <div class="title-rule"></div>
+
+    <h3>How the Present Age Began &mdash; Enter the Ley <span class="badge b-locked">Locked</span></h3>
+    <p>For generations, <strong>Vi&rsquo;talitas was an ordinary world</strong> &mdash; mystical races coexisting, anima-rich but stable. Then its <strong>fabric gave way.</strong> A <strong>massive rift</strong> tore open, entangling Vi&rsquo;talitas with what lay beyond, and <strong>Stigma poured through</strong> &mdash; a corruptive miasma that burns the eyes and mouth, lethal by exposure. Those who gave in became <strong>Stigmants</strong>, flooding the world as the rift widened, consuming or corrupting people, beasts, plants, even the raw elements.</p>
+    <p><strong>At that darkest hour, the Medians awakened.</strong> Dormant anima rose across every region; <strong>past-life memories flooded back</strong> into the population, and the <strong>Polestar</strong> &mdash; nucleus of the Ley &mdash; awakened, and its people with it. Vi&rsquo;talitas began returning to what its people had only read of in ancient tomes.</p>
+    <p><strong>One group of Medians sealed the great breach</strong>, saving the reborn world at the cost of their anonymity &mdash; remembered only as <strong>Type Genesis</strong>, the first to show how far Animancy could grow. Their research <strong>confirmed Vi&rsquo;talitas was once Ne&rsquo;haris.</strong> Generations on, this is legend.</p>
+    <p>Today, <strong>Stigmants are a constant threat but no longer apocalyptic.</strong> Rifts still open; now there are Medians to subdue them and Generics to support. <em>This is the world the series opens in.</em></p>
+    <div class="card hook claude-made"><span class="tag">Type Genesis <span class="badge b-locked">Locked</span></span>The nameless first Medians who sealed the original breach, proved Animancy&rsquo;s potential, and confirmed Vitalitas = Ne&rsquo;haris. A ready legend, a possible secret lineage, and the root of the &ldquo;Type&rdquo; naming.</div>
 
     <h3>Medians in Society <span class="badge b-locked">Locked</span></h3>
     <p>Medians are now <strong>essential to Vi&rsquo;talitas &mdash; but it wasn&rsquo;t always so.</strong> For ages they were feared, ridiculed, condemned, and distrusted. Many Generics exploited young Medians through the <strong>Undertrade Exchange</strong>, a black market that stole newly orphaned Median children with untapped potential; the unluckiest never died clean deaths, and those who fought to live carried an unshakeable will. <strong>The arrival of Stigma changed much</strong> &mdash; reframing Medians from threat to necessity. Even now, an uncontrolled Median is treated as a <strong>liability</strong> &mdash; managed risk, not fear or worship.</p>
@@ -1548,7 +1585,7 @@
 
   <!-- 7.5 Paths -->
   <section id="s7b">
-    <h2><span class="num">5.5</span> Medians &amp; Generics</h2>
+    <h2><span class="num"></span> Medians &amp; Generics</h2>
     <div class="h2title">Medians &amp; Generics</div>
     <div class="h2sub">Types, Tiers, Access &amp; Paths</div>
     <div class="title-rule"></div>
@@ -1631,7 +1668,7 @@
 
   <!-- 8 Protagonists -->
   <section id="s8">
-    <h2><span class="num">06</span> The Protagonists</h2>
+    <h2><span class="num"></span> The Protagonists</h2>
     <div class="h2title">Protagonists</div>
     <div class="h2sub">The Elloyd Siblings</div>
     <div class="title-rule"></div>
@@ -1716,7 +1753,7 @@
 
   <!-- 8 -->
   <section id="s9">
-    <h2><span class="num">07</span> The Antagonists</h2>
+    <h2><span class="num"></span> The Antagonists</h2>
     <div class="h2title">Antagonists</div>
     <div class="h2sub">The architecture of corruption</div>
     <div class="title-rule"></div>
@@ -1782,7 +1819,7 @@
 
   <!-- 7.6 The Cast -->
   <section id="s_cast">
-    <h2><span class="num">7.6</span> The Cast</h2>
+    <h2><span class="num"></span> The Cast</h2>
     <div class="h2title">Cast</div>
     <div class="h2sub">Dramatis Personae, by faction</div>
     <div class="title-rule"></div>
@@ -1871,21 +1908,9 @@
 
   <!-- 9 -->
   <!-- 9.5 The Present Age -->
-  <section id="s9b">
-    <h2><span class="num">7.5</span> Where the Series Opens</h2>
-    <div class="h2title">Enter the Ley</div>
-    <div class="h2sub">The Present Age &mdash; the inciting event</div>
-    <div class="title-rule"></div>
-    <p>For generations, <strong>Vi&rsquo;talitas was an ordinary world</strong> &mdash; mystical races coexisting, anima-rich but stable. Then its <strong>fabric gave way.</strong> A <strong>massive rift</strong> tore open, entangling Vi&rsquo;talitas with what lay beyond, and <strong>Stigma poured through</strong> &mdash; a corruptive miasma that burns the eyes and mouth, lethal by exposure. Those who gave in became <strong>Stigmants</strong>, flooding the world as the rift widened, consuming or corrupting people, beasts, plants, even the raw elements.</p>
-    <p><strong>At that darkest hour, the Medians awakened.</strong> Dormant anima rose across every region; <strong>past-life memories flooded back</strong> into the population, and the <strong>Polestar</strong> &mdash; nucleus of the Ley &mdash; awakened, and its people with it. Vi&rsquo;talitas began returning to what its people had only read of in ancient tomes.</p>
-    <p><strong>One group of Medians sealed the great breach</strong>, saving the reborn world at the cost of their anonymity &mdash; remembered only as <strong>Type Genesis</strong>, the first to show how far Animancy could grow. Their research <strong>confirmed Vi&rsquo;talitas was once Ne&rsquo;haris.</strong> Generations on, this is legend.</p>
-    <p>Today, <strong>Stigmants are a constant threat but no longer apocalyptic.</strong> Rifts still open; now there are Medians to subdue them and Generics to support. <em>This is the world the series opens in.</em></p>
-    <div class="card hook claude-made"><span class="tag">Type Genesis <span class="badge b-locked">Locked</span></span>The nameless first Medians who sealed the original breach, proved Animancy&rsquo;s potential, and confirmed Vitalitas = Ne&rsquo;haris. A ready legend, a possible secret lineage, and the root of the &ldquo;Type&rdquo; naming.</div>
-  </section>
-
   <!-- 7.7 The Lost World -->
   <section id="s_lost">
-    <h2><span class="num">7.7</span> The Lost World &mdash; Ne'haris</h2>
+    <h2><span class="num"></span> The Lost World &mdash; Ne'haris</h2>
     <div class="h2title">Ne&rsquo;haris</div>
     <div class="h2sub">The Lost World &mdash; the world as it was, pre-Cataclysm</div>
     <div class="title-rule"></div>
@@ -1946,8 +1971,8 @@
   </section>
 
   <section id="s10">
-    <h2><span class="num">08</span> Building the Game</h2>
-    <div class="h2title">Mechanics</div>
+    <h2><span class="num"></span> Game Builder</h2>
+    <div class="h2title">Game Builder</div>
     <div class="h2sub">RPG design priorities</div>
     <div class="title-rule"></div>
     <ol class="rank">
@@ -2018,7 +2043,7 @@
 
   <!-- 10 -->
   <section id="s11">
-    <h2><span class="num">09</span> The Roadmap</h2>
+    <h2><span class="num"></span> The Roadmap</h2>
     <div class="h2title">Roadmap</div>
     <div class="h2sub">Open threads &amp; next steps</div>
     <div class="title-rule"></div>
@@ -2026,7 +2051,7 @@
     <p class="lede">Cosmology &amp; Eversouls.</p>
     <div class="checklist">
             <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Vaine&rsquo;s turn</strong> &mdash; pre-War slow burn; disillusionment + captivity; enemies-to-lovers with D&rsquo;vita.</div></div>
-      <div class="row"><div class="box"></div><div>Essences named: Capella, Tseen Ke, Al Nair, Eriandus (Body); Rubani, Quasar, Asterope (Spirit).</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div>Essences named: Capella, Tseen Ke, Al Nair, Eriandus (Body); Rubani, Quasar, Asterope (Spirit).</div></div>
       <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Magic-performance layer</strong> &mdash; the visible signature (the <strong>Signets</strong>: drain, eyes &amp; Signets in Brand color, recovery-speed tell, greying made visible) is locked. Remaining sub-passes: the Sequence, the Memory, the Failures.</div></div>
       <div class="row"><div class="box"></div><div>Decide <strong>why the living Mind line is hidden</strong> &mdash; esp. what finding <strong>Circinus / Memory</strong> means for Omin.</div></div>
       <div class="row"><div class="box"></div><div>Define the <strong>Eversouls</strong> more fully (number, nature, relation to the <strong>Empyrons</strong>).</div></div>
@@ -2036,12 +2061,12 @@
     <p class="lede" style="margin-top:22px">Lore &amp; world population.</p>
     <div class="checklist">
       <div class="row"><div class="box"></div><div>Write the <strong>two obscure parts</strong> of A&rsquo;kana&rsquo;s Vestige&rsquo;s prophecy; reveal who the <strong>Vestige</strong> is.</div></div>
-      <div class="row"><div class="box"></div><div>Detail the <strong>Empyrons</strong> further (Stasyss, Dynaass; Empyr Fleet) &mdash; partial: established as A&rsquo;kana&rsquo;s grandchildren &amp; Ragnn/Fonixi progenitors.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div>Detail the <strong>Empyrons</strong> further (Stasyss, Dynaass; Empyr Fleet) &mdash; established as A&rsquo;kana&rsquo;s grandchildren &amp; Ragnn/Fonixi progenitors; full species profile in the Bestiary.</div></div>
       <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div>All <strong>nine Aspect&rarr;Brand</strong> pairings confirmed.</div></div>
       <div class="row"><div class="box"></div><div>Expand the <strong>Pneumosi sub-rosters</strong> (Umbral Union, Falseones, Matriarchs, Deithist Court&hellip;).</div></div>
       <div class="row"><div class="box"></div><div>Define the other <strong>mortal races</strong> (Hominus, Hybrinus, Nyphs, Feii, Neandus, Khimeran, Jengun, Centauri).</div></div>
       <div class="row"><div class="box"></div><div>Decide what the <strong>Pneumosi know</strong> about the true history.</div></div>
-      <div class="row"><div class="box"></div><div>Decide whether <strong>Archevims can run on Stigma-charge</strong>.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div>Decide whether <strong>Archevims can run on Stigma-charge</strong> &mdash; resolved: possible, but self-destroying.</div></div>
       <div class="row"><div class="box"></div><div>Confirm whether the <strong>Triple-A</strong> also runs the <strong>Forging trials.</strong></div></div>
     </div>
 
@@ -2095,7 +2120,7 @@
 
   <!-- Technology -->
   <section id="s_tech">
-    <h2><span class="num">06.5</span> Technology</h2>
+    <h2><span class="num"></span> Technology</h2>
     <div class="h2title">Technology</div>
     <div class="h2sub">Anima-craft &mdash; Archevims, Anitechs, Ether Vessels &amp; HEAT-SR</div>
     <div class="title-rule"></div>
@@ -2131,7 +2156,7 @@
 
   <!-- Bestiary -->
   <section id="s_best">
-    <h2><span class="num">06.6</span> Bestiary</h2>
+    <h2><span class="num"></span> Bestiary</h2>
     <div class="h2title">Bestiary</div>
     <div class="h2sub">Creatures of Vi&rsquo;talitas &amp; the Ley</div>
     <div class="title-rule"></div>
@@ -2157,7 +2182,7 @@
 
   <!-- The New World -->
   <section id="s_newworld">
-    <h2><span class="num">05.5</span> The New World &mdash; Vi'talitas</h2>
+    <h2><span class="num"></span> The New World &mdash; Vi'talitas</h2>
     <div class="h2title">Vi&rsquo;talitas</div>
     <div class="h2sub">The New World &mdash; present-day geography</div>
     <div class="title-rule"></div>
@@ -2167,8 +2192,8 @@
 
   <!-- Soul Ledger -->
   <section id="s_ledger">
-    <h2><span class="num">08.5</span> The Soul Ledger</h2>
-    <div class="h2title">Soul Ledger</div>
+    <h2><span class="num"></span> Soul Ledger Sheet</h2>
+    <div class="h2title">Soul Ledger Sheet</div>
     <div class="h2sub">The prototype character sheet</div>
     <div class="title-rule"></div>
     <p>The <strong>Soul Ledger</strong> is the prototype character sheet for the Animancy game system &mdash; an interactive build tool covering the V.I.T.A.L.I.T.A.S. attributes, the Recall State (Savvy / Actuality / Mania), the Signet body-map, the Memory Loadout, and Greying. Build a Median below; it&rsquo;s an explicitly <strong>unbalanced first-draft</strong> &mdash; a frame to playtest and push against, not a locked ruleset.</p>
@@ -2180,7 +2205,7 @@
 
   <!-- Color Palettes -->
   <section id="s_palette">
-    <h2><span class="num">10.5</span> Color Palettes</h2>
+    <h2><span class="num"></span> Color Palettes</h2>
     <div class="h2title">Color Palettes</div>
     <div class="h2sub">The Animancy palette &mdash; Brands &amp; Pillars</div>
     <div class="title-rule"></div>
@@ -2250,7 +2275,7 @@
 
   <!-- Book Outline -->
   <section id="s_outline">
-    <h2><span class="num">09.5</span> Book Outline</h2>
+    <h2><span class="num"></span> Book Outline</h2>
     <div class="h2title">Book One</div>
     <div class="h2sub">One wound, four witnesses, and the one who holds the whole truth</div>
     <div class="title-rule"></div>
@@ -2389,7 +2414,7 @@
   </section>
 
   <section id="gloss">
-    <h2><span class="num">&mdash;</span> Quick Reference</h2>
+    <h2><span class="num"></span> Index</h2>
     <div class="h2title">Index</div>
     <div class="h2sub">Glossary of locked terms</div>
     <div class="title-rule"></div>
@@ -2500,7 +2525,6 @@
       });
     }
   })();
-  var navList = document.getElementById('navList');
   var mainCol = document.getElementById('mainCol');
   var search = document.getElementById('navSearch');
   var toggle = document.getElementById('navToggle');
@@ -2521,13 +2545,10 @@
 
   // ----- Grouped top-bar architecture -----
   var GROUPS = [
-    {label:'Synopsis', ids:['pitch']},
     {label:'Mythos', ids:['s2','s2b','s3','s6']},
     {label:'Realm', ids:['s7','s_newworld','s_lost','s_best']},
-    {label:'Society', ids:['s7b','s8','s9','s_cast']},
-    {label:'Industry', ids:['s_tech']},
-    {label:'Story', ids:['s9b','s_outline']},
-    {label:'Development', ids:['s10','s11','s_ledger','s_palette','gloss']}
+    {label:'Society', ids:['s7b','s8','s9','s_cast','s_tech']},
+    {label:'Development', ids:['s11','s_outline','s10','s_ledger','s_palette','gloss']}
   ];
   var tbNav = document.getElementById('tbNav');
   var groupEls = [];
