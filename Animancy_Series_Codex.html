@@ -583,11 +583,11 @@
   .legend-row{display:flex; flex-wrap:wrap; gap:9px; margin:8px auto 6px; justify-content:center; max-width:760px}
   .hero .hero-genre{
     font-family:'IBM Plex Mono',monospace; font-size:clamp(11px,1.6vw,14px); letter-spacing:.18em;
-    text-transform:uppercase; color:var(--a-arcane); margin:0 0 24px;
+    text-transform:uppercase; color:var(--a-arcane); margin:0 auto 24px; max-width:760px; text-align:center;
   }
-  .hero .hero-lead{font-size:19px; max-width:680px; color:var(--ink-soft); line-height:1.55}
+  .hero .hero-lead{font-size:19px; max-width:680px; margin:0 auto; color:var(--ink-soft); line-height:1.55; text-align:center}
   .hero .hero-lead strong{color:var(--ink)}
-  .def-row{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:30px 0}
+  .def-row{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:30px auto; max-width:880px}
   @media(max-width:680px){ .def-row{grid-template-columns:1fr} }
   .def-card{
     background:linear-gradient(180deg, rgba(255,250,238,.5), rgba(230,217,185,.3));
