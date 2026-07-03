@@ -583,11 +583,11 @@
   .legend-row{display:flex; flex-wrap:wrap; gap:9px; margin:8px auto 6px; justify-content:center; max-width:760px}
   .hero .hero-genre{
     font-family:'IBM Plex Mono',monospace; font-size:clamp(11px,1.6vw,14px); letter-spacing:.18em;
-    text-transform:uppercase; color:var(--a-arcane); margin:0 auto 24px; max-width:760px; text-align:center;
+    text-transform:uppercase; color:var(--a-arcane); margin:0 0 24px;
   }
-  .hero .hero-lead{font-size:19px; max-width:680px; margin:0 auto; color:var(--ink-soft); line-height:1.55; text-align:center}
+  .hero .hero-lead{font-size:19px; max-width:680px; color:var(--ink-soft); line-height:1.55}
   .hero .hero-lead strong{color:var(--ink)}
-  .def-row{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:30px auto; max-width:880px}
+  .def-row{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:30px 0}
   @media(max-width:680px){ .def-row{grid-template-columns:1fr} }
   .def-card{
     background:linear-gradient(180deg, rgba(255,250,238,.5), rgba(230,217,185,.3));
@@ -1020,9 +1020,9 @@
 
   <div class="legend">
     <span class="lbl">How to read this document</span>
-    <span class="chip c-mind">Mind · A&rsquo;thule · Astroverse</span>
+    <span class="chip c-mind">Mind · A&rsquo;thule · Materiaverse → the False Pillars</span>
     <span class="chip c-spirit">Spirit · A&rsquo;kana · Pneumaverse</span>
-    <span class="chip c-body">Body · A&rsquo;thesis · Materiaverse</span>
+    <span class="chip c-body">Body · A&rsquo;thesis · Astroverse</span>
     <span class="chip c-locked">Locked &mdash; decided</span>
     <span class="chip c-open">Open &mdash; to decide</span>
     <span class="chip" style="color:var(--spirit-cy);border-color:var(--spirit-cy);background:var(--spirit-cy-soft)">Cyan &mdash; protagonists</span>
@@ -1174,7 +1174,7 @@
     </div>
     <div class="card note"><span class="tag">How the Laws function <span class="badge b-locked">Locked</span></span>Ordinary Animancy operates <em>within</em> the Laws. <strong>Bending or breaking a Law</strong> is the source of forbidden power and a doorway for Stigma. The corrupted don&rsquo;t break <em>assigned</em> Laws &mdash; they fail the <strong>balance their dimension was meant to keep</strong> (the fallen Body line: Desire, Ego, Morality, Integrity unbalanced; Silas violating <em>Sight is not truth</em>).</div>
 
-    <h3>The Eternal Cataclysm <span class="badge b-locked">Locked</span></h3>
+    <h3>The Immortal Fissure <span class="badge b-locked">Locked</span> <span class="badge b-locked">renamed: was &ldquo;Eternal Cataclysm&rdquo;</span></h3>
     <p>A&rsquo;thule, ruler of the Mind, came to covet his siblings&rsquo; contentment and the Omneity&rsquo;s authority. He struck first at A&rsquo;kana, believing her benevolence made her weak. A&rsquo;thesis intervened and was destroyed defending her; his remains were cast adrift among the Pillars. Enraged, A&rsquo;kana spent vast energy to tear A&rsquo;thule from the Astroverse and seal him in a parallel plane just outside the three Pillars &mdash; the <strong>False Pillars</strong> &mdash; fortified with <strong>Aether</strong>.</p>
 
     <h3>Aether &amp; the Aegis Grid <span class="badge b-locked">Locked</span></h3>
@@ -1196,7 +1196,7 @@
       <div class="aspect"><div class="an" style="color:var(--a-ardor)">Anathema</div><div class="ad">Where the <strong>chaotic, dangerous, and wicked</strong> reside &mdash; clawing over one another for a new destiny, though <strong>not at all redeemed.</strong> <em>Holds the realms of <strong>Hell, Abaddon,</strong> and <strong>The Abyss.</strong></em></div></div>
     </div>
     <div class="card note claude-made"><span class="tag">Stages of the cycle <span class="badge b-locked">Locked</span></span>The Veils are the <em>terrain</em> of the journey between lives: return to the Ley &rarr; move through the appropriate Veils &rarr; drawn back into rebirth (memory wiped, re-emerging anew). Whether a soul travels toward <strong>Awakening and Elevation</strong> or down into <strong>Blight and Anathema</strong> reflects what it carried at death.</div>
-    <div class="card note claude-made"><span class="tag">The center has changed <span class="badge b-locked">Locked</span></span>Ne&rsquo;haris was formerly the <strong>center core</strong> of the Veils. After the Cataclysm and rebirth, <strong>Vi&rsquo;talitas now holds that center.</strong></div>
+    <div class="card note claude-made"><span class="tag">The center has changed <span class="badge b-locked">Locked</span></span>Ne&rsquo;haris was formerly the <strong>center core</strong> of the Veils. After the Gloaming &mdash; the Ghost Wars&rsquo; second battle &mdash; and rebirth, <strong>Vi&rsquo;talitas now holds that center.</strong></div>
     <div class="card payoff claude-made"><span class="tag">Walking the Veils <span class="badge b-locked">Locked</span></span>Those who can travel the Veils &mdash; <strong>Veilwalkers</strong> (revised from &ldquo;Lightwalkers&rdquo;), <strong>Riftstalkers</strong>, <strong>Leywardens</strong>, and sometimes <strong>Realmwatchers</strong> &mdash; use <strong>Ether Vessels</strong>, <strong>HEAT-SR Machines</strong>, and gear such as <strong>L.W.V.E Suits</strong> to move through the Veils with safety and focus. Most <strong>Leypoints</strong> are found in the Veils of <strong>Wandering, Blight, and Anathema.</strong> The untrained risk having their <strong>souls ripped away and cast into the Sea</strong>, or suffering <strong>Leyveil Sickness.</strong></div>
 
     <h3>A&rsquo;kana&rsquo;s Slumber, the Polestar &amp; Ne&rsquo;haris <span class="badge b-locked">Locked</span></h3>
@@ -1540,6 +1540,546 @@
     <div class="card hook"><span class="tag">A mercy, not a kill <span class="badge b-locked">Locked</span></span><strong>Destroy the Fulcrum and the host crumbles</strong> &mdash; the corrupted body collapses and the soul is <strong>released back to the Sea of Lights.</strong> A fully Stigmatized creature is already lost to madness and rot; shattering its Fulcrum <em>frees</em> the trapped soul rather than merely slaying a monster. (&ldquo;Destroy their fulcrums, and let them crumble&hellip; these poor things deserve a proper journey back to the Sea of Lights.&rdquo;) It literalizes the cosmology&rsquo;s central rule &mdash; the only cure for Stigma is <strong>returning to the Ley.</strong> Finding and reaching a Fulcrum in combat is the core skill of Stigma-fighting work, requiring <strong>archevims</strong> and a caster who can read where the corruption is anchored. Leywardens and Riftstalkers train for exactly this.</div>
 
   </section>
+
+  
+<section id="s_chronicle">
+<h2><span class="num"></span> Chronicle of Ages</h2>
+<div class="h2title">Chronicle of Ages</div>
+<div class="h2sub">The master timeline &mdash; Mythos &middot; Ethos &middot; Vitae &mdash; with the Dual Reckoning, the Civil Calendar, and the converter</div>
+<div class="title-rule"></div>
+<style>
+#s_chronicle .badge{
+    display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:10px;
+    font-weight:500; text-transform:uppercase; letter-spacing:.12em;
+    padding:2px 8px; border-radius:5px; vertical-align:2px; margin-left:8px;
+    box-shadow:0 1px 2px -1px rgba(80,55,20,.4);
+  }
+#s_chronicle .b-locked{background:var(--locked-soft); color:var(--locked); border:1px solid var(--locked)}
+#s_chronicle .b-open{background:var(--open-soft); color:var(--open); border:1px solid var(--open)}
+#s_chronicle .b-new{background:var(--soul-soft); color:var(--soul); border:1px solid var(--soul-edge)}
+#s_chronicle .b-prop{background:var(--maisel-bg); color:#8a6a12; border:1px solid var(--maisel)}
+#s_chronicle h2.secline{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:500;
+    text-transform:uppercase; letter-spacing:.28em; color:var(--ink-faint);
+    text-align:center; margin:0 0 4px;
+  }
+#s_chronicle .sectitle{
+    text-align:center; text-transform:uppercase; letter-spacing:3px;
+    font-family:'Cinzel',Georgia,serif; font-weight:600;
+    font-size:clamp(22px,3.6vw,32px); margin:2px auto 4px;
+    background:linear-gradient(100deg,#5b3a6e 0%,#a0502e 52%,#1f7a6b 100%);
+    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent;
+  }
+#s_chronicle .secsub{
+    text-align:center; font-style:italic; color:var(--ink-dim);
+    font-size:15px; margin:0 auto 22px; max-width:600px; line-height:1.45;
+  }
+#s_chronicle table{
+    width:100%; border-collapse:collapse; font-size:14.5px;
+    background:linear-gradient(180deg, rgba(255,250,238,.35), transparent);
+    border:1px solid var(--rule); border-radius:10px; overflow:hidden;
+  }
+#s_chronicle th{
+    background:rgba(156,124,60,.14); color:#5c4a24; border-bottom:1px solid var(--gilt);
+    font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase;
+    letter-spacing:.14em; font-weight:500; text-align:left; padding:9px 14px;
+  }
+#s_chronicle td{padding:8px 14px; border-bottom:1px solid rgba(120,90,40,.18)}
+#s_chronicle table tr:nth-child(even) td{background:rgba(156,124,60,.05)}
+#s_chronicle table tr:last-child td{border-bottom:none}
+#s_chronicle td em{color:var(--ink-dim)}
+#s_chronicle .card{
+    background:linear-gradient(180deg, rgba(255,250,238,.5), rgba(230,217,185,.35));
+    border:1px solid var(--rule); border-left-width:3px;
+    box-shadow:0 1px 0 rgba(255,255,255,.4) inset, 0 2px 10px -6px rgba(80,55,20,.4);
+    border-radius:11px; padding:14px 18px; margin:14px 0;
+    font-size:14.5px; line-height:1.58;
+  }
+#s_chronicle .card .tag{
+    display:block; font-family:'IBM Plex Mono',monospace; font-size:10.5px;
+    text-transform:uppercase; letter-spacing:.16em; color:var(--gilt);
+    font-weight:500; margin-bottom:5px;
+  }
+#s_chronicle .chron::before{
+    content:""; position:absolute; left:14px; top:0; bottom:0; width:2px;
+    opacity:.55; border-radius:2px;
+  }
+#s_chronicle .chron-mythos::before{background:linear-gradient(180deg, var(--mind) 0%, var(--mind) 66%, var(--silas) 100%)}
+#s_chronicle .chron-ethos::before{background:linear-gradient(180deg, var(--silas) 0%, var(--body) 14%, var(--body) 58%, var(--silas) 100%)}
+#s_chronicle .chron-vitae::before{background:linear-gradient(180deg, var(--silas) 0%, var(--soul) 16%, var(--soul) 100%)}
+#s_chronicle .mini{width:100%; border-collapse:collapse; font-size:13.5px; border:1px solid var(--rule); border-radius:10px; overflow:hidden}
+#s_chronicle .mini td{padding:7px 12px; border-bottom:1px solid rgba(120,90,40,.15); vertical-align:top}
+#s_chronicle .mini tr:last-child td{border-bottom:none}
+#s_chronicle .mini td:first-child{white-space:nowrap; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-dim); width:170px}
+#s_chronicle .dot{display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:8px; vertical-align:1px}
+#s_chronicle .d-mind{background:var(--mind)}
+#s_chronicle .d-body{background:var(--body)}
+#s_chronicle .d-soul{background:var(--soul)}
+#s_chronicle .d-hinge{background:var(--silas)}
+#s_chronicle .d-gilt{background:var(--gilt)}
+#s_chronicle .season-band{border:1px solid var(--rule); border-left:4px solid; border-radius:10px; padding:11px 14px; margin:10px 0}
+#s_chronicle .season-band .sb-t{font-family:var(--display); font-weight:600; font-size:16.5px; display:block}
+#s_chronicle .season-band .sb-s{font-style:italic; color:var(--ink-dim); font-size:13px; display:block; margin-bottom:8px}
+#s_chronicle .sb-lull{border-left-color:var(--mind)}
+#s_chronicle .sb-lull .sb-t{color:var(--mind)}
+#s_chronicle .sb-eld{border-left-color:var(--body)}
+#s_chronicle .sb-eld .sb-t{color:var(--body)}
+#s_chronicle .sb-vim{border-left-color:var(--soul)}
+#s_chronicle .sb-vim .sb-t{color:var(--soul)}
+#s_chronicle .wavechips{display:flex; flex-wrap:wrap; gap:6px}
+#s_chronicle .wavechip{font-family:'IBM Plex Mono',monospace; font-size:11px; padding:3px 9px; border-radius:999px; border:1px solid var(--rule); background:rgba(255,250,238,.45); cursor:pointer}
+#s_chronicle .wavechip:hover{border-color:var(--gilt)}
+#s_chronicle .wavechip.sel{border-color:var(--gilt); background:rgba(156,124,60,.2); font-weight:500}
+#s_chronicle .calgrid{display:grid; grid-template-columns:repeat(9,1fr); gap:3px; margin-top:12px}
+#s_chronicle .calgrid .ch{font-family:'IBM Plex Mono',monospace; font-size:9.5px; text-transform:uppercase; letter-spacing:.04em; text-align:center; color:var(--ink-dim); padding:4px 0; border-bottom:1px solid var(--gilt)}
+#s_chronicle .calgrid .cb{aspect-ratio:1.15; display:flex; align-items:center; justify-content:center; font-size:11.5px; font-family:'IBM Plex Mono',monospace; border:1px solid rgba(120,90,40,.25); border-radius:5px; background:rgba(255,250,238,.35)}
+#s_chronicle .calgrid .cb.mark{border-color:var(--silas); background:var(--silas-bg); color:var(--silas); font-weight:600}
+#s_chronicle .calgrid .cb.dimc{opacity:.32}
+#s_chronicle .spanlab{font-family:'IBM Plex Mono',monospace; font-size:9px; color:var(--ink-faint); display:flex; align-items:center; justify-content:center}
+#s_chronicle .cv-row{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin:14px 0}
+#s_chronicle .cv-row input, #s_chronicle .cv-row select{font-family:'Spectral',Georgia,serif; font-size:15px; color:var(--ink); background:rgba(255,250,238,.55); border:1px solid var(--rule); border-radius:8px; padding:8px 12px}
+#s_chronicle .cv-row input{width:130px}
+#s_chronicle .cv-row input:focus, #s_chronicle .cv-row select:focus{outline:none; border-color:var(--gilt)}
+#s_chronicle .cv-felt{font-family:var(--display); font-size:21px; font-weight:600; margin:10px 0 4px}
+#s_chronicle .cv-out{font-size:14px; line-height:1.65}
+#s_chronicle .agehead{position:relative; margin:52px 0 10px}
+#s_chronicle .agehead:first-child{margin-top:0}
+#s_chronicle .agehead::before{
+    content:"\25C8"; position:absolute; left:-41px; top:8px; font-size:20px;
+    text-shadow:0 0 12px currentColor;
+  }
+#s_chronicle .agehead .age-ey{
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; text-transform:uppercase;
+    letter-spacing:.3em; font-weight:500; opacity:.85;
+  }
+#s_chronicle .agehead h3{
+    font-family:'Cinzel',Georgia,serif; font-weight:600; text-transform:uppercase;
+    letter-spacing:2.5px; font-size:clamp(22px,3.8vw,32px); margin:2px 0 2px; line-height:1.1;
+  }
+#s_chronicle .agehead .age-span{font-style:italic; color:var(--ink-dim); font-size:15px}
+#s_chronicle .age-mythos{color:var(--mind)}
+#s_chronicle .age-mythos h3{color:var(--mind)}
+#s_chronicle .age-ethos{color:var(--body)}
+#s_chronicle .age-ethos h3{color:var(--body)}
+#s_chronicle .age-vitae{color:var(--soul)}
+#s_chronicle .age-vitae h3{color:var(--soul)}
+#s_chronicle .ev{position:relative; margin:16px 0}
+#s_chronicle .ev::before{
+    content:""; position:absolute; left:-34px; top:20px; width:10px; height:10px;
+    border-radius:50%; border:2px solid var(--gilt); background:var(--bg);
+  }
+#s_chronicle .ev .card{margin:0}
+#s_chronicle .ev-mythos .card{border-left-color:var(--mind)}
+#s_chronicle .ev-mythos::before{border-color:var(--mind-edge)}
+#s_chronicle .ev-ethos .card{border-left-color:var(--body)}
+#s_chronicle .ev-ethos::before{border-color:var(--body-edge)}
+#s_chronicle .ev-vitae .card{border-left-color:var(--soul)}
+#s_chronicle .ev-vitae::before{border-color:var(--soul-edge)}
+#s_chronicle .ev-hinge{margin:30px 0}
+#s_chronicle .ev-hinge::before{
+    content:"\25C8"; border:none; background:none; width:auto; height:auto;
+    left:-40px; top:14px; font-size:19px; color:var(--silas);
+    text-shadow:0 0 12px var(--silas);
+  }
+#s_chronicle .ev-hinge .card{
+    border-left-color:var(--silas); border-color:var(--silas);
+    background:linear-gradient(180deg, rgba(246,224,227,.72), rgba(230,217,185,.4));
+  }
+#s_chronicle .ev-hinge .tag{color:var(--silas)}
+#s_chronicle .ev-hinge .ev-name{
+    font-family:'Cinzel',Georgia,serif; font-weight:600; letter-spacing:1.5px;
+    text-transform:uppercase; font-size:18px; color:var(--silas); display:block; margin-bottom:4px;
+  }
+#s_chronicle .ev-name{
+    font-family:var(--display); font-weight:600; font-size:18.5px;
+    letter-spacing:.3px; display:block; margin-bottom:3px;
+  }
+#s_chronicle .ev-when{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-faint);
+    letter-spacing:.08em; display:block; margin-bottom:6px;
+  }
+#s_chronicle .ev p{margin:0}
+#s_chronicle .ev p + p{margin-top:7px}
+#s_chronicle .whisper{font-style:italic; color:var(--ink-dim)}
+#s_chronicle .thread{
+    border:1px solid var(--rule); border-left:4px solid; border-radius:11px;
+    padding:14px 18px; margin:13px 0; font-size:14.5px; line-height:1.58;
+    box-shadow:0 2px 10px -6px rgba(80,55,20,.4);
+  }
+#s_chronicle .thread .tname{
+    font-family:var(--display); font-weight:600; font-size:18px; display:block; margin-bottom:3px;
+  }
+#s_chronicle .t-omin{border-left-color:var(--omin); background:linear-gradient(180deg, var(--omin-bg), rgba(230,217,185,.3))}
+#s_chronicle .t-omin .tname{color:var(--omin)}
+#s_chronicle .t-amoz{border-left-color:var(--amoz); background:linear-gradient(180deg, var(--amoz-bg), rgba(230,217,185,.3))}
+#s_chronicle .t-amoz .tname{color:var(--amoz)}
+#s_chronicle .t-ion{border-left-color:var(--ion); background:linear-gradient(180deg, var(--ion-bg), rgba(230,217,185,.3))}
+#s_chronicle .t-ion .tname{color:var(--ion)}
+#s_chronicle .t-silas{border-left-color:var(--silas); background:linear-gradient(180deg, var(--silas-bg), rgba(230,217,185,.3))}
+#s_chronicle .t-silas .tname{color:var(--silas)}
+#s_chronicle .t-maisel{border-left-color:var(--maisel); background:linear-gradient(180deg, var(--maisel-bg), rgba(230,217,185,.3))}
+#s_chronicle .t-maisel .tname{color:#8a6a12}
+#s_chronicle .t-allies{border-left-color:var(--flag); background:linear-gradient(180deg, var(--flag-bg), rgba(230,217,185,.3))}
+#s_chronicle .t-allies .tname{color:var(--flag)}
+#s_chronicle .seams ol{margin:16px 0 0; padding-left:24px}
+#s_chronicle .seams li{margin:9px 0; font-size:14.5px; line-height:1.55}
+#s_chronicle .seams li::marker{font-family:'IBM Plex Mono',monospace; color:var(--gilt); font-size:12px}
+#s_chronicle .chron{padding-left:34px}
+#s_chronicle .chron::before{left:9px}
+#s_chronicle .ev::before{left:-29px}
+#s_chronicle .ev-hinge::before{left:-34px}
+#s_chronicle .agehead::before{left:-33px}
+</style>
+
+    <h2 class="secline" style="margin-top:34px">The Chronicle in One Look</h2>
+    <div class="sectitle">At a Glance</div>
+    <p class="secsub">The whole spine, condensed. Vitae dates are reckoning years (kya).</p>
+    <table class="mini">
+      <tr><td>~13.8 billion BCE</td><td><span class="dot d-mind"></span><strong>The Dawning</strong> &mdash; the Omneity creates the three and their True Pillars; the Astroverse ignites</td></tr>
+      <tr><td>~4.54 billion BCE</td><td><span class="dot d-hinge"></span><strong>The Immortal Fissure</strong> &mdash; A&rsquo;thesis shattered into the stars; A&rsquo;thule bound into the False Three; A&rsquo;kana becomes the Aether Crux</td></tr>
+      <tr><td>Fissure +1,000 yrs</td><td><span class="dot d-body"></span><strong>The first Eversouls born</strong> &mdash; the Ethos Age of Ne&rsquo;haris begins its 4.5-billion-year span</td></tr>
+      <tr><td>Fissure +1,300 yrs</td><td><span class="dot d-body"></span><strong>The last set born</strong> &mdash; D&rsquo;vita, I&rsquo;n&aacute;cio, A&rsquo;sai; A&rsquo;sai unbirthed on A&rsquo;thule&rsquo;s order</td></tr>
+      <tr><td>the long peace</td><td><span class="dot d-body"></span><strong>The Lights of the Ley</strong> &mdash; the dead of all worlds cross; the Cradle of the Awakened within the Lapis Isles</td></tr>
+      <tr><td>pre-war</td><td><span class="dot d-body"></span><strong>The gathering dark</strong> &mdash; the first Stigmant; Vaine taken; the Eversouls vanish; the Voice of the Void</td></tr>
+      <tr><td>~3027 CE</td><td><span class="dot d-hinge"></span><strong>The Eve of Unbroken</strong> &mdash; the Twin Assault repelled; I&rsquo;n&aacute;cio sealed in the Astroverse</td></tr>
+      <tr><td>three years</td><td><span class="dot d-body"></span><strong>The Interbellum</strong> &mdash; the world corrodes; the Sleeping five laid within the Six Veils</td></tr>
+      <tr><td>~3030 CE</td><td><span class="dot d-hinge"></span><strong>The Gloaming (Eventide)</strong> &mdash; D&rsquo;vita&rsquo;s sacrifice; Ne&rsquo;haris dies; the Ethos Age ends</td></tr>
+      <tr><td>~5 billion yrs</td><td><span class="dot d-gilt"></span><strong>Wandering the Veils</strong> &mdash; souls adrift; Earth dies; the Omneity&rsquo;s dispensation in Limbo</td></tr>
+      <tr><td>0 kya</td><td><span class="dot d-soul"></span><strong>Dawn of Vi&rsquo;talitas</strong> &mdash; epoch of the reckoning</td></tr>
+      <tr><td>0&ndash;300</td><td><span class="dot d-soul"></span><strong>Growth &amp; stabilization</strong> &mdash; already surpassing Ne&rsquo;haris at this stage</td></tr>
+      <tr><td>226</td><td><span class="dot d-soul"></span><strong>First sign of the new rifts</strong></td></tr>
+      <tr><td>286 / 288 / 290</td><td><span class="dot d-soul"></span><strong>Omin, Amoz, Ion born</strong></td></tr>
+      <tr><td>291</td><td><span class="dot d-soul"></span><strong>The parents murdered</strong> &mdash; the siblings orphaned at 5, 3, and 1</td></tr>
+      <tr><td>~325</td><td><span class="dot d-soul"></span><strong>Amoz vanishes</strong> &mdash; called by the Voice</td></tr>
+      <tr><td><strong>326 kya</strong></td><td><span class="dot d-soul"></span><strong>Now</strong> &mdash; the story opens; the siblings stand 40, 38, 36</td></tr>
+    </table>
+  
+
+    <h2 class="secline">The Two Rulers</h2>
+    <div class="sectitle">Dual Reckoning</div>
+    <p class="secsub">Parallel realms tick in parallel. The equivalences are felt, not arithmetic &mdash; a year <em>stands beside</em> an Aeon; it does not equal one. The gap between the rulers is the point. Earth reckoning is written BCE / CE &mdash; in-world, the <strong>Command Era of Earth.</strong></p>
+    <table>
+      <tr><th>Earth reckoning</th><th>Pneuma reckoning</th><th>Standing</th></tr>
+      <tr><td>Century (100 years)</td><td>Novam (90 Aeons)</td><td><em>anchor &mdash; locked</em></td></tr>
+      <tr><td>Decade (10 years)</td><td>Hexam (6 Aeons)</td><td><em>parallel groupings</em></td></tr>
+      <tr><td><strong>Year</strong> (12 months)</td><td><strong>Aeon</strong> (18 Waves)</td><td><em>the working rung</em></td></tr>
+      <tr><td>Month (29&ndash;31 days)</td><td>Wave (60&ndash;63 Beams)</td><td><em>variable, alike</em></td></tr>
+      <tr><td>Week (7 days)</td><td>Span (9 Beams)</td><td><em>side-units</em></td></tr>
+      <tr><td>Day (24 hours)</td><td>Beam (72 Auras)</td><td></td></tr>
+      <tr><td>Hour (60 minutes)</td><td>Aura (180 Glints)</td><td><em>anchor &mdash; locked</em></td></tr>
+      <tr><td>Minute (60 seconds)</td><td>Glint (180 Blinks)</td><td></td></tr>
+      <tr><td>Second (1,000 milliseconds)</td><td>Blink (3,000 Lilliblinks)</td><td></td></tr>
+      <tr><td>Millisecond</td><td>Lilliblink</td><td></td></tr>
+    </table>
+    <div class="card">
+      <span class="tag">The felt asymmetry</span>
+      Same felt span, nine times the grain: eleven Earth years pass in ~96,000 hours &mdash; but eleven Aeons pass in <strong>198 Waves, ~12,000 Beams, near 870,000 Auras.</strong> Suffering, counted finer.
+    </div>
+
+    <div class="card">
+      <span class="tag">The Vitae Year <span class="badge b-new">Locked &middot; New</span></span>
+      One reckoning year of Vi&rsquo;talitas is <strong>lived as a year yet spans ~1,000 Earth-equivalent years</strong> &mdash; the spirit realm runs deep-time against the Astroverse. Hence the kya count, and hence the sibling dates reading true: Omin 40, Amoz 38, Ion 36 at the story&rsquo;s open. A single Vi&rsquo;talitas generation receives the dead of a thousand Earth-years.
+    </div>
+
+    <h2 class="secline" style="margin-top:44px">The Civil Calendar</h2>
+    <div class="sectitle">Beams &amp; Waves</div>
+    <p class="secsub">Nine Beams to the Span, named for the Divine Aspects. Eighteen Waves to the Aeon, named for the Eversouls &mdash; stars of the Sea of Lights &mdash; gathered into <strong>three Seasons of six: Lull, Eld, and Vim.</strong> The Lawseekers believe they name their months for stars in the sky. <span class="badge b-new">Locked &middot; New</span></p>
+
+    <div class="card">
+      <span class="tag">The Nine Beams of the Span &mdash; the Divine Aspects</span>
+      <strong>Genos &middot; Sacros &middot; Pseudus &middot; Ecos &middot; Alphus &middot; Tumus &middot; Delphi &middot; Voliti &middot; Quintessi.</strong> The Span opens on life and closes on quintessence, falling into three pillar-triads of three &mdash; the Trivium inside every week. (Exact triad membership follows the Codex&rsquo;s brand groups.)
+    </div>
+
+    <table>
+      <tr><th>#</th><th>Wave</th><th>Season</th></tr>
+      <tr><td>1</td><td>Hamal</td><td rowspan="6"><strong>Season of Preservation &mdash; &ldquo;Lull&rdquo;</strong><br>the Mind line &middot; akin to winter: cold, quiet, familial ties</td></tr>
+      <tr><td>2</td><td>Procyon</td></tr>
+      <tr><td>3</td><td>Circinus</td></tr>
+      <tr><td>4</td><td>Lacaille</td></tr>
+      <tr><td>5</td><td>Cassiopeiae</td></tr>
+      <tr><td>6</td><td>Silas</td></tr>
+      <tr><td>7</td><td>Caelum</td><td rowspan="6"><strong>Season of Deconstruction, aka Transformation &mdash; &ldquo;Eld&rdquo;</strong><br>the Body line &middot; akin to fall: harvest, gathering, preparation, gratitude</td></tr>
+      <tr><td>8</td><td>Mulu&rsquo;lizi</td></tr>
+      <tr><td>9</td><td>Capella</td></tr>
+      <tr><td>10</td><td>Tseen Ke</td></tr>
+      <tr><td>11</td><td>Al Nair</td></tr>
+      <tr><td>12</td><td>Eriandus</td></tr>
+      <tr><td>13</td><td>Rubani</td><td rowspan="6"><strong>Season of Restoration &mdash; &ldquo;Vim&rdquo;</strong><br>the Spirit line &middot; akin to spring and summer: rebirth and renewal, festivals, games and contests</td></tr>
+      <tr><td>14</td><td>Quasar</td></tr>
+      <tr><td>15</td><td>Asterope</td></tr>
+      <tr><td>16</td><td>D&rsquo;vita</td></tr>
+      <tr><td>17</td><td>I&rsquo;n&aacute;cio</td></tr>
+      <tr><td>18</td><td>A&rsquo;sai</td></tr>
+    </table>
+
+    <div class="card">
+      <span class="tag">A dateline in full and in speech</span>
+      Formal: <em>&ldquo;Delphi, 12th Beam of Mulu&rsquo;lizi&rsquo;s Wave, in Eld, 326.&rdquo;</em> Spoken: <em>&ldquo;Delphi, 12 Mulu&rsquo;lizi 326&rdquo;</em> &mdash; or simply <em>&ldquo;mid-Mulu&rsquo;lizi.&rdquo;</em> The year opens in Lull and closes on <strong>A&rsquo;sai&rsquo;s Wave &mdash; the month of the Unborn.</strong>
+    </div>
+
+    <div class="card">
+      <span class="tag">Rulings locked <span class="badge b-new">Locked &middot; New</span></span>
+      Season order: <strong>Preservation &rarr; Deconstruction &rarr; Restoration.</strong> Deconstruction keeps its Codex discipline name, with <strong>Transformation</strong> as its alias. Short names: <strong>Lull, Eld, Vim.</strong> Within-season Wave order follows the roster, the last set closing the year. And the slumbering siblings are confirmed: <strong>the never-Stigmatized five of the Mind line</strong> &mdash; Hamal, Procyon, Circinus, Lacaille, Cassiopeiae &mdash; the Codex&rsquo;s &ldquo;whereabouts unknown,&rdquo; answered by a secret only D&rsquo;vita knew.
+    </div>
+  
+
+    <h2 class="secline" style="margin-top:34px">The Year of Vi&rsquo;talitas</h2>
+    <div class="sectitle">The Calendar</div>
+    <p class="secsub">Eighteen Waves in three Seasons; nine Beams to the Span; a Wave runs 60&ndash;63 Beams (up to seven full Spans). Tap a Wave to see its month.</p>
+
+    <div class="season-band sb-lull"><span class="sb-t">Season of Preservation &mdash; &ldquo;Lull&rdquo;</span><span class="sb-s">akin to winter &middot; cold, quiet, familial ties &middot; the Mind line</span>
+      <div class="wavechips" data-season="lull"></div></div>
+    <div class="season-band sb-eld"><span class="sb-t">Season of Deconstruction (Transformation) &mdash; &ldquo;Eld&rdquo;</span><span class="sb-s">akin to fall &middot; harvest, gathering, preparation, gratitude &middot; the Body line</span>
+      <div class="wavechips" data-season="eld"></div></div>
+    <div class="season-band sb-vim"><span class="sb-t">Season of Restoration &mdash; &ldquo;Vim&rdquo;</span><span class="sb-s">akin to spring &amp; summer &middot; rebirth, festivals, games &amp; contests &middot; the Spirit line</span>
+      <div class="wavechips" data-season="vim"></div></div>
+
+    <div class="card" style="margin-top:20px">
+      <span class="tag" id="cal-title">The Wave of Mulu&rsquo;lizi &mdash; 8th Wave, in Eld</span>
+      <div class="calgrid" id="cal-grid"></div>
+      <div style="font-size:12.5px; color:var(--ink-dim); font-style:italic; margin-top:9px">Most Waves run the full 63 Beams (seven Spans); a few run 61 or 62, and <strong>the trio&rsquo;s three Waves close the year at 60</strong> &mdash; assignments per the author&rsquo;s delegation, adjustable. The canonical Aeon holds 1,119 Beams. The marked Beam is the sample dateline: <em>Delphi, 12 Mulu&rsquo;lizi 326.</em></div>
+    </div>
+  
+
+    <h2 class="secline" style="margin-top:34px">The Two Rulers, Side by Side</h2>
+    <div class="sectitle">Converter</div>
+    <p class="secsub">Felt equivalence first &mdash; the canonical conversion is positional, a year standing beside an Aeon. The grain beneath is where the rulers part ways.</p>
+    <div class="card">
+      <div class="cv-row">
+        <input type="number" id="cv-n" value="11" step="any">
+        <select id="cv-u"></select>
+      </div>
+      <div class="cv-felt" id="cv-felt"></div>
+      <div class="cv-out" id="cv-out"></div>
+    </div>
+    <div class="card" style="font-size:13px; font-style:italic; color:var(--ink-dim)">
+      Grain figures use the canonical Aeon of 1,119 Beams. A Blink holds 3,000 Lilliblinks, as a second holds 1,000 milliseconds &mdash; the finest rung, three times denser.
+    </div>
+  
+<div class="chron chron-mythos">
+
+    <div class="agehead age-mythos">
+      <div class="age-ey">The First Age</div>
+      <h3>Mythos</h3>
+      <div class="age-span">~13.8 billion years ago &rarr; the Immortal Fissure</div>
+    </div>
+
+    <div class="ev ev-mythos"><div class="card">
+      <span class="ev-name">The Dawning <span class="badge b-new">Locked &middot; New</span></span>
+      <span class="ev-when">~13.8 billion BCE &mdash; the birth of the universe and the Milky Way; known to Earth&rsquo;s humans as the Big Bang</span>
+      <p>The <strong>Omneity</strong>, apex of all hierarchies, decides to create <strong>the three</strong> &mdash; A&rsquo;kana, A&rsquo;thesis, A&rsquo;thule &mdash; <strong>and the three True Pillars they rule:</strong> A&rsquo;kana the Pneumaverse (the Sea of Lights), A&rsquo;thesis the Astroverse (the Unknown Dark), A&rsquo;thule the Materiaverse (the Unseen Grey).</p>
+      <p>The Astroverse ignites as &mdash; and within &mdash; <strong>A&rsquo;thesis&rsquo;s body</strong>, which creates and contains it; Earth&rsquo;s line of existence begins inside the Unknown Dark. What Earth&rsquo;s science will one day call the <em>Big Bang Theory</em>, the ancients name <strong>the Dawning.</strong></p>
+    </div></div>
+
+    <div class="ev ev-hinge"><div class="card">
+      <span class="tag">World-breaking hinge &mdash; end of the Mythos Age</span>
+      <span class="ev-name">The Immortal Fissure</span>
+      <span class="ev-when">A single instant, ~4.54 billion BCE &mdash; the era of Earth&rsquo;s birth <span class="badge b-new">Locked &middot; New</span></span>
+      <p><strong>A&rsquo;thule&rsquo;s first betrayal:</strong> he moves to prey upon and overtake A&rsquo;kana. <strong>A&rsquo;thesis defends her &mdash; and shatters to pieces in the process.</strong> In his memory, A&rsquo;kana ensures his body is scattered across the Astroverse, becoming its intimate star systems, <strong>where he lives on</strong> &mdash; for the trio of Paramounts cannot truly die without the balance breaking. In retaliation she fights A&rsquo;thule <strong>toe to toe</strong>, forcing him into the newly made False Pillars and <strong>creating the Immortal Fissure</strong> &mdash; alive, but trapped for good.</p>
+      <p>The Pillars grow in luster. <strong>A&rsquo;kana&rsquo;s core branches outward as the Aegis Grid</strong> &mdash; the Leylines and Leypoints, her roots &mdash; separating the True Three and caging the False Three. <strong>A&rsquo;thule is trapped behind it</strong> and takes dominion of the False Pillars: the Eerieverse, the Umbraverse, the Netherverse.</p>
+      <p>The Materiaverse passes to the <strong>Omneity&rsquo;s watch</strong> as the realm of high consciousness. A&rsquo;kana sleeps as the <strong>Aether Crux</strong>, the Great Mother Tree.</p>
+      <p>The name marks its meaning: the moment A&rsquo;thule ceased to be of the True Pillars, <strong>forever bound into the newly made False Three.</strong> He cannot be destroyed &mdash; he must endure as <strong>a balance to the Trivium</strong>, and in desperation for its sake as well. The Fissure is immortal because he is.</p>
+    </div></div>
+
+  </div>
+<div class="chron chron-ethos">
+
+    <div class="agehead age-ethos">
+      <div class="age-ey">The Second Age</div>
+      <h3>Ethos</h3>
+      <div class="age-span">Ne&rsquo;haris &rarr; the Ghost Wars (&rarr; ~3030 CE &mdash; a span of some 4.5 billion years)</div>
+    </div>
+
+    <div class="ev ev-ethos"><div class="card">
+      <span class="ev-name">The Birth of the Eversouls <span class="badge b-new">Locked &middot; New</span></span>
+      <span class="ev-when">1,000 years AFTER the Immortal Fissure &mdash; Earth equivalence</span>
+      <p><strong>The first set of the Eversouls is born</strong> &mdash; A&rsquo;kana&rsquo;s children, shaped from her essence to protect the Trivium. Eighteen in all; <strong>A&rsquo;sai is never born.</strong></p>
+    </div></div>
+
+    <div class="ev ev-ethos"><div class="card">
+      <span class="ev-name">The Last Set <span class="badge b-new">Locked &middot; New</span></span>
+      <span class="ev-when">About 300 years after the first set &mdash; Fissure +1,300 years</span>
+      <p>D&rsquo;vita, I&rsquo;n&aacute;cio, and A&rsquo;sai are of the <strong>last set of the Eversouls</strong> &mdash; made specifically by A&rsquo;kana to <strong>defend and preserve Ne&rsquo;haris and the Pneumaverse.</strong> Hence their Essences: <strong>Aether, Ardor, and Arcane &mdash; the most powerful parts of a soul.</strong> Aether is D&rsquo;vita&rsquo;s; Ardor &mdash; will itself &mdash; is I&rsquo;n&aacute;cio&rsquo;s; Arcane is A&rsquo;sai&rsquo;s.</p>
+    </div></div>
+
+    <div class="ev ev-ethos"><div class="card">
+      <span class="ev-name">The Lights of the Ley <span class="badge b-new">Locked &middot; New</span></span>
+      <span class="ev-when">The long peace of the Second Age</span>
+      <p>Ne&rsquo;haris flourishes within the Sea of Lights &mdash; Spirit Space&rsquo;s anchor in the mortal realm. <strong>The dead of Earth, and of all worlds, cross the Sea</strong>; the Six Veils host other cosmologies. Return to mortality is a choice, gated by redemption. Within the Lapis Isles lies <strong>the Cradle of the Awakened</strong> &mdash; the place where souls are first born.</p>
+    </div></div>
+
+    <div class="ev ev-ethos"><div class="card">
+      <span class="ev-name">The Design Against the Three <span class="badge b-new">Locked &middot; New</span></span>
+      <span class="ev-when">Pre&ndash;Ghost Wars</span>
+      <p>From behind the Grid, A&rsquo;thule sets Silas to <strong>Stigmatize all the Eversouls</strong> &mdash; but senses that the last three were made for one purpose: <strong>to thwart him in A&rsquo;kana&rsquo;s absence.</strong> Fearing they could not be easily Stigmatized &mdash; proven true by I&rsquo;n&aacute;cio&rsquo;s long resistance &mdash; he orders the three <strong>killed before they are ever born.</strong> The order finds one full mark: <strong>A&rsquo;sai, not yet born, is unbirthed</strong> &mdash; the eighteenth Eversoul stopped before her first breath. The act itself: <strong>Silas steals into the Cradle of the Awakened</strong> &mdash; easily, for Eversouls have always had access where many do not &mdash; and <strong>poisons the trio&rsquo;s soul pods with an early strain of Stigma</strong>, meant to completely overwrite their immature Anima development. It fully takes only A&rsquo;sai. Against D&rsquo;vita and I&rsquo;n&aacute;cio it fails to destroy, but wounds: <strong>damage carried from before birth</strong> that leaves the two diminished, never the full threat they were made to be when his open treachery begins. The war&rsquo;s first strike was made in the nursery of souls, ages before anyone knew there was a war. The hunt across lifetimes does not begin here; that comes only after the war.</p>
+    </div></div>
+
+    <div class="ev ev-ethos"><div class="card">
+      <span class="ev-name">The First Stigmant Strikes <span class="badge b-new">Locked &middot; New</span></span>
+      <span class="ev-when">Pre&ndash;Ghost Wars &mdash; while I&rsquo;n&aacute;cio is on patrol</span>
+      <p><strong>Nullus</strong> &mdash; Advisor Null &ldquo;Malice,&rdquo; the Falseone who will one day defect &mdash; sends a Stigmant against I&rsquo;n&aacute;cio and observes from a distance. The corruption takes root slowly; <strong>he fights it the entire time.</strong></p>
+    </div></div>
+
+    <div class="ev ev-ethos"><div class="card">
+      <span class="ev-name">The Second Breach &mdash; Vaine Taken <span class="badge b-new">Locked &middot; New</span></span>
+      <span class="ev-when">After the first Stigmant</span>
+      <p>D&rsquo;vita comes into contact with <strong>General Vaine &ldquo;Grinder&rdquo;</strong> &mdash; the second major breach since her brother&rsquo;s corruption &mdash; and <strong>holds him prisoner</strong> while investigating Stigma surfacing across the Pneumaverse in scattered places. At first, insignificant.</p>
+    </div></div>
+
+    <div class="ev ev-ethos"><div class="card">
+      <span class="ev-name">The Vanishing of the Eversouls <span class="badge b-new">Locked &middot; New</span></span>
+      <span class="ev-when">The corruption spreads</span>
+      <p>Slowly the other siblings come up corrupted &mdash; and <strong>they lose to it faster</strong> than I&rsquo;n&aacute;cio, who battles its assault on his system all the while. One by one, <strong>the Eversouls begin to disappear.</strong> Vita seeks them &mdash; and Vaine, prisoner turned confidant, eventually assists as <strong>their bond deepens.</strong> The vanished return at the war&rsquo;s outbreak as the founding Grey Makers: Caelum, Capella, Eriandus, Rubani, Quasar, Asterope, Mulu&rsquo;lizi among the fallen.</p>
+    </div></div>
+
+    <div class="ev ev-ethos"><div class="card">
+      <span class="ev-name">The Voice of the Void <span class="badge b-new">Locked &middot; New</span></span>
+      <span class="ev-when">First met at the Cradle of the Awakened, where all souls come to be</span>
+      <p>A <strong>young, not-yet-born deity with a great destiny tied to the Astroverse</strong> &mdash; in that time come to be known as <strong>the Voice of the Void.</strong> She grows fond of <strong>the light of I&rsquo;n&aacute;cio&rsquo;s warm soul</strong>, and as the corruption gnaws at him, urges him to stay strong &mdash; comforting him at his darkest, <strong>reminding him who he is.</strong> Her attachment to Nullus runs by the opposite pole: <strong>a ruler of the Shadows of the False Pillars.</strong> Light and shadow, both hers. Hers is the same voice that calls to Amoz an age later; her destiny remains the author&rsquo;s to reveal.</p>
+    </div></div>
+
+    <div class="ev ev-ethos"><div class="card">
+      <span class="ev-name">The First of the Falseones <span class="badge b-new">Locked &middot; New</span></span>
+      <span class="ev-when">The mirrored missions</span>
+      <p>As Vaine is charged with breaching the Pneumaverse, <strong>Nullus is charged with breaching the Astroverse</strong> for A&rsquo;thule. But Nullus &mdash; <strong>first of the Falseones</strong> &mdash; has long loathed his father and resented his presence. At first he dreams of overthrow, having the brilliance for it. Then <strong>the same Voice that steadies I&rsquo;n&aacute;cio begins to coax him</strong> to see beyond A&rsquo;thule&rsquo;s plan &mdash; and his purpose grows far greater than patricide.</p>
+    </div></div>
+
+    <div class="ev ev-hinge"><div class="card">
+      <span class="tag">The Ghost Wars &mdash; the First Battle &middot; the Twin Assault</span>
+      <span class="ev-name">The Eve of Unbroken</span>
+      <span class="ev-when">One war, two battles <span class="badge b-new">Locked &middot; New</span></span>
+      <p><strong>Silas leads a simultaneous charge upon the Capital of Ne&rsquo;haris and the Lapis Isles</strong> &mdash; the Capital struck as the feint, <strong>the Isles as the true thrust: the route to the Great Mother Tree at the Kaba&rsquo;akh Vortex.</strong> The war comes through the front door of the Feii &mdash; <strong>the wise Guardians of the Tree</strong> &mdash; to <strong>infect the Tree herself.</strong> The war truly begins here. The Grey Makers are first seen, wearing familiar faces. The design behind it all: take Ne&rsquo;haris, collapse the Grid, fuse all Pillars into one throne, absorb A&rsquo;thesis&rsquo;s body and A&rsquo;kana&rsquo;s soul &mdash; <strong>to stand on par with the Omneity.</strong></p>
+      <p>But Ne&rsquo;haris is not caught sleeping. <strong>With Vaine&rsquo;s help, the Voice&rsquo;s support, and Nullus also assisting</strong>, the defenders stand far more prepared than they would have been. <strong>The Ne&rsquo;harian force fights valiantly.</strong></p>
+      <p>I&rsquo;n&aacute;cio loses his long fight at last and must face his sister. <strong>D&rsquo;vita seals him from the Pneumaverse, adrift and slumbering in the Astroverse</strong> &mdash; to halt the corruption, and to hide him from A&rsquo;thule in his weakness. <span class="whisper">She prayed the Darkness could hide his light.</span></p>
+      <p><strong>The First Battle ends in victory:</strong> Ne&rsquo;haris saved. The Polestar hidden. The loved ones returned to the Sea.</p>
+    </div></div>
+
+    <div class="ev ev-ethos"><div class="card">
+      <span class="ev-name">The Interbellum &mdash; the Wound That Would Not Close <span class="badge b-new">Locked &middot; New</span></span>
+      <span class="ev-when">Three years, Earth equivalence &mdash; three Aeons of failing peace</span>
+      <p>The victory proves pyrrhic. <strong>The Stigma saturation and the breaches are too great</strong> &mdash; the world begins to corrode, and no craft can truly save it. D&rsquo;vita spends the three years <strong>gathering her strength</strong> for what must come, <strong>Vaine at her side until the end.</strong></p>
+      <p>Without their knowing, she lays her <strong>never-Stigmatized siblings &mdash; the five of the Mind line</strong> &mdash; into a deep slumber, to ensure their eventual waking <strong>when the time is right again</strong> &mdash; resting in various places <strong>within the Six Veils</strong>, hidden and kept safe among the berths of other cosmologies. When they wake, the age has yet to answer.</p>
+    </div></div>
+
+    <div class="ev ev-ethos"><div class="card">
+      <span class="ev-name">D&rsquo;vita&rsquo;s Sacrifice <span class="badge b-new">Locked &middot; New</span></span>
+      <span class="ev-when">The hinge of the mythology</span>
+      <p>Dying, D&rsquo;vita &mdash; <strong>Essence of Aether, closest of all A&rsquo;kana&rsquo;s children to the Mother</strong> &mdash; spends her last Aether reinforcing the defense of the Great Mother Tree, strengthening the Aegis Grid, <strong>stabilizing the Pillars</strong> &mdash; to save the essence of <strong>all that is left of her people on Ne&rsquo;haris.</strong> The world that will be reborn grows from the core she saves. And in the instant she dies, <strong>so does her brother</strong>, asleep in the Astroverse an age away.</p>
+      <p>Her reward: <strong>A&rsquo;thule intercepts her soul</strong> before it reaches the Sea. Eleven years &mdash; eleven Aeons, one short of two full Hexams &mdash; a prisoner in the False Pillars, tormented, shaped toward becoming a <strong>False One</strong>. Unconsciously, she rescues her own self from the False Pillars. As far as is known, no other soul has ever done so.</p>
+    </div></div>
+
+    <div class="ev ev-hinge"><div class="card">
+      <span class="tag">The Ghost Wars &mdash; the Second Battle &middot; end of the Ethos Age</span>
+      <span class="ev-name">The Gloaming &mdash; Eventide</span>
+      <span class="ev-when">~3030 CE, Earth reckoning <span class="badge b-new">Locked &middot; New</span></span>
+      <p>The death of Ne&rsquo;haris &mdash; not a clash but a terminal corrosion, the wound outliving the enemy. Ne&rsquo;haris, saved from capture, dies of its scars. <strong>The world that won its war perishes anyway.</strong> The Ethos Age ends; the Sea of Lights dims around a dying cradle.</p>
+    </div></div>
+
+  </div>
+<div class="chron chron-vitae">
+
+    <div class="agehead age-vitae">
+      <div class="age-ey">The Third Age &mdash; the present</div>
+      <h3>Vitae</h3>
+      <div class="age-span">The dawn of Vi&rsquo;talitas &rarr; now &mdash; 326 kya, ~326,000 Earth-equivalent years</div>
+    </div>
+
+    <div class="ev ev-vitae"><div class="card">
+      <span class="ev-name">Wandering the Veils <span class="badge b-new">Locked &middot; New</span></span>
+      <span class="ev-when">Late Ethos into early Vitae &mdash; some five billion Earth years</span>
+      <p>Without Ne&rsquo;haris, many souls simply <strong>drift within the Sea of Lights</strong> for a very long time, before rebirth scatters them into the mortal worlds of <strong>different parts of the Six Veils</strong> &mdash; the age of <strong>Wandering the Veils.</strong> In the Astroverse, <strong>Earth itself dies</strong> &mdash; as its own science foretold &mdash; humanity long since <strong>migrated and evolved to and on other planets.</strong> At the wandering&rsquo;s end, Vi&rsquo;talitas is reborn.</p>
+    </div></div>
+
+    <div class="ev ev-vitae"><div class="card">
+      <span class="ev-name">The World Reborn <span class="badge b-locked">Locked</span></span>
+      <span class="ev-when">Vitae 0 &mdash; the dawn</span>
+      <p>From the stabilized core, <strong>Vi&rsquo;talitas</strong> grows &mdash; new terrain, new life, holding the center of the Six Veils that Ne&rsquo;haris once held. <strong>The rebirth is the epoch of the reckoning.</strong> Within its first <strong>~300,000 Earth-equivalent years</strong> the world grows and stabilizes &mdash; young by certain standards, yet advanced rather quickly, and already <strong>more powerful, larger, and further advanced than Ne&rsquo;haris was at this stage.</strong></p>
+    </div></div>
+
+    <div class="ev ev-vitae"><div class="card">
+      <span class="ev-name">The Long Purification of Mulu&rsquo;lizi <span class="badge b-new">Locked &middot; New</span></span>
+      <span class="ev-when">Centuries in the Sea &mdash; count open</span>
+      <p>A fully Stigmatized Grey Maker at her death, Mulu&rsquo;lizi&rsquo;s soul labors far longer than most to reach purity again &mdash; even as one of A&rsquo;kana&rsquo;s children. She returns at last, and becomes <strong>&ldquo;Mama Maisel.&rdquo;</strong> The greying of one long existence now fractures the very memories she keeps.</p>
+    </div></div>
+
+    <div class="ev ev-vitae"><div class="card">
+      <span class="ev-name">The Scattered Lives <span class="badge b-new">Locked &middot; New</span></span>
+      <span class="ev-when">Across the long Vitae Age &mdash; variable gaps between lives</span>
+      <p>Only now does the hunt across lives begin: seeing the siblings reincarnate with souls holding <strong>both Anima and Stigma</strong>, A&rsquo;thule knows that grown strong again, <strong>they could likely beat him for good.</strong> Bearing only partial Stigma, D&rsquo;vita and I&rsquo;n&aacute;cio live a few mortal lives before the ones they live now. <strong>Silas hunts each life with mixed success</strong> &mdash; some found, some hidden. <strong>A&rsquo;sai waits unborn</strong>, the one sibling never yet met in flesh.</p>
+    </div></div>
+
+    <div class="ev ev-vitae"><div class="card">
+      <span class="ev-name">Limbo in the Unseen Grey <span class="badge b-new">Locked &middot; New</span></span>
+      <span class="ev-when">Between the Gloaming and the first rebirths</span>
+      <p>I&rsquo;n&aacute;cio dies in his slumber <strong>in the instant his sister dies</strong> &mdash; the Darkness hid his light until it no longer needed to. But neither soul passes to the lights. For some time both drift in <strong>Limbo, in the Materiaverse</strong> &mdash; the Unseen Grey &mdash; until <strong>the Omneity, who does not typically involve itself in any matter, sees fit that their existence would be needed again.</strong></p>
+    </div></div>
+
+    <div class="ev ev-vitae"><div class="card">
+      <span class="ev-name">The Age Grows Its Own Way <span class="badge b-new">Locked &middot; New</span></span>
+      <span class="ev-when">Deep legend &mdash; generations upon generations</span>
+      <p>New continents form. The great orders rise: the <strong>Leywardens</strong> warding the Ley &mdash; the Grid itself &mdash; the <strong>Aggregate Regency</strong>, the <strong>Elysian Institute</strong>. The Lawseekers name the old catastrophe <em>the Ghost Wars</em>, but know few of its truths. <strong>Only the Feii &mdash; Guardians of the Tree &mdash; the Ra&rsquo;gnn, the Fonixi, and other ancients remember whole.</strong></p>
+    </div></div>
+
+    <div class="ev ev-vitae"><div class="card">
+      <span class="ev-name">The New Rifts <span class="badge b-new">Locked &middot; New</span></span>
+      <span class="ev-when">226 kya &mdash; one hundred reckoning years before the present</span>
+      <p><strong>The first sign of the new rifts appears.</strong> The oldest horror of the Ghost Wars &mdash; breaches in the fabric that once poured Stigmants into Ne&rsquo;haris &mdash; shows itself again in the reborn world. Their nature and their source are the author&rsquo;s to reveal.</p>
+    </div></div>
+
+    <div class="ev ev-vitae"><div class="card">
+      <span class="ev-name">The Convergence <span class="badge b-locked">Locked</span></span>
+      <span class="ev-when">The present generation &mdash; anchors open</span>
+      <p>Three souls converge at last into one family: <strong>the Elloyd siblings</strong> &mdash; Omin born <strong>286 kya</strong>, Amoz <strong>288 kya</strong>, Ion <strong>290 kya</strong>. Their parents are murdered and the three are orphaned in <strong>291 kya</strong> &mdash; Omin five, Amoz three, Ion a baby of one. At the story&rsquo;s open they stand <strong>40, 38, and 36.</strong> Amoz vanishes, drawn by a voice out of his pre-Elloyd life, roughly a year before the story opens.</p>
+    </div></div>
+
+    <div class="ev ev-vitae"><div class="card">
+      <span class="ev-name">Now <span class="badge b-new">Locked &middot; New</span></span>
+      <span class="ev-when">326 kya &mdash; roughly 3,622 Novams &mdash; deep in the Astroverse&rsquo;s far future</span>
+      <p><strong>The current time is 326 kya</strong>, counted from the world&rsquo;s rebirth. The present day of the series &mdash; one hundred reckoning years since the rifts first showed.</p>
+    </div></div>
+
+  </div>
+
+    <h2 class="secline">Vertical Through Every Age</h2>
+    <div class="sectitle">The Soul-Threads</div>
+    <p class="secsub">Ages take dates; threads take positions on them. Five lines stitch the Chronicle together.</p>
+
+    <div class="thread t-omin">
+      <span class="tname">D&rsquo;vita &rarr; Omin &mdash; the Reborn</span>
+      Essence of Aether. Sealed her brother; struck down the turned; laid her remaining siblings into hidden slumber; died reinforcing the Tree; endured eleven Aeons in the False Pillars and escaped them alone. Now a Leywarden Director &mdash; unknowingly warding the very Grid she died to strengthen, against the very being that held her.
+    </div>
+    <div class="thread t-amoz">
+      <span class="tname">I&rsquo;n&aacute;cio &rarr; Amoz &mdash; the Transformed</span>
+      Corrupted slowly by Nullus&rsquo;s Stigmant; fought it to the last with an unnamed Voice at his ear, reminding him who he is; sealed by his sister into the Unknown Dark, where he died in the instant she did &mdash; and, by the Omneity&rsquo;s dispensation, lived again. Missing one Aeon before the story opens &mdash; called by the same Voice that once held him together.
+    </div>
+    <div class="thread t-ion">
+      <span class="tname">A&rsquo;sai &rarr; Ionnie &mdash; the Unborn</span>
+      Eighteenth of the Eversouls &mdash; unbirthed by A&rsquo;thule&rsquo;s oldest order, Stigma-untouched. One true life only, the one being lived now: the order&rsquo;s final failure, walking. The single sibling Silas has never found in flesh.
+    </div>
+    <div class="thread t-maisel">
+      <span class="tname">Mulu&rsquo;lizi &rarr; Maisel &mdash; the One Long Existence</span>
+      Eversoul; turned Grey Maker; fully Stigmatized at death; centuries purifying in the Sea; returned as the mentor of young Medians. The living bridge across the whole Chronicle &mdash; whose memory of it is fracturing.
+    </div>
+    <div class="thread t-allies">
+      <span class="tname">Vaine &middot; Nullus &middot; the Voice &mdash; the Unexpected Allies</span>
+      A Falseone General taken prisoner whose bond with D&rsquo;vita deepened into alliance; the first of the Falseones, who loathed the father he could have overthrown until the Voice showed him a greater purpose; the Voice of the Void, an unborn deity of Astroverse destiny, holding failing souls together &mdash; I&rsquo;n&aacute;cio&rsquo;s light, and Nullus&rsquo;s shadow. Because of them, Ne&rsquo;haris met the Twin Assault forewarned. Vaine now wanders the Cosmos, wounded; Nullus&rsquo;s present fate and the Voice&rsquo;s name remain open.
+    </div>
+    <div class="thread t-silas">
+      <span class="tname">Silas &mdash; the Betrayer Brother</span>
+      Essence of Illusion; A&rsquo;thule&rsquo;s hand within the True Pillars; corruptor of the Eversouls; the only being fully Stigmatized yet self-possessed. Holder of the complete prophecy. Alive, working, hunting &mdash; the connective tissue between the ancient betrayal and the present war.
+    </div>
+  
+
+    <h2 class="secline">Awaiting the Author</h2>
+    <div class="sectitle">Open Seams</div>
+    <p class="secsub">Ranked by structural weight. Nothing below is canon until ruled.</p>
+    <ol>
+      <li><strong>The Sleeping five</strong> &mdash; resting within the Six Veils; <strong>still asleep in the present day</strong>, awaiting the right time. Their waking is held for the story. <span class="badge b-open">Held</span></li>
+      <li><strong>The Voice of the Void</strong> &mdash; title locked; her destiny is deliberately obscure within this series. <span class="badge b-open">Held</span></li>
+      <li><strong>The new rifts</strong> &mdash; their nature and source, first seen 226 kya. <span class="badge b-open">Open</span></li>
+    </ol>
+  
+</section>
 
   <!-- 7 -->
   <section id="s7">
@@ -1933,13 +2473,13 @@
   <section id="s_lost">
     <h2><span class="num"></span> The Lost World &mdash; Ne'haris</h2>
     <div class="h2title">Ne&rsquo;haris</div>
-    <div class="h2sub">The Lost World &mdash; the world as it was, pre-Cataclysm</div>
+    <div class="h2sub">The Lost World &mdash; the world as it was, before the Ghost Wars</div>
     <div class="title-rule"></div>
-    <p><em>Geography of the world <strong>as it was</strong>, before the Cataclysm. Ne'haris was destroyed and reborn as <strong>Vi'talitas</strong>; its terrain has since changed. This is a <strong>historical record</strong> &mdash; the lost world present-day Vi'talitas grew from.</em></p>
-    <div class="card note claude-made"><span class="tag">Three geographies <span class="badge b-locked">Locked</span></span>The Codex tracks three layers: (1) the <strong>Lost World</strong> (Ne'haris, pre-Cataclysm, here); (2) <strong>present-day Vi'talitas</strong> (the reborn surface, to be cataloged); and (3) the <strong>Sea of Lights / Six Veils</strong> (the Spirit Realm, see Cosmology). Don't confuse Ne'haris place-names with present Vi'talitas.</div>
+    <p><em>Geography of the world <strong>as it was</strong>, before the Ghost Wars. Ne'haris was destroyed in the Gloaming and reborn as <strong>Vi'talitas</strong>; its terrain has since changed. This is a <strong>historical record</strong> &mdash; the lost world present-day Vi'talitas grew from.</em></p>
+    <div class="card note claude-made"><span class="tag">Three geographies <span class="badge b-locked">Locked</span></span>The Codex tracks three layers: (1) the <strong>Lost World</strong> (Ne'haris, pre&ndash;Ghost Wars, here); (2) <strong>present-day Vi'talitas</strong> (the reborn surface, to be cataloged); and (3) the <strong>Sea of Lights / Six Veils</strong> (the Spirit Realm, see Cosmology). Don't confuse Ne'haris place-names with present Vi'talitas.</div>
 
-    <h3>Ne'haris &mdash; &ldquo;The Cradle of the Awakened&rdquo; <span class="badge b-locked">Locked</span></h3>
-    <p>The lost world; Spirit Space's anchor in the mortal realm. At its planet-core lies the <strong>Kaba'akh Vortex</strong> (below).</p>
+    <h3>Ne&rsquo;haris &mdash; the Lost World <span class="badge b-locked">Locked</span></h3>
+    <p>The lost world; Spirit Space's anchor in the mortal realm. Within its <strong>Lapis Isles</strong> lay <strong>the Cradle of the Awakened</strong> &mdash; the place where souls are first born, in soul pods, warded by the Feii. At its planet-core lies the <strong>Kaba'akh Vortex</strong> (below).</p>
 
     <div class="group spirit" style="margin-top:14px">
       <div class="gname"><span class="dot"></span>Ankhara <span style="font-weight:400;font-style:italic;color:var(--ink-dim)">&mdash; capital region, Omari</span></div>
@@ -2207,7 +2747,7 @@
     <div class="h2title">Vi&rsquo;talitas</div>
     <div class="h2sub">The New World &mdash; present-day geography</div>
     <div class="title-rule"></div>
-    <p><em>Vi'talitas is the world reborn from the Cataclysm that destroyed Ne'haris. Its terrain and structure have changed; this is the <strong>present-day</strong> world the series takes place in &mdash; distinct from the Lost World (&sect;7.7) and the Sea of Lights (Cosmology).</em></p>
+    <p><em>Vi'talitas is the world reborn from the Gloaming &mdash; the Ghost Wars&rsquo; end &mdash; that destroyed Ne'haris. Its terrain and structure have changed; this is the <strong>present-day</strong> world the series takes place in &mdash; distinct from the Lost World (&sect;7.7) and the Sea of Lights (Cosmology).</em></p>
     <div class="card note"><span class="tag">In progress <span class="badge b-open">Open</span></span>The present-day surface map exists and is being cataloged. Regions, capitals, and locations of <strong>Vi'talitas</strong> will be filled here as they're confirmed &mdash; using the Lost World catalog of Ne'haris as the historical guide for what the reborn world grew from. <strong>Vi'talitas now holds the center core of the Six Veils</strong> (formerly Ne'haris).</div>
   </section>
 
@@ -2464,7 +3004,7 @@
       <tr><td><strong>Empyron</strong></td><td>Primeval beast-protectors of Ne&rsquo;haris; A&rsquo;kana was the first.</td></tr>
       <tr><td><strong>Empyrons</strong></td><td>Enormous Anima-thriving beasts of Ne&rsquo;haris; parents of Dragons, Phoenixes, Sphinxes, Gryphons; aged by wing-sets.</td></tr>
       <tr><td><strong>Essence</strong></td><td>A faculty of existence personified by an Eversoul (Memory, Illusion, Aether&hellip;).</td></tr>
-      <tr><td><strong>Eternal Cataclysm</strong></td><td>A&rsquo;thule&rsquo;s betrayal &amp; sealing.</td></tr>
+      <tr><td><strong>Immortal Fissure</strong></td><td>Formerly the Eternal Cataclysm. A&rsquo;thule&rsquo;s betrayal &amp; sealing.</td></tr>
       <tr><td><strong>Ether Vessel</strong></td><td>Sentient spirit-energy vehicle invented by I&rsquo;n&aacute;cio (remembered as Amoz); adapts to local ether via the Ether-Meter; pilot-bonded through its Centrum core.</td></tr>
       <tr><td><strong>Ether-Meter</strong></td><td>A Vessel&rsquo;s sensor reading ambient energy (type, density, gravity, environmental reaction) to retune its fuel function.</td></tr>
       <tr><td><strong>Eye of the Aegis</strong></td><td>The center and core of Vi&rsquo;talitas where the Great Mother Tree stands; the point where Anima is produced and pushed out into the Leylines.</td></tr>
@@ -2566,10 +3106,11 @@
 
   // ----- Grouped top-bar architecture -----
   var GROUPS = [
-    {label:'Mythos', ids:['s2','s2b','s3','s6']},
-    {label:'Realm', ids:['s7','s_newworld','s_lost','s_best']},
-    {label:'Society', ids:['s7b','s8','s9','s_cast','s_tech']},
-    {label:'Development', ids:['s11','s_outline','s10','s_ledger','s_palette','gloss']}
+    {label:'Foundations', ids:['s2','s_chronicle','s3','s6']},
+    {label:'Realm', ids:['s7','s_newworld','s_lost','s_best','s_tech']},
+    {label:'Society', ids:['s2b','s7b','s8','s9','s_cast']},
+    {label:'Development', ids:['s11','s_outline','s10','s_ledger','s_palette']},
+    {label:'Index', ids:['gloss']}
   ];
   var tbNav = document.getElementById('tbNav');
   var groupEls = [];
@@ -2693,6 +3234,86 @@
   var start = (location.hash || '').replace('#','');
   if(!entries.some(function(e){ return e.id === start; })) start = entries[0].id;
   show(start, true);
+})();
+</script>
+<script>
+(function(){
+// ---- Calendar widget ----
+  var WAVES=[["Hamal","lull"],["Procyon","lull"],["Circinus","lull"],["Lacaille","lull"],["Cassiopeiae","lull"],["Silas","lull"],
+             ["Caelum","eld"],["Mulu\u2019lizi","eld"],["Capella","eld"],["Tseen Ke","eld"],["Al Nair","eld"],["Eriandus","eld"],
+             ["Rubani","vim"],["Quasar","vim"],["Asterope","vim"],["D\u2019vita","vim"],["I\u2019n\u00e1cio","vim"],["A\u2019sai","vim"]];
+  var SEASONS={lull:"in Lull",eld:"in Eld",vim:"in Vim"};
+  var BEAMS=["Genos","Sacros","Pseudus","Ecos","Alphus","Tumus","Delphi","Voliti","Quintessi"];
+  var WLEN=[63,63,61,63,63,62,63,63,63,61,63,63,63,63,62,60,60,60];
+  var selWave=7; // Mulu'lizi (0-indexed)
+  function ord(n){var s=["th","st","nd","rd"],v=n%100;return n+(s[(v-20)%10]||s[v]||s[0]);}
+  function drawCal(){
+    var t=document.getElementById('cal-title'), g=document.getElementById('cal-grid');
+    if(!t||!g) return;
+    var w=WAVES[selWave];
+    t.textContent="The Wave of "+w[0]+" \u2014 "+ord(selWave+1)+" Wave, "+SEASONS[w[1]]+" \u00b7 "+WLEN[selWave]+" Beams";
+    var h="";
+    for(var b=0;b<9;b++){h+='<div class="ch" title="'+BEAMS[b]+'">'+BEAMS[b].slice(0,3)+'</div>';}
+    for(var d=1;d<=63;d++){
+      var mark=(selWave===7&&d===12)?" mark":"";
+      var dim=(d>WLEN[selWave])?" dimc":"";
+      h+='<div class="cb'+mark+dim+'">'+d+'</div>';
+    }
+    g.innerHTML=h;
+    document.querySelectorAll('.wavechip').forEach(function(c,i){c.classList.toggle('sel',i===selWave);});
+  }
+  (function(){
+    var bands={lull:document.querySelector('[data-season=lull]'),eld:document.querySelector('[data-season=eld]'),vim:document.querySelector('[data-season=vim]')};
+    if(!bands.lull) return;
+    WAVES.forEach(function(w,i){
+      var c=document.createElement('span'); c.className='wavechip'; c.textContent=(i+1)+' \u00b7 '+w[0];
+      c.addEventListener('click',function(){selWave=i; drawCal();});
+      bands[w[1]].appendChild(c);
+    });
+    drawCal();
+  })();
+
+  // ---- Converter widget ----
+  var E_UNITS=[["millisecond",0.001],["second",1],["minute",60],["hour",3600],["day",86400],["week",604800],["month",2629800],["year",31557600],["decade",315576000],["century",3155760000]];
+  var P_UNITS=[["Lilliblink",1/3000],["Blink",1],["Glint",180],["Aura",32400],["Beam",2332800],["Span",20995200],["Wave",145022400],["Aeon",2610403200],["Hexam",15662419200],["Novam",234936288000]];
+  var PAIR={millisecond:"Lilliblink",second:"Blink",minute:"Glint",hour:"Aura",day:"Beam",week:"Span",month:"Wave",year:"Aeon",decade:"Hexam",century:"Novam"};
+  var RPAIR={}; for(var k in PAIR){RPAIR[PAIR[k]]=k;}
+  function fmt(x){ if(x>=1e12) return (x/1e12).toFixed(2)+" trillion"; if(x>=100) return Math.round(x).toLocaleString(); return (Math.round(x*100)/100).toLocaleString(); }
+  function breakdown(n,unit,units){
+    var base=0; units.forEach(function(u){if(u[0]===unit) base=n*u[1];});
+    var idx=units.findIndex(function(u){return u[0]===unit;});
+    var out=[];
+    for(var i=idx-1;i>=0&&out.length<3;i--){ out.push(fmt(base/units[i][1])+" "+units[i][0]+"s"); }
+    return out.join(" \u00b7 ");
+  }
+  function convert(){
+    var n=parseFloat(document.getElementById('cv-n').value)||0;
+    var u=document.getElementById('cv-u').value;
+    var isE=!!PAIR[u];
+    var mate=isE?PAIR[u]:RPAIR[u];
+    var eU=isE?u:mate, pU=isE?mate:u;
+    document.getElementById('cv-felt').textContent=fmt(n)+" "+u+(n===1?"":"s")+" \u2194 "+fmt(n)+" "+mate+(n===1?"":"s");
+    var lines=[];
+    var eB=breakdown(n,eU,E_UNITS); var pB=breakdown(n,pU,P_UNITS);
+    if(eB) lines.push("<strong>Earth grain:</strong> "+fmt(n)+" "+eU+"s = "+eB);
+    if(pB) lines.push("<strong>Pneuma grain:</strong> "+fmt(n)+" "+pU+"s = "+pB);
+    if(["year","decade","century","Aeon","Hexam","Novam"].indexOf(u)>=0){
+      var yrs=n*(u==="year"||u==="Aeon"?1:(u==="decade"||u==="Hexam"?10:100));
+      lines.push("<strong>Vi\u2019talitas deep-time:</strong> "+fmt(yrs)+" lived year"+(yrs===1?"":"s")+" span"+(yrs===1?"s":"")+" ~"+fmt(yrs*1000)+" Earth-equivalent years");
+    }
+    document.getElementById('cv-out').innerHTML=lines.join("<br>");
+  }
+  (function(){
+    var sel=document.getElementById('cv-u'); if(!sel) return;
+    var og1=document.createElement('optgroup'); og1.label="Earth ruler";
+    E_UNITS.forEach(function(u){var o=document.createElement('option');o.value=u[0];o.textContent=u[0];og1.appendChild(o);});
+    var og2=document.createElement('optgroup'); og2.label="Pneuma ruler";
+    P_UNITS.forEach(function(u){var o=document.createElement('option');o.value=u[0];o.textContent=u[0];og2.appendChild(o);});
+    sel.appendChild(og1); sel.appendChild(og2); sel.value="year";
+    sel.addEventListener('change',convert);
+    document.getElementById('cv-n').addEventListener('input',convert);
+    convert();
+  })();
 })();
 </script>
 </body>
