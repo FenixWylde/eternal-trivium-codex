@@ -2596,6 +2596,79 @@ Because they follow no strict rule of creation and were <strong>never truly sync
     <div class="h2title">Almanac</div>
     <div class="h2sub">Timekeeping of the two realms &mdash; the Dual Reckoning, the Civil Calendar, the Converter, and the Seasons of an Aeon</div>
     <div class="title-rule"></div>
+<style>
+#s_almanac .badge{display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:10px;
+    font-weight:500; text-transform:uppercase; letter-spacing:.12em;
+    padding:2px 8px; border-radius:5px; vertical-align:2px; margin-left:8px;
+    box-shadow:0 1px 2px -1px rgba(80,55,20,.4);}
+#s_almanac .b-locked{background:var(--locked-soft); color:var(--locked); border:1px solid var(--locked)}
+#s_almanac .b-open{background:var(--open-soft); color:var(--open); border:1px solid var(--open)}
+#s_almanac .b-new{background:var(--soul-soft); color:var(--soul); border:1px solid var(--soul-edge)}
+#s_almanac .b-prop{background:var(--maisel-bg); color:#8a6a12; border:1px solid var(--maisel)}
+#s_almanac h2.secline{font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:500;
+    text-transform:uppercase; letter-spacing:.28em; color:var(--ink-faint);
+    text-align:center; margin:0 0 4px;}
+#s_almanac .sectitle{text-align:center; text-transform:uppercase; letter-spacing:3px;
+    font-family:'Cinzel',Georgia,serif; font-weight:600;
+    font-size:clamp(22px,3.6vw,32px); margin:2px auto 4px;
+    background:linear-gradient(100deg,#5b3a6e 0%,#a0502e 52%,#1f7a6b 100%);
+    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent;}
+#s_almanac .secsub{text-align:center; font-style:italic; color:var(--ink-dim);
+    font-size:15px; margin:0 auto 22px; max-width:600px; line-height:1.45;}
+#s_almanac table{width:100%; border-collapse:collapse; font-size:14.5px;
+    background:linear-gradient(180deg, rgba(255,250,238,.35), transparent);
+    border:1px solid var(--rule); border-radius:10px; overflow:hidden;}
+#s_almanac th{background:rgba(156,124,60,.14); color:#5c4a24; border-bottom:1px solid var(--gilt);
+    font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase;
+    letter-spacing:.14em; font-weight:500; text-align:left; padding:9px 14px;}
+#s_almanac td{padding:8px 14px; border-bottom:1px solid rgba(120,90,40,.18)}
+#s_almanac table tr:nth-child(even) td{background:rgba(156,124,60,.05)}
+#s_almanac table tr:last-child td{border-bottom:none}
+#s_almanac td em{color:var(--ink-dim)}
+#s_almanac .card{background:linear-gradient(180deg, rgba(255,250,238,.5), rgba(230,217,185,.35));
+    border:1px solid var(--rule); border-left-width:3px;
+    box-shadow:0 1px 0 rgba(255,255,255,.4) inset, 0 2px 10px -6px rgba(80,55,20,.4);
+    border-radius:11px; padding:14px 18px; margin:14px 0;
+    font-size:14.5px; line-height:1.58;}
+#s_almanac .card .tag{display:block; font-family:'IBM Plex Mono',monospace; font-size:10.5px;
+    text-transform:uppercase; letter-spacing:.16em; color:var(--gilt);
+    font-weight:500; margin-bottom:5px;}
+#s_almanac .dot{display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:8px; vertical-align:1px}
+#s_almanac .d-mind{background:var(--mind)}
+#s_almanac .d-body{background:var(--body)}
+#s_almanac .d-soul{background:var(--soul)}
+#s_almanac .d-hinge{background:var(--silas)}
+#s_almanac .d-gilt{background:var(--gilt)}
+#s_almanac .season-band{border:1px solid var(--rule); border-left:4px solid; border-radius:10px; padding:11px 14px; margin:10px 0}
+#s_almanac .season-band .sb-t{font-family:var(--display); font-weight:600; font-size:16.5px; display:block}
+#s_almanac .season-band .sb-s{font-style:italic; color:var(--ink-dim); font-size:13px; display:block; margin-bottom:8px}
+#s_almanac .sb-lull{border-left-color:var(--mind)}
+#s_almanac .sb-lull .sb-t{color:var(--mind)}
+#s_almanac .sb-eld{border-left-color:var(--body)}
+#s_almanac .sb-eld .sb-t{color:var(--body)}
+#s_almanac .sb-vim{border-left-color:var(--soul)}
+#s_almanac .sb-vim .sb-t{color:var(--soul)}
+#s_almanac .wavechips{display:flex; flex-wrap:wrap; gap:6px}
+#s_almanac .wavechip{font-family:'IBM Plex Mono',monospace; font-size:11px; padding:3px 9px; border-radius:999px; border:1px solid var(--rule); background:rgba(255,250,238,.45); cursor:pointer}
+#s_almanac .wavechip:hover{border-color:var(--gilt)}
+#s_almanac .wavechip.sel{border-color:var(--gilt); background:rgba(156,124,60,.2); font-weight:500}
+#s_almanac .calgrid{display:grid; grid-template-columns:repeat(9,1fr); gap:3px; margin-top:12px}
+#s_almanac .calgrid .ch{font-family:'IBM Plex Mono',monospace; font-size:9.5px; text-transform:uppercase; letter-spacing:.04em; text-align:center; color:var(--ink-dim); padding:4px 0; border-bottom:1px solid var(--gilt)}
+#s_almanac .calgrid .cb{aspect-ratio:1.15; display:flex; align-items:center; justify-content:center; font-size:11.5px; font-family:'IBM Plex Mono',monospace; border:1px solid rgba(120,90,40,.25); border-radius:5px; background:rgba(255,250,238,.35)}
+#s_almanac .calgrid .cb.mark{border-color:var(--silas); background:var(--silas-bg); color:var(--silas); font-weight:600}
+#s_almanac .calgrid .cb.dimc{opacity:.32}
+#s_almanac .spanlab{font-family:'IBM Plex Mono',monospace; font-size:9px; color:var(--ink-faint); display:flex; align-items:center; justify-content:center}
+#s_almanac .cv-row{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin:14px 0}
+#s_almanac .cv-row input, #s_almanac .cv-row select{font-family:'Spectral',Georgia,serif; font-size:15px; color:var(--ink); background:rgba(255,250,238,.55); border:1px solid var(--rule); border-radius:8px; padding:8px 12px}
+#s_almanac .cv-row input{width:130px}
+#s_almanac .cv-row input:focus, #s_almanac .cv-row select:focus{outline:none; border-color:var(--gilt)}
+#s_almanac .cv-felt{font-family:var(--display); font-size:21px; font-weight:600; margin:10px 0 4px}
+#s_almanac .cv-out{font-size:14px; line-height:1.65}
+#s_almanac .thread{border:1px solid var(--rule); border-left:4px solid; border-radius:11px;
+    padding:14px 18px; margin:13px 0; font-size:14.5px; line-height:1.58;
+    box-shadow:0 2px 10px -6px rgba(80,55,20,.4);}
+#s_almanac .thread .tname{font-family:var(--display); font-weight:600; font-size:18px; display:block; margin-bottom:3px;}
+</style>
 
     <h2 class="secline">The Two Rulers</h2>
     <div class="sectitle">Dual Reckoning</div>
