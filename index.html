@@ -34,11 +34,11 @@
     --spirit:#9c7c3c;    --spirit-soft:#efe6cf; --spirit-edge:#b8923f; /* gilt accent */
     --soul:#1f7a6b;      --soul-soft:#dceee9;   --soul-edge:#2f9d8a;   /* Anti-Matter — jade */
     --spirit-cy:#1f7a6b; --spirit-cy-soft:#dceee9;
-    /* Per-Brand colors — parchment-tuned jewel tones */
+    /* Per-Cipher colors — parchment-tuned jewel tones */
     --a-origin:#2f9e95;  --a-hallow:#b5468f;  --a-feii:#e8b423;
     --a-wylde:#3f8c4f;   --a-grymm:#3a4490;   --a-qhaos:#d4762a;
     --a-arcane:#7b4fb0;  --a-ardor:#9c2535;   --a-aether:#b8881f;
-    /* Darker text-variants for the warm/light Brands (legibility on vellum) */
+    /* Darker text-variants for the warm/light Ciphers (legibility on vellum) */
     --a-feii-tx:#946d08;  --a-aether-tx:#7a5a10; --a-qhaos-tx:#a8530f; --a-origin-tx:#1a6b64;
     /* Book Outline — four braided character threads */
     --omin:#6b4a8a; --omin-bg:#efe7f4; --amoz:#b8602a; --amoz-bg:#f7e8da;
@@ -191,7 +191,7 @@
   tr:last-child td{border-bottom:none}
   td.glyph{font-family:"Avenir Next",sans-serif; font-size:13px; color:var(--ink-faint)}
 
-  /* ---- Brand-group panels ---- */
+  /* ---- Cipher-group panels ---- */
   .group{
     border-radius:14px; padding:22px 24px; margin:20px 0;
     border:1px solid var(--rule); position:relative; overflow:hidden;
@@ -576,7 +576,7 @@
   }
   .hero .hero-eyebrow::before{content:""; width:40px; height:1px; background:var(--gilt); display:inline-block}
   .hero .hero-eyebrow::after{content:""; width:40px; height:1px; background:var(--gilt); display:inline-block}
-  .hero h1.hero-title--logo{ display:block; margin:6px auto 20px; padding:0; line-height:1; }
+  .hero h1.hero-title--logo{ display:block; margin:6px auto 8px; padding:0; line-height:1; }
   .hero .hero-logo{ display:block; width:min(520px,82%); height:auto; margin:0 auto; }
   .hero .hero-title-txt{ position:absolute; width:1px; height:1px; padding:0; margin:-1px;
     overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }
@@ -597,16 +597,22 @@
     -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent;
   }
   .hero .hero-genre{
-    font-family:'IBM Plex Mono',monospace; font-size:clamp(9.5px,1.1vw,11.5px); letter-spacing:.16em;
-    text-transform:uppercase; color:var(--a-arcane); margin:0 auto 24px; max-width:680px;
+    font-family:'IBM Plex Mono',monospace; font-size:clamp(7px,0.82vw,9px); letter-spacing:.13em;
+    text-transform:uppercase; color:var(--ink-faint); margin:0 auto 24px; max-width:none;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
   }
   .hero .hero-lead{font-size:18px; max-width:640px; margin:0 auto; color:var(--ink-soft); line-height:1.55}
   .hero .hero-lead strong{color:var(--ink)}
   .def-row{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:30px auto; max-width:880px; text-align:left}
   .legend-row{display:flex; flex-wrap:wrap; gap:9px; margin:8px auto 6px; justify-content:center; max-width:760px}
   .hero .hero-genre{
-    font-family:'IBM Plex Mono',monospace; font-size:clamp(11px,1.6vw,14px); letter-spacing:.18em;
-    text-transform:uppercase; color:var(--a-arcane); margin:0 auto 24px; max-width:760px; text-align:center;
+    font-family:'IBM Plex Mono',monospace; font-size:clamp(7.5px,1.08vw,12px); letter-spacing:.085em;
+    text-transform:uppercase; color:var(--ink-faint); margin:0 auto 24px; max-width:none; text-align:center;
+    white-space:nowrap;
+  }
+  /* nowrap would truncate on phones - allow wrap on narrow screens */
+  @media (max-width:640px){
+    .hero .hero-genre{ white-space:normal; max-width:88%; line-height:1.7; }
   }
   .hero .hero-lead{font-size:19px; max-width:680px; color:var(--ink-soft); line-height:1.55}
   .hero .hero-lead strong{color:var(--ink)}
@@ -1025,7 +1031,7 @@
 
   <header class="topbar" id="topbar">
     <div class="tb-inner">
-      <button class="tb-brand" id="tbBrand" data-target="pitch">Eternal Trivium</button>
+      <button class="tb-brand" id="tbCipher" data-target="pitch">Eternal Trivium</button>
       <nav class="tb-nav" id="tbNav"></nav>
       <div class="tb-tools">
         <input type="text" class="navsearch" id="navSearch" placeholder="Search…" autocomplete="off">
@@ -1103,7 +1109,7 @@
       The Great Mother <strong>A&rsquo;kana</strong> gave her children the gift of <strong>Anima</strong> &mdash; the power to know and tend a soul &mdash; and was betrayed twice: once by her brother <strong>A&rsquo;thule</strong>, who forged <strong>Stigma</strong> to unmake creation, and once from within, when one of her own protectors corrupted the divine <strong>Eversouls</strong> in a war that broke the world. A&rsquo;kana spent the last of herself sealing the wound, scattering her surviving children into mortal rebirth with their memories wiped. Generations later, the seal is failing. The three who must mend it &mdash; the <strong>Ra&rsquo;quiss siblings</strong> &mdash; live as ordinary, distrusted <strong>Medians</strong>, casters who pull power from their own past lives at the price of greying away, memory by memory, toward the same Stigma they&rsquo;re sworn to fight. As they uncover what they were, they inherit not just power but guilt: the betrayer was family, the war was kin against kin, and the mercy they deliver to the corrupted &mdash; releasing trapped souls back to the cycle &mdash; is the same mercy one sister once gave the brother she was forced to strike down. <em>Eternal Trivium</em> braids a coming-of-age, a slow-burn tragedy of reincarnated love, and a cosmology where the only cure for corruption is to <strong>return to where you began.</strong>
     </div>
     <div class="card claude-made" style="border-left-color:var(--spirit); margin-top:18px">
-      <span class="tag" style="color:var(--gilt)">Title &amp; Branding <span class="badge b-locked">Locked</span></span>
+      <span class="tag" style="color:var(--gilt)">Title &amp; Ciphering <span class="badge b-locked">Locked</span></span>
       <strong>Series / world title: Eternal Trivium</strong> (no &ldquo;The&rdquo;). Names the whole structure of reality &mdash; the three-Pillar cosmos governed by the Twelve Laws &mdash; so every story sits beneath it. Iconic shape (adjective + weighty noun), a canon term rather than a bolted-on name, clean and sayable, and it quietly encodes the &ldquo;three&rdquo; that organizes the world. <strong>Animancy</strong> is the magic <em>within</em> the world (its &ldquo;Force&rdquo;), not the title. Three-tier brand: world title &rarr; magic system &rarr; book subtitles (e.g. <em>Eternal Trivium: Sea of Lights</em>).
     </div>
 
@@ -1206,13 +1212,13 @@
       <li><strong>Beacon of Anima:</strong> saturated with soul-energy, she flows Anima out through her roots into worlds beyond &mdash; lending influence to <strong>all worlds she connects to.</strong></li>
       <li><strong>The Leylines are her roots:</strong> the Ley Lines are the <strong>Roots of A&rsquo;kana</strong>, like blood vessels. A new world gets a root that <strong>feeds it Anima</strong>; the network connects all living worlds to the Soul Space, recycling energy for <strong>Balance.</strong> Sever a root or kill a world, and it withers back to the Soul Realm.</li>
       <li><strong>The Aurora:</strong> the Crux birthed the <strong>Northern Lights</strong> &mdash; a gateway into the Sea of Lights through which souls traverse.</li>
-      <li><strong>Nine Rune-Carved Obelisks:</strong> rune-carved wards around the tree, one for each of the <strong>Nine Brands of Anima</strong>, representing the pathways of <strong>Matter, Anti-Matter, and Dark Matter.</strong></li>
+      <li><strong>Nine Rune-Carved Obelisks:</strong> rune-carved wards around the tree, one for each of the <strong>Nine Ciphers of Anima</strong>, representing the pathways of <strong>Matter, Anti-Matter, and Dark Matter.</strong></li>
     </ul>
     <div class="card note"><span class="tag">Why A&rsquo;thule is limited <span class="badge b-locked">Locked</span></span>A&rsquo;kana is mother of <em>all</em> Anima &mdash; every pathway is hers to govern, <strong>even the Anima A&rsquo;thule wields.</strong> This is why <strong>A&rsquo;thule can use only a fraction of his full power:</strong> her hold over the Anima Domains throttles him. Even sleeping, the Great Mother keeps her hand on the betrayer&rsquo;s strength.</div>
 
     <h3>The Eversouls &mdash; A&rsquo;kana&rsquo;s Children <span class="badge b-locked">Locked</span></h3>
     <p>To defend the Pneumaverse, <strong>A&rsquo;kana created the Eversouls</strong> &mdash; her children, instrumental to the founding of <strong>Ne&rsquo;haris</strong> and protectors of its deepest secrets. They are a distinct tier of being: <strong>below the Paramounts but far above ordinary souls.</strong></p>
-    <div class="card note"><span class="tag">Eighteen, then seventeen <span class="badge b-locked">Locked</span></span>A&rsquo;kana tailored <strong>eighteen Eversouls</strong> &mdash; but <strong>A&rsquo;sai was never born</strong> (slain in incubation by Silas), leaving <strong>seventeen active.</strong> The Eversouls are not the Brands themselves; they are the <strong>smaller constituent parts of the nine Brands of Anima</strong> &mdash; finer Aspects of the Soul that, together, compose each Brand. So the nine Brands and the eighteen Eversouls are two scales of the same system: the Brand is the whole, the Eversouls its facets.</div>
+    <div class="card note"><span class="tag">Eighteen, then seventeen <span class="badge b-locked">Locked</span></span>A&rsquo;kana tailored <strong>eighteen Eversouls</strong> &mdash; but <strong>A&rsquo;sai was never born</strong> (slain in incubation by Silas), leaving <strong>seventeen active.</strong> The Eversouls are not the Ciphers themselves; they are the <strong>smaller constituent parts of the nine Ciphers of Anima</strong> &mdash; finer Aspects of the Soul that, together, compose each Cipher. So the nine Ciphers and the eighteen Eversouls are two scales of the same system: the Cipher is the whole, the Eversouls its facets.</div>
     <table>
       <caption>The tier of being &mdash; now four levels.</caption>
       <tr><th>Level</th><th>Who</th></tr>
@@ -1279,7 +1285,7 @@
 
     <div class="card note"><span class="tag">Lifespan &amp; rebirth <span class="badge b-locked">Locked</span></span>Eversouls live <strong>immense lifespans</strong> &mdash; on the order of <strong>1,000 to 12,000 Aeons</strong>, though even that may understate it, given how much of their existence is spent within the <strong>Sea of Lights.</strong> In time an Eversoul&rsquo;s Essence can <strong>lose its vibrancy</strong>; they then <strong>wither and fall</strong> &mdash; but, like their Fonixi descendants, they can be <strong>reborn.</strong> A reborn Eversoul may choose to take a <strong>mortal form</strong> or return to their <strong>Essence within the Sea of Lights.</strong></div>
 
-    <div class="card note"><span class="tag">Essence &amp; element <span class="badge b-locked">Locked</span></span>Though not strictly Elemental, each Eversoul holds <strong>sway over the element bound to their Essence</strong> (their Anima Brand) &mdash; the finer Aspect they embody expressed as command over its matching force. Their <strong>Essence is the very power they carry</strong>: a compound of spiritual and elemental force, tied to their psionic nature, and wholly <strong>immaterial</strong> &mdash; it makes up the entirety of their being.</div>
+    <div class="card note"><span class="tag">Essence &amp; element <span class="badge b-locked">Locked</span></span>Though not strictly Elemental, each Eversoul holds <strong>sway over the element bound to their Essence</strong> (their Anima Cipher) &mdash; the finer Aspect they embody expressed as command over its matching force. Their <strong>Essence is the very power they carry</strong>: a compound of spiritual and elemental force, tied to their psionic nature, and wholly <strong>immaterial</strong> &mdash; it makes up the entirety of their being.</div>
 
     <div class="card note"><span class="tag">How they multiply &mdash; and the first Phoenixes <span class="badge b-locked">Locked</span></span>Eversouls do not breed. They regard one another as <strong>kin &mdash; brothers and sisters</strong> &mdash; and instead reproduce by <strong>parting with a sliver of their own Essence</strong> to create another of their kind. This progeny does not carry the full strength of its sire; such lesser-born are <strong>more material</strong> than their parent and more common within the Sea of Lights. It is said this is <strong>how the first Phoenixes (the Fonixi line) came into existence.</strong></div>
 
@@ -1374,7 +1380,7 @@
   <section id="s3">
     <h2><span class="num"></span> Anima &amp; Animancy</h2>
     <div class="h2title">Anima</div>
-    <div class="h2sub">The engine, the Nine Brands, and soul access</div>
+    <div class="h2sub">The engine, the Nine Ciphers, and soul access</div>
     <div class="title-rule"></div>
 
     <h3>Anima &mdash; the Source <span class="badge b-locked">Locked</span></h3>
@@ -1392,8 +1398,36 @@
 
     <h3 style="margin-top:24px">Auric Remanence &mdash; the Eighth Sense <span class="badge b-locked">Locked</span></h3>
     <p>Every race on Vi&rsquo;talitas possesses <strong>Auric Remanence</strong> as a literal <em>sense</em> &mdash; alongside sight, sound, scent, taste, touch, movement, body-limit, and message-interpretation. It is the soul&rsquo;s <strong>retained reservoir of past-life experience</strong> &mdash; the residue that remains after each life&rsquo;s field has passed &mdash; and the ability to <strong>identify memories from past lives and call upon them for present use</strong>. It is the sensory faculty that <strong>underlies all memory-casting</strong>: Animancy is Auric Remanence, <em>trained and spent.</em></p>
-    <div class="card payoff claude-made"><span class="tag">How a soul finds its Brand <span class="badge b-locked">Locked</span></span>Through Auric Remanence, the <strong>soul retains the emotional experiences that left the most defined impressions upon it</strong> across its many lifetimes. Some emotions are <strong>more deeply ingrained</strong> in a given soul than others &mdash; and through that dominant emotional register, the soul becomes <strong>associated with a particular Brand of Anima.</strong> The <strong>Feii</strong> are its master-teachers, their connection to the Nyph tying the elemental peoples to this lineage.</div>
+    <div class="card payoff claude-made"><span class="tag">How a soul finds its Cipher <span class="badge b-locked">Locked</span></span>Through Auric Remanence, the <strong>soul retains the emotional experiences that left the most defined impressions upon it</strong> across its many lifetimes. Some emotions are <strong>more deeply ingrained</strong> in a given soul than others &mdash; and through that dominant emotional register, the soul becomes <strong>associated with a particular Cipher of Anima.</strong> The <strong>Feii</strong> are its master-teachers, their connection to the Nyph tying the elemental peoples to this lineage.</div>
 
+
+    <h3>The Nkra &mdash; the Soul&rsquo;s Nucleus <span class="badge b-locked">Locked &middot; New</span></h3>
+    <p>Every soul carries a <strong>Nkra</strong> &mdash; the nucleus of what it is. The Nkra <strong>holds all that soul has ever experienced</strong> across every life it has lived, and it is <strong>what allows rebirth to move forward at all.</strong> Because no two souls have lived the same lives, <strong>no two Nkra are alike</strong>: it is at once a soul&rsquo;s memory, its inheritance, and its signature. The message and the fingerprint are not two things &mdash; the signature <em>is</em> what the message looks like from outside.</p>
+
+    <div class="card note"><span class="tag">A&rsquo;kana&rsquo;s gift <span class="badge b-locked">Locked &middot; New</span></span>The Nkra is <strong>universal</strong> &mdash; every soul has one, without exception. The Eversouls held it <strong>sacred</strong>: each soul&rsquo;s gift to existence from <strong>A&rsquo;kana herself</strong>, the Great Mother&rsquo;s portion in every living thing. <em>Nkra</em> is the ancient word for the message a soul carries out of death and into the next life.</div>
+
+    <div class="card note"><span class="tag">Nkra produces Anima &mdash; and makes Medians <span class="badge b-locked">Locked &middot; New</span></span><strong>Nkra is what produces Anima.</strong> This is the root of the Median/Generic divide: those with <strong>potent Nkra</strong> become <strong>Medians</strong>, and even among them potency varies widely &mdash; some far more powerful than others. The <strong>Ra&rsquo;quiss siblings</strong> sit at the extreme of that range. It also restates the locked rule that Anima follows the <em>intensity of the soul</em>: more lives lived means a denser Nkra, and a denser Nkra means more Anima to draw on.</div>
+
+    <div class="group spirit" style="margin-top:14px">
+      <div class="gname"><span class="dot"></span>Reading, shielding, and flaunting</div>
+      <div class="gmeta">Nkra is perceptible &mdash; which makes its handling a matter of manners as much as skill.</div>
+      <div class="aspect"><div class="an" style="color:var(--spirit)">Read by trained Service</div><div class="ad">Perceiving another&rsquo;s Nkra is a <strong>trainable discipline</strong>, not a rare gift &mdash; the province of <strong>Soothsayers and Veilwalkers</strong> especially. Omin reads it as she reads all things: through <strong>Aether remnants</strong>.</div></div>
+      <div class="aspect"><div class="an" style="color:var(--spirit)">Shielded by choice</div><div class="ad">A soul can <strong>hide its Nkra</strong> to avoid being read. This is ordinary and unremarkable &mdash; a potent Nkra can be <strong>genuinely overwhelming</strong> to those sensitive to it, and shielding is simple consideration.</div></div>
+      <div class="aspect"><div class="an" style="color:var(--spirit)">Flaunting is belligerence</div><div class="ad">To leave a potent Nkra <strong>open and unshielded in company is considered aggressive</strong> &mdash; a deliberate imposition on everyone present. Among Medians it reads as a threat, a challenge, or gross ill-breeding.</div></div>
+    </div>
+
+    <div class="card note" style="border-left-color:var(--mind)"><span class="tag" style="color:var(--mind)">The Reset &mdash; Stigma&rsquo;s true cost <span class="badge b-locked">Locked &middot; New</span></span>Stigma does not merely madden the mind; it corrupts the <strong>Nkra itself.</strong> Carried to completion, the Nkra is <strong>reset</strong> &mdash; wiped to a blank nucleus, <strong>losing everything the soul ever experienced</strong> and beginning again as a wholly new soul. This is the true horror beneath Stigmatization: not death, which every soul survives, but <strong>the ending of the thing that carried you through death.</strong></div>
+
+    <div class="card note"><span class="tag">Cleansing prevents the Reset <span class="badge b-locked">Locked &middot; New</span></span>The Reset is a <strong>process, not an instant</strong> &mdash; and it can be <strong>interrupted.</strong> A soul <strong>cleansed of Stigma before the Reset completes keeps its Nkra intact</strong>, losing nothing of what it has lived. This is the general rule, and it is why cleansing is <strong>urgent rather than merely merciful</strong>: every hour a Stigmatized soul goes uncleansed is continuity burning away. Once the Reset finishes, there is nothing left to cleanse &mdash; only a blank soul wearing no history at all.</div>
+    <div class="card note"><span class="tag">Why Maisel is extraordinary <span class="badge b-locked">Locked &middot; New</span></span>The reset is a <strong>process, not an instant</strong> &mdash; which is the whole weight of <strong>Mulu&rsquo;lizi&rsquo;s</strong> rescue. Fully Stigmatized at death, she was <strong>cleansed by D&rsquo;vita before the reset completed</strong>, and so her Nkra survived intact. This is precisely why she is the <em>only</em> sibling D&rsquo;vita could save, why her labor in the Sea took centuries, and why &mdash; as <strong>Maisel</strong> &mdash; her old life <strong>fractures and resurfaces</strong> at all. Nothing was erased. It was very nearly lost.</div>
+
+    <div class="card note"><span class="tag">Greying, reconsidered <span class="badge b-locked">Locked &middot; New</span></span>Because casting spends Recalled memory and memory lives in the Nkra, <strong>Animancy draws directly on the nucleus.</strong> A greyed memory &mdash; colour that never fully returns &mdash; is <strong>Nkra erosion</strong>: not merely a feeling a Median can no longer reach, but a fragment burned out of the thing that carries them forward. A veteran&rsquo;s dulled Signets map, quite literally, <strong>what they have spent of their own continuity.</strong></div>
+
+    <div class="card note"><span class="tag">What Silas is actually hunting <span class="badge b-locked">Locked &middot; New</span></span>Silas does not track people across lifetimes; he <strong>tracks Nkra.</strong> The prophecy fragments the siblings carry are held <em>within</em> their Nkra by nature and Path &mdash; which is why assembling the three is the thing he must prevent. His three failures restate cleanly: <strong>Omin and Amoz are illegible</strong>, their Nkra scrambled by the improbable Ra&rsquo;gnn/Fonixi cross; <strong>Ion is invisible</strong>, a Nkra with no prior life accumulated in it and therefore nothing to read.</div>
+
+    <div class="card payoff claude-made"><span class="tag">Design payoff</span>Nkra unifies four systems that were previously described separately &mdash; <strong>Anima&rsquo;s source, the Median/Generic divide, greying, and Silas&rsquo;s soul-scanning</strong> &mdash; under a single named object, without altering any of their locked mechanics. It also raises the stakes of Stigma from madness to <strong>annihilation of continuity</strong>, and hands the world a ready-made social register: shielding as courtesy, flaunting as aggression.</div>
+
+    <div class="card hook"><span class="tag">Open thread</span>Nkra shielding as a <strong>trained skill</strong> &mdash; who teaches it, at what age, and what it means for a Median who <em>cannot</em> shield. <span class="badge b-open">Open</span></div>
 
     <h3>Animate vs. Inanimate Souls <span class="badge b-locked">Locked</span></h3>
     <p>Who can wield Animancy comes down to a soul&rsquo;s <strong>Anima frequency.</strong></p>
@@ -1419,10 +1453,10 @@
       <li><strong>Elevated Animancy:</strong> Animancy as an <strong>art, not a tool.</strong> No infused materials &mdash; only natural ability, channeled through the self or an <strong>ancient relic.</strong> The Median&rsquo;s domain (and the rare trained Generic&rsquo;s aspiration).</li>
     </ul>
     <div class="card note"><span class="tag">Which Services use which <span class="badge b-locked">Locked &middot; New</span></span>Alongside <strong>Generics</strong>, the Services most likely to work in <strong>Common Animancy</strong> are the <strong>Lawseekers, Oathbound, Anitechs,</strong> and <strong>Veilwalkers</strong> &mdash; trades whose work leans on infused materials and the workaday craft. The Services that practice <strong>Elevated Animancy</strong> are the <strong>Soothsayers, Riftstalkers, Realmwatchers,</strong> and <strong>Leywardens</strong> &mdash; those whose work demands Animancy as a trained, material-free art.</div>
-    <div class="card note"><span class="tag">Mastery is hard</span>Even an animate soul must discover its <strong>Anima Brand</strong> (the nine Aspect-Archetypes) and learn to wield it fully. Inanimates who can&rsquo;t cast directly are offered other roles working anima-infused materials &mdash; many build content lives this way.</div>
+    <div class="card note"><span class="tag">Mastery is hard</span>Even an animate soul must discover its <strong>Anima Cipher</strong> (the nine Aspect-Archetypes) and learn to wield it fully. Inanimates who can&rsquo;t cast directly are offered other roles working anima-infused materials &mdash; many build content lives this way.</div>
 
 
-    <h3 style="margin-top:34px">Three Groups, Nine Brands <span class="badge b-locked">Locked</span></h3>
+    <h3 style="margin-top:34px">Three Groups, Nine Ciphers <span class="badge b-locked">Locked</span></h3>
     <p class="lede">Each group descends from one Paramount and represents a distinct relationship to memory.</p>
     <div class="group mind">
       <div class="gname"><span class="dot"></span>Mind Preservation</div>
@@ -1461,10 +1495,10 @@
       <tr><td style="color:var(--spirit)">Soul Restoration</td><td>The immune system itself.</td><td>The mother&rsquo;s protection</td></tr>
     </table>
 
-    <h3>Brand Symbols &mdash; Visual Identity <span class="badge b-locked">Locked</span></h3>
-    <p>Each Brand has a canonical <strong>Signet symbol</strong> and color (palette follows the dimensional coding: Mind cool, Body hot, Soul celestial).</p>
+    <h3>Cipher Symbols &mdash; Visual Identity <span class="badge b-locked">Locked</span></h3>
+    <p>Each Cipher has a canonical <strong>Signet symbol</strong> and color (palette follows the dimensional coding: Mind cool, Body hot, Soul celestial).</p>
     <table>
-      <tr><th>Brand</th><th>Group</th><th>Color</th><th>Symbol</th></tr>
+      <tr><th>Cipher</th><th>Group</th><th>Color</th><th>Symbol</th></tr>
       <tr><td style="color:var(--a-origin-tx)"><strong>Origin</strong></td><td>Mind</td><td><span style="display:inline-block;width:11px;height:11px;border-radius:50%;background:var(--a-origin);vertical-align:middle;margin-right:6px;border:1px solid rgba(0,0,0,.2)"></span>Deep Teal-Cyan</td><td>Interlocking star-polygons around a filled core</td></tr>
       <tr><td style="color:var(--a-hallow)"><strong>Hallow</strong></td><td>Mind</td><td><span style="display:inline-block;width:11px;height:11px;border-radius:50%;background:var(--a-hallow);vertical-align:middle;margin-right:6px;border:1px solid rgba(0,0,0,.2)"></span>Deep Rose-Magenta</td><td>Paired up/down triangles on a barred axis, two orbs</td></tr>
       <tr><td style="color:var(--a-feii-tx)"><strong>Feii</strong></td><td>Mind</td><td><span style="display:inline-block;width:11px;height:11px;border-radius:50%;background:var(--a-feii);vertical-align:middle;margin-right:6px;border:1px solid rgba(0,0,0,.2)"></span>Vibrant Marigold</td><td>Four outward triangles (compass) around a central orb</td></tr>
@@ -1475,12 +1509,12 @@
       <tr><td style="color:var(--a-ardor)"><strong>Ardor</strong></td><td>Soul</td><td><span style="display:inline-block;width:11px;height:11px;border-radius:50%;background:var(--a-ardor);vertical-align:middle;margin-right:6px;border:1px solid rgba(0,0,0,.2)"></span>Crimson</td><td>Three nested triangles around a small core</td></tr>
       <tr><td style="color:var(--a-aether-tx)"><strong>Aether</strong></td><td>Soul</td><td><span style="display:inline-block;width:11px;height:11px;border-radius:50%;background:var(--a-aether);vertical-align:middle;margin-right:6px;border:1px solid rgba(0,0,0,.2)"></span>Antique Gold</td><td>Atomic/orbital figure &mdash; nucleus, rings, points</td></tr>
     </table>
-    <div class="card payoff"><span class="tag">Note</span>The Aether Brand symbol being a literal <strong>orbital/atom</strong> is apt &mdash; Aether is the substance of the Aegis and A&rsquo;kana&rsquo;s Force. The Brand symbols double as <strong>Median identification, Archevim engraving, and institutional heraldry.</strong></div>
+    <div class="card payoff"><span class="tag">Note</span>The Aether Cipher symbol being a literal <strong>orbital/atom</strong> is apt &mdash; Aether is the substance of the Aegis and A&rsquo;kana&rsquo;s Force. The Cipher symbols double as <strong>Median identification, Archevim engraving, and institutional heraldry.</strong></div>
 
-    <h3>The Nine Divine Aspects &amp; Brands <span class="badge b-locked">Locked</span></h3>
-    <p>The Aspects are the <strong>living Essences of the raw materials of existence</strong> &mdash; revered protectors of Anima who dwell in powerful <strong>Leypoints</strong> and fiercely defend them. If a seeker proves <strong>worthy</strong>, they teach the ways of Animancy. Each <strong>guards one of the Nine Brands</strong>, the master-teacher at the summit of each discipline. Each Brand also resonates with a <strong>family of emotion</strong> (the per-Brand expression of <em>emotion shapes the cast</em>) and surfaces its signets in a <strong>fixed location</strong> &mdash; placement <strong>announces a Median&rsquo;s Brand</strong>. <strong>Aether is the sole exception</strong>: its signets appear wherever that Median channels best.</p>
+    <h3>The Nine Divine Aspects &amp; Ciphers <span class="badge b-locked">Locked</span></h3>
+    <p>The Aspects are the <strong>living Essences of the raw materials of existence</strong> &mdash; revered protectors of Anima who dwell in powerful <strong>Leypoints</strong> and fiercely defend them. If a seeker proves <strong>worthy</strong>, they teach the ways of Animancy. Each <strong>guards one of the Nine Ciphers</strong>, the master-teacher at the summit of each discipline. Each Cipher also resonates with a <strong>family of emotion</strong> (the per-Cipher expression of <em>emotion shapes the cast</em>) and surfaces its signets in a <strong>fixed location</strong> &mdash; placement <strong>announces a Median&rsquo;s Cipher</strong>. <strong>Aether is the sole exception</strong>: its signets appear wherever that Median channels best.</p>
     <table>
-      <tr><th>Aspect</th><th>Brand</th><th>Resonant Emotion</th><th>Fueling Memories</th><th>Signet Location</th></tr>
+      <tr><th>Aspect</th><th>Cipher</th><th>Resonant Emotion</th><th>Fueling Memories</th><th>Signet Location</th></tr>
       <tr><td>Genos</td><td style="color:var(--a-origin-tx)"><strong>Origin</strong></td><td style="color:var(--a-origin-tx)">Life / Growth</td><td>Serenity, Gratitude, Beauty, Awareness</td><td>The <strong>face</strong></td></tr>
       <tr><td>Sacros</td><td style="color:var(--a-hallow)"><strong>Hallow</strong></td><td style="color:var(--a-hallow)">Love / Passion</td><td>Affection, Desire, Compassion, Sentiment</td><td>The <strong>torso</strong></td></tr>
       <tr><td>Pseudus</td><td style="color:var(--a-feii-tx)"><strong>Feii</strong></td><td style="color:var(--a-feii-tx)">Surprise / Playfulness</td><td>Excitement, Confusion, Awe, Curiosity</td><td>The <strong>neck</strong></td></tr>
@@ -1491,17 +1525,17 @@
       <tr><td>Voliti</td><td style="color:var(--a-ardor)"><strong>Ardor</strong></td><td style="color:var(--a-ardor)">Strength / Willpower</td><td>Motivation, Worth, Faith, Respect</td><td>The <strong>arms &amp; legs</strong></td></tr>
       <tr><td>Quintessi</td><td style="color:var(--a-aether-tx)"><strong>Aether</strong></td><td style="color:var(--a-aether-tx)">Identity / Autonomy</td><td>Freedom, Creativity, Purpose, Control</td><td><strong>No fixed location</strong></td></tr>
     </table>
-    <div class="card payoff claude-made"><span class="tag">Design payoff</span>Each Brand has a <strong>master-quest</strong> &mdash; seek its Aspect in a Leypoint, prove worthy, learn the discipline&rsquo;s true depth. The resonances dovetail with casting: <strong>Qhaos</strong> (anger) leans toward <em>intensity/force</em>, <strong>Arcane</strong> (peace) toward <em>precision</em>, exactly as the emotion-tendencies predict. A Median isn&rsquo;t <em>limited</em> to their Brand&rsquo;s emotions, but those feelings are the <strong>most efficient fuel.</strong></div>
+    <div class="card payoff claude-made"><span class="tag">Design payoff</span>Each Cipher has a <strong>master-quest</strong> &mdash; seek its Aspect in a Leypoint, prove worthy, learn the discipline&rsquo;s true depth. The resonances dovetail with casting: <strong>Qhaos</strong> (anger) leans toward <em>intensity/force</em>, <strong>Arcane</strong> (peace) toward <em>precision</em>, exactly as the emotion-tendencies predict. A Median isn&rsquo;t <em>limited</em> to their Cipher&rsquo;s emotions, but those feelings are the <strong>most efficient fuel.</strong></div>
 
     <h3>Casting &mdash; Recall &amp; Release <span class="badge b-locked">Locked</span></h3>
-    <p>A Median casts by <strong>Recalling</strong> a memory (surfacing it through Auric Remanence until its charge is raw) and <strong>Releasing</strong> that charge through a Brand, which shapes it into an effect &mdash; simply <strong>Recall &rarr; Release.</strong> Memory intensity equals cast intensity. The memory is the <strong>fuel</strong>; the Brand is the <strong>lens</strong> (any memory can fuel any Brand). The cost is <strong>felt, not numeric</strong>: Releasing a memory means temporarily losing access to its emotional charge. The act is fundamentally <strong>internal</strong> &mdash; the Median reaches inward rather than relying on an external mechanism.</p>
-    <div class="card note"><span class="tag">The visible signature &mdash; the Signets <span class="badge b-locked">Locked</span></span>Casting is <strong>subtractive</strong>, and the signature <em>is</em> the cost made visible. Where other powers add light to the world, Animancy briefly takes light <em>from the caster.</em> Every Median bears <strong>Signets</strong> &mdash; Anima-marks placed on the body at <strong>awakening</strong>, their location <strong>fixed by Brand</strong> so placement announces a Median&rsquo;s <em>discipline</em> (Origin on the face, Qhaos on the back, etc.; see the Brand Resonance table). <strong>Aether is the exception</strong>, surfacing where the Median channels best. They lie dormant until casting.</div>
+    <p>A Median casts by <strong>Recalling</strong> a memory (surfacing it through Auric Remanence until its charge is raw) and <strong>Releasing</strong> that charge through a Cipher, which shapes it into an effect &mdash; simply <strong>Recall &rarr; Release.</strong> Memory intensity equals cast intensity. The memory is the <strong>fuel</strong>; the Cipher is the <strong>lens</strong> (any memory can fuel any Cipher). The cost is <strong>felt, not numeric</strong>: Releasing a memory means temporarily losing access to its emotional charge. The act is fundamentally <strong>internal</strong> &mdash; the Median reaches inward rather than relying on an external mechanism.</p>
+    <div class="card note"><span class="tag">The visible signature &mdash; the Signets <span class="badge b-locked">Locked</span></span>Casting is <strong>subtractive</strong>, and the signature <em>is</em> the cost made visible. Where other powers add light to the world, Animancy briefly takes light <em>from the caster.</em> Every Median bears <strong>Signets</strong> &mdash; Anima-marks placed on the body at <strong>awakening</strong>, their location <strong>fixed by Cipher</strong> so placement announces a Median&rsquo;s <em>discipline</em> (Origin on the face, Qhaos on the back, etc.; see the Cipher Resonance table). <strong>Aether is the exception</strong>, surfacing where the Median channels best. They lie dormant until casting.</div>
 
     <div class="group spirit" style="margin-top:14px">
       <div class="gname"><span class="dot"></span>The Cast Cycle</div>
       <div class="gmeta">Recall &rarr; Release &rarr; Recovery &mdash; one visible cascade of color leaving and returning.</div>
-      <div class="aspect"><div class="an" style="color:var(--spirit)">Recall</div><div class="ad">Color drains from the body and <strong>refocuses</strong> into the Signets and eyes, which ignite in the <strong>Brand&rsquo;s color.</strong> The eyes take the Brand hue regardless of natural color: <strong>sclera and iris both flood</strong> with it, leaving only the <strong>pupil</strong> as a point of normal black or white (by race). The Median&rsquo;s <strong>hair also shifts to the Brand&rsquo;s color</strong> for the cast. No white remains in the eye &mdash; a striking, faintly inhuman look.</div></div>
-      <div class="aspect"><div class="an" style="color:var(--spirit)">Release</div><div class="ad">The gathered charge fires through the Brand into the effect.</div></div>
+      <div class="aspect"><div class="an" style="color:var(--spirit)">Recall</div><div class="ad">Color drains from the body and <strong>refocuses</strong> into the Signets and eyes, which ignite in the <strong>Cipher&rsquo;s color.</strong> The eyes take the Cipher hue regardless of natural color: <strong>sclera and iris both flood</strong> with it, leaving only the <strong>pupil</strong> as a point of normal black or white (by race). The Median&rsquo;s <strong>hair also shifts to the Cipher&rsquo;s color</strong> for the cast. No white remains in the eye &mdash; a striking, faintly inhuman look.</div></div>
+      <div class="aspect"><div class="an" style="color:var(--spirit)">Release</div><div class="ad">The gathered charge fires through the Cipher into the effect.</div></div>
       <div class="aspect"><div class="an" style="color:var(--spirit)">Recovery</div><div class="ad">Color bleeds back into the body; Signets and eyes cool to normal. <strong>Recovery speed = power</strong> &mdash; brief for a master, lingering for the weak or overdrawn.</div></div>
     </div>
 
@@ -1523,6 +1557,29 @@
     </div>
     <div class="card payoff"><span class="tag">Why it matters <span class="badge b-locked">Locked</span></span>This turns casting from a per-shot transaction into a <strong>resource-managed state</strong> &mdash; a Median chooses <em>when to enter</em> the form, then fights from inside it until their Savvy gives out. Combat gains a rhythm: <strong>ignite &rarr; barrage &rarr; burn down &rarr; recover</strong>. Soul-stamina, not per-cast cost, is the real ceiling on power in a fight.</div>
 
+    <h3 style="margin-top:34px">The Invocation &mdash; Naming the Working <span class="badge b-locked">Locked &middot; New</span></h3>
+    <p>Recall is <strong>cognitive</strong>. What ignites the state is the act of <em>naming the working in the mind</em> &mdash; and a Median may leave it there, or put it in the mouth. Speaking is not required for the magic to function. It is required for the magic to be <strong>precise.</strong></p>
+
+    <div class="card note"><span class="tag">Names are taught, not confessed <span class="badge b-locked">Locked &middot; New</span></span>A working&rsquo;s name is <strong>Institute vocabulary</strong> &mdash; formal, curricular, and shared. <strong>&ldquo;Loving Embrace&rdquo;</strong> is a Hallow spatial ward raising a shield over every ally within roughly ten feet; it is the name of the <em>working</em>, never of the caster&rsquo;s private memory. Two Medians who have never met can both call Loving Embrace, fuel it from wholly different memories, and raise the same shield. <strong>The name points at the effect, not at the wound.</strong> This is why the Institutes can teach Animancy at all: the vocabulary is portable even though the fuel never is.</div>
+
+    <div class="group spirit" style="margin-top:14px">
+      <div class="gname"><span class="dot"></span>Two registers of the same name</div>
+      <div class="gmeta">Formal citation and field form &mdash; not two schools, but two levels of diction.</div>
+      <div class="aspect"><div class="an" style="color:var(--spirit)">Formal &mdash; <em>Auric Remanence: Loving Embrace</em></div><div class="ad">The full citation as it appears in an Institute manual. Used in <strong>training, examination, ceremony, and record</strong> &mdash; anywhere precision of reference matters more than speed.</div></div>
+      <div class="aspect"><div class="an" style="color:var(--spirit)">Field &mdash; <em>Loving Embrace</em></div><div class="ad">What is actually said in a fight. Auric Remanence is what <em>every</em> Median is doing; announcing it is like a soldier announcing &ldquo;firearm&rdquo; before firing. <strong>Dropping the prefix is fluency, not sloppiness</strong> &mdash; a Median who always cites in full reads as green, or as someone performing authority.</div></div>
+      <div class="aspect"><div class="an" style="color:var(--spirit)">Silent &mdash; <em>thought only</em></div><div class="ad">The name held in the mind and never spoken. Fully viable, and <strong>the ordinary practice of masters.</strong> Costs nothing but the margin described below.</div></div>
+    </div>
+
+    <div class="card note"><span class="tag">What speech buys <span class="badge b-locked">Locked &middot; New</span></span>Speaking the name aloud adds <strong>precision and reliability.</strong> It is the most dependable way to fix a working under pressure &mdash; the mind wanders, the mouth does not. A silent cast is <strong>not weaker in force</strong>, but it carries a wider <strong>margin of error</strong>: a slightly looser shape, a slightly less certain edge. Masters cast silent because they can afford that margin. <strong>Novices are taught to speak because they cannot.</strong></div>
+
+    <div class="card note"><span class="tag">Calling as escalation &mdash; the battlefield convention <span class="badge b-locked">Locked &middot; New</span></span>Naming aloud <strong>costs a beat.</strong> For a small working the beat is not worth it; for a devastating one &mdash; deep Recall, heavy Savvy, consequences a caster cannot afford to bungle &mdash; the beat buys certainty. The result is a convention every trained Median reads instantly: <strong>when a veteran speaks a name, the situation has changed.</strong> Silence is routine work. Speech means something large is coming, and allies should move accordingly.</div>
+
+    <div class="char lead"><div class="cname">Omin &mdash; the one part of her own casting she can perceive <span class="badge b-locked">Locked &middot; New</span></div><div class="crole">Silent alone; spoken with her team.</div><p style="margin:0">Omin sees only in <strong>Aether remnants</strong> &mdash; the auras of living and unliving things. She therefore <strong>cannot see her own drain</strong>: not the colour leaving her, not the Signets waking, not her eyes flooding Aether&rsquo;s gold. The tell that every sighted Median reads on themselves is the one thing she is locked out of. <strong>The spoken name is the only part of her own casting she perceives.</strong><br><br>Working <strong>alone</strong>, she casts <strong>silent</strong> &mdash; accepting the wider margin because no one needs to hear her. Leading her <strong>Leywarden team</strong>, she <strong>speaks</strong>, so they know what is coming and where to stand. Her voice is not a crutch; it is <strong>command</strong>.</p></div>
+
+    <div class="card payoff claude-made"><span class="tag">Design payoff</span>The invocation layer extends the locked <strong>loud-novice / quiet-master</strong> axis outward by one ring: the novice leaks light <em>and</em> leaks words; the master is quiet in both. It also gives field scenes a <strong>free grammar of tension</strong> &mdash; a reader learns in two scenes that a spoken name means escalation, and feels it for the rest of the series without a line of explanation. And because names are Institute-taught rather than personal, an <strong>unnamed</strong> working immediately reads as improvised, private, or something nobody taught.</div>
+
+    <div class="card hook"><span class="tag">Open thread</span>Build the <strong>Institute lexicon</strong> &mdash; the standard working-names per Cipher and per Service, the ones every trained Median would know. <em>Loving Embrace</em> (Hallow, defensive spatial ward) is the first entry. <span class="badge b-open">Open</span></div>
+
     <h3 style="margin-top:34px">The Memory &mdash; Emotion Shapes the Cast <span class="badge b-locked">Locked</span></h3>
     <p>A memory is not fuel of one flat kind. <strong>Every memory carries an emotion or sensation, and that feeling shapes the cast.</strong> Intensity of memory still sets intensity of effect &mdash; but the <em>character</em> of the feeling steers <em>how</em> that power expresses.</p>
     <ul class="clean">
@@ -1536,7 +1593,7 @@
     <p>Because casting means feeling, a Median can <strong>Recall too much</strong> &mdash; pulling a memory so deep it stops being a tool and becomes a place. They tip into <strong>Mania</strong> (distinct from the Berserker Role). It has <strong>two faces, and the memory&rsquo;s emotion decides which strikes:</strong></p>
     <div class="group spirit" style="margin-top:10px">
       <div class="gname"><span class="dot"></span>The two faces of Mania</div>
-      <div class="aspect"><div class="an" style="color:var(--body)">Outward &mdash; loss of control</div><div class="ad">Memories that throw the cast outward (<strong>rage &rarr; force</strong>) throw the Median outward: the Brand fires <strong>wild and uncommanded</strong>, no aim, no off-switch &mdash; a danger to allies and self. The body acts; the steering is gone.</div></div>
+      <div class="aspect"><div class="an" style="color:var(--body)">Outward &mdash; loss of control</div><div class="ad">Memories that throw the cast outward (<strong>rage &rarr; force</strong>) throw the Median outward: the Cipher fires <strong>wild and uncommanded</strong>, no aim, no off-switch &mdash; a danger to allies and self. The body acts; the steering is gone.</div></div>
       <div class="aspect"><div class="an" style="color:var(--mind)">Inward &mdash; loss of self</div><div class="ad">Memories that turn the cast inward (<strong>grief, calm</strong>) pull the Median inward: consciousness <strong>submerges into the memory</strong>, leaving a <strong>coma-like state</strong> &mdash; present in body, absent in mind, trapped reliving it. They must <strong>find their way out.</strong></div></div>
     </div>
     <div class="card note"><span class="tag">The two bulwarks <span class="badge b-locked">Locked</span></span>Two Vitalitas attributes guard the two faces. <strong>Savvy</strong> holds the <em>form</em> (run out, the Recall State collapses); <strong>Actuality</strong> &mdash; <em>perceive and assert what is real</em> &mdash; anchors the <em>self</em> (run low, the memory swallows you). A Median can fail two ways: <strong>burn out</strong> (Savvy) or <strong>lose themselves</strong> (Actuality).</div>
@@ -1578,7 +1635,7 @@
 
 <h3>The Makers &mdash; Aspects &amp; Anitechs <span class="badge b-locked">Locked</span></h3>
     <p>A true Archevim takes <strong>two hands to make</strong>: one of the <strong>Nine Divine Aspects</strong> supplies the sacred bond and the rare Matrux; an <strong>Anitech</strong> then crafts the device. Neither can make one alone &mdash; this is the mark of authenticity, and the reason true Archevims are scarce.</p>
-    <div class="card note"><span class="tag">The Nine Divine Aspects <span class="badge b-locked">Locked</span></span>The <strong>Anima Aspects</strong> (&sect;3) both <strong>defend the sanctity of the nine Anima Brands</strong> and dwell within <strong>hidden domains at hidden Leypoints inside the Six Veils.</strong> They <strong>bless genuine Anitechs</strong> and provide the <strong>extraordinary quality of Matrux</strong> required to infuse memory into a crafted item &mdash; and they will only train those they consider <strong>true Anitechs</strong> to do so.</div>
+    <div class="card note"><span class="tag">The Nine Divine Aspects <span class="badge b-locked">Locked</span></span>The <strong>Anima Aspects</strong> (&sect;3) both <strong>defend the sanctity of the nine Anima Ciphers</strong> and dwell within <strong>hidden domains at hidden Leypoints inside the Six Veils.</strong> They <strong>bless genuine Anitechs</strong> and provide the <strong>extraordinary quality of Matrux</strong> required to infuse memory into a crafted item &mdash; and they will only train those they consider <strong>true Anitechs</strong> to do so.</div>
     <div class="card note"><span class="tag">Anitechs &mdash; the crafter class <span class="badge b-locked">Locked</span></span>Skilled craftsmen responsible for forging the <strong>sacred, long-lasting bonds with the Nine Divine Aspects.</strong> They take up the profession to become a range of working crafters &mdash; but to become a <strong>full Anitech</strong>, one must <strong>travel with the Aspects within their domains for a full aeon</strong> (an aeon being a year in Vi&rsquo;talitas), learning their ways. The apprenticeship transforms a craftsperson into a <strong>true, dedicated maker of relics.</strong> This training and pilgrimage is undertaken at the <strong>Abbeys of the Aspects</strong> (&sect; Organizations) &mdash; where mechanical skill and sacred belief are taught together. Without an Aspect&rsquo;s materials, an Anitech makes only lesser anima-infused goods, never a true Archevim.</div>
     <div class="card payoff claude-made"><span class="tag">Design payoff</span>Generic + Archevims = a viable gear-dependent playstyle. Attunement risk = a built-in equip cost/curse mechanic.</div>
     <div class="card note"><span class="tag">Stigma-charged Archevims <span class="badge b-locked">Locked</span></span>An Archevim <em>can</em> run on <strong>Stigma-charge</strong> &mdash; but it isn&rsquo;t built to, and <strong>breaks down from the strain over time.</strong> A villain&rsquo;s bargain with a built-in cost: cheaper, stronger, quietly damning, self-destroying.</div>
@@ -1590,7 +1647,7 @@
     <tr><td><strong>Matrux</strong></td><td>A <strong>living resin</strong>, almost always active &mdash; the crystallized animus that fuels everything made on Vi&rsquo;talitas (and before it, Ne&rsquo;haris). Handling it safely requires trained control of spiritual energy, which is why it is left to Anitechs. <em>(Full profile below.)</em></td></tr>
     <tr><td><strong>Pneu-Steel</strong></td><td>A strong alloy <strong>enchanted with Ley energies</strong> that increase its flexibility and stability. The primary, versatile metal &mdash; common across Vi&rsquo;talitas.</td></tr>
     <tr><td><strong>Elan Essence</strong></td><td>Body parts from <strong>Spirit Beasts</strong>, freely given or ethically harvested. Elans make up the primary wildlife in and around Vi&rsquo;talitas and the rest of the Ley &mdash; roaming freely, docile or volatile depending on the species.</td></tr>
-    <tr><td><strong>Hymnstones</strong></td><td><strong>Crystallized Eversoul Essence.</strong> Where a fallen or shedding Eversoul&rsquo;s Essence settles, it hardens into these translucent stones &mdash; gathered chiefly from the <strong>Singing Caves</strong>, the places where that Essence has pooled and crystallized over ages. Their colorations match the <strong>Anima Brands</strong> whose Essence they carry (aquamarine, rubellite, citrine, verdite, iolite, carnelian, amethyst, oxblood, amber&hellip;). They radiate what sounds like a <strong>pitch of song</strong> &mdash; an echo of the Eversouls&rsquo; lost harmony &mdash; whose frequency resonates with both Matrux and the user. (See The Nature of the Eversouls.)</td></tr>
+    <tr><td><strong>Hymnstones</strong></td><td><strong>Crystallized Eversoul Essence.</strong> Where a fallen or shedding Eversoul&rsquo;s Essence settles, it hardens into these translucent stones &mdash; gathered chiefly from the <strong>Singing Caves</strong>, the places where that Essence has pooled and crystallized over ages. Their colorations match the <strong>Anima Ciphers</strong> whose Essence they carry (aquamarine, rubellite, citrine, verdite, iolite, carnelian, amethyst, oxblood, amber&hellip;). They radiate what sounds like a <strong>pitch of song</strong> &mdash; an echo of the Eversouls&rsquo; lost harmony &mdash; whose frequency resonates with both Matrux and the user. (See The Nature of the Eversouls.)</td></tr>
     </table>
 
     
@@ -1690,6 +1747,199 @@ Because they follow no strict rule of creation and were <strong>never truly sync
     <div class="card hook"><span class="tag">A mercy, not a kill <span class="badge b-locked">Locked</span></span><strong>Destroy the Fulcrum and the host crumbles</strong> &mdash; the corrupted body collapses and the soul is <strong>released back to the Sea of Lights.</strong> A fully Stigmatized creature is already lost to madness and rot; shattering its Fulcrum <em>frees</em> the trapped soul rather than merely slaying a monster. (&ldquo;Destroy their fulcrums, and let them crumble&hellip; these poor things deserve a proper journey back to the Sea of Lights.&rdquo;) It literalizes the cosmology&rsquo;s central rule &mdash; the only cure for Stigma is <strong>returning to the Ley.</strong> Finding and reaching a Fulcrum in combat is the core skill of Stigma-fighting work, requiring <strong>archevims</strong> and a caster who can read where the corruption is anchored. Leywardens and Riftstalkers train for exactly this.</div>
 
   </section>
+
+  <!-- Institute Lexicon -->
+  <section id="s_lexicon">
+    <h2><span class="num"></span> The Institute Lexicon</h2>
+    <div class="h2title">Lexicon</div>
+    <div class="h2sub">Standard working-names, by Cipher</div>
+    <div class="title-rule"></div>
+    <p>The shared vocabulary of Animancy &mdash; the formal names the Institutes teach for standard workings. A working-name points at the <strong>effect</strong>, never at the caster&rsquo;s private memory, which is precisely why the vocabulary travels: two Medians who have never met can call the same name, fuel it from wholly different memories, and produce the same result.</p>
+<style>
+  /* brand hues are scoped to #s_palette upstream; redeclare for this section */
+  #s_lexicon{
+    --b-origin:#2f9e95; --b-hallow:#b5468f; --b-feii:#e8b423;
+    --b-wylde:#3f8c4f;  --b-grymm:#3a4490;  --b-qhaos:#d4762a;
+    --b-arcane:#7b4fb0; --b-ardor:#9c2535;  --b-aether:#b8881f;
+  }
+  #s_lexicon .lx-primer{
+    border:1px solid var(--rule); border-left:3px solid var(--gilt);
+    background:var(--bg-2); border-radius:4px; padding:16px 18px; margin:18px 0 26px;
+  }
+  #s_lexicon .lx-primer .lx-ph{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--gilt); margin-bottom:10px;
+  }
+  #s_lexicon .lx-steps{ display:grid; gap:9px; }
+  #s_lexicon .lx-step{ display:flex; gap:11px; align-items:baseline; font-size:13.5px; line-height:1.55; }
+  #s_lexicon .lx-step .n{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--ink-faint);
+    border:1px solid var(--rule); border-radius:3px; padding:1px 5px; flex:none;
+  }
+  #s_lexicon .lx-grid{ display:grid; gap:14px; }
+  #s_lexicon .lx-brand{
+    display:flex; border:1px solid var(--rule); border-radius:5px;
+    overflow:hidden; background:var(--bg-2);
+  }
+  #s_lexicon .lx-band{ width:6px; flex:none; }
+  #s_lexicon .lx-body{ padding:13px 16px; flex:1; }
+  #s_lexicon .lx-title{ display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; }
+  #s_lexicon .lx-bn{
+    font-family:'Cinzel',Georgia,serif; font-size:19px; font-weight:700; letter-spacing:1px;
+  }
+  #s_lexicon .lx-pillar{
+    font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:.14em;
+    text-transform:uppercase; opacity:.9;
+  }
+  #s_lexicon .lx-meta{
+    font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.08em;
+    color:var(--ink-faint); margin:3px 0 10px;
+  }
+  #s_lexicon .lx-entry{
+    border-top:1px solid var(--rule); padding:10px 0 2px; margin-top:8px;
+  }
+  #s_lexicon .lx-head{ display:flex; align-items:baseline; gap:9px; flex-wrap:wrap; }
+  #s_lexicon .lx-name{ font-weight:700; font-size:15px; letter-spacing:.3px; }
+  #s_lexicon .lx-kind{
+    font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--ink-faint);
+  }
+  #s_lexicon .lx-formal{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-dim);
+    margin:4px 0 5px; opacity:.85;
+  }
+  #s_lexicon .lx-desc{ font-size:13.5px; line-height:1.55; color:var(--ink-soft); }
+  #s_lexicon .lx-empty{
+    border-top:1px solid var(--rule); margin-top:8px; padding-top:10px;
+    font-size:12.5px; color:var(--ink-faint); font-style:italic;
+  }
+  @media (max-width:640px){ #s_lexicon .lx-bn{ font-size:17px; } }
+</style>
+
+    <div class="lx-primer">
+      <div class="lx-ph">How a cast takes place &mdash; the short form</div>
+      <div class="lx-steps">
+        <div class="lx-step"><span class="n">1</span><div><strong>Recall.</strong> The Median reaches inward and surfaces a memory through Auric Remanence until its charge is raw. The act is internal &mdash; no circle, no implement, no external mechanism.</div></div>
+        <div class="lx-step"><span class="n">2</span><div><strong>Name the working.</strong> Ignition is <strong>cognitive</strong>: the working-name is fixed in the mind. It may be held there in silence, or spoken. Speech is never required for the magic to function.</div></div>
+        <div class="lx-step"><span class="n">3</span><div><strong>The signature shows.</strong> Colour drains from the body and refocuses into the <strong>Signets and eyes</strong>, which flood with the Cipher&rsquo;s colour &mdash; sclera and iris both, the pupil left as the only normal point; hair takes the Cipher hue. Entry speed is itself a measure of skill.</div></div>
+        <div class="lx-step"><span class="n">4</span><div><strong>Release &mdash; and hold.</strong> The charge fires through the Cipher into the effect. Firing does <em>not</em> drop the Median out of Recall: the state persists and can be spent from repeatedly, limited by <strong>Savvy</strong> (soul-stamina).</div></div>
+        <div class="lx-step"><span class="n">5</span><div><strong>Recovery.</strong> Colour bleeds back; Signets and eyes cool. Recovery speed reads as power &mdash; brief for a master, lingering for the weak or overdrawn. Colour that never fully returns is <strong>greying</strong>.</div></div>
+      </div>
+    </div>
+
+    <div class="card note"><span class="tag">Silent, spoken, and what speech buys <span class="badge b-locked">Locked</span></span><strong>Silent casting is fully viable</strong> and is the ordinary practice of masters &mdash; the name is simply thought. Speaking it aloud adds <strong>precision and reliability, not force</strong>: a silent cast is no weaker, but carries a wider margin of error. Two registers exist for the spoken form &mdash; the formal citation <em>Auric Remanence: Loving Embrace</em>, used in training, examination and record; and the field form <em>Loving Embrace</em>, which is what anyone actually says in a fight. Dropping the prefix is fluency, not sloppiness. Because naming aloud costs a beat, it is reserved for workings that warrant it &mdash; so among trained Medians, <strong>a spoken name reads as escalation.</strong></div>
+
+    <h3 style="margin-top:30px">The Nine Registers <span class="badge b-open">Open &middot; in progress</span></h3>
+    <p>One register per Cipher. Entries are added as they are formalized; an unnamed working reads in-world as improvised, private, or something nobody taught.</p>
+    <div class="lx-grid">
+    <div class="lx-brand" id="lx_origin">
+      <div class="lx-band" style="background:var(--b-origin)"></div>
+      <div class="lx-body">
+        <div class="lx-title">
+          <span class="lx-bn" style="color:var(--b-origin)">Origin</span>
+          <span class="lx-pillar" style="color:var(--mind)">Mind</span>
+        </div>
+        <div class="lx-meta">Manifestation &amp; Conjuration &middot; Aspect Genos &middot; Resonance: Life / Growth</div>
+      <div class="lx-empty">No working-names recorded yet. <span class="badge b-open">Open</span></div>
+      </div>
+    </div>
+    <div class="lx-brand" id="lx_hallow">
+      <div class="lx-band" style="background:var(--b-hallow)"></div>
+      <div class="lx-body">
+        <div class="lx-title">
+          <span class="lx-bn" style="color:var(--b-hallow)">Hallow</span>
+          <span class="lx-pillar" style="color:var(--mind)">Mind</span>
+        </div>
+        <div class="lx-meta">Inspiration &amp; Divination &middot; Aspect Sacros &middot; Resonance: Love / Passion</div>
+      <div class="lx-entry">
+        <div class="lx-head"><span class="lx-name" style="color:var(--b-hallow)">Loving Embrace</span><span class="lx-kind">Defensive spatial ward</span></div>
+        <div class="lx-formal">Auric Remanence: Loving Embrace</div>
+        <div class="lx-desc">Raises a shield over <strong>every ally within roughly ten feet</strong> of the caster. The first formalized entry in the Institute lexicon and a standard of Hallow field training.</div>
+      </div>
+      </div>
+    </div>
+    <div class="lx-brand" id="lx_feii">
+      <div class="lx-band" style="background:var(--b-feii)"></div>
+      <div class="lx-body">
+        <div class="lx-title">
+          <span class="lx-bn" style="color:var(--b-feii)">Feii</span>
+          <span class="lx-pillar" style="color:var(--mind)">Mind</span>
+        </div>
+        <div class="lx-meta">Manipulation &amp; Abjuration &middot; Aspect Pseudus &middot; Resonance: Surprise / Play</div>
+      <div class="lx-empty">No working-names recorded yet. <span class="badge b-open">Open</span></div>
+      </div>
+    </div>
+    <div class="lx-brand" id="lx_wylde">
+      <div class="lx-band" style="background:var(--b-wylde)"></div>
+      <div class="lx-body">
+        <div class="lx-title">
+          <span class="lx-bn" style="color:var(--b-wylde)">Wylde</span>
+          <span class="lx-pillar" style="color:var(--body)">Body</span>
+        </div>
+        <div class="lx-meta">Elemental &amp; Transmutation &middot; Aspect Ecos &middot; Resonance: Happiness</div>
+      <div class="lx-empty">No working-names recorded yet. <span class="badge b-open">Open</span></div>
+      </div>
+    </div>
+    <div class="lx-brand" id="lx_grymm">
+      <div class="lx-band" style="background:var(--b-grymm)"></div>
+      <div class="lx-body">
+        <div class="lx-title">
+          <span class="lx-bn" style="color:var(--b-grymm)">Grymm</span>
+          <span class="lx-pillar" style="color:var(--body)">Body</span>
+        </div>
+        <div class="lx-meta">Necromation &amp; Abolition &middot; Aspect Alphus &middot; Resonance: Fear / the Veil</div>
+      <div class="lx-empty">No working-names recorded yet. <span class="badge b-open">Open</span></div>
+      </div>
+    </div>
+    <div class="lx-brand" id="lx_qhaos">
+      <div class="lx-band" style="background:var(--b-qhaos)"></div>
+      <div class="lx-body">
+        <div class="lx-title">
+          <span class="lx-bn" style="color:var(--b-qhaos)">Qhaos</span>
+          <span class="lx-pillar" style="color:var(--body)">Body</span>
+        </div>
+        <div class="lx-meta">Devastation &amp; Evocation &middot; Aspect Tumus &middot; Resonance: Anger / Rage</div>
+      <div class="lx-empty">No working-names recorded yet. <span class="badge b-open">Open</span></div>
+      </div>
+    </div>
+    <div class="lx-brand" id="lx_arcane">
+      <div class="lx-band" style="background:var(--b-arcane)"></div>
+      <div class="lx-body">
+        <div class="lx-title">
+          <span class="lx-bn" style="color:var(--b-arcane)">Arcane</span>
+          <span class="lx-pillar" style="color:var(--spirit)">Soul</span>
+        </div>
+        <div class="lx-meta">Psionic &middot; Aspect Delphi &middot; Resonance: Peace / Focus</div>
+      <div class="lx-empty">No working-names recorded yet. <span class="badge b-open">Open</span></div>
+      </div>
+    </div>
+    <div class="lx-brand" id="lx_ardor">
+      <div class="lx-band" style="background:var(--b-ardor)"></div>
+      <div class="lx-body">
+        <div class="lx-title">
+          <span class="lx-bn" style="color:var(--b-ardor)">Ardor</span>
+          <span class="lx-pillar" style="color:var(--spirit)">Soul</span>
+        </div>
+        <div class="lx-meta">Willful &middot; Aspect Voliti &middot; Resonance: Strength / Will</div>
+      <div class="lx-empty">No working-names recorded yet. <span class="badge b-open">Open</span></div>
+      </div>
+    </div>
+    <div class="lx-brand" id="lx_aether">
+      <div class="lx-band" style="background:var(--b-aether)"></div>
+      <div class="lx-body">
+        <div class="lx-title">
+          <span class="lx-bn" style="color:var(--b-aether)">Aether</span>
+          <span class="lx-pillar" style="color:var(--spirit)">Soul</span>
+        </div>
+        <div class="lx-meta">Spiritual &middot; Aspect Quintessi &middot; Resonance: Identity / Autonomy</div>
+      <div class="lx-empty">No working-names recorded yet. <span class="badge b-open">Open</span></div>
+      </div>
+    </div>
+    </div>
+
+    <div class="card hook"><span class="tag">Open thread</span>Populate the remaining registers &mdash; the standard working-names every trained Median would know, per Cipher and per Service. <span class="badge b-open">Open</span></div>
+  </section>
+
 
   
 <section id="s_chronicle">
@@ -2251,7 +2501,7 @@ Because they follow no strict rule of creation and were <strong>never truly sync
     <table>
       <tr><th>Role</th><th>Essence</th></tr>
       <tr><td><strong>Berserker</strong></td><td>All-out brawler who takes hits and dishes them just as hard. Endurance + raw force over finesse.</td></tr>
-      <tr><td><strong>Ascendent</strong></td><td>Devout to their beliefs til the very end&hellip; and beginning. Conviction that persists <strong>across the rebirth cycle</strong>; power scales with devotion. <strong>Most Lawseekers &amp; Soothsayers</strong> become Ascendents; Generic Ascendents of various beliefs use different Brands.</td></tr>
+      <tr><td><strong>Ascendent</strong></td><td>Devout to their beliefs til the very end&hellip; and beginning. Conviction that persists <strong>across the rebirth cycle</strong>; power scales with devotion. <strong>Most Lawseekers &amp; Soothsayers</strong> become Ascendents; Generic Ascendents of various beliefs use different Ciphers.</td></tr>
       <tr><td><strong>Sentry</strong></td><td>Pilots of anima-fueled heavy machinery, including the <strong>HEAT-SR Machines</strong> of the T.C.T. The wall that holds the line.</td></tr>
       <tr><td><strong>Oracle</strong></td><td>Arbiters of fate; dedicated to <strong>healing and empowering others.</strong> Open to <strong>Medians &amp; Generics</strong> &mdash; distinct from the Median-only Soothsayer.</td></tr>
       <tr><td><strong>Augur</strong></td><td>Powerful <strong>anima eaters</strong> wielding deadly spells for mass damage. Glass-cannon area devastators.</td></tr>
@@ -2294,7 +2544,7 @@ Because they follow no strict rule of creation and were <strong>never truly sync
     </ul>
     <div class="card note"><span class="tag">Wing-bloom timing <span class="badge b-locked">Locked &middot; New</span></span>Among Ra&rsquo;gnn and Fonixi, wings are normally present <strong>from birth</strong> &mdash; Omin&rsquo;s were, which is precisely why there were wings to steal. <strong>Amoz and I&rsquo;onnie bloomed late</strong>, their wings arriving well into childhood. Uncommon, but possible &mdash; and a quiet marker of the improbable hybrid inheritance the three of them carry differently.</div>
     <div class="card note claude-made"><span class="tag">Lineage resonance <span class="badge b-locked">Locked</span></span>The siblings are a <strong>Ra&rsquo;gnn-mother / Fonixi-father</strong> pairing (traditionally doomed). Their parent-deities, the Dragon &amp; Phoenix, are <strong>Stasyss &amp; Dynaass</strong> &mdash; the Empyrons held to be A&rsquo;kana&rsquo;s grandchildren. So the Ra&rsquo;quisss descend, mortally, from the same divine line their Eversoul nature comes from.</div>
-    <div class="card note"><span class="tag">The wider Pneumosi order <span class="badge b-locked">Locked</span></span>Beyond the siblings themselves (see <em>The sibling trinity</em>, below): the <strong>Falseones</strong> &mdash; A&rsquo;thule&rsquo;s elite &mdash; stand opposite them, their relation to the Grey Makers still to be reconciled. The <strong>Nine Divine Aspects</strong>, guardians of the Brands, are catalogued in Anima &amp; Animancy. Each Pneumosi sub-roster (Umbran Council, Falseones, Matriarchs, Deithist Court&hellip;) is a deep bench for later development.</div>
+    <div class="card note"><span class="tag">The wider Pneumosi order <span class="badge b-locked">Locked</span></span>Beyond the siblings themselves (see <em>The sibling trinity</em>, below): the <strong>Falseones</strong> &mdash; A&rsquo;thule&rsquo;s elite &mdash; stand opposite them, their relation to the Grey Makers still to be reconciled. The <strong>Nine Divine Aspects</strong>, guardians of the Ciphers, are catalogued in Anima &amp; Animancy. Each Pneumosi sub-roster (Umbran Council, Falseones, Matriarchs, Deithist Court&hellip;) is a deep bench for later development.</div>
 
     <div class="char lead">
       <div class="cname">Omin (Ominira) Xero &mdash; the Aetherseer</div>
@@ -2332,7 +2582,7 @@ Because they follow no strict rule of creation and were <strong>never truly sync
       </ul>
       <div class="card" style="margin:8px 0 0; background:var(--bg-2); border-left:3px solid var(--spirit)"><span class="tag" style="color:var(--spirit)">Who I&rsquo;n&aacute;cio was <span class="badge b-locked">Locked</span></span>Where most Eversouls were dutiful, I&rsquo;n&aacute;cio was <strong>the spark</strong> &mdash; the <strong>Essence of Ardor</strong> with the personality to match: mischief, fun, never a dull moment. <strong>D&rsquo;vita (elder) was forever wrangling her troublemaker brother;</strong> having survived Silas&rsquo;s attempt on the trio (he stole into the Cradle of the Awakened and poisoned their soul pods with an early strain of Stigma), they <strong>grew up closely.</strong> The trio&rsquo;s living heart.</div>
       <div class="card" style="margin:8px 0 0; background:var(--bg-2); border-left:3px solid var(--body)"><span class="tag" style="color:var(--body)">His fall &mdash; patient zero <span class="badge b-locked">Locked</span></span>I&rsquo;n&aacute;cio guarded <strong>Ne&rsquo;haris&rsquo;s borders</strong> &mdash; a duty <strong>Silas and Null exploited.</strong> In a breach he took damage from a <strong>Stigmant &mdash; the first one anyone had ever seen.</strong> The border-guardian was the first wounded; his corruption is, in a sense, patient zero. The breach was led by <strong>Null</strong> &mdash; A&rsquo;thule&rsquo;s firstborn and most powerful Falseone, a shapeshifter &mdash; who watched, expecting a swift fall.</div>
-      <div class="card" style="margin:8px 0 0; background:var(--bg-2); border-left:3px solid var(--spirit)"><span class="tag" style="color:var(--spirit)">The will that held <span class="badge b-locked">Locked</span></span>Because he <em>is</em> the <strong>Essence of Ardor &mdash; will itself</strong> &mdash; I&rsquo;n&aacute;cio <strong>staved off the corruption far longer than any being should.</strong> He never wanted to turn; he fought to <strong>save those who lacked his strength</strong>, working with <strong>D&rsquo;vita</strong> and eventually <strong>Vaine</strong> to defend the borders he was made to guard. The Brand he was became his resistance.</div>
+      <div class="card" style="margin:8px 0 0; background:var(--bg-2); border-left:3px solid var(--spirit)"><span class="tag" style="color:var(--spirit)">The will that held <span class="badge b-locked">Locked</span></span>Because he <em>is</em> the <strong>Essence of Ardor &mdash; will itself</strong> &mdash; I&rsquo;n&aacute;cio <strong>staved off the corruption far longer than any being should.</strong> He never wanted to turn; he fought to <strong>save those who lacked his strength</strong>, working with <strong>D&rsquo;vita</strong> and eventually <strong>Vaine</strong> to defend the borders he was made to guard. The Cipher he was became his resistance.</div>
       <div class="card hook" style="margin:8px 0 0"><span class="tag">The voice that called him &mdash; future reveal</span>As he weakened, a <strong>voice called him to keep going</strong> &mdash; an <strong>unborn soul from the Sea of Lights</strong> he came to <strong>love</strong>, whose essence helped him hold. A <em>distinct character &mdash; <strong>not</strong> A&rsquo;sai</em> &mdash; a romantic bond &mdash; in that age come to be known as <strong>the Voice of the Void</strong> &mdash; whose full identity is a deliberate later reveal. Recorded as a force, withheld as a name.</div>
       <div class="card" style="margin:8px 0 0; background:var(--bg-2); border-left:3px solid var(--spirit-cy)"><span class="tag" style="color:var(--spirit-cy)">The final clash &amp; what Amoz keeps <span class="badge b-locked">Locked</span></span>In a climactic battle, as Stigma overtook him, <strong>D&rsquo;vita and I&rsquo;n&aacute;cio went head to head.</strong> Prevailing, she <strong>cast him into the Astroverse to slumber</strong> &mdash; <em>rescuing</em> him from full corruption (&sect;7.5). Of the three, Amoz keeps the <strong>least intact memory</strong> &mdash; much twisted by the Stigma he endured &mdash; but he still feels that <strong>distant voice of his lover</strong>, and in time, the need to follow it. His private mystery, the engine of his own arc.</div>
     </div>
@@ -2342,7 +2592,7 @@ Because they follow no strict rule of creation and were <strong>never truly sync
       <div class="crole">Youngest &middot; soft-spoken, shy, fiercely protective; more welcoming than Omin.<br><span style="color:var(--spirit)">Eversoul form: <strong>A&rsquo;sai</strong>, Untethered Essence of Arcane &mdash; <strong>Unborn</strong> (killed in incubation by Silas before birth; arrived anyway as I&rsquo;onnie).</span></div>
       <span class="stat">Vitalist</span><span class="stat">Arcane Anima</span><span class="stat">Tier 0</span><span class="stat">Soothsayer</span>
       <ul class="clean">
-        <li><strong>Sense traded: hearing.</strong> She hears the <strong>Unseen</strong> (constantly &mdash; nearly maddening) but is <strong>deaf to the living</strong>; uses <strong>Arcane-charged earpieces</strong> &mdash; fittingly her <em>own</em> Brand powering the craft &mdash; and bonds temporarily with the Unseen to grant their will.</li>
+        <li><strong>Sense traded: hearing.</strong> She hears the <strong>Unseen</strong> (constantly &mdash; nearly maddening) but is <strong>deaf to the living</strong>; uses <strong>Arcane-charged earpieces</strong> &mdash; fittingly her <em>own</em> Cipher powering the craft &mdash; and bonds temporarily with the Unseen to grant their will.</li>
         <li>Conjures Anima through <strong>empathy / emotion</strong>; risks meltdown without control. Her discipline makes her output concise &mdash; often mistaken for a <strong>Neurolist.</strong></li>
         <li><strong>Dream:</strong> teach at the Triple-A alongside Maisel.</li>
       </ul>
@@ -2427,7 +2677,7 @@ Because they follow no strict rule of creation and were <strong>never truly sync
     <div class="h2title">Cast</div>
     <div class="h2sub">Dramatis Personae, by faction</div>
     <div class="title-rule"></div>
-    <p>The character roster, grouped by organization and Service. Each entry lists <strong>Race</strong>, <strong>Rank</strong>, <strong>Mark</strong> (their Role), and <strong>Archetype</strong> (Median/Generic &middot; caster-type &middot; Brand). Blank fields are <strong>[OPEN]</strong> &mdash; to be filled.</p>
+    <p>The character roster, grouped by organization and Service. Each entry lists <strong>Race</strong>, <strong>Rank</strong>, <strong>Mark</strong> (their Role), and <strong>Archetype</strong> (Median/Generic &middot; caster-type &middot; Cipher). Blank fields are <strong>[OPEN]</strong> &mdash; to be filled.</p>
 
     <h3 style="margin-top:28px">The Trauma Contingency Troupe (T.C.T.) &mdash; Division Xero</h3>
     <div class="gmeta" style="margin-bottom:14px">Leywarden Service. Omin&rsquo;s unit; operates Ether Vessels in defense of the Aegis Grid.</div>
@@ -2494,7 +2744,7 @@ Because they follow no strict rule of creation and were <strong>never truly sync
     </div>
     <p><strong>Prime Soothsayer Maisel Wone &mdash; &ldquo;Mama Maisel&rdquo;</strong> has run the Triple-A for as long as most remember, <strong>never quite seeming to age.</strong> A <strong><span style="color:var(--a-grymm)">Grymm</span> Physiolist</strong>, her power is a mystery; few dare test how fearsome a protector she can be. Warm to all who seek to train, fiercely protective of every student.</p>
     <div class="card" style="border-left-color:var(--spirit-cy)"><span class="tag" style="color:var(--spirit-cy)">Maisel&rsquo;s secret <span class="badge b-locked">Locked</span></span>Maisel is the Eversoul <strong>Mulu&rsquo;lizi, Silver Essence of Integrity</strong> (the <strong>Body</strong> line, <em>not</em> the Restoration line her wards belong to). She was the <strong>caretaker older sibling</strong> &mdash; tending <strong>D&rsquo;vita and I&rsquo;n&aacute;cio</strong>, carrying <strong>guilt over losing A&rsquo;sai</strong> (the baby Silas killed in incubation). Then she fell &mdash; <strong>fully stigmatized.</strong> Of all the fallen, <strong>D&rsquo;vita could save only her:</strong> using <strong>Vaine&rsquo;s</strong> discovery of Silas&rsquo;s scheme, D&rsquo;vita <strong>cleansed her and returned her to the Ley</strong>, where she reincarnated as <strong>Maisel.</strong> The carer became the one who needed carrying; saving her meant <em>erasing</em> her.</div>
-    <div class="card note claude-made"><span class="tag">Why a Grymm Physiolist now <span class="badge b-locked">Locked</span></span>As the Eversoul Mulu&rsquo;lizi she was the <strong>Essence of Morality / Integrity</strong>. But Stigmatization and the loss of all but <strong>fractions of her memory</strong> changed her power <strong>drastically</strong> &mdash; she reincarnated not as the Vitalist her old essence suggests but as a <strong>Physiolist of the <span style="color:var(--a-grymm)">Grymm</span> Brand</strong>, and has had to come to terms with this altered, fear-and-veil-touched expression of her gift. Much of her time with <strong>Ion</strong> has helped the two piece those fractures together.</div>
+    <div class="card note claude-made"><span class="tag">Why a Grymm Physiolist now <span class="badge b-locked">Locked</span></span>As the Eversoul Mulu&rsquo;lizi she was the <strong>Essence of Morality / Integrity</strong>. But Stigmatization and the loss of all but <strong>fractions of her memory</strong> changed her power <strong>drastically</strong> &mdash; she reincarnated not as the Vitalist her old essence suggests but as a <strong>Physiolist of the <span style="color:var(--a-grymm)">Grymm</span> Cipher</strong>, and has had to come to terms with this altered, fear-and-veil-touched expression of her gift. Much of her time with <strong>Ion</strong> has helped the two piece those fractures together.</div>
     <div class="card note"><span class="tag">What Maisel knows now <span class="badge b-locked">Locked</span></span>Over time she has <strong>pieced much of her past back together.</strong> She knows the <strong>Eversouls existed</strong>, that she is one, and that her <strong>remaining kin are hidden to keep them safe.</strong> Much remains <strong>theory</strong> &mdash; she couldn&rsquo;t find every answer &mdash; but she understands that <strong>it falls to the three siblings to answer the rest.</strong> A knowing guide who withholds and waits, not an oblivious one.</div>
     <div class="card note"><span class="tag">The instinct survived the erasure <span class="badge b-locked">Locked</span></span>Maisel now raises the <strong>reincarnations of the very siblings she once tended</strong> &mdash; D&rsquo;vita &rarr; Omin, I&rsquo;n&aacute;cio &rarr; Amoz, and the baby she couldn&rsquo;t save, A&rsquo;sai &rarr; I&rsquo;onnie. Mulu&rsquo;lizi&rsquo;s defining trait &mdash; <em>care, guilt, protection of her siblings</em> &mdash; outlasted the Ley&rsquo;s wipe and reassembled as &ldquo;Mama Maisel.&rdquo; What she &ldquo;recognized&rdquo; in their souls wasn&rsquo;t facts &mdash; it was <strong>her own children to protect.</strong></div>
     <div class="card hook"><span class="tag">The buried debt</span>Maisel does <strong>not</strong> know any of this. She raises Omin without knowing Omin <em>is</em> D&rsquo;vita &mdash; the sister who saved her life by erasing her. If Omin recovers her past, she&rsquo;d find that the woman who raised her is the sister she once sent to die-and-return. A reunion waiting in the wings.</div>
@@ -3026,7 +3276,7 @@ Because they follow no strict rule of creation and were <strong>never truly sync
     <div class="checklist">
             <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Vaine&rsquo;s turn</strong> &mdash; pre-War slow burn; disillusionment + captivity; enemies-to-lovers with D&rsquo;vita.</div></div>
       <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div>Essences named: Capella, Tseen Ke, Al Nair, Eriandus (Body); Rubani, Quasar, Asterope (Spirit).</div></div>
-      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Magic-performance layer</strong> &mdash; the visible signature (the <strong>Signets</strong>: drain, eyes &amp; Signets in Brand color, recovery-speed tell, greying made visible) is locked. Remaining sub-passes: the Sequence, the Memory, the Failures.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Magic-performance layer</strong> &mdash; the visible signature (the <strong>Signets</strong>: drain, eyes &amp; Signets in Cipher color, recovery-speed tell, greying made visible) is locked. Remaining sub-passes: the Sequence, the Memory, the Failures. The <strong>invocation layer</strong> is now locked too &mdash; Recall is cognitive; names are Institute-taught vocabulary; speech buys precision, not power; calling aloud reads as escalation. <em>Open: the Institute lexicon of standard working-names.</em> <strong>Nkra</strong> is now locked as the soul-nucleus: universal, unique, A&rsquo;kana&rsquo;s gift; the source of Anima and the root of the Median divide; erodes as greying; reset by completed Stigma. <em>Open: shielding as a taught skill.</em></div></div>
       <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Why the living Mind line is hidden</strong> &mdash; resolved: the first &amp; most powerful Eversouls outside the trio; D&rsquo;vita sealed them in slumber to protect them from Silas; they wake stronger, and so does the world.</div></div>
       <div class="row"><div class="box"></div><div>Define the <strong>Eversouls</strong> more fully (number, nature, relation to the <strong>Empyrons</strong>).</div></div>
       <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Origin of mortal Animancy</strong> &mdash; locked: a sacred gift from A&rsquo;kana, produced at the <strong>Eye of the Aegis.</strong></div></div>
@@ -3036,7 +3286,7 @@ Because they follow no strict rule of creation and were <strong>never truly sync
     <div class="checklist">
       <div class="row"><div class="box"></div><div>Write the <strong>two obscure parts</strong> of A&rsquo;kana&rsquo;s Vestige&rsquo;s prophecy; reveal who the <strong>Vestige</strong> is.</div></div>
       <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div>Detail the <strong>Empyrons</strong> further (Stasyss, Dynaass; Empyr Fleet) &mdash; established as A&rsquo;kana&rsquo;s grandchildren &amp; Ra&rsquo;gnn/Fonixi progenitors; full species profile in the Bestiary.</div></div>
-      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div>All <strong>nine Aspect&rarr;Brand</strong> pairings confirmed.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div>All <strong>nine Aspect&rarr;Cipher</strong> pairings confirmed.</div></div>
       <div class="row"><div class="box"></div><div>Expand the <strong>Pneumosi sub-rosters</strong> (Umbran Council, Falseones, Matriarchs, Deithist Court&hellip;) &mdash; <em>Umbran Council now defined; others pending.</em></div></div>
       <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div>Define the other <strong>Unmortal races</strong> (Hominus, Hybrinus, Nyph, Feii, Ra&rsquo;gnn, Fonixi, Neandus, Khimeran, Jengun, Centauri) &mdash; roster &amp; subgroups defined.</div></div>
       <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div>Decide what the <strong>Pneumosi know</strong> about the true history &mdash; resolved: they <strong>know</strong> they live in A&rsquo;kana&rsquo;s renewal; it is known history.</div></div>
@@ -3050,7 +3300,7 @@ Because they follow no strict rule of creation and were <strong>never truly sync
       <div class="row"><div class="box"></div><div><strong>Cast rosters</strong> &mdash; fill the <strong>Race</strong> &amp; <strong>Mark</strong> fields across the character cards (T.C.T., A.A.A., Regency, and others currently [OPEN]).</div></div>
       <div class="row"><div class="box"></div><div><strong>Regency Cabinet representatives</strong> &mdash; name the 16 racial reps (one Median + one Generic per Race), held open by choice.</div></div>
       <div class="row"><div class="box"></div><div><strong>Race descriptions</strong> &mdash; flesh out the peoples still marked <em>profile / detail pending</em>: <strong>Neandus, Khimeran, Jengun,</strong> and <strong>Centauri</strong> (Hominus, Hybrinus, Nyph, Feii, Ra&rsquo;gnn &amp; Fonixi already have profiles).</div></div>
-      <div class="row"><div class="box"></div><div><strong>Symbolism section</strong> &mdash; develop the stub: Anima Brand symbols, the Nonagram compass, faction sigils.</div></div>
+      <div class="row"><div class="box"></div><div><strong>Symbolism section</strong> &mdash; develop the stub: Anima Cipher symbols, the Nonagram compass, faction sigils.</div></div>
     </div>
 
     <p class="lede" style="margin-top:22px">Held for the story &mdash; the author&rsquo;s seams.</p>
@@ -3063,7 +3313,7 @@ Because they follow no strict rule of creation and were <strong>never truly sync
 
     <p class="lede" style="margin-top:22px">Resolved (log).</p>
     <div class="checklist">
-      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>The Soul Ledger</strong> &mdash; rebuilt as a self-contained interactive character sheet (point-buy V.I.T.A.L.I.T.A.S., Service/Brand/Race+Subgroup selectors, Recall &amp; Greying meters, Signet body-map, Memory Loadout, print). Replaces the stale external-file embed.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>The Soul Ledger</strong> &mdash; rebuilt as a self-contained interactive character sheet (point-buy V.I.T.A.L.I.T.A.S., Service/Cipher/Race+Subgroup selectors, Recall &amp; Greying meters, Signet body-map, Memory Loadout, print). Replaces the stale external-file embed.</div></div>
       <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>The Tongues of Vi&rsquo;talitas</strong> &mdash; Leykiss (Common Pneumosian) plus each race&rsquo;s language (Homidic, Hybrinic, Neandric, Nyphian, Feiidian, Avianic, Draconic, Khimosi, Centosian, Jengari).</div></div>
       <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Guardians of Mortals</strong> &mdash; named as the <strong>Celestians</strong> and <strong>Daemans</strong>, and the <strong>Virtues</strong> and <strong>Sins.</strong></div></div>
       <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>What unites the Pneumosi</strong> &mdash; a varied kindred, joined by not being inherently living beings the way mortals of Earth &amp; the Astroverse are.</div></div>
@@ -3093,7 +3343,7 @@ Because they follow no strict rule of creation and were <strong>never truly sync
     <p class="lede" style="margin-top:22px">Resolved (log) &mdash; earlier.</p>
     <div class="checklist">
       <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Magic system</strong> &mdash; memory-casting, greying, recovery.</div></div>
-      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Nine Brands, Types, Tiers, Services</strong> &mdash; all defined.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Nine Ciphers, Types, Tiers, Services</strong> &mdash; all defined.</div></div>
       <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Stigma</strong> mechanics, closed loop, Ley-only cure.</div></div>
       <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Triple-A</strong> &amp; <strong>Mama Maisel</strong> established.</div></div>
       <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Antagonist architecture</strong> &mdash; three scales.</div></div>
@@ -3105,7 +3355,7 @@ Because they follow no strict rule of creation and were <strong>never truly sync
       <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Vi&rsquo;talitas</strong> confirmed canonical spelling.</div></div>
       <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>The Twelve Laws</strong> &mdash; defined, 4 per dimension; Soul Laws from A&rsquo;kana&rsquo;s verse; upheld collectively by the Eversouls.</div></div>
       <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Pneumosi order</strong> &mdash; four-class system established (summary).</div></div>
-      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Nine Aspects</strong> named &amp; mapped to the Brands.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Nine Aspects</strong> named &amp; mapped to the Ciphers.</div></div>
       <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Ra&rsquo;gnn &amp; Fonixi</strong> races defined.</div></div>
       <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Inciting event / Present Age</strong> &mdash; rift, Stigma, Median awakening, Type Genesis, Ne&rsquo;haris itself a living Vitalitas.</div></div>
       <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Stigmatization treatable</strong> early (Soothsayers; not guaranteed).</div></div>
@@ -3127,11 +3377,11 @@ Because they follow no strict rule of creation and were <strong>never truly sync
       <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Animate vs. Inanimate</strong> &amp; <strong>Common vs. Elevated</strong> Animancy defined.</div></div>
       <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Aether Crux (World Tree)</strong> &amp; <strong>Matrux</strong> &mdash; A&rsquo;kana as Tree of Life; Leylines = roots; why A&rsquo;thule is throttled; D&rsquo;vita&rsquo;s Ring.</div></div>
       <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Stigma-charged Archevims</strong> &mdash; possible but self-destroying.</div></div>
-      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Brand symbols &amp; Origin of Anima</strong> recorded.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Cipher symbols &amp; Origin of Anima</strong> recorded.</div></div>
       <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Unmortal races &amp; Auric Remanence</strong> &mdash; peoples detailed; Auric Remanence = the 8th sense underlying casting.</div></div>
-      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Brand colors</strong> applied per-Brand throughout.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Cipher colors</strong> applied per-Cipher throughout.</div></div>
       <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Amoz / I&rsquo;n&aacute;cio backstory</strong> &mdash; spark personality; border-guardian fall (patient zero); Ardor-will resistance; unborn lover; final clash. <strong>Null</strong> defined.</div></div>
-      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Casting act &amp; signature</strong> &mdash; Recall &rarr; Release; greying; the <strong>Signets</strong> (drain into Signets &amp; eyes in Brand color, recovery-speed tell, greying made visible); loud-novice / quiet-master axis.</div></div>
+      <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>Casting act &amp; signature</strong> &mdash; Recall &rarr; Release; greying; the <strong>Signets</strong> (drain into Signets &amp; eyes in Cipher color, recovery-speed tell, greying made visible); loud-novice / quiet-master axis.</div></div>
       <div class="row"><div class="box" style="border-color:var(--locked);background:var(--locked-soft)"></div><div><strong>How Maisel survived</strong> &mdash; fully stigmatized as Mulu&rsquo;lizi, cleansed by D&rsquo;vita (via Vaine&rsquo;s intel) &amp; reincarnated; the only sibling D&rsquo;vita could save.</div></div>
     </div>
   </section>
@@ -3171,7 +3421,7 @@ Because they follow no strict rule of creation and were <strong>never truly sync
     <div class="card note"><span class="tag">Mythids &amp; Cryptids &mdash; the spirit-beast kingdom <span class="badge b-new">Locked &middot; New</span></span><strong>Mythids</strong> and <strong>Cryptids</strong> make up the <strong>spirit-beast kingdom</strong> of Vi&rsquo;talitas and the rest of the Pneumaverse. The great and mythic beasts are <strong>Mythids</strong> &mdash; the <strong>Empyrons</strong> are a type of Mythid, and so are the <strong>Wylderverns.</strong> The smaller beasts are called <strong>Cryptids.</strong> Empyrons stand as the <strong>apex entry</strong> of the catalogue (below).</div>
     <div class="group body" style="margin-top:10px">
       <div class="gname"><span class="dot"></span>Wyldervern</div>
-      <div class="gmeta">Large winged Leypoint predators, named in kinship with the <strong>Wylde</strong> Brand. Can tear an Ether Vessel out of mid-flight.</div>
+      <div class="gmeta">Large winged Leypoint predators, named in kinship with the <strong>Wylde</strong> Cipher. Can tear an Ether Vessel out of mid-flight.</div>
       <div class="aspect"><div class="an" style="color:var(--body)">Society</div><div class="ad">Migrate in <strong>hoards of 30&ndash;40</strong> led by a <strong>mating pair.</strong> Guard a clutch of <strong>unhatched eggs</strong> whose shells alone are worth a small fortune.</div></div>
       <div class="aspect"><div class="an" style="color:var(--body)">Adolescents</div><div class="ad">Stay near the nest to defend it. Smaller but lethal up close; use <strong>wing-driven dust</strong> to blind prey before landing. Too young to breathe the adults&rsquo; <strong>poison.</strong></div></div>
       <div class="aspect"><div class="an" style="color:var(--body)">Behavior</div><div class="ad">Intelligent enough to exploit a <strong>broken line of sight</strong>; normally avoid outsiders (why docile Leypoints like <strong>Xenith</strong> suit training). A hoard acting hostile, scattered, or thinned is a <strong>warning sign of Stigma.</strong></div></div>
@@ -3179,13 +3429,13 @@ Because they follow no strict rule of creation and were <strong>never truly sync
     </div>
     <div class="group spirit" style="margin-top:18px">
       <div class="gname"><span class="dot"></span>Empyrons &mdash; Beasts of Ne&rsquo;haris <span class="badge b-locked">Locked</span></div>
-      <div class="gmeta">The apex entry of the Bestiary. Enormous beasts &mdash; a cross of <strong>lizard, avian, canine, and feline</strong> &mdash; usually winged, very long-lived. <strong>Age is read by wing-sets</strong> (more wings = older). <strong>Typically of the Aether Brand</strong> &mdash; their bodies run with pure Aether Anima &mdash; and the <strong>parent species of Dragons, Phoenixes, Sphinxes, and Gryphons.</strong></div>
+      <div class="gmeta">The apex entry of the Bestiary. Enormous beasts &mdash; a cross of <strong>lizard, avian, canine, and feline</strong> &mdash; usually winged, very long-lived. <strong>Age is read by wing-sets</strong> (more wings = older). <strong>Typically of the Aether Cipher</strong> &mdash; their bodies run with pure Aether Anima &mdash; and the <strong>parent species of Dragons, Phoenixes, Sphinxes, and Gryphons.</strong></div>
       <div class="aspect"><div class="an" style="color:var(--a-aether-tx)">Society</div><div class="ad">Native to Ne&rsquo;haris; live in <strong>Fleets</strong> with close familial bonds and <strong>heightened intelligence.</strong></div></div>
       <div class="aspect"><div class="an" style="color:var(--a-aether-tx)">Nature</div><div class="ad">They <strong>thrive on Anima.</strong> Peaceful but <strong>not pacifists</strong> &mdash; fiercely <strong>territorial and protective of kin</strong>; politically neutral. The <strong>beast of representation for Ne&rsquo;haris</strong>, found the world over.</div></div>
       <div class="aspect"><div class="an" style="color:var(--a-aether-tx)">The Tragedy</div><div class="ad">Hunted for their bodies &mdash; Empyr <strong>scales, claws, horns, and teeth are riddled with pure Aether Anima</strong>, more powerful than Anima crystals. A built-in poaching economy and moral wound.</div></div>
     </div>
     <div class="card note"><span class="tag">Connects to</span>Stasyss (Immutable Dragon) &amp; Dynaass (Perennial Phoenix) are Empyrons / A&rsquo;kana&rsquo;s grandchildren &amp; the Ra&rsquo;gnn/Fonixi progenitors. A&rsquo;kana herself first took the form of the <strong>first Empyron.</strong></div>
-    <div class="card note"><span class="tag">Elans <span class="badge b-locked">Locked</span></span>Companion creatures found <strong>across the Pneumaverse</strong>, varied in kind. Bonded to a <strong>Sentinel</strong> (Roles), an Elan scouts, defends, and fights alongside its wielder &mdash; these bonded companions are called <strong>&ldquo;acolytes.&rdquo;</strong> Elans <strong>do not gravitate to any specific Anima Brand</strong>; instead they <strong>imprint and share the Brand of whomever they bond to.</strong> The breadth of Elan types is an open catalogue &mdash; a natural home for companion/mount design.</div>
+    <div class="card note"><span class="tag">Elans <span class="badge b-locked">Locked</span></span>Companion creatures found <strong>across the Pneumaverse</strong>, varied in kind. Bonded to a <strong>Sentinel</strong> (Roles), an Elan scouts, defends, and fights alongside its wielder &mdash; these bonded companions are called <strong>&ldquo;acolytes.&rdquo;</strong> Elans <strong>do not gravitate to any specific Anima Cipher</strong>; instead they <strong>imprint and share the Cipher of whomever they bond to.</strong> The breadth of Elan types is an open catalogue &mdash; a natural home for companion/mount design.</div>
   </section>
 
   <!-- The New World -->
@@ -3216,7 +3466,7 @@ Because they follow no strict rule of creation and were <strong>never truly sync
     <div class="h2title">Soul Ledger Sheet</div>
     <div class="h2sub">The prototype character sheet</div>
     <div class="title-rule"></div>
-    <p>The <strong>Soul Ledger</strong> is the prototype character sheet for the Animancy game system &mdash; an interactive build tool covering the V.I.T.A.L.I.T.A.S. attributes, the Recall State (Savvy / Actuality / Mania), the Signet body-map, the Memory Loadout, and Greying. Build a Median below; it&rsquo;s an explicitly <strong>unbalanced first-draft</strong> &mdash; a frame to playtest and push against, not a locked ruleset. It draws on the current canon (the nine attributes, the eight Services, the nine Brands). Use <em>Print / Save PDF</em> for a full-screen or printable copy.</p>
+    <p>The <strong>Soul Ledger</strong> is the prototype character sheet for the Animancy game system &mdash; an interactive build tool covering the V.I.T.A.L.I.T.A.S. attributes, the Recall State (Savvy / Actuality / Mania), the Signet body-map, the Memory Loadout, and Greying. Build a Median below; it&rsquo;s an explicitly <strong>unbalanced first-draft</strong> &mdash; a frame to playtest and push against, not a locked ruleset. It draws on the current canon (the nine attributes, the eight Services, the nine Ciphers). Use <em>Print / Save PDF</em> for a full-screen or printable copy.</p>
 <style>
 #s_ledger .sl-sheet{background:linear-gradient(180deg,rgba(255,250,238,.6),rgba(230,217,185,.35));border:1px solid var(--gilt);border-radius:14px;padding:20px;box-shadow:0 4px 20px -10px rgba(80,55,20,.5);margin:8px 0}
 #s_ledger .sl-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px}
@@ -3273,7 +3523,7 @@ Because they follow no strict rule of creation and were <strong>never truly sync
     <div class="h2title">Character Profiles</div>
     <div class="h2sub">Interactive Pneumosi profile sheet</div>
     <div class="title-rule"></div>
-    <p>A Vi&rsquo;talitas-native character sheet. Every field is editable in place; cascading dropdowns follow locked canon (People &rarr; Subgroup, Pillar &rarr; Brand). Save writes a self-contained <code>.json</code> to disk; Load restores it. <span class="badge b-open">Open</span> &mdash; a working instrument, not canon.</p>
+    <p>A Vi&rsquo;talitas-native character sheet. Every field is editable in place; cascading dropdowns follow locked canon (People &rarr; Subgroup, Pillar &rarr; Cipher). Save writes a self-contained <code>.json</code> to disk; Load restores it. <span class="badge b-open">Open</span> &mdash; a working instrument, not canon.</p>
 <style>
 #s_profiles{
     --bg:#d8c69e; --vellum:#e2d4b2; --vellum-deep:#d8c9a4; --vellum-edge:#c4b187;
@@ -3491,8 +3741,8 @@ Because they follow no strict rule of creation and were <strong>never truly sync
   <div class="pf-section">
     <div class="eyebrow soul">Animancy</div>
     <dl class="fields two-col">
-      <dt>Anima Brand</dt><dd><select class="ed" data-k="brandPillar" id="selBrandPillar"></select></dd>
-      <dt>Discipline</dt><dd><select class="ed" data-k="brand" id="selBrand"></select></dd>
+      <dt>Anima Cipher</dt><dd><select class="ed" data-k="brandPillar" id="selCipherPillar"></select></dd>
+      <dt>Discipline</dt><dd><select class="ed" data-k="brand" id="selCipher"></select></dd>
       <dt>Tier</dt><dd><select class="ed" data-k="tier" id="selTier"></select></dd>
       <dt>Common / Elevated</dt><dd><select class="ed" data-k="animancyLevel" id="selAnimancyLevel"></select></dd>
       <dt>Recall / Greying</dt><dd><span class="ed" data-k="recall" data-ph="e.g. 60% recall · 10% greying"></span></dd>
@@ -3721,7 +3971,7 @@ fillSelect(el('#selTier'),TIERS,'—');
 fillSelect(el('#selSoulState'),SOULSTATE,'—');
 fillSelect(el('#selMedianKind'),MEDIANKIND,'—');
 fillSelect(el('#selAnimancyLevel'),ANIMANCYLEVEL,'—');
-fillSelect(el('#selBrandPillar'),Object.keys(BRANDS),'Select pillar');
+fillSelect(el('#selCipherPillar'),Object.keys(BRANDS),'Select pillar');
 
 function refreshSubgroups(keep){
   var p=el('#selPeople').value;
@@ -3730,16 +3980,16 @@ function refreshSubgroups(keep){
   if(keep && subs.indexOf(keep)>=0) el('#selSubgroup').value=keep;
   markDirty();
 }
-function refreshBrands(keep){
-  var pill=el('#selBrandPillar').value;
+function refreshCiphers(keep){
+  var pill=el('#selCipherPillar').value;
   var b=BRANDS[pill]||[];
-  fillSelect(el('#selBrand'),b, pill?'Select discipline':'—');
-  if(keep && b.indexOf(keep)>=0) el('#selBrand').value=keep;
+  fillSelect(el('#selCipher'),b, pill?'Select discipline':'—');
+  if(keep && b.indexOf(keep)>=0) el('#selCipher').value=keep;
   markDirty();
 }
 el('#selPeople').addEventListener('change',function(){refreshSubgroups();});
-el('#selBrandPillar').addEventListener('change',function(){refreshBrands();});
-refreshSubgroups(); refreshBrands();
+el('#selCipherPillar').addEventListener('change',function(){refreshCiphers();});
+refreshSubgroups(); refreshCiphers();
 
 // ---- Attribute grid ----
 (function(){
@@ -3790,7 +4040,7 @@ function addCard(type,data){
   data=data||{};
   var wrap=el('#companionCards');
   var card=document.createElement('div'); card.className='card'; card.setAttribute('data-cardtype',type);
-  var typeLabel = type==='archevim' ? 'Material · Brand · Attunement' : 'Kind · Class · Nature';
+  var typeLabel = type==='archevim' ? 'Material · Cipher · Attunement' : 'Kind · Class · Nature';
   card.innerHTML =
     '<button class="btn mini card-remove" type="button">×</button>'
     + '<h4><span class="ed" contenteditable="true" data-cf="title" data-ph="'
@@ -3856,7 +4106,7 @@ function collect(){
   d._attrs={};
   els('[data-attr]').forEach(function(i){ d._attrs[i.getAttribute('data-attr')]=i.value; });
   d._subgroup = el('#selSubgroup').value;
-  d._brand = el('#selBrand').value;
+  d._brand = el('#selCipher').value;
   d._thread = el('#threadSwatch').style.getPropertyValue('--sw');
   d._portrait = portraitData;
   d._cards = els('#companionCards .card').map(function(c){
@@ -3876,14 +4126,14 @@ function apply(d){
   el('#companionCards').innerHTML='';
   // simple fields (do selects that drive cascades first)
   if(d.people){ el('#selPeople').value=d.people; refreshSubgroups(d._subgroup); }
-  if(d.brandPillar){ el('#selBrandPillar').value=d.brandPillar; refreshBrands(d._brand); }
+  if(d.brandPillar){ el('#selCipherPillar').value=d.brandPillar; refreshCiphers(d._brand); }
   els('.ed[data-k]').forEach(function(e){
     var k=e.getAttribute('data-k'); if(!(k in d)) return;
     if(e.tagName==='SELECT'||e.tagName==='INPUT'){ e.value=d[k]; }
     else { e.innerHTML=d[k]; }
   });
   if(d._subgroup) el('#selSubgroup').value=d._subgroup;
-  if(d._brand) el('#selBrand').value=d._brand;
+  if(d._brand) el('#selCipher').value=d._brand;
   // lists
   els('.fill-list').forEach(function(ul){ ul.innerHTML=''; });
   var L=d._lists||{};
@@ -3980,10 +4230,10 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   <section id="s_palette">
     <h2><span class="num"></span> Color Palettes</h2>
     <div class="h2title">Color Palettes</div>
-    <div class="h2sub">The Animancy palette &mdash; Brands &amp; Pillars</div>
+    <div class="h2sub">The Animancy palette &mdash; Ciphers &amp; Pillars</div>
     <div class="title-rule"></div>
 <!-- NINE BRANDS -->
-  <div class="seclabel">The Nine Brands</div>
+  <div class="seclabel">The Nine Ciphers</div>
 
   <div class="grouphdr" style="--gcol:var(--pl-mind)"><span class="gl">Mind · Preservation · Dark Matter</span><span class="gr"></span></div>
   <div class="brands">
@@ -4017,7 +4267,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 
   <!-- MEDIAN IDENTITY -->
   <div class="seclabel">The Two-Color Identity — how a Median reads</div>
-  <p class="sub" style="margin:-6px 0 16px; text-align:left">Every Median wears their <b>Brand</b> (discipline) and their <b>Pillar</b> (Type). The pairing is their signature. Here are two examples — note how Brand and Pillar stay distinct even when both are "warm."</p>
+  <p class="sub" style="margin:-6px 0 16px; text-align:left">Every Median wears their <b>Cipher</b> (discipline) and their <b>Pillar</b> (Type). The pairing is their signature. Here are two examples — note how Cipher and Pillar stay distinct even when both are "warm."</p>
   <div class="identity">
     <div class="idcard">
       <div class="topbar"><div class="b1" style="background:var(--b-aether)"></div><div class="b2" style="background:var(--pl-soul)"></div></div>
@@ -4025,10 +4275,10 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
         <p class="idname">Omin Xero</p>
         <div class="idrole">Director · Ether Vessel Pilot · Alternator</div>
         <div class="chips">
-          <span class="chip" style="--dc:var(--b-aether)"><span class="d" style="background:var(--b-aether)"></span>Brand: <b>Aether</b></span>
+          <span class="chip" style="--dc:var(--b-aether)"><span class="d" style="background:var(--b-aether)"></span>Cipher: <b>Aether</b></span>
           <span class="chip" style="--dc:var(--pl-soul)"><span class="d" style="background:var(--pl-soul)"></span>Type: <b>Vitalist</b></span>
         </div>
-        <p class="idnote">Aether-gold Brand beside Soul-jade Type. The saturated gold and the deep jade read as a clear pair — the gold says <em>her discipline</em>, the jade says <em>she is a Vitalist of the Soul / Anti-Matter</em>.</p>
+        <p class="idnote">Aether-gold Cipher beside Soul-jade Type. The saturated gold and the deep jade read as a clear pair — the gold says <em>her discipline</em>, the jade says <em>she is a Vitalist of the Soul / Anti-Matter</em>.</p>
       </div>
     </div>
     <div class="idcard">
@@ -4037,10 +4287,10 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
         <p class="idname">Melzn Tuu-Oyne</p>
         <div class="idrole">Front-Line Offensive Meister · Berserker</div>
         <div class="chips">
-          <span class="chip" style="--dc:var(--b-qhaos)"><span class="d" style="background:var(--b-qhaos)"></span>Brand: <b>Qhaos</b></span>
+          <span class="chip" style="--dc:var(--b-qhaos)"><span class="d" style="background:var(--b-qhaos)"></span>Cipher: <b>Qhaos</b></span>
           <span class="chip" style="--dc:var(--pl-body)"><span class="d" style="background:var(--pl-body)"></span>Type: <b>Physiolist</b></span>
         </div>
-        <p class="idnote">Qhaos amber-orange beside Body-rust. Both warm, but the Brand is brighter/fierier and the Pillar is deeper/earthier — discipline vs. substance stays legible.</p>
+        <p class="idnote">Qhaos amber-orange beside Body-rust. Both warm, but the Cipher is brighter/fierier and the Pillar is deeper/earthier — discipline vs. substance stays legible.</p>
       </div>
     </div>
   </div>
@@ -4052,7 +4302,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
     <div class="h2title">Symbolism</div>
     <div class="h2sub">The visual language of Eternal Trivium &mdash; brand-marks, sigils, and iconography</div>
     <div class="title-rule"></div>
-    <div class="card hook"><span class="tag">Open <span class="badge b-open">Open</span></span>Section established &mdash; <strong>content to be developed.</strong> Intended home for the <strong>Anima Brand symbols</strong>, the <strong>Nonagram compass</strong>, faction sigils, and the iconographic system that runs across the world&rsquo;s Archevims, banners, and sacred sites.</div>
+    <div class="card hook"><span class="tag">Open <span class="badge b-open">Open</span></span>Section established &mdash; <strong>content to be developed.</strong> Intended home for the <strong>Anima Cipher symbols</strong>, the <strong>Nonagram compass</strong>, faction sigils, and the iconographic system that runs across the world&rsquo;s Archevims, banners, and sacred sites.</div>
   </section>
 
   <!-- Influences -->
@@ -4097,7 +4347,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       <span class="inf-lg mind">Mind &mdash; identity &amp; mystery</span>
       <span class="inf-lg soul">Soul &mdash; memory &amp; the long view</span>
     </div>
-    <div class="inf mind"><div class="inf-h">J.R.R. Tolkien <span class="pillar">Mind</span></div><div class="lens">Depth-first worldbuilding; language and history as bedrock.</div><div class="txt">The three-age framework (Mythos / Ethos / Vitae), the invented languages (Leykiss and the ten race-tongues), the Timeline Archive, and the sense that the <em>present</em> is the ruin of a deeper past (Ne&rsquo;haris). The story sits atop an iceberg of history.</div><span class="verdict met">Mark met</span></div><div class="inf soul"><div class="inf-h">Don Bluth <span class="pillar">Soul</span></div><div class="lens">Beauty and genuine darkness for a young-facing audience; stakes that don&rsquo;t flinch.</div><div class="txt">The tonal spine &mdash; coming-of-age braided with cosmic-horror, the mercy-killings, the Grey Makers as tragic (family corrupted) rather than simply evil. The &ldquo;saving is killing&rdquo; core.</div><span class="verdict met">Mark met &mdash; tonally</span></div><div class="inf body"><div class="inf-h">Final Fantasy VII &amp; XIV <span class="pillar">Vessel</span></div><div class="lens">Soul-energy as literal system; institutional power vs. the planet&rsquo;s spirit; the found-family.</div><div class="txt">The Anima / Aether economy is FFVII&rsquo;s Lifestream-and-Mako logic reworked into Auric Remanence and the Ley. The Regency vs. the T.C.T. is FFXIV Grand-Company politics. The Soul Ledger and Services-as-jobs carry the FF job-system DNA.</div><span class="verdict met">Mark met &mdash; strongly</span></div><div class="inf body"><div class="inf-h">Fullmetal Alchemist <span class="pillar">Vessel</span></div><div class="lens">A hard magic system with a moral price; equivalent exchange; the body as the site of cost.</div><div class="txt">The deepest structural match: &ldquo;to spend memory is to spend your immortality,&rdquo; greying as the physical cost of casting, the Signet / Fulcrum body-map, Stigma as corruption-of-the-self. The magic <em>costs</em> &mdash; and it costs the caster&rsquo;s identity.</div><span class="verdict met">Mark met &mdash; core pillar</span></div><div class="inf mind"><div class="inf-h">Ghost in the Shell <span class="pillar">Mind</span></div><div class="lens">What is a self when memory and body are unstable? Identity as the real battleground.</div><div class="txt">Omin&rsquo;s unreliable Auric Remanence (surfacing a life she barely knows), reincarnated souls not knowing their past selves, &ldquo;memory as the only inheritance that survives death&rdquo; &mdash; the ghost/shell problem in soul-metaphysics clothing.</div><span class="verdict met">Mark met &mdash; thematically</span></div><div class="inf mind"><div class="inf-h">Yu Yu Hakusho / Bleach <span class="pillar">Mind</span></div><div class="lens">Spirit-world bureaucracy; the living dealing with the dead; psychopomp roles; power tiers.</div><div class="txt">The Veils, the Sea of Lights, souls processed through a rebirth cycle, the T.C.T. as &ldquo;Wardens of Above and Below,&rdquo; and the Stigmant rankings (Grey-Makers &rarr; Greyscales &rarr; Dreads &rarr; Gloamites) as a clear power-tier hierarchy.</div><span class="verdict met">Mark met</span></div><div class="inf body"><div class="inf-h">Jujutsu Kaisen / Demon Slayer / Fire Force <span class="pillar">Vessel</span></div><div class="lens">Cursed energy from negative emotion; corrupted humans as monsters; ranked corps; styles as identity.</div><div class="txt">Stigma spreading from negative states, Greyscales and Dreads as former-people-turned-monsters, the Services and Company of Guardians as ranked hunter-institutions, and the Damage Types / Debuffs / Combat Stylesets as the combat-identity layer.</div><span class="verdict met">Mark met</span></div><div class="inf body"><div class="inf-h">My Hero Academia <span class="pillar">Vessel</span></div><div class="lens">A society organized around who has power; institutions that license and train the gifted; the exam.</div><div class="txt">Medians vs. Generics, the Institutes that train them, and &mdash; most directly &mdash; the Forging Trials (a three-part licensing exam to enter the &ldquo;hero&rdquo; professions), structurally MHA&rsquo;s Provisional License Exam.</div><span class="verdict met">Mark met</span></div><div class="inf soul"><div class="inf-h">Avatar: The Last Airbender <span class="pillar">Soul</span></div><div class="lens">Elemental nations mapped to cultures; reincarnation as throughline; a young hero carrying an old role.</div><div class="txt">Reincarnation as the literal spine, the siblings carrying an ancient cosmic role (the Eversouls renewed), and the elemental race-cultures (Ra&rsquo;gnn&rsquo;s Flammas / Aquis / Tellus / Aeris, Nyph&rsquo;s Wood / River / Sky / Ash). Avatar&rsquo;s world <em>felt</em> real because each nation had a place &mdash; the next build.</div><span class="verdict met">Mark met &mdash; geography completes it</span></div><div class="inf body"><div class="inf-h">Witch Hat Atelier <span class="pillar">Vessel</span></div><div class="lens">Magic as craft and draftsmanship; the beauty of the system; gatekept knowledge.</div><div class="txt">The Anitechs and Abbeys of the Aspects, Archevim-crafting as a learned trade, the Brand symbols and Nonagram compass, and the gatekeeping of who may practice (Median vs. Generic; the blacklisted becoming Underarchs).</div><span class="verdict partial">Partial &mdash; completes with Symbolism</span></div><div class="inf soul"><div class="inf-h">Gachiakuta <span class="pillar">Soul</span></div><div class="lens">The discarded and the outcast; a society that throws people away; strength forged from being cast off.</div><div class="txt">The Undertrade trafficking discarded Median children, the &ldquo;feared, ridiculed, condemned&rdquo; history of Medians, Grey Matter as self-erasure, and the outcast-who-survives carrying &ldquo;an unshakeable will.&rdquo;</div><span class="verdict met">Mark met &mdash; and personal</span></div><div class="inf soul"><div class="inf-h">Frieren: Beyond Journey&rsquo;s End <span class="pillar">Soul</span></div><div class="lens">The long view of immortal lives; grief across impossible timespans; the quiet aftermath of the epic.</div><div class="txt">Middle-aged protagonists whose arcs are consequence-driven rather than discovery-driven, the Eversouls&rsquo; 1,000&ndash;12,000-Aeon lives, &ldquo;no song heard since&rdquo; their fall, memory as the thing that outlasts death.</div><span class="verdict met">Mark met &mdash; the elevating register</span></div><div class="inf mind"><div class="inf-h">Lord of Mysteries <span class="pillar">Mind</span></div><div class="lens">Occult ranks and pathways; a hidden order beneath the world; knowledge as dangerous.</div><div class="txt">The hidden cosmology beneath Vi&rsquo;talitas, &ldquo;prophecy as instruction,&rdquo; the Veils and their dangers, the sealed sleeping Eversouls, and the conspiracy Omin and Ion are pulling at.</div><span class="verdict met">Mark met &mdash; Book One deepens it</span></div>
+    <div class="inf mind"><div class="inf-h">J.R.R. Tolkien <span class="pillar">Mind</span></div><div class="lens">Depth-first worldbuilding; language and history as bedrock.</div><div class="txt">The three-age framework (Mythos / Ethos / Vitae), the invented languages (Leykiss and the ten race-tongues), the Timeline Archive, and the sense that the <em>present</em> is the ruin of a deeper past (Ne&rsquo;haris). The story sits atop an iceberg of history.</div><span class="verdict met">Mark met</span></div><div class="inf soul"><div class="inf-h">Don Bluth <span class="pillar">Soul</span></div><div class="lens">Beauty and genuine darkness for a young-facing audience; stakes that don&rsquo;t flinch.</div><div class="txt">The tonal spine &mdash; coming-of-age braided with cosmic-horror, the mercy-killings, the Grey Makers as tragic (family corrupted) rather than simply evil. The &ldquo;saving is killing&rdquo; core.</div><span class="verdict met">Mark met &mdash; tonally</span></div><div class="inf body"><div class="inf-h">Final Fantasy VII &amp; XIV <span class="pillar">Vessel</span></div><div class="lens">Soul-energy as literal system; institutional power vs. the planet&rsquo;s spirit; the found-family.</div><div class="txt">The Anima / Aether economy is FFVII&rsquo;s Lifestream-and-Mako logic reworked into Auric Remanence and the Ley. The Regency vs. the T.C.T. is FFXIV Grand-Company politics. The Soul Ledger and Services-as-jobs carry the FF job-system DNA.</div><span class="verdict met">Mark met &mdash; strongly</span></div><div class="inf body"><div class="inf-h">Fullmetal Alchemist <span class="pillar">Vessel</span></div><div class="lens">A hard magic system with a moral price; equivalent exchange; the body as the site of cost.</div><div class="txt">The deepest structural match: &ldquo;to spend memory is to spend your immortality,&rdquo; greying as the physical cost of casting, the Signet / Fulcrum body-map, Stigma as corruption-of-the-self. The magic <em>costs</em> &mdash; and it costs the caster&rsquo;s identity.</div><span class="verdict met">Mark met &mdash; core pillar</span></div><div class="inf mind"><div class="inf-h">Ghost in the Shell <span class="pillar">Mind</span></div><div class="lens">What is a self when memory and body are unstable? Identity as the real battleground.</div><div class="txt">Omin&rsquo;s unreliable Auric Remanence (surfacing a life she barely knows), reincarnated souls not knowing their past selves, &ldquo;memory as the only inheritance that survives death&rdquo; &mdash; the ghost/shell problem in soul-metaphysics clothing.</div><span class="verdict met">Mark met &mdash; thematically</span></div><div class="inf mind"><div class="inf-h">Yu Yu Hakusho / Bleach <span class="pillar">Mind</span></div><div class="lens">Spirit-world bureaucracy; the living dealing with the dead; psychopomp roles; power tiers.</div><div class="txt">The Veils, the Sea of Lights, souls processed through a rebirth cycle, the T.C.T. as &ldquo;Wardens of Above and Below,&rdquo; and the Stigmant rankings (Grey-Makers &rarr; Greyscales &rarr; Dreads &rarr; Gloamites) as a clear power-tier hierarchy.</div><span class="verdict met">Mark met</span></div><div class="inf body"><div class="inf-h">Jujutsu Kaisen / Demon Slayer / Fire Force <span class="pillar">Vessel</span></div><div class="lens">Cursed energy from negative emotion; corrupted humans as monsters; ranked corps; styles as identity.</div><div class="txt">Stigma spreading from negative states, Greyscales and Dreads as former-people-turned-monsters, the Services and Company of Guardians as ranked hunter-institutions, and the Damage Types / Debuffs / Combat Stylesets as the combat-identity layer.</div><span class="verdict met">Mark met</span></div><div class="inf body"><div class="inf-h">My Hero Academia <span class="pillar">Vessel</span></div><div class="lens">A society organized around who has power; institutions that license and train the gifted; the exam.</div><div class="txt">Medians vs. Generics, the Institutes that train them, and &mdash; most directly &mdash; the Forging Trials (a three-part licensing exam to enter the &ldquo;hero&rdquo; professions), structurally MHA&rsquo;s Provisional License Exam.</div><span class="verdict met">Mark met</span></div><div class="inf soul"><div class="inf-h">Avatar: The Last Airbender <span class="pillar">Soul</span></div><div class="lens">Elemental nations mapped to cultures; reincarnation as throughline; a young hero carrying an old role.</div><div class="txt">Reincarnation as the literal spine, the siblings carrying an ancient cosmic role (the Eversouls renewed), and the elemental race-cultures (Ra&rsquo;gnn&rsquo;s Flammas / Aquis / Tellus / Aeris, Nyph&rsquo;s Wood / River / Sky / Ash). Avatar&rsquo;s world <em>felt</em> real because each nation had a place &mdash; the next build.</div><span class="verdict met">Mark met &mdash; geography completes it</span></div><div class="inf body"><div class="inf-h">Witch Hat Atelier <span class="pillar">Vessel</span></div><div class="lens">Magic as craft and draftsmanship; the beauty of the system; gatekept knowledge.</div><div class="txt">The Anitechs and Abbeys of the Aspects, Archevim-crafting as a learned trade, the Cipher symbols and Nonagram compass, and the gatekeeping of who may practice (Median vs. Generic; the blacklisted becoming Underarchs).</div><span class="verdict partial">Partial &mdash; completes with Symbolism</span></div><div class="inf soul"><div class="inf-h">Gachiakuta <span class="pillar">Soul</span></div><div class="lens">The discarded and the outcast; a society that throws people away; strength forged from being cast off.</div><div class="txt">The Undertrade trafficking discarded Median children, the &ldquo;feared, ridiculed, condemned&rdquo; history of Medians, Grey Matter as self-erasure, and the outcast-who-survives carrying &ldquo;an unshakeable will.&rdquo;</div><span class="verdict met">Mark met &mdash; and personal</span></div><div class="inf soul"><div class="inf-h">Frieren: Beyond Journey&rsquo;s End <span class="pillar">Soul</span></div><div class="lens">The long view of immortal lives; grief across impossible timespans; the quiet aftermath of the epic.</div><div class="txt">Middle-aged protagonists whose arcs are consequence-driven rather than discovery-driven, the Eversouls&rsquo; 1,000&ndash;12,000-Aeon lives, &ldquo;no song heard since&rdquo; their fall, memory as the thing that outlasts death.</div><span class="verdict met">Mark met &mdash; the elevating register</span></div><div class="inf mind"><div class="inf-h">Lord of Mysteries <span class="pillar">Mind</span></div><div class="lens">Occult ranks and pathways; a hidden order beneath the world; knowledge as dangerous.</div><div class="txt">The hidden cosmology beneath Vi&rsquo;talitas, &ldquo;prophecy as instruction,&rdquo; the Veils and their dangers, the sealed sleeping Eversouls, and the conspiracy Omin and Ion are pulling at.</div><span class="verdict met">Mark met &mdash; Book One deepens it</span></div>
     <div class="inf-through">
       <h3>The Through-Line</h3>
       <p>The marks most fully met cluster into three registers:</p>
@@ -4277,13 +4527,19 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       <tr><td><strong>Aegis Grid</strong></td><td>Aetheric barrier keeping dimensions apart &amp; A&rsquo;thule sealed.</td></tr>
       <tr><td><strong>Aether</strong></td><td>The Force of Life; A&rsquo;kana&rsquo;s substance; powers the Aegis &amp; A&rsquo;thule&rsquo;s prison.</td></tr>
       <tr><td><strong>Aether Crux / Anima Crux</strong></td><td>The Great Mother Tree &mdash; A&rsquo;kana&rsquo;s sentient essence; the World Tree; source of Anima; roots = the Leylines.</td></tr>
+      <tr><td><strong>Nkra</strong></td><td>The nucleus of a soul &mdash; all it has ever experienced across every life, and what allows rebirth to proceed. Universal, unique to each soul, and A&rsquo;kana&rsquo;s gift. Produces Anima; potent Nkra makes Medians.</td></tr>
+      <tr><td><strong>The Reset</strong></td><td>Completion of Stigma&rsquo;s corruption: a Nkra wiped blank, losing all prior experience and beginning as a new soul. A process, not an instant &mdash; which is how Mulu&rsquo;lizi was saved.</td></tr>
+      <tr><td><strong>Shielding</strong></td><td>Concealing one&rsquo;s Nkra from being read. Ordinary courtesy; leaving a potent Nkra open in company is considered belligerent.</td></tr>
+      <tr><td><strong>Invocation</strong></td><td>Naming a working to ignite Recall. Cognitive by nature; may be thought or spoken. Speech adds precision and reliability, not force.</td></tr>
+      <tr><td><strong>Working-name</strong></td><td>Institute-taught name for a cast (e.g. <em>Loving Embrace</em>). Names the effect, never the caster&rsquo;s private memory &mdash; which is why the vocabulary is shareable.</td></tr>
+      <tr><td><strong>Loving Embrace</strong></td><td>A Hallow spatial ward raising a shield over all allies within roughly ten feet. First entry in the Institute lexicon.</td></tr>
       <tr><td><strong>Aetherseer</strong></td><td>Omin&rsquo;s epithet &mdash; sees the Unborn via Aether despite being sightless.</td></tr>
       <tr><td><strong>Amoz Xero</strong></td><td>The Soul Drinker; Ardor Vitalist; Veilwalker.</td></tr>
       <tr><td><strong>Anima</strong></td><td>Soul-intensity power, spent as memory-charge.</td></tr>
       <tr><td><strong>Animancy</strong></td><td>The use of power (nine brands, three groups).</td></tr>
       <tr><td><strong>Animate / Inanimate</strong></td><td>High vs. low Anima frequency &mdash; Medians (reincarnate naturally) vs. Generics (must heal soul-taint).</td></tr>
       <tr><td><strong>Anitech</strong></td><td>The crafter class &mdash; mortal artificers who build Archevims from an Aspect&rsquo;s blessing and rare body-Matrux.</td></tr>
-      <tr><td><strong>Archetype</strong></td><td>The full spectrum descriptor of a Median or Generic: caster-class &middot; Type &middot; Brand &mdash; e.g. <em>Median &middot; Vitalist &middot; Ardor.</em></td></tr>
+      <tr><td><strong>Archetype</strong></td><td>The full spectrum descriptor of a Median or Generic: caster-class &middot; Type &middot; Cipher &mdash; e.g. <em>Median &middot; Vitalist &middot; Ardor.</em></td></tr>
       <tr><td><strong>Archevim</strong></td><td>An item that stores Auric Remanence &mdash; a repository letting Medians &amp; Generics draw Anima from a steadier source. Made from Matrux, Pneu-Steel, Elan Essence &amp; Hymnstones; blessed by an Aspect, crafted by an Anitech.</td></tr>
       <tr><td><strong>Auric Remanence</strong></td><td>The eighth sense &mdash; the soul&rsquo;s retained reservoir of past-life experience (the residue that remains once each life has passed); the base of all memory-casting. Uncountable; the discrete memories drawn from it sort into <strong>Primary (P.A.R.)</strong> and <strong>Basic (B.A.R.)</strong> tiers.</td></tr>
       <tr><td><strong>Born / Forged</strong></td><td>Innate vs. earned Soul Restoration users.</td></tr>
@@ -4316,13 +4572,13 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       <tr><td><strong>Leypoint Xenith</strong></td><td>A docile, &ldquo;muted&rdquo; Leypoint used for training and escort excursions.</td></tr>
       <tr><td><strong>Leywarden</strong></td><td>Median Service; stewards and protectors of the Leypoints (Omin&rsquo;s profession; her unit is Division Xero).</td></tr>
       <tr><td><strong>Mama Maisel</strong></td><td>Maisel Wone, Prime Soothsayer; born Vitalist; the Eversoul <strong>Mulu&rsquo;lizi</strong> (Body line, Essence of Integrity); runs the Triple-A.</td></tr>
-      <tr><td><strong>Mania</strong></td><td>Failure from Recalling a memory too deeply &mdash; two faces: loss of control (Brand runs wild) or loss of self (coma-like submersion). Resisted by Savvy &amp; Actuality; severe cases need a Soothsayer.</td></tr>
+      <tr><td><strong>Mania</strong></td><td>Failure from Recalling a memory too deeply &mdash; two faces: loss of control (Cipher runs wild) or loss of self (coma-like submersion). Resisted by Savvy &amp; Actuality; severe cases need a Soothsayer.</td></tr>
       <tr><td><strong>Matrux</strong></td><td>Living crystallized Anima &mdash; hardened resin of the Tree of Life; volatile conduit; the &ldquo;skeleton&rdquo; of Ne&rsquo;haris. Mined safely in the Singing Caves and at various Leypoints.</td></tr>
       <tr><td><strong>Matrux-Altera</strong></td><td>The corrupted dark variant of Matrux.</td></tr>
       <tr><td><strong>Median</strong></td><td>One who wields Animancy.</td></tr>
       <tr><td><strong>Ne&rsquo;haris</strong></td><td>Divine nucleus realm of the Pneumaverse; haven of the Unborn/Unliving/Unseen.</td></tr>
-      <tr><td><strong>Nine Divine Aspects</strong></td><td>The Anima Aspects (Genos, Sacros, Ecos, Pseudus, Alphus, Tumus, Voliti, Delphi, Quintessi) &mdash; guardian-teachers of the nine Brands; makers of Archevims.</td></tr>
-      <tr><td><strong>Nine Divine Aspects</strong></td><td>The Anima Aspects &mdash; guardian-teachers of the nine Brands, dwelling in Leypoints.</td></tr>
+      <tr><td><strong>Nine Divine Aspects</strong></td><td>The Anima Aspects (Genos, Sacros, Ecos, Pseudus, Alphus, Tumus, Voliti, Delphi, Quintessi) &mdash; guardian-teachers of the nine Ciphers; makers of Archevims.</td></tr>
+      <tr><td><strong>Nine Divine Aspects</strong></td><td>The Anima Aspects &mdash; guardian-teachers of the nine Ciphers, dwelling in Leypoints.</td></tr>
       <tr><td><strong>Omneity</strong></td><td>The singular source consciousness; &ldquo;Fate/Destiny.&rdquo;</td></tr>
       <tr><td><strong>Service</strong></td><td>A Median&rsquo;s chosen (and required) profession/social role post-training. Every Median must be registered to one; the employing organization is optional.</td></tr>
       <tr><td><strong>Services</strong></td><td>The eight Median professions: Lawseeker, Soothsayer, Oathbound, Realmwatcher, Riftstalker, Veilwalker, Leywarden, Anitech. (A ninth is anticipated.)</td></tr>
@@ -4334,7 +4590,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       <tr><td><strong>Regency / Regency Cabinet</strong></td><td>A governing authority of Vi&rsquo;talitas; the Lawseekers report to it.</td></tr>
       <tr><td><strong>Roles</strong></td><td>Combat archetypes open to all &mdash; Medians earn them via Service training, Generics via Archevims: Berserker, Ascendent, Sentry, Oracle, Augur, Conjurer, Sentinel, Weaver, Alternator, Charmist.</td></tr>
       <tr><td><strong>Sentry</strong></td><td>Role: pilots of HEAT-SR Machines and other anima-fueled heavy machinery.</td></tr>
-      <tr><td><strong>Signets</strong></td><td>A Median&rsquo;s Anima-marks, placed at awakening; location fixed by Brand (announcing their discipline; Aether the exception). Surface during casting as color drains from the body into them and the eyes (sclera and iris flood with the Brand&rsquo;s color; only the pupil stays black or white by race). The visible signature; greying shows on them as permanent dullness.</td></tr>
+      <tr><td><strong>Signets</strong></td><td>A Median&rsquo;s Anima-marks, placed at awakening; location fixed by Cipher (announcing their discipline; Aether the exception). Surface during casting as color drains from the body into them and the eyes (sclera and iris flood with the Cipher&rsquo;s color; only the pupil stays black or white by race). The visible signature; greying shows on them as permanent dullness.</td></tr>
       <tr><td><strong>Stasyss / Dynaass</strong></td><td>Immutable Dragon / Perennial Phoenix; A&rsquo;kana&rsquo;s grandchildren.</td></tr>
       <tr><td><strong>Stigma</strong></td><td>Corrupted Anima; A&rsquo;thule&rsquo;s weapon; dissolution.</td></tr>
       <tr><td><strong>Stigmant</strong></td><td>Monster of Stigma from a rift; parts are valuable.</td></tr>
@@ -4399,7 +4655,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
 
   // ----- Grouped top-bar architecture -----
   var GROUPS = [
-    {label:'Foundations', ids:['s2','s_chronicle','s3','s6']},
+    {label:'Foundations', ids:['s2','s_chronicle','s3','s6','s_lexicon']},
     {label:'Realm', ids:['s_ley','s_newworld','s_lost','s_almanac','s_best']},
     {label:'Storyview', ids:['s7','s_outline','s_cast','s8','s9']},
     {label:'Society', ids:['s2b','s7b','s_orgs']},
@@ -4449,8 +4705,8 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   function closeAllGroups(){ groupEls.forEach(function(g){ g.el.classList.remove('open'); }); }
   document.addEventListener('click', function(){ closeAllGroups(); });
   // brand → synopsis
-  var tbBrand = document.getElementById('tbBrand');
-  if(tbBrand) tbBrand.addEventListener('click', function(){ show('pitch'); });
+  var tbCipher = document.getElementById('tbCipher');
+  if(tbCipher) tbCipher.addEventListener('click', function(){ show('pitch'); });
 
   var links = Array.prototype.slice.call(tbNav.querySelectorAll('.tb-item'));
 
@@ -4673,7 +4929,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       + field('Tier','<select class="sl-select" id="sl-tier">'+opts(TIERS)+'</select>')
       + '</div>';
     html += '<div class="sl-row">'
-      + field('Brand (caster line)','<select class="sl-select" id="sl-brand">'+brandOpts()+'</select>')
+      + field('Cipher (caster line)','<select class="sl-select" id="sl-brand">'+brandOpts()+'</select>')
       + '</div>';
 
     // Attributes
