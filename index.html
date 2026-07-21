@@ -307,7 +307,7 @@
     background:var(--bg-1); border:1px solid var(--line); border-radius:9px; color:var(--ink); outline:none}
   .navsearch:focus{border-color:var(--gilt)}
   .navsearch::placeholder{color:var(--ink-dim)}
-  .main-col{flex:1; min-width:0; max-width:920px; margin:0 auto; padding:30px 28px 80px; box-sizing:border-box}
+  .main-col{flex:1; min-width:0; max-width:1080px; margin:0 auto; padding:30px 28px 80px; box-sizing:border-box}
   body.app-mode section{display:none}
   body.app-mode section.active-section{display:block; animation:fadeSection .22s ease}
   @keyframes fadeSection{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
@@ -419,7 +419,7 @@
   /* keep the outline section's own scoped fonts intact (already scoped above) */
 
   /* reading column base */
-  .main-col{flex:1; min-width:0; max-width:840px; margin:0; padding:34px 44px 80px;}
+  .main-col{flex:1; min-width:0; max-width:1080px; margin:0; padding:34px 44px 80px;}
 
   /* Page scrollbar */
   html{scrollbar-width:thin; scrollbar-color:var(--gilt) var(--bg-2)}
@@ -439,8 +439,8 @@
     backdrop-filter:saturate(1.1) blur(2px);
   }
   .tb-inner{
-    max-width:1180px; margin:0 auto; padding:0 28px;
-    display:flex; align-items:center; gap:22px; height:60px;
+    max-width:1180px; margin:0 auto; padding:0 28px; box-sizing:border-box;
+    display:flex; align-items:center; gap:22px; height:60px; min-width:0;
   }
   .tb-brand{
     font-family:'Cinzel',Georgia,serif; font-weight:600; font-size:18px; letter-spacing:.5px;
@@ -448,7 +448,7 @@
     background-image:linear-gradient(100deg,#5b3a6e,#a0502e 55%,#1f7a6b);
     -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent;
   }
-  .tb-nav{display:flex; align-items:center; gap:2px; flex:1}
+  .tb-nav{display:flex; align-items:center; gap:2px; flex:1 1 auto; min-width:0; flex-wrap:wrap}
   .tb-group{position:relative}
   .tb-top{
     font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.16em; text-transform:uppercase;
@@ -478,7 +478,7 @@
   /* single-child groups act as direct links (no dropdown) */
   .tb-group.solo .tb-menu{display:none}
   /* tools cluster */
-  .tb-tools{display:flex; align-items:center; gap:14px}
+  .tb-tools{display:flex; align-items:center; gap:14px; flex:0 0 auto}
   .topbar .navsearch{margin:0; width:130px; padding:7px 11px; font-size:12.5px;
     background:rgba(255,250,238,.55); border:1px solid var(--rule); border-radius:8px; transition:width .18s}
   .topbar .navsearch:focus{width:180px; border-color:var(--gilt)}
@@ -488,7 +488,7 @@
   .topbar .vt-hint{font-family:'Spectral',serif; font-size:9.5px; font-style:italic; color:var(--ink-faint); letter-spacing:0; text-transform:none}
   /* full-width reading column now */
   body.app-mode .main-col{
-    max-width:880px; margin:0 auto; padding:48px 48px 90px;
+    max-width:1120px; margin:0 auto; padding:48px 52px 90px; box-sizing:border-box; min-width:0;
     background:
       linear-gradient(180deg, #ece0c2 0%, #e6d9b9 100%);
     border-left:1px solid rgba(120,90,40,.2);
@@ -496,7 +496,16 @@
     box-shadow:0 0 50px -10px rgba(80,55,20,.35);
     min-height:100vh;
   }
-  /* search results dropdown */
+
+  @media (max-width:760px){
+    body.app-mode .main-col{ padding:30px 20px 70px; }
+    .main-col{ padding:24px 18px 70px; }
+    .wrap{ padding:0 14px 90px; }
+  }
+  @media (max-width:430px){
+    body.app-mode .main-col{ padding:24px 14px 60px; }
+    .main-col{ padding:20px 12px 60px; }
+  }  /* search results dropdown */
   .tb-search-results{
     position:absolute; top:calc(100% + 6px); right:0; min-width:280px; max-height:60vh; overflow-y:auto;
     background:linear-gradient(180deg,#e6d9bb,#ddcaa1); border:1px solid var(--gilt); border-radius:10px; padding:7px;
@@ -616,7 +625,7 @@
   }
   .hero .hero-lead{font-size:19px; max-width:680px; color:var(--ink-soft); line-height:1.55}
   .hero .hero-lead strong{color:var(--ink)}
-  .def-row{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:30px 0}
+  .def-row{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:30px auto; max-width:940px}
   @media(max-width:680px){ .def-row{grid-template-columns:1fr} }
   .def-card{
     background:linear-gradient(180deg, rgba(255,250,238,.5), rgba(230,217,185,.3));
@@ -625,7 +634,7 @@
   }
   .def-card .dc-name{font-family:'Cormorant Garamond',serif; font-weight:600; font-size:21px; margin-bottom:3px}
   .def-card .dc-desc{font-size:13.5px; color:var(--ink-soft); line-height:1.45}
-  .legend-row{display:flex; flex-wrap:wrap; gap:9px; margin:8px 0 6px}
+  .legend-row{display:flex; flex-wrap:wrap; gap:9px; margin:8px auto 6px; justify-content:center; max-width:940px}
   .legend-pill{
     font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em;
     padding:5px 12px; border-radius:999px; border:1px solid var(--rule);
@@ -4049,11 +4058,7 @@ agrees is there &mdash; which is a different problem, and often a worse one.</li
 #s_profiles{scroll-behavior:smooth;}
 #s_profiles{
     margin:0; font-family:var(--serif); color:var(--ink);
-    background:
-      radial-gradient(ellipse at 20% 0%, #e6d6ae 0%, transparent 55%),
-      radial-gradient(ellipse at 80% 100%, #cdba8c 0%, transparent 55%),
-      var(--bg);
-    background-attachment:fixed; line-height:1.5; padding:0 1rem 4rem;
+    background:transparent; line-height:1.5; padding:0 1rem 4rem;
   }
 #s_profiles /* ---- Sticky toolbar ---- */
   .toolbar{
@@ -4080,10 +4085,11 @@ agrees is there &mdash; which is a different problem, and often a worse one.</li
 #s_profiles .btn:focus-visible{outline:2px solid var(--focus); outline-offset:2px;}
 #s_profiles .save-state{font-family:var(--sans); font-size:.66rem; color:var(--ink-faint); font-style:italic;}
 #s_profiles .sheet{
-    max-width:920px; margin:0 auto; background:var(--vellum);
-    border:1px solid var(--vellum-edge); border-radius:3px;
-    box-shadow:0 1px 0 rgba(255,255,255,.4) inset, 0 18px 40px -20px rgba(40,30,15,.55);
-    padding:clamp(1.5rem,4vw,3rem);
+    max-width:none; margin:0 auto;
+    background:linear-gradient(180deg, rgba(255,252,244,.55), rgba(255,250,238,.30));
+    border:1px solid var(--rule); border-radius:8px;
+    box-shadow:0 1px 0 rgba(255,255,255,.35) inset;
+    padding:clamp(1.2rem,3vw,2.2rem);
   }
 #s_profiles /* ---- Editable primitives ---- */
   .ed{
@@ -4107,7 +4113,7 @@ agrees is there &mdash; which is a different problem, and often a worse one.</li
 #s_profiles .pron-other.on,#s_profiles .gender-other.on,#s_profiles .orient-other.on{display:inline-block}
 #s_profiles dt.gen-row.on,#s_profiles dd.gen-row.on{display:block}
 #s_profiles .pf-note{font-size:10px;color:var(--ink-faint);margin-left:8px;font-style:italic}
-#s_profiles .pf-hyb{font-size:10.5px; color:var(--ink-faint); margin-left:8px; white-space:nowrap}
+#s_profiles .pf-hyb{font-size:10.5px; color:var(--ink-faint); margin-left:0; white-space:nowrap; flex:0 0 auto; width:auto}
 #s_profiles .pf-hyb input{vertical-align:-1px; margin-right:3px}
 #s_profiles .hyb-row,#s_profiles .med-row,#s_profiles .ind-row,#s_profiles .study-row{display:none}
 #s_profiles dt.hyb-row.on,#s_profiles dt.med-row.on,#s_profiles dt.ind-row.on,#s_profiles dt.study-row.on{display:block}
@@ -4167,7 +4173,16 @@ agrees is there &mdash; which is a different problem, and often a worse one.</li
 #s_profiles .eyebrow.mind{color:var(--mind);}
 #s_profiles .eyebrow.body{color:var(--body);}
 #s_profiles .eyebrow.soul{color:var(--soul);}
-#s_profiles .fields{display:grid;grid-template-columns:max-content 1fr;gap:.5rem 1.2rem;align-items:center;}
+#s_profiles .fields{display:grid;grid-template-columns:minmax(120px,auto) minmax(0,1fr);gap:.5rem 1.2rem;align-items:center;}
+#s_profiles .fields dd{min-width:0}
+#s_profiles .fields dd select.ed{max-width:100%}
+/* People row: select + hybrid toggle must wrap rather than overflow */
+#s_profiles .fields dd:has(.pf-hyb){display:flex;flex-wrap:wrap;align-items:center;gap:2px 8px}
+@media (max-width:640px){
+  #s_profiles .fields.two-col{grid-template-columns:1fr}
+  #s_profiles .fields{grid-template-columns:1fr;gap:.15rem .6rem}
+  #s_profiles .fields dt{margin-top:.5rem}
+}
 #s_profiles .fields dt{font-family:var(--sans);font-size:.78rem;letter-spacing:.04em;color:var(--ink-soft);text-align:right;white-space:nowrap;}
 #s_profiles .fields dd{margin:0;color:var(--ink);}
 #s_profiles .two-col{display:grid;grid-template-columns:1fr 1fr;gap:0 2.4rem;}
@@ -5535,8 +5550,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
     {label:'Storyview', ids:['s7','s_outline','s_cast','s8','s9']},
     {label:'Society', ids:['s2b','s7b','s_institutes','s_lexicon','s_orgs']},
     {label:'Industry', ids:['s_archevims','s_tech']},
-    {label:'Development', ids:['s11','s_palette','s_symbol','s_influences','s10','s_ledger','s_profiles']},
-    {label:'Index', ids:['gloss']}
+    {label:'Development', ids:['s11','s_palette','s_symbol','s_influences','s10','s_ledger','s_profiles','gloss']}
   ];
   var tbNav = document.getElementById('tbNav');
   var groupEls = [];
