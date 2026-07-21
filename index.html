@@ -4092,6 +4092,8 @@ agrees is there &mdash; which is a different problem, and often a worse one.</li
 #s_profiles .ed:hover{background:rgba(196,177,135,.18);}
 #s_profiles .ed:focus{background:#fff8e8; border-bottom:1px solid var(--focus);}
 #s_profiles .gen-row{display:none}
+#s_profiles .pron-other,#s_profiles .gender-other,#s_profiles .orient-other{display:none; margin-left:8px}
+#s_profiles .pron-other.on,#s_profiles .gender-other.on,#s_profiles .orient-other.on{display:inline-block}
 #s_profiles dt.gen-row.on,#s_profiles dd.gen-row.on{display:block}
 #s_profiles .pf-note{font-size:10px;color:var(--ink-faint);margin-left:8px;font-style:italic}
 #s_profiles .pf-hyb{font-size:10.5px; color:var(--ink-faint); margin-left:8px; white-space:nowrap}
@@ -4241,7 +4243,8 @@ agrees is there &mdash; which is a different problem, and often a worse one.</li
         <dt>Subgroup</dt><dd><select class="ed" data-k="subgroup" id="selSubgroup"></select></dd>
         <dt class="hyb-row">Second People</dt><dd class="hyb-row"><select class="ed" data-k="people2" id="selPeople2"></select></dd>
         <dt class="hyb-row">Second Subgroup</dt><dd class="hyb-row"><select class="ed" data-k="subgroup2" id="selSubgroup2"></select></dd>
-        <dt>Gender / Pronouns</dt><dd><span class="ed" data-k="gender" data-ph="—"></span></dd>
+        <dt>Pronouns</dt><dd><select class="ed" data-k="pronouns" id="selPron"></select><span class="ed pron-other" data-k="pronOther" data-ph="describe…"></span></dd>
+        <dt>Gender</dt><dd><select class="ed" data-k="gender" id="selGender"></select><span class="ed gender-other" data-k="genderOther" data-ph="describe…"></span></dd>
         <dt>Age</dt><dd><span class="ed" data-k="age" data-ph="—"></span></dd>
         <dt>Apparent Age</dt><dd><span class="ed" data-k="apparentAge" data-ph="—"></span></dd>
       </dl>
@@ -4257,6 +4260,7 @@ agrees is there &mdash; which is a different problem, and often a worse one.</li
       <dt class="med-row">Median Kind</dt><dd class="med-row"><select class="ed" data-k="medianKind" id="selMedianKind" id="selMedianKind"></select></dd>
       <dt class="med-row">Service</dt><dd class="med-row"><select class="ed" data-k="service" id="selService" id="selService"></select></dd>
         <dt class="med-row">Median Tier</dt><dd class="med-row"><select class="ed" data-k="mtier" id="selMTier"></select></dd>
+        <dt class="med-row">Tier numeral</dt><dd class="med-row"><span class="ed" data-k="tierName" data-ph="Xero, Wone, Teww…"></span><span class="pf-note">taken as surname on passing the Trials; styled to taste</span></dd>
         <dt>Role</dt><dd><select class="ed" data-k="role" id="selRole"></select><span class="pf-note" id="roleNote"></span></dd>
         <dt class="gen-row">Second Role</dt><dd class="gen-row"><select class="ed" data-k="role2" id="selRole2"></select></dd>
         <dt class="gen-row">Third Role</dt><dd class="gen-row"><select class="ed" data-k="role3" id="selRole3"></select></dd>
@@ -4266,8 +4270,8 @@ agrees is there &mdash; which is a different problem, and often a worse one.</li
         <dt class="med-row">Institute</dt><dd class="med-row"><select class="ed" data-k="institute" id="selInst"></select></dd>
         <dt class="med-row">Trials</dt><dd class="med-row"><select class="ed" data-k="trials" id="selTrials"></select></dd>
         <dt class="med-row study-row">Study year</dt><dd class="med-row study-row"><select class="ed" data-k="studyYear" id="selYear"></select></dd>
-      <dt>Status</dt><dd><span class="ed" data-k="status" data-ph="—"></span></dd>
-      <dt>Preference</dt><dd><span class="ed" data-k="preference" data-ph="—"></span></dd>
+      <dt>Status</dt><dd><select class="ed" data-k="status" id="selStatus"></select></dd>
+      <dt>Orientation</dt><dd><select class="ed" data-k="orientation" id="selOrient"></select><span class="ed orient-other" data-k="orientOther" data-ph="describe…"></span></dd>
       <dt>Birthplace</dt><dd><span class="ed" data-k="birthplace" data-ph="—"></span></dd>
       <dt>Upbringing</dt><dd><span class="ed" data-k="upbringing" data-ph="—"></span></dd>
       <dt>Residence</dt><dd><span class="ed" data-k="residence" data-ph="—"></span></dd>
@@ -4489,6 +4493,8 @@ var BRANDS = {
 var TIERS = ['Rook','Avant','Savant','Deuce','Baron','Ace'];
 var SOULSTATE = ['Median (Animate)','Generic (Inanimate)'];
 var TIPS = {
+ 'Soul-Tied':'A binding of one Nkra to another \u2014 discovered, not chosen; persists through death and rebirth. Breaking one devastates the Nkra.',
+ 'Mated':'A bond recognised among the theriomorphic peoples, distinct from marriage.',
  'Median (Animate)':'A soul able to wield Animancy \u2014 magic burned from their own memories.',
  'Generic (Inanimate)':'A soul who cannot wield Animancy directly; achieves Roles through Archevims instead.',
  'Unborn':'A soul stopped before birth. A\u2019sai, killed in incubation, is the canonical case.',
@@ -4523,6 +4529,10 @@ var TIPS = {
  '1':'Tier 1 \u2014 most attuned to their anima\u2019s source. Fewest in number.',
  '9':'Tier 9 \u2014 least attuned, regardless of effort.'
 };
+var PRONOUNS = ['She / Her','He / Him','They / Them','She / They','He / They','It / Its','Other'];
+var GENDERS = ['Male','Female','Nonbinary','Genderfluid','Agender','Prefer to self-describe','Decline to state'];
+var STATUS = ['Single','Taken','Engaged','Mated','Married','Widowed','Separated','Soul-Tied'];
+var ORIENTATION = ['Straight','Gay','Lesbian','Bisexual','Pansexual','Asexual','Demisexual','Queer','Questioning','Prefer to self-describe','Decline to state'];
 var LANGS = ['Leykiss (Common Pneumosian)','Homidic','Hybrinic','Neandric','Nyphian','Feiidian','Avianic','Draconic','Khimosi','Centosian','Jengari'];
 var INSTITUTES = ['Elysian Institute \u2014 Elysius','A.A.A. Institute \u2014 Assentia','Leyview Conservatory \u2014 Urbsian','Other / unaffiliated'];
 var TRIALSTATUS = ['Completed the Forging Trials','Still studying'];
@@ -4819,6 +4829,10 @@ document.addEventListener('keydown',function(e){
   }
   fillSel('selSoulState', SOULSTATE);
   fillSel('selSpirit',    SPIRITHIER);
+  fillSel('selPron',      PRONOUNS);
+  fillSel('selGender',    GENDERS);
+  fillSel('selStatus',    STATUS);
+  fillSel('selOrient',    ORIENTATION);
   fillSel('selRole',      ROLES);
   fillSel('selRole2',     ROLES);
   fillSel('selRole3',     ROLES);
@@ -4863,6 +4877,12 @@ document.addEventListener('keydown',function(e){
     var isGeneric = (pick('selSoulState')||{}).value === 'Generic (Inanimate)';
     setRows('med-row', !isGeneric);
     setRows('gen-row', isGeneric);
+    var pv=(pick('selPron')||{}).value||'';
+    ROOT.querySelectorAll('.pron-other').forEach(function(e){ e.classList.toggle('on', pv==='Other'); });
+    var gv=(pick('selGender')||{}).value||'';
+    ROOT.querySelectorAll('.gender-other').forEach(function(e){ e.classList.toggle('on', gv==='Prefer to self-describe'); });
+    var ov=(pick('selOrient')||{}).value||'';
+    ROOT.querySelectorAll('.orient-other').forEach(function(e){ e.classList.toggle('on', ov==='Prefer to self-describe'); });
     var rn=pick('roleNote');
     if(rn) rn.textContent = isGeneric ? 'Generics may hold several Roles.' : 'Medians hold one Role only.';
     setRows('hyb-row', (pick('chkHybrid')||{}).checked);
@@ -4871,7 +4891,7 @@ document.addEventListener('keydown',function(e){
   }
   ROOT.addEventListener('change', function(ev){
     var t=ev.target;
-    if(t && t.id && ['selSoulState','chkHybrid','selOrg','selTrials'].indexOf(t.id)>=0){
+    if(t && t.id && ['selSoulState','chkHybrid','selOrg','selTrials','selPron','selGender','selOrient'].indexOf(t.id)>=0){
       applyConditions(); markDirty();
     }
   }, true);
