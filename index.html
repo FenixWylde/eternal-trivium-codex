@@ -4206,12 +4206,17 @@ agrees is there &mdash; which is a different problem, and often a worse one.</li
 #s_profiles .statblock > *{min-width:0}
 @media (max-width:760px){ #s_profiles .statblock{grid-template-columns:repeat(2,minmax(0,1fr))} }
 @media (max-width:460px){ #s_profiles .statblock{grid-template-columns:1fr} }
-/* left-ruled blocks: Appearance and the Soul Ledger read as columns, not centred cards */
-#s_profiles .pf-section.ruled{
+/* every block carries the same left rule so the sheet reads as one column */
+#s_profiles .pf-section{
   border-left:3px solid var(--rule); padding-left:18px; margin-left:2px;
 }
-#s_profiles .pf-section.ruled .fields{grid-template-columns:minmax(150px,auto) minmax(0,1fr)}
-#s_profiles .pf-section.ruled .subhead{text-align:left}
+#s_profiles .dossier-quick{border-left:3px solid var(--rule); padding-left:18px; margin-left:2px;}
+@media (max-width:560px){ #s_profiles .dossier-quick{padding-left:12px} }
+#s_profiles .pf-section .fields{grid-template-columns:minmax(150px,auto) minmax(0,1fr)}
+#s_profiles .pf-section .subhead{text-align:left}
+@media (max-width:560px){
+  #s_profiles .pf-section{padding-left:12px}
+}
 
 #s_profiles .stat{border:1px solid var(--vellum-edge);border-radius:2px;text-align:center;padding:.7rem .4rem;background:rgba(226,212,178,.4);}
 #s_profiles .stat .stat-label{font-family:var(--sans);font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-soft);display:block;margin-bottom:.3rem;line-height:1.2;}
