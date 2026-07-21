@@ -2423,6 +2423,7 @@ Because they follow no strict rule of creation and were <strong>never truly sync
       <tr><td><strong>Ace</strong></td><td><span class="gmeta">Master</span> &mdash; the highest rank. An Ace has mastered the craft and gone past it, developing <strong>Exceptional Gifts</strong> of their own.</td></tr>
     </table>
 
+    <div class="card note"><span class="tag">Gifts by rank <span class="badge b-locked">Locked &middot; New</span></span>Rank tracks the count of Gifts a Median holds. The taught curriculum is <strong>twelve</strong>, and it completes at <strong>Deuce</strong>; everything beyond it is <strong>Exceptional.</strong><table style="margin-top:8px"><tr><th>Rank</th><th>Gifts</th></tr><tr><td><strong>Rook</strong></td><td>3</td></tr><tr><td><strong>Avant</strong></td><td>6</td></tr><tr><td><strong>Savant</strong></td><td>9</td></tr><tr><td><strong>Deuce</strong></td><td>12 &mdash; the full curriculum</td></tr><tr><td><strong>Baron</strong></td><td>15+ &mdash; the twelve, plus Exceptional Gifts</td></tr><tr><td><strong>Ace</strong></td><td>18+ &mdash; the twelve, plus the six that meet the threshold</td></tr></table><br>Two things follow. The student grades advance <strong>four Gifts apart</strong>, and a <strong>Savant stops at nine</strong> &mdash; so the <strong>Forging Trials are where a Median receives the last three Gifts of their curriculum</strong>, not merely where they are examined on it. And <strong>Exceptional Gifts begin at Baron</strong>, not at Ace: a Baron holds perhaps three of their own, and Ace is the rank at which six have accumulated. <strong>Omin holds sixteen</strong> &mdash; twelve taught and four Exceptional &mdash; past Baron, two short of the mark.</div>
     <div class="card note"><span class="tag">The threshold is the Trials <span class="badge b-locked">Locked &middot; New</span></span>Rook, Avant and Savant are <strong>student grades</strong> within a Median Institute. The <strong>Forging Trials</strong> &mdash; the three-part Written, Verbal and Action examination &mdash; are the wall between study and Service: pass, and a Median becomes a <strong>Deuce</strong> and takes up their chosen path. <strong>Baron and Ace are both formal in rank and in recognition</strong>, conferred and acknowledged rather than merely claimed.</div>
 
     <div class="card note"><span class="tag">Prime is not part of this ladder <span class="badge b-locked">Locked &middot; New</span></span><strong>Prime</strong> is <em>not</em> a general Median rank. It belongs solely to <strong>Soothsayers</strong> who have grown in power within their Service &mdash; a Service-specific standing, parallel to the ladder rather than atop it.</div>
@@ -4091,6 +4092,16 @@ agrees is there &mdash; which is a different problem, and often a worse one.</li
   }
 #s_profiles .ed:hover{background:rgba(196,177,135,.18);}
 #s_profiles .ed:focus{background:#fff8e8; border-bottom:1px solid var(--focus);}
+#s_profiles .pf-nkra{display:flex; align-items:center; gap:14px; margin:2px 0 14px}
+#s_profiles .nkra-slot{
+  width:88px; height:88px; flex:none; border:1px dashed var(--rule);
+  border-radius:4px; background:var(--vellum-deep); display:flex;
+  align-items:center; justify-content:center; cursor:pointer; overflow:hidden;
+}
+#s_profiles .nkra-slot img{width:100%; height:100%; object-fit:contain}
+#s_profiles .nkra-ph{font-family:var(--sans); font-size:9.5px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--ink-faint); text-align:center; padding:4px}
+#s_profiles .nkra-cap{font-size:11px; color:var(--ink-faint); line-height:1.5}
 #s_profiles .gen-row{display:none}
 #s_profiles .pron-other,#s_profiles .gender-other,#s_profiles .orient-other{display:none; margin-left:8px}
 #s_profiles .pron-other.on,#s_profiles .gender-other.on,#s_profiles .orient-other.on{display:inline-block}
@@ -4237,6 +4248,7 @@ agrees is there &mdash; which is a different problem, and often a worse one.</li
         <dt>Name</dt><dd><span class="ed" data-k="soulName" data-ph="—"></span></dd>
         <dt>Pronunciation</dt><dd><span class="ed" data-k="pron" data-ph="—"></span></dd>
         <dt>Prior Incarnation</dt><dd><span class="ed" data-k="priorInc" data-ph="—"></span></dd>
+        <dt>Lifetimes lived</dt><dd><span class="ed" data-k="lifetimes" data-ph="—"></span></dd>
         <dt>Common Name</dt><dd><span class="ed" data-k="commonName" data-ph="—"></span></dd>
         <dt>Epithet / Alias</dt><dd><span class="ed" data-k="alias" data-ph="—"></span></dd>
         <dt>People</dt><dd><select class="ed" data-k="people" id="selPeople"></select><label class="pf-hyb"><input type="checkbox" class="ed" id="chkHybrid" data-k="isHybrid"> hybrid</label></dd>
@@ -4255,21 +4267,12 @@ agrees is there &mdash; which is a different problem, and often a worse one.</li
   <div class="pf-section">
     <div class="eyebrow">Vocation</div>
     <dl class="fields two-col">
-      <dt>Soul-State</dt><dd><select class="ed" data-k="soulState" id="selSoulState"></select></dd>
-        <dt>Spiritual Hierarchy</dt><dd><select class="ed" data-k="spiritHier" id="selSpirit"></select></dd>
-      <dt class="med-row">Median Kind</dt><dd class="med-row"><select class="ed" data-k="medianKind" id="selMedianKind" id="selMedianKind"></select></dd>
-      <dt class="med-row">Service</dt><dd class="med-row"><select class="ed" data-k="service" id="selService" id="selService"></select></dd>
-        <dt class="med-row">Median Tier</dt><dd class="med-row"><select class="ed" data-k="mtier" id="selMTier"></select></dd>
-        <dt class="med-row">Tier numeral</dt><dd class="med-row"><span class="ed" data-k="tierName" data-ph="Xero, Wone, Teww…"></span><span class="pf-note">taken as surname on passing the Trials; styled to taste</span></dd>
         <dt>Role</dt><dd><select class="ed" data-k="role" id="selRole"></select><span class="pf-note" id="roleNote"></span></dd>
         <dt class="gen-row">Second Role</dt><dd class="gen-row"><select class="ed" data-k="role2" id="selRole2"></select></dd>
         <dt class="gen-row">Third Role</dt><dd class="gen-row"><select class="ed" data-k="role3" id="selRole3"></select></dd>
       <dt>Division / Role</dt><dd><span class="ed" data-k="division" data-ph="—"></span></dd>
       <dt>Organization</dt><dd><select class="ed" data-k="org" id="selOrg"></select></dd>
         <dt class="ind-row">Independent org</dt><dd class="ind-row"><span class="ed" data-k="orgOther" data-ph="name the organization…"></span></dd>
-        <dt class="med-row">Institute</dt><dd class="med-row"><select class="ed" data-k="institute" id="selInst"></select></dd>
-        <dt class="med-row">Trials</dt><dd class="med-row"><select class="ed" data-k="trials" id="selTrials"></select></dd>
-        <dt class="med-row study-row">Study year</dt><dd class="med-row study-row"><select class="ed" data-k="studyYear" id="selYear"></select></dd>
       <dt>Status</dt><dd><select class="ed" data-k="status" id="selStatus"></select></dd>
       <dt>Orientation</dt><dd><select class="ed" data-k="orientation" id="selOrient"></select><span class="ed orient-other" data-k="orientOther" data-ph="describe…"></span></dd>
       <dt>Birthplace</dt><dd><span class="ed" data-k="birthplace" data-ph="—"></span></dd>
@@ -4285,16 +4288,31 @@ agrees is there &mdash; which is a different problem, and often a worse one.</li
   <!-- ANIMANCY -->
   <div class="pf-section">
     <div class="eyebrow soul">Animancy</div>
+    <div class="pf-nkra">
+      <div class="nkra-slot" id="nkraSlot" title="Nkra mark for the chosen Discipline">
+        <span class="nkra-ph">Nkra mark</span>
+      </div>
+      <div class="nkra-cap">The mark of the chosen Discipline. <em>Placeholder \u2014 marks pending.</em></div>
+    </div>
     <dl class="fields two-col">
+      <dt>Spiritual Hierarchy</dt><dd><select class="ed" data-k="spiritHier" id="selSpirit"></select></dd>
+      <dt>Soul-State</dt><dd><select class="ed" data-k="soulState" id="selSoulState"></select></dd>
+      <dt class="med-row">Median Archetype</dt><dd class="med-row"><select class="ed" data-k="medianKind" id="selMedianKind"></select></dd>
+      <dt class="med-row">Median Tier</dt><dd class="med-row"><select class="ed" data-k="mtier" id="selMTier"></select></dd>
+      <dt class="med-row">Median Service</dt><dd class="med-row"><select class="ed" data-k="service" id="selService"></select></dd>
+      <dt class="med-row">Surname Sequence</dt><dd class="med-row"><span class="ed" data-k="tierName" data-ph="Xero, Wone, Teww\u2026"></span><span class="pf-note">assigned Tier, styled to taste</span></dd>
+      <dt class="med-row">Institute</dt><dd class="med-row"><select class="ed" data-k="institute" id="selInst"></select></dd>
+      <dt class="med-row">Trials</dt><dd class="med-row"><select class="ed" data-k="trials" id="selTrials"></select></dd>
+      <dt class="med-row study-row">Study year</dt><dd class="med-row study-row"><select class="ed" data-k="studyYear" id="selYear"></select></dd>
       <dt>Anima Cipher</dt><dd><select class="ed" data-k="brandPillar" id="selCipherPillar"></select></dd>
       <dt>Discipline</dt><dd><select class="ed" data-k="brand" id="selCipher"></select></dd>
-      <dt>Tier</dt><dd><select class="ed" data-k="tier" id="selTier"></select></dd>
+      <dt>Rank</dt><dd><select class="ed" data-k="tier" id="selTier"></select></dd>
       <dt>Common / Elevated</dt><dd><select class="ed" data-k="animancyLevel" id="selAnimancyLevel"></select></dd>
-      <dt>Recall / Greying</dt><dd><span class="ed" data-k="recall" data-ph="e.g. 60% recall · 10% greying"></span></dd>
-      <dt>Savvy (charge)</dt><dd><span class="ed" data-k="savvy" data-ph="—"></span></dd>
+      <dt>Recall / Greying</dt><dd><span class="ed" data-k="recall" data-ph="e.g. 60% recall \u00b7 10% greying"></span></dd>
+      <dt>Savvy (charge)</dt><dd><span class="ed" data-k="savvy" data-ph="\u2014"></span></dd>
     </dl>
-    <div class="subhead">Signature Acts</div>
-    <div class="ed block" data-k="signatureActs" data-ph="Describe this character's characteristic uses of Animancy…"></div>
+    <div class="subhead">Nkra Acts</div>
+    <div class="ed block" data-k="signatureActs" data-ph="Describe this character&#39;s characteristic uses of Animancy\u2026"></div>
   </div>
 
   <!-- APPEARANCE -->
@@ -4490,9 +4508,15 @@ var BRANDS = {
   'Vessel \u2014 Deconstruction':['Wylde \u2014 Elemental & Transmutation','Grymm \u2014 Necromation & Abolition','Qhaos \u2014 Devastation & Evocation'],
   'Soul \u2014 Restoration':['Arcane \u2014 Psionic','Ardor \u2014 Willful','Aether \u2014 Spiritual']
 };
-var TIERS = ['Rook','Avant','Savant','Deuce','Baron','Ace'];
+var TIERS = ['Rook \u2014 3 Gifts','Avant \u2014 6 Gifts','Savant \u2014 9 Gifts','Deuce \u2014 12 Gifts','Baron \u2014 15+ Gifts','Ace \u2014 18+ Gifts'];
 var SOULSTATE = ['Median (Animate)','Generic (Inanimate)'];
 var TIPS = {
+ 'Rook \u2014 3 Gifts':'Student grade. Three taught Gifts of the twelve.',
+ 'Avant \u2014 6 Gifts':'Student grade. Six taught Gifts \u2014 halfway through the curriculum.',
+ 'Savant \u2014 9 Gifts':'Final student grade before the Forging Trials. Nine of twelve.',
+ 'Deuce \u2014 12 Gifts':'Passed the Trials; holds the complete curriculum of twelve taught Gifts.',
+ 'Baron \u2014 15+ Gifts':'Master rank. The twelve taught, plus Exceptional Gifts of their own.',
+ 'Ace \u2014 18+ Gifts':'Highest rank. The twelve taught, plus at least six Exceptional Gifts \u2014 the Ace threshold.',
  'Soul-Tied':'A binding of one Nkra to another \u2014 discovered, not chosen; persists through death and rebirth. Breaking one devastates the Nkra.',
  'Mated':'A bond recognised among the theriomorphic peoples, distinct from marriage.',
  'Median (Animate)':'A soul able to wield Animancy \u2014 magic burned from their own memories.',
@@ -4718,10 +4742,12 @@ function collect(){
 
   d.langs = Array.prototype.slice.call(ROOT.querySelectorAll('.lang-cb'))
     .filter(function(c){return c.checked;}).map(function(c){return c.value;});
+  var _nk=ROOT.querySelector('#nkraSlot'); if(_nk && _nk.dataset.img) d.nkraImg=_nk.dataset.img;
   return d;
 }
 
 function apply(d){
+  if(d && d.nkraImg){ var _s=ROOT.querySelector('#nkraSlot'); if(_s){ _s.innerHTML='<img alt="Nkra mark" src="'+d.nkraImg+'">'; _s.dataset.img=d.nkraImg; } }
   if(d && d.langs){ ROOT.querySelectorAll('.lang-cb').forEach(function(c){ c.checked = d.langs.indexOf(c.value)>=0; }); }
   // reset
   freshLists();
@@ -4910,16 +4936,22 @@ document.addEventListener('keydown',function(e){
   function hideTip(){ if(tipEl) tipEl.classList.remove('on'); }
   function wireTips(){
     ROOT.querySelectorAll('select.ed').forEach(function(s){
-      var t = TIPS[s.value];
-      if(t){ s.classList.add('has-tip'); s.title=''; }
-      else { s.classList.remove('has-tip'); }
-      if(s.dataset.tipWired) return;
-      s.dataset.tipWired='1';
-      s.addEventListener('mouseenter', function(){ var x=TIPS[s.value]; if(x) showTip(s,x); });
-      s.addEventListener('mouseleave', hideTip);
-      s.addEventListener('change', function(){ hideTip(); wireTips(); });
+      if(TIPS[s.value]) s.classList.add('has-tip'); else s.classList.remove('has-tip');
     });
   }
+  // delegated: works for selects revealed after init, and survives re-render
+  ROOT.addEventListener('mouseover', function(ev){
+    var s = ev.target;
+    if(!s || s.tagName!=='SELECT') return;
+    var x = TIPS[s.value];
+    if(x) showTip(s, x);
+  });
+  ROOT.addEventListener('mouseout', function(ev){
+    if(ev.target && ev.target.tagName==='SELECT') hideTip();
+  });
+  ROOT.addEventListener('change', function(ev){
+    if(ev.target && ev.target.tagName==='SELECT'){ hideTip(); wireTips(); }
+  });
   wireTips();
 
 
@@ -4979,6 +5011,28 @@ document.addEventListener('keydown',function(e){
     }
   }
   (function(){ var b=pick('btnDoc'); if(b) b.addEventListener('click', exportDoc); })();
+
+
+  // ---- Nkra mark slot (click to embed an image) ----
+  (function(){
+    var slot=pick('nkraSlot'); if(!slot) return;
+    var inp=document.createElement('input');
+    inp.type='file'; inp.accept='image/*'; inp.style.display='none';
+    slot.appendChild(inp);
+    slot.addEventListener('click', function(){ inp.click(); });
+    inp.addEventListener('change', function(){
+      var f=inp.files && inp.files[0]; if(!f) return;
+      var r=new FileReader();
+      r.onload=function(){
+        slot.innerHTML='';
+        var img=document.createElement('img'); img.src=r.result; img.alt='Nkra mark';
+        slot.appendChild(img); slot.appendChild(inp);
+        slot.dataset.img=r.result;
+        markDirty();
+      };
+      r.readAsDataURL(f);
+    });
+  })();
 
 // ---- Init ----
 seedLists();
@@ -5342,6 +5396,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       <tr><td><strong>Hay&rsquo;vnn</strong></td><td>The Voice of the Void. A Pantheon deity of another galaxy in the Astroverse, born into the False Pillars and escaped. Soul-Tied to I&rsquo;n&aacute;cio (Amoz) and to Nullus; the unnamed Voice that kept I&rsquo;n&aacute;cio from madness.</td></tr>
       <tr><td><strong>Fading Fatigue</strong></td><td>Exhaustion from spending heavily of both Anima and Nkra. Common form is remediable with rest and Leywater.</td></tr>
       <tr><td><strong>Permanent Fading Fatigue</strong></td><td>Fading Fatigue sustained past remedy. The hair no longer returns to its natural colour after casting, settling instead into silver. The Cipher hue still floods during Recall. Common among Vitalists; Omin carries it.</td></tr>
+      <tr><td><strong>Gifts by rank</strong></td><td>Rook 3 &middot; Avant 6 &middot; Savant 9 &middot; Deuce 12 (the full taught curriculum) &middot; Baron 15+ &middot; Ace 18+. Everything past twelve is Exceptional.</td></tr>
       <tr><td><strong>Ace threshold</strong></td><td>Six named Exceptional Gifts. Fewer than six and a Median is not an Ace regardless of skill. Omin holds four.</td></tr>
       <tr><td><strong>Aether (nature)</strong></td><td>The Cipher of light and plasma, founded on the Pneumaverse. Its workings shape, condense, project and travel by light; aetheric charge behaves as plasma rather than elemental lightning.</td></tr>
       <tr><td><strong>Aether Wind</strong></td><td>Omin&rsquo;s Exceptional Gift &mdash; flight woven from her own Aether, built from the remembered use of the wings taken from her. Sustainable at leisure; costly in combat.</td></tr>
