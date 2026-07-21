@@ -2371,6 +2371,12 @@ Because they follow no strict rule of creation and were <strong>never truly sync
         <h3 style="margin-top:34px">Combat Stylesets <span class="badge b-locked">Locked</span></h3>
     <p>Distinct from <strong>Services</strong> (professions), a <strong>Role</strong> is a <em>way of fighting and serving</em> &mdash; a combat archetype open to everyone.</p>
     <div class="card hook"><span class="tag">The access rule <span class="badge b-locked">Locked</span></span><strong>Medians</strong> take Roles through their <strong>Service training</strong> &mdash; earned, channeled through the self. <strong>Generics</strong> achieve the same Roles through <strong>Archevims</strong>, working alongside Medians. A Role is open to anyone; only the <em>means</em> differs (innate craft vs. forged tool).</div>
+
+    <div class="card note"><span class="tag">Taken up, not automatic <span class="badge b-locked">Locked &middot; New</span></span>A Role is <strong>taken up</strong>, not conferred with rank or Service. Most Medians hold one, because Service training tends toward a way of fighting &mdash; but <strong>not every Median has a Role</strong>, and there is no dishonour in holding none. For a <strong>Generic</strong>, taking a Role is a <strong>hard-won achievement</strong>: the means by which they stand alongside Medians in the field rather than behind them. They may not always match a truly gifted Median for raw power, but a Generic in their Role <strong>holds their own considerably.</strong></div>
+
+    <div class="card note" style="border-left-color:var(--mind)"><span class="tag" style="color:var(--mind)">One Role, or many <span class="badge b-locked">Locked &middot; New</span></span><strong>A Median holds one Role, and one only.</strong> Their Role runs through their <em>own</em> Anima &mdash; one Cipher, one nature, one way that power expresses &mdash; and that cannot be set aside or exchanged. They are <strong>specified by what they are.</strong><br><br><strong>A Generic may hold several.</strong> Their Roles run through <strong>Archevims</strong>: crafted instruments external to the self, which can be laid down and taken up again. Nothing in a Generic&rsquo;s soul binds them to a single way of fighting &mdash; only what they can <strong>obtain and master.</strong><br><br>The asymmetry is exact: <strong>the Median is limited by having power; the Generic is free by not having it.</strong></div>
+
+    <div class="card payoff claude-made"><span class="tag">Design payoff</span><strong>Depth against range.</strong> A Median hits harder within their lane and can never leave it; a Generic can change lanes but pays for the privilege in craft, coin, and access. It makes <strong>Archevims genuinely valuable</strong> rather than compensatory &mdash; a Generic&rsquo;s breadth becomes a measure of what they have earned, commissioned, or scavenged, which ties Roles directly to the Anitechs who forge them and the Undertrade that traffics in the rest.</div>
     <table>
       <tr><th>Role</th><th>Essence</th></tr>
       <tr><td><strong>Berserker</strong></td><td>All-out brawler who takes hits and dishes them just as hard. Endurance + raw force over finesse.</td></tr>
@@ -4085,6 +4091,9 @@ agrees is there &mdash; which is a different problem, and often a worse one.</li
   }
 #s_profiles .ed:hover{background:rgba(196,177,135,.18);}
 #s_profiles .ed:focus{background:#fff8e8; border-bottom:1px solid var(--focus);}
+#s_profiles .gen-row{display:none}
+#s_profiles dt.gen-row.on,#s_profiles dd.gen-row.on{display:block}
+#s_profiles .pf-note{font-size:10px;color:var(--ink-faint);margin-left:8px;font-style:italic}
 #s_profiles .pf-hyb{font-size:10.5px; color:var(--ink-faint); margin-left:8px; white-space:nowrap}
 #s_profiles .pf-hyb input{vertical-align:-1px; margin-right:3px}
 #s_profiles .hyb-row,#s_profiles .med-row,#s_profiles .ind-row,#s_profiles .study-row{display:none}
@@ -4248,7 +4257,9 @@ agrees is there &mdash; which is a different problem, and often a worse one.</li
       <dt class="med-row">Median Kind</dt><dd class="med-row"><select class="ed" data-k="medianKind" id="selMedianKind" id="selMedianKind"></select></dd>
       <dt class="med-row">Service</dt><dd class="med-row"><select class="ed" data-k="service" id="selService" id="selService"></select></dd>
         <dt class="med-row">Median Tier</dt><dd class="med-row"><select class="ed" data-k="mtier" id="selMTier"></select></dd>
-        <dt>Role</dt><dd><select class="ed" data-k="role" id="selRole"></select></dd>
+        <dt>Role</dt><dd><select class="ed" data-k="role" id="selRole"></select><span class="pf-note" id="roleNote"></span></dd>
+        <dt class="gen-row">Second Role</dt><dd class="gen-row"><select class="ed" data-k="role2" id="selRole2"></select></dd>
+        <dt class="gen-row">Third Role</dt><dd class="gen-row"><select class="ed" data-k="role3" id="selRole3"></select></dd>
       <dt>Division / Role</dt><dd><span class="ed" data-k="division" data-ph="—"></span></dd>
       <dt>Organization</dt><dd><select class="ed" data-k="org" id="selOrg"></select></dd>
         <dt class="ind-row">Independent org</dt><dd class="ind-row"><span class="ed" data-k="orgOther" data-ph="name the organization…"></span></dd>
@@ -4809,6 +4820,8 @@ document.addEventListener('keydown',function(e){
   fillSel('selSoulState', SOULSTATE);
   fillSel('selSpirit',    SPIRITHIER);
   fillSel('selRole',      ROLES);
+  fillSel('selRole2',     ROLES);
+  fillSel('selRole3',     ROLES);
   fillSel('selMTier',     MTIER);
   fillSel('selOrg',       ORGS);
   fillSel('selInst',      INSTITUTES);
@@ -4849,6 +4862,9 @@ document.addEventListener('keydown',function(e){
   function applyConditions(){
     var isGeneric = (pick('selSoulState')||{}).value === 'Generic (Inanimate)';
     setRows('med-row', !isGeneric);
+    setRows('gen-row', isGeneric);
+    var rn=pick('roleNote');
+    if(rn) rn.textContent = isGeneric ? 'Generics may hold several Roles.' : 'Medians hold one Role only.';
     setRows('hyb-row', (pick('chkHybrid')||{}).checked);
     setRows('ind-row', (pick('selOrg')||{}).value === 'None \u2014 Independent');
     setRows('study-row', !isGeneric && (pick('selTrials')||{}).value === 'Still studying');
@@ -5297,6 +5313,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
       <tr><td><strong>Deuce</strong></td><td>A Median who has passed the Trials and taken up a Service. Typical skill; familiar with their twelve Gifts. Most never rise past this.</td></tr>
       <tr><td><strong>Baron</strong></td><td>Master rank, formal in both title and recognition. The Cabinet of the Lawseeker Regency are Barons.</td></tr>
       <tr><td><strong>Ace</strong></td><td>The highest rank &mdash; a Median who has surpassed the curriculum and developed Exceptional Gifts of their own. Maisel is an Ace.</td></tr>
+      <tr><td><strong>Role (one or many)</strong></td><td>A Median holds one Role only &mdash; it runs through their own fixed Anima. A Generic may hold several, since their Roles run through Archevims, which can be exchanged. Taken up rather than automatic; for a Generic it is an achievement.</td></tr>
       <tr><td><strong>Leyview Conservatory</strong></td><td>The largest Median school in Urbsian; a working conservatory running heavily to Anitech and applied craft. Third of the three great houses with the A.A.A. (Assentia) and the Elysian (Elysius).</td></tr>
       <tr><td><strong>Xero (surname)</strong></td><td>The Tier designation carried by all three siblings as a surname. Tier 0 marks an Nkra that will not hold a fixed reading &mdash; unmeasurable, fluctuating across Tiers at high cost. Assigned, not chosen. Distinct from Ra&rsquo;quiss, their birth name.</td></tr>
       <tr><td><strong>Division Xero &middot; Talon</strong></td><td>Omin&rsquo;s Leywarden unit. The ten primary Divisions are numbered zero through nine in stylised form; each also carries a field codename. Xero&rsquo;s is Talon.</td></tr>
