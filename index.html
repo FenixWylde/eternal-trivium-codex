@@ -4158,7 +4158,7 @@ agrees is there &mdash; which is a different problem, and often a worse one.</li
 #s_profiles /* ---- Portrait ---- */
   .portrait-band{display:flex;gap:1.6rem;align-items:stretch;margin-bottom:2.2rem;flex-wrap:wrap;}
 #s_profiles .portrait-slot{
-    flex:0 0 200px;min-height:240px;border:1px dashed var(--rule);border-radius:2px;
+    flex:0 0 150px;height:180px;border:1px dashed var(--rule);border-radius:2px;
     display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;
     font-family:var(--sans);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;
     color:var(--ink-faint);background:rgba(196,177,135,.15);padding:0;cursor:pointer;position:relative;
@@ -4207,6 +4207,11 @@ agrees is there &mdash; which is a different problem, and often a worse one.</li
 @media (max-width:760px){ #s_profiles .statblock{grid-template-columns:repeat(2,minmax(0,1fr))} }
 @media (max-width:460px){ #s_profiles .statblock{grid-template-columns:1fr} }
 /* every block carries the same left rule so the sheet reads as one column */
+#s_profiles .dossier-quick dl.fields dt:first-of-type + dd .ed,
+#s_profiles .ed[data-k="soulName"]{
+  font-family:var(--serif); font-size:1.35rem; line-height:1.35; letter-spacing:.4px;
+  color:var(--ink); font-weight:600;
+}
 #s_profiles .pf-section{
   border-left:3px solid var(--rule); padding-left:18px; margin-left:2px;
 }
@@ -4292,6 +4297,7 @@ agrees is there &mdash; which is a different problem, and often a worse one.</li
         <dt>Status</dt><dd><select class="ed" data-k="status" id="selStatus"></select></dd>
         <dt>Orientation</dt><dd><select class="ed" data-k="orientation" id="selOrient"></select><span class="ed orient-other" data-k="orientOther" data-ph="describe…"></span></dd>
         <dt>Birthplace</dt><dd><span class="ed" data-k="birthplace" data-ph="—"></span></dd>
+        <dt>Birthdate</dt><dd><select class="ed" data-k="birthWave" id="selWave"></select><select class="ed" data-k="birthBeam" id="selBeam"></select><span class="ed" data-k="birthAeon" data-ph="Aeon…"></span></dd>
         <dt>Upbringing</dt><dd><span class="ed" data-k="upbringing" data-ph="—"></span></dd>
         <dt>Residence</dt><dd><span class="ed" data-k="residence" data-ph="—"></span></dd>
         <dt>Haunts</dt><dd><span class="ed" data-k="haunts" data-ph="—"></span></dd>
@@ -4300,6 +4306,28 @@ agrees is there &mdash; which is a different problem, and often a worse one.</li
         <dt>Face Reference</dt><dd><span class="ed" data-k="faceRef" data-ph="—"></span></dd>
       </dl>
     </div>
+  </div>
+
+
+  <!-- APPEARANCE -->
+  <div class="pf-section ruled">
+    <div class="eyebrow body">Appearance</div>
+    <dl class="fields two-col">
+      <dt>Height</dt><dd><select class="ed" data-k="height" id="selHeight"></select><span class="ed" data-k="heightExact" data-ph="exact…"></span></dd>
+      <dt>Weight</dt><dd><select class="ed" data-k="weight" id="selWeight"></select><span class="ed" data-k="weightExact" data-ph="exact…"></span></dd>
+      <dt>Body Build</dt><dd><select class="ed" data-k="build" id="selBuild"></select></dd>
+      <dt>Eyes</dt><dd><span class="ed" data-k="eyes" data-ph="—"></span></dd>
+      <dt>Hair</dt><dd><span class="ed" data-k="hair" data-ph="—"></span></dd>
+      <dt>Skin / Scales / Plume</dt><dd><span class="ed" data-k="skin" data-ph="—"></span></dd>
+      <dt>Theriomorphic Traits</dt><dd><span class="ed" data-k="therio" data-ph="—"></span></dd>
+      <dt>Scars</dt><dd><span class="ed" data-k="scars" data-ph="—"></span></dd>
+      <dt>Adornments</dt><dd><span class="ed" data-k="adornments" data-ph="—"></span></dd>
+    </dl>
+    <div class="subhead">Soul Signet / Markings</div>
+    <div class="ed block" data-k="signet" data-ph="Describe soul signet, aberrant marks, or distinguishing markings…"></div>
+    <span class="list-label" style="margin-top:1rem">First-Glance Features <span class="count-hint">(list 5)</span></span>
+    <ul class="fill-list" data-list="firstGlance"></ul>
+    <div class="list-actions"><button class="btn mini" data-add="firstGlance">+ Add feature</button></div>
   </div>
 
   <!-- ANIMANCY -->
@@ -4332,30 +4360,10 @@ agrees is there &mdash; which is a different problem, and often a worse one.</li
       <dt>Rank</dt><dd><select class="ed" data-k="tier" id="selTier"></select></dd>
       <dt>Common / Elevated</dt><dd><select class="ed" data-k="animancyLevel" id="selAnimancyLevel"></select></dd>
       <dt>Recall / Greying</dt><dd><span class="ed" data-k="recall" data-ph="e.g. 60% recall \u00b7 10% greying"></span></dd>
-      <dt>Savvy (charge)</dt><dd><span class="ed" data-k="savvy" data-ph="\u2014"></span></dd>
+      <dt>Savvy pool</dt><dd><span class="ed" data-k="savvy" data-ph="\u2014"></span></dd>
     </dl>
     <div class="subhead">Nkra Acts</div>
     <div class="ed block" data-k="signatureActs" data-ph="Describe this character&#39;s characteristic uses of Animancy\u2026"></div>
-  </div>
-
-  <!-- APPEARANCE -->
-  <div class="pf-section ruled">
-    <div class="eyebrow body">Appearance</div>
-    <dl class="fields two-col">
-      <dt>Height</dt><dd><span class="ed" data-k="height" data-ph="—"></span></dd>
-      <dt>Weight / Build</dt><dd><span class="ed" data-k="build" data-ph="—"></span></dd>
-      <dt>Eyes</dt><dd><span class="ed" data-k="eyes" data-ph="—"></span></dd>
-      <dt>Hair</dt><dd><span class="ed" data-k="hair" data-ph="—"></span></dd>
-      <dt>Skin / Scales / Plume</dt><dd><span class="ed" data-k="skin" data-ph="—"></span></dd>
-      <dt>Theriomorphic Traits</dt><dd><span class="ed" data-k="therio" data-ph="—"></span></dd>
-      <dt>Scars</dt><dd><span class="ed" data-k="scars" data-ph="—"></span></dd>
-      <dt>Adornments</dt><dd><span class="ed" data-k="adornments" data-ph="—"></span></dd>
-    </dl>
-    <div class="subhead">Soul Signet / Markings</div>
-    <div class="ed block" data-k="signet" data-ph="Describe soul signet, aberrant marks, or distinguishing markings…"></div>
-    <span class="list-label" style="margin-top:1rem">First-Glance Features <span class="count-hint">(list 5)</span></span>
-    <ul class="fill-list" data-list="firstGlance"></ul>
-    <div class="list-actions"><button class="btn mini" data-add="firstGlance">+ Add feature</button></div>
   </div>
 
   <!-- BONDS -->
@@ -4386,10 +4394,18 @@ agrees is there &mdash; which is a different problem, and often a worse one.</li
 
   <!-- COMPANIONS -->
   <div class="pf-section">
-    <div class="eyebrow">Companions &amp; Bound Relics</div>
+    <div class="eyebrow">Companions</div>
     <div id="companionCards"></div>
-    <div class="list-actions"><button class="btn mini" data-addcard="companion">+ Companion</button> <button class="btn mini" data-addcard="archevim">+ Archevim</button></div>
-    <p class="canon-note">Archevim materials range poor→legendary; an unattuned Archevim may overwhelm its wielder. Companions may be Mythids (Empyrons, Wylderverns) or lesser Cryptids.</p>
+    <div class="list-actions"><button class="btn mini" data-addcard="companion">+ Companion</button></div>
+    <p class="canon-note">Companions may be Mythids (Empyrons, Wylderverns) or lesser Cryptids.</p>
+  </div>
+
+  <!-- ARCHEVIMS -->
+  <div class="pf-section">
+    <div class="eyebrow">Archevims &amp; Bound Relics</div>
+    <div id="archevimCards"></div>
+    <div class="list-actions"><button class="btn mini" data-addcard="archevim">+ Archevim</button></div>
+    <p class="canon-note">Six classes: <strong>Protoarch</strong>, <strong>Transarch</strong>, <strong>Underarch</strong>, <strong>Interarch</strong>, <strong>Semiarch</strong>, <strong>Antiarch</strong>. Materials range poor&rarr;legendary; an unattuned Archevim may overwhelm its wielder.</p>
   </div>
 
   <!-- TEMPERAMENT -->
@@ -4580,6 +4596,12 @@ var PRONOUNS = ['She / Her','He / Him','They / Them','She / They','He / They','I
 var GENDERS = ['Male','Female','Nonbinary','Genderfluid','Agender','Prefer to self-describe','Decline to state'];
 var STATUS = ['Single','Taken','Engaged','Mated','Married','Widowed','Separated','Soul-Tied'];
 var ORIENTATION = ['Straight','Gay','Lesbian','Bisexual','Pansexual','Asexual','Demisexual','Queer','Questioning','Prefer to self-describe','Decline to state'];
+var WAVES_P = ['Hamal','Procyon','Circinus','Lacaille','Cassiopeiae','Silas','Caelum','Mulu\u2019lizi','Capella','Tseen Ke','Al Nair','Eriandus','Rubani','Quasar','Asterope','D\u2019vita','I\u2019n\u00e1cio','A\u2019sai'];
+var BEAMS_P = ['Genos','Sacros','Pseudus','Ecos','Alphus','Tumus','Delphi','Voliti','Quintessi'];
+var HEIGHTS = ['Very short','Short','Below average','Average','Above average','Tall','Very tall','Towering'];
+var WEIGHTS = ['Very light','Light','Below average','Average','Above average','Heavy','Very heavy','Massive'];
+var BUILDS = ['Slight','Lean','Wiry','Athletic','Average','Sturdy','Broad','Muscular','Heavyset','Imposing'];
+var ARCHEVIM_CLASSES = ['Protoarch','Transarch','Underarch','Interarch','Semiarch','Antiarch'];
 var LANGS = ['Leykiss (Common Pneumosian)','Homidic','Hybrinic','Neandric','Nyphian','Feiidian','Avianic','Draconic','Khimosi','Centosian','Jengari'];
 var INSTITUTES = ['Elysian Institute \u2014 Elysius','A.A.A. Institute \u2014 Assentia','Leyview Conservatory \u2014 Urbsian','Other / unaffiliated'];
 var TRIALSTATUS = ['Completed the Forging Trials','Still studying'];
@@ -4680,17 +4702,22 @@ function seedLists(){
 // ---- Companion / Archevim cards ----
 function addCard(type,data){
   data=data||{};
-  var wrap=el('#companionCards');
+  var wrap=el(type==='archevim' ? '#archevimCards' : '#companionCards') || el('#companionCards');
   var card=document.createElement('div'); card.className='card'; card.setAttribute('data-cardtype',type);
   var typeLabel = type==='archevim' ? 'Material · Cipher · Attunement' : 'Kind · Class · Nature';
   card.innerHTML =
     '<button class="btn mini card-remove" type="button">×</button>'
     + '<h4><span class="ed" contenteditable="true" data-cf="title" data-ph="'
       + (type==='archevim'?'Archevim name':'Companion name') + '"></span></h4>'
-    + '<div class="card-type"><span class="ed" contenteditable="true" data-cf="meta" data-ph="'+typeLabel+'"></span></div>'
+    + (type==='archevim'
+        ? '<div class="card-type"><select class="ed" data-cf="aclass"><option value="">\u2014 class \u2014</option>'
+          + ARCHEVIM_CLASSES.map(function(c){return '<option>'+c+'</option>';}).join('')
+          + '</select> <span class="ed" contenteditable="true" data-cf="meta" data-ph="Material \u00b7 Cipher \u00b7 Attunement"></span></div>'
+        : '<div class="card-type"><span class="ed" contenteditable="true" data-cf="meta" data-ph="'+typeLabel+'"></span></div>')
     + '<div class="ed block" contenteditable="true" data-cf="body" data-ph="Description…" style="min-height:4.5rem"></div>';
   if(data.title) el('[data-cf="title"]',card).textContent=data.title;
   if(data.meta) el('[data-cf="meta"]',card).textContent=data.meta;
+  if(data.aclass){ var _ac=el('[data-cf="aclass"]',card); if(_ac) _ac.value=data.aclass; }
   if(data.body) el('[data-cf="body"]',card).textContent=data.body;
   els('.ed',card).forEach(function(e){e.addEventListener('input',markDirty);});
   el('.card-remove',card).addEventListener('click',function(){card.remove();markDirty();});
@@ -4752,12 +4779,14 @@ function collect(){
   d._brand = el('#selCipher').value;
   d._thread = el('#threadSwatch').style.getPropertyValue('--sw');
   d._portrait = portraitData;
-  d._cards = els('#companionCards .card').map(function(c){
+  d._cards = els('#companionCards .card').concat(els('#archevimCards .card')).map(function(c){
+    var ac=el('[data-cf="aclass"]',c);
     return {
       type:c.getAttribute('data-cardtype'),
       title:el('[data-cf="title"]',c).innerHTML,
       meta:el('[data-cf="meta"]',c).innerHTML,
-      body:el('[data-cf="body"]',c).innerHTML
+      body:el('[data-cf="body"]',c).innerHTML,
+      aclass: ac ? ac.value : ''
     };
   });
   d.langs = Array.prototype.slice.call(ROOT.querySelectorAll('.lang-cb'))
@@ -4878,6 +4907,11 @@ document.addEventListener('keydown',function(e){
   }
   fillSel('selSoulState', SOULSTATE);
   fillSel('selSpirit',    SPIRITHIER);
+  fillSel('selWave',      WAVES_P);
+  fillSel('selBeam',      BEAMS_P);
+  fillSel('selHeight',    HEIGHTS);
+  fillSel('selWeight',    WEIGHTS);
+  fillSel('selBuild',     BUILDS);
   fillSel('selPron',      PRONOUNS);
   fillSel('selGender',    GENDERS);
   fillSel('selStatus',    STATUS);
