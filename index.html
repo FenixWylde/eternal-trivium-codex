@@ -2491,6 +2491,20 @@ Because they follow no strict rule of creation and were <strong>never truly sync
     font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:.12em;
     text-transform:uppercase; color:var(--ink-faint); margin-left:auto;
   }
+  #s_lexicon .lx-spec{
+    display:grid; grid-template-columns:auto 1fr; gap:2px 12px;
+    margin:6px 0 2px; padding-bottom:4px;
+  }
+  #s_lexicon .lx-row{ display:contents; }
+  #s_lexicon .lx-k{
+    font-family:'IBM Plex Mono',monospace; font-size:9.5px; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--ink-faint); padding-top:2px; white-space:nowrap;
+  }
+  #s_lexicon .lx-v{ font-size:12.5px; line-height:1.5; color:var(--ink-soft); }
+  @media (max-width:560px){
+    #s_lexicon .lx-spec{ grid-template-columns:1fr; gap:0 0; }
+    #s_lexicon .lx-k{ padding-top:6px; }
+  }
   #s_lexicon .lx-tier{ margin-top:11px; }
   #s_lexicon .lx-tl{
     display:flex; align-items:baseline; gap:9px;
@@ -2550,6 +2564,14 @@ Because they follow no strict rule of creation and were <strong>never truly sync
       <div class="lx-body">
         <div class="lx-title"><span class="lx-bn" style="color:var(--b-origin)">Origin</span>
           <span class="lx-count">12 Gifts</span></div>
+        <div class="lx-spec">
+          <div class="lx-row"><span class="lx-k">Group</span><span class="lx-v" style="color:var(--mind)">Mind</span></div>
+          <div class="lx-row"><span class="lx-k">Aspect</span><span class="lx-v">Genos</span></div>
+          <div class="lx-row"><span class="lx-k">Discipline</span><span class="lx-v">Manifestation &amp; Conjuration</span></div>
+          <div class="lx-row"><span class="lx-k">Emotion</span><span class="lx-v">Life / Growth</span></div>
+          <div class="lx-row"><span class="lx-k">Memories</span><span class="lx-v">Serenity, Gratitude, Beauty, Awareness</span></div>
+          <div class="lx-row"><span class="lx-k">Signet</span><span class="lx-v">The face</span></div>
+        </div>
         <div class="lx-tier">
           <div class="lx-tl"><span class="lx-tn">Basic</span><span class="lx-slots">0 of 4 named</span></div>
           <div class="lx-slot">&mdash;</div>
@@ -2578,6 +2600,14 @@ Because they follow no strict rule of creation and were <strong>never truly sync
       <div class="lx-body">
         <div class="lx-title"><span class="lx-bn" style="color:var(--b-hallow)">Hallow</span>
           <span class="lx-count">12 Gifts</span></div>
+        <div class="lx-spec">
+          <div class="lx-row"><span class="lx-k">Group</span><span class="lx-v" style="color:var(--mind)">Mind</span></div>
+          <div class="lx-row"><span class="lx-k">Aspect</span><span class="lx-v">Sacros</span></div>
+          <div class="lx-row"><span class="lx-k">Discipline</span><span class="lx-v">Inspiration &amp; Divination</span></div>
+          <div class="lx-row"><span class="lx-k">Emotion</span><span class="lx-v">Love / Passion</span></div>
+          <div class="lx-row"><span class="lx-k">Memories</span><span class="lx-v">Affection, Desire, Compassion, Sentiment</span></div>
+          <div class="lx-row"><span class="lx-k">Signet</span><span class="lx-v">The torso</span></div>
+        </div>
         <div class="lx-tier">
           <div class="lx-tl"><span class="lx-tn">Basic</span><span class="lx-slots">0 of 4 named</span></div>
           <div class="lx-slot">&mdash;</div>
@@ -2610,6 +2640,14 @@ Because they follow no strict rule of creation and were <strong>never truly sync
       <div class="lx-body">
         <div class="lx-title"><span class="lx-bn" style="color:var(--b-feii)">Feii</span>
           <span class="lx-count">12 Gifts</span></div>
+        <div class="lx-spec">
+          <div class="lx-row"><span class="lx-k">Group</span><span class="lx-v" style="color:var(--mind)">Mind</span></div>
+          <div class="lx-row"><span class="lx-k">Aspect</span><span class="lx-v">Pseudus</span></div>
+          <div class="lx-row"><span class="lx-k">Discipline</span><span class="lx-v">Manipulation &amp; Abjuration</span></div>
+          <div class="lx-row"><span class="lx-k">Emotion</span><span class="lx-v">Surprise / Playfulness</span></div>
+          <div class="lx-row"><span class="lx-k">Memories</span><span class="lx-v">Excitement, Confusion, Awe, Curiosity</span></div>
+          <div class="lx-row"><span class="lx-k">Signet</span><span class="lx-v">The neck</span></div>
+        </div>
         <div class="lx-tier">
           <div class="lx-tl"><span class="lx-tn">Basic</span><span class="lx-slots">0 of 4 named</span></div>
           <div class="lx-slot">&mdash;</div>
@@ -2638,6 +2676,14 @@ Because they follow no strict rule of creation and were <strong>never truly sync
       <div class="lx-body">
         <div class="lx-title"><span class="lx-bn" style="color:var(--b-wylde)">Wylde</span>
           <span class="lx-count">12 Gifts</span></div>
+        <div class="lx-spec">
+          <div class="lx-row"><span class="lx-k">Group</span><span class="lx-v" style="color:var(--body)">Vessel</span></div>
+          <div class="lx-row"><span class="lx-k">Aspect</span><span class="lx-v">Ecos</span></div>
+          <div class="lx-row"><span class="lx-k">Discipline</span><span class="lx-v">Elemental &amp; Transmutation</span></div>
+          <div class="lx-row"><span class="lx-k">Emotion</span><span class="lx-v">Happiness / Contentment</span></div>
+          <div class="lx-row"><span class="lx-k">Memories</span><span class="lx-v">Delight, Pride, Hope, Joy</span></div>
+          <div class="lx-row"><span class="lx-k">Signet</span><span class="lx-v">The hands &amp; feet</span></div>
+        </div>
         <div class="lx-tier">
           <div class="lx-tl"><span class="lx-tn">Basic</span><span class="lx-slots">0 of 4 named</span></div>
           <div class="lx-slot">&mdash;</div>
@@ -2666,6 +2712,14 @@ Because they follow no strict rule of creation and were <strong>never truly sync
       <div class="lx-body">
         <div class="lx-title"><span class="lx-bn" style="color:var(--b-grymm)">Grymm</span>
           <span class="lx-count">12 Gifts</span></div>
+        <div class="lx-spec">
+          <div class="lx-row"><span class="lx-k">Group</span><span class="lx-v" style="color:var(--body)">Vessel</span></div>
+          <div class="lx-row"><span class="lx-k">Aspect</span><span class="lx-v">Alphus</span></div>
+          <div class="lx-row"><span class="lx-k">Discipline</span><span class="lx-v">Necromation &amp; Abolition</span></div>
+          <div class="lx-row"><span class="lx-k">Emotion</span><span class="lx-v">Fear / Melancholy</span></div>
+          <div class="lx-row"><span class="lx-k">Memories</span><span class="lx-v">Weakness, Insecurity, Threat, Anxiety</span></div>
+          <div class="lx-row"><span class="lx-k">Signet</span><span class="lx-v">The shoulders &amp; shoulderblades</span></div>
+        </div>
         <div class="lx-tier">
           <div class="lx-tl"><span class="lx-tn">Basic</span><span class="lx-slots">0 of 4 named</span></div>
           <div class="lx-slot">&mdash;</div>
@@ -2694,6 +2748,14 @@ Because they follow no strict rule of creation and were <strong>never truly sync
       <div class="lx-body">
         <div class="lx-title"><span class="lx-bn" style="color:var(--b-qhaos)">Qhaos</span>
           <span class="lx-count">12 Gifts</span></div>
+        <div class="lx-spec">
+          <div class="lx-row"><span class="lx-k">Group</span><span class="lx-v" style="color:var(--body)">Vessel</span></div>
+          <div class="lx-row"><span class="lx-k">Aspect</span><span class="lx-v">Tumus</span></div>
+          <div class="lx-row"><span class="lx-k">Discipline</span><span class="lx-v">Devastation &amp; Evocation</span></div>
+          <div class="lx-row"><span class="lx-k">Emotion</span><span class="lx-v">Anger / Rage</span></div>
+          <div class="lx-row"><span class="lx-k">Memories</span><span class="lx-v">Jealousy, Irritation, Resentment, Hatred</span></div>
+          <div class="lx-row"><span class="lx-k">Signet</span><span class="lx-v">The back</span></div>
+        </div>
         <div class="lx-tier">
           <div class="lx-tl"><span class="lx-tn">Basic</span><span class="lx-slots">0 of 4 named</span></div>
           <div class="lx-slot">&mdash;</div>
@@ -2722,6 +2784,14 @@ Because they follow no strict rule of creation and were <strong>never truly sync
       <div class="lx-body">
         <div class="lx-title"><span class="lx-bn" style="color:var(--b-arcane)">Arcane</span>
           <span class="lx-count">12 Gifts</span></div>
+        <div class="lx-spec">
+          <div class="lx-row"><span class="lx-k">Group</span><span class="lx-v" style="color:var(--spirit)">Soul</span></div>
+          <div class="lx-row"><span class="lx-k">Aspect</span><span class="lx-v">Delphi</span></div>
+          <div class="lx-row"><span class="lx-k">Discipline</span><span class="lx-v">Psionic Proficiency</span></div>
+          <div class="lx-row"><span class="lx-k">Emotion</span><span class="lx-v">Peace / Focus</span></div>
+          <div class="lx-row"><span class="lx-k">Memories</span><span class="lx-v">Trust, Safety, Grounding, Peace</span></div>
+          <div class="lx-row"><span class="lx-k">Signet</span><span class="lx-v">The forehead, temples, or crown</span></div>
+        </div>
         <div class="lx-tier">
           <div class="lx-tl"><span class="lx-tn">Basic</span><span class="lx-slots">0 of 4 named</span></div>
           <div class="lx-slot">&mdash;</div>
@@ -2750,6 +2820,14 @@ Because they follow no strict rule of creation and were <strong>never truly sync
       <div class="lx-body">
         <div class="lx-title"><span class="lx-bn" style="color:var(--b-ardor)">Ardor</span>
           <span class="lx-count">12 Gifts</span></div>
+        <div class="lx-spec">
+          <div class="lx-row"><span class="lx-k">Group</span><span class="lx-v" style="color:var(--spirit)">Soul</span></div>
+          <div class="lx-row"><span class="lx-k">Aspect</span><span class="lx-v">Voliti</span></div>
+          <div class="lx-row"><span class="lx-k">Discipline</span><span class="lx-v">Willful Proficiency</span></div>
+          <div class="lx-row"><span class="lx-k">Emotion</span><span class="lx-v">Strength / Willpower</span></div>
+          <div class="lx-row"><span class="lx-k">Memories</span><span class="lx-v">Motivation, Worth, Faith, Respect</span></div>
+          <div class="lx-row"><span class="lx-k">Signet</span><span class="lx-v">The arms &amp; legs</span></div>
+        </div>
         <div class="lx-tier">
           <div class="lx-tl"><span class="lx-tn">Basic</span><span class="lx-slots">0 of 4 named</span></div>
           <div class="lx-slot">&mdash;</div>
@@ -2778,6 +2856,14 @@ Because they follow no strict rule of creation and were <strong>never truly sync
       <div class="lx-body">
         <div class="lx-title"><span class="lx-bn" style="color:var(--b-aether)">Aether</span>
           <span class="lx-count">12 Gifts</span></div>
+        <div class="lx-spec">
+          <div class="lx-row"><span class="lx-k">Group</span><span class="lx-v" style="color:var(--spirit)">Soul</span></div>
+          <div class="lx-row"><span class="lx-k">Aspect</span><span class="lx-v">Quintessi</span></div>
+          <div class="lx-row"><span class="lx-k">Discipline</span><span class="lx-v">Spiritual Proficiency</span></div>
+          <div class="lx-row"><span class="lx-k">Emotion</span><span class="lx-v">Identity / Autonomy</span></div>
+          <div class="lx-row"><span class="lx-k">Memories</span><span class="lx-v">Freedom, Creativity, Purpose, Control</span></div>
+          <div class="lx-row"><span class="lx-k">Signet</span><span class="lx-v"><em>No fixed location</em></span></div>
+        </div>
         <div class="lx-tier">
           <div class="lx-tl"><span class="lx-tn">Basic</span><span class="lx-slots">0 of 4 named</span></div>
           <div class="lx-slot">&mdash;</div>
