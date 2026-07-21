@@ -4150,7 +4150,7 @@ agrees is there &mdash; which is a different problem, and often a worse one.</li
 #s_profiles .campaign-line{font-family:var(--sans);text-transform:uppercase;letter-spacing:.35em;font-size:.62rem;color:var(--ink-faint);margin-bottom:.9rem;}
 #s_profiles .char-name{font-size:clamp(2rem,6vw,3.2rem);font-weight:600;letter-spacing:.06em;margin:0;line-height:1.05;display:flex;justify-content:center;align-items:baseline;gap:.4rem;}
 #s_profiles .char-name .bracket{color:var(--gilt);font-weight:400;}
-#s_profiles .char-name .ed{border-bottom:1px dotted var(--rule);min-width:6ch;text-align:center;}
+#s_profiles .char-name .ed{border-bottom:1px dotted var(--rule);min-width:6ch;text-align:center;font-size:inherit;font-family:inherit;font-weight:inherit;letter-spacing:inherit;line-height:inherit;}
 #s_profiles .char-tagline{font-style:italic;color:var(--ink-soft);margin-top:.5rem;font-size:1.02rem;}
 #s_profiles .thread-chip{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--sans);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-top:.8rem;}
 #s_profiles .thread-swatch{width:16px;height:16px;border-radius:50%;border:1px solid var(--rule);background:var(--sw,transparent);cursor:pointer;}
@@ -4323,8 +4323,6 @@ agrees is there &mdash; which is a different problem, and often a worse one.</li
       <dt>Scars</dt><dd><span class="ed" data-k="scars" data-ph="—"></span></dd>
       <dt>Adornments</dt><dd><span class="ed" data-k="adornments" data-ph="—"></span></dd>
     </dl>
-    <div class="subhead">Soul Signet / Markings</div>
-    <div class="ed block" data-k="signet" data-ph="Describe soul signet, aberrant marks, or distinguishing markings…"></div>
     <span class="list-label" style="margin-top:1rem">First-Glance Features <span class="count-hint">(list 5)</span></span>
     <ul class="fill-list" data-list="firstGlance"></ul>
     <div class="list-actions"><button class="btn mini" data-add="firstGlance">+ Add feature</button></div>
@@ -4364,6 +4362,17 @@ agrees is there &mdash; which is a different problem, and often a worse one.</li
     </dl>
     <div class="subhead">Nkra Acts</div>
     <div class="ed block" data-k="signatureActs" data-ph="Describe this character&#39;s characteristic uses of Animancy\u2026"></div>
+    <div class="subhead">Soul Signet / Markings</div>
+    <div class="ed block" data-k="signet" data-ph="Describe soul signet, aberrant marks, or distinguishing markings…"></div>
+  </div>
+
+
+  <!-- ARCHEVIMS -->
+  <div class="pf-section">
+    <div class="eyebrow">Archevims &amp; Bound Relics</div>
+    <div id="archevimCards"></div>
+    <div class="list-actions"><button class="btn mini" data-addcard="archevim">+ Archevim</button></div>
+    <p class="canon-note">Six classes: <strong>Protoarch</strong>, <strong>Transarch</strong>, <strong>Underarch</strong>, <strong>Interarch</strong>, <strong>Semiarch</strong>, <strong>Antiarch</strong>. Materials range poor&rarr;legendary; an unattuned Archevim may overwhelm its wielder.</p>
   </div>
 
   <!-- BONDS -->
@@ -4399,15 +4408,6 @@ agrees is there &mdash; which is a different problem, and often a worse one.</li
     <div class="list-actions"><button class="btn mini" data-addcard="companion">+ Companion</button></div>
     <p class="canon-note">Companions may be Mythids (Empyrons, Wylderverns) or lesser Cryptids.</p>
   </div>
-
-  <!-- ARCHEVIMS -->
-  <div class="pf-section">
-    <div class="eyebrow">Archevims &amp; Bound Relics</div>
-    <div id="archevimCards"></div>
-    <div class="list-actions"><button class="btn mini" data-addcard="archevim">+ Archevim</button></div>
-    <p class="canon-note">Six classes: <strong>Protoarch</strong>, <strong>Transarch</strong>, <strong>Underarch</strong>, <strong>Interarch</strong>, <strong>Semiarch</strong>, <strong>Antiarch</strong>. Materials range poor&rarr;legendary; an unattuned Archevim may overwhelm its wielder.</p>
-  </div>
-
   <!-- TEMPERAMENT -->
   <div class="pf-section">
     <div class="eyebrow mind">Temperament</div>
@@ -4469,8 +4469,21 @@ agrees is there &mdash; which is a different problem, and often a worse one.</li
   </div>
 
   <!-- DATA -->
+  <!-- VITALITAS -->
+  <div class="pf-section">
+    <div class="eyebrow soul">V.I.T.A.L.I.T.A.S. Attributes</div>
+    <p class="canon-note">The nine attributes of a soul, three to each Pillar. <strong>Vessel</strong> &mdash; Versatility, Tenacity, Tangibility. <strong>Mind</strong> &mdash; Ingenuity, Lucidity, Illusionary. <strong>Soul</strong> &mdash; Animancy, Actuality, Sagacity.</p>
+    <div class="list-actions">
+      <button class="btn mini" id="btnRollAttrs">Roll attributes</button>
+      <button class="btn mini" id="btnArrayAttrs">Standard array</button>
+      <button class="btn mini" id="btnClearAttrs">Clear</button>
+      <span class="pf-note" id="attrTotal"></span>
+    </div>
+    <div class="statblock" id="attrBlock"></div>
+  </div>
+
   <div class="pf-section ruled">
-    <div class="eyebrow">Data · Soul Ledger</div>
+    <div class="eyebrow">Soul Data Ledger</div>
     <dl class="fields two-col">
       <dt>Tier</dt><dd><span class="ed" data-k="dataTier" data-ph="—"></span></dd>
       <dt>Vitality</dt><dd><span class="ed" data-k="vitality" data-ph="—"></span></dd>
@@ -4479,9 +4492,6 @@ agrees is there &mdash; which is a different problem, and often a worse one.</li
       <dt>Conditions</dt><dd><span class="ed" data-k="conditions" data-ph="—"></span></dd>
       <dt>Speed</dt><dd><span class="ed" data-k="speed" data-ph="—"></span></dd>
     </dl>
-
-    <div class="subhead">V.I.T.A.L.I.T.A.S. Attributes <span class="badge b-open">Open · confirm names</span></div>
-    <div class="statblock" id="attrBlock"></div>
 
     <div class="subhead">Damage Profile</div>
     <dl class="fields">
@@ -5089,6 +5099,53 @@ document.addEventListener('keydown',function(e){
       };
       r.readAsDataURL(f);
     });
+  })();
+
+
+  // ---- V.I.T.A.L.I.T.A.S. attribute generator ----
+  (function(){
+    var MIN=3, MAX=18;
+    // 4d6 drop-lowest, the familiar tabletop roll
+    function roll(){
+      var d=[0,0,0,0].map(function(){return 1+Math.floor(Math.random()*6);});
+      d.sort(function(a,b){return a-b;});
+      return d[1]+d[2]+d[3];
+    }
+    var ARRAY_STD=[15,14,13,12,11,10,9,8,8];
+
+    function inputs(){ return Array.prototype.slice.call(ROOT.querySelectorAll('[data-attr]')); }
+
+    function setAll(vals){
+      inputs().forEach(function(inp,i){
+        if(vals[i]===null || vals[i]===undefined){ inp.value=''; }
+        else { inp.value = Math.max(MIN, Math.min(MAX, vals[i])); }
+      });
+      updateTotal(); markDirty();
+    }
+    function updateTotal(){
+      var el2=pick('attrTotal'); if(!el2) return;
+      var n=0, filled=0;
+      inputs().forEach(function(i){ var v=parseInt(i.value,10); if(!isNaN(v)){ n+=v; filled++; } });
+      el2.textContent = filled ? ('total ' + n + ' across ' + filled + ' of 9') : '';
+    }
+
+    var bR=pick('btnRollAttrs'), bA=pick('btnArrayAttrs'), bC=pick('btnClearAttrs');
+    if(bR) bR.addEventListener('click', function(){
+      setAll(inputs().map(function(){ return roll(); }));
+    });
+    if(bA) bA.addEventListener('click', function(){
+      // shuffle the standard array so it is not always in the same order
+      var a=ARRAY_STD.slice();
+      for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; }
+      setAll(a);
+    });
+    if(bC) bC.addEventListener('click', function(){
+      setAll(inputs().map(function(){ return null; }));
+    });
+    ROOT.addEventListener('input', function(ev){
+      if(ev.target && ev.target.hasAttribute && ev.target.hasAttribute('data-attr')) updateTotal();
+    });
+    updateTotal();
   })();
 
 // ---- Init ----
