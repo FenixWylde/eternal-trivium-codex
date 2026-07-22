@@ -545,9 +545,11 @@
     }
     /* on mobile, show all children expanded under each group */
     body.nav-open .tb-menu{
+      display:block !important;
       position:static; opacity:1; visibility:visible; transform:none; box-shadow:none;
       border:none; background:transparent; padding:2px 0 8px 10px; min-width:0;
     }
+    body.nav-open .tb-group.solo .tb-menu{display:block !important}
     body.nav-open .tb-item{font-size:14px}
     body.nav-open .view-toggle{display:flex; margin-top:18px; padding:14px 8px 0; border-top:1px solid var(--gilt)}
     /* scrim sits BELOW the topbar/drawer so it never intercepts taps on links */
@@ -1030,8 +1032,33 @@
   table{display:block; overflow-x:auto; -webkit-overflow-scrolling:touch; max-width:100%}
   th,td{min-width:90px}
 }
+
+/* ===== In-page tabbed sections (side rail) ===== */
+.tabbed-wrap{display:flex; gap:24px; align-items:flex-start; margin-top:8px}
+.tab-rail{flex:0 0 226px; position:sticky; top:78px; max-height:calc(100vh - 96px); overflow-y:auto;
+  border-right:1px solid var(--gilt); padding-right:6px}
+.tab-rail button{display:block; width:100%; text-align:left; background:transparent; border:none;
+  border-left:2px solid transparent; border-radius:0 7px 7px 0; padding:9px 12px; margin:1px 0; cursor:pointer;
+  font-family:'Spectral',Georgia,serif; font-size:13.5px; color:var(--ink-faint); line-height:1.3; transition:all .12s}
+.tab-rail button:hover{background:rgba(156,124,60,.12); color:var(--ink)}
+.tab-rail button.active{background:linear-gradient(90deg,rgba(156,124,60,.22),transparent);
+  border-left-color:var(--gilt); color:#2c2110; font-weight:600}
+.tab-rail .tr-num{font-family:'IBM Plex Mono',monospace; font-size:9.5px; color:var(--gilt); display:block; letter-spacing:.1em}
+.tab-panels{flex:1 1 auto; min-width:0}
+.tab-panel{display:none; animation:tabfade .2s ease}
+.tab-panel.active{display:block}
+@keyframes tabfade{from{opacity:0; transform:translateY(4px)}to{opacity:1; transform:none}}
+@media (max-width:820px){
+  .tabbed-wrap{flex-direction:column; gap:10px}
+  .tab-rail{flex:none; width:100%; position:static; max-height:none; border-right:none;
+    border-bottom:1px solid var(--gilt); padding:0 0 8px; display:flex; flex-wrap:wrap; gap:4px}
+  .tab-rail button{width:auto; border-left:none; border:1px solid var(--gilt); border-radius:16px; padding:6px 12px; font-size:12px}
+  .tab-rail button.active{border-color:var(--spirit); background:var(--spirit); color:#fff}
+  .tab-rail .tr-num{display:none}
+}
 </style>
 <style>
+
   #s_symbol .sym-plate{
     border:1px solid var(--rule); border-radius:5px; overflow:hidden;
     background:var(--bg-2); margin:16px 0 8px;
@@ -1397,7 +1424,7 @@
     </table>
   </section>
 
-  <section id="s3">
+  <section id="s3" class="tabbed">
     <h2><span class="num"></span> Anima &amp; Animancy</h2>
     <div class="h2title">Anima</div>
     <div class="h2sub">The engine, the Nine Ciphers, and soul access</div>
@@ -1721,9 +1748,6 @@
     <div class="card note"><span class="tag">The Nine Divine Aspects <span class="badge b-locked">Locked</span></span>The <strong>Anima Aspects</strong> (&sect;3) both <strong>defend the sanctity of the nine Anima Ciphers</strong> and dwell within <strong>hidden domains at hidden Leypoints inside the Six Veils.</strong> They <strong>bless genuine Anitechs</strong> and provide the <strong>extraordinary quality of Matrux</strong> required to infuse memory into a crafted item &mdash; and they will only train those they consider <strong>true Anitechs</strong> to do so.</div>
     <div class="card note"><span class="tag">Anitechs &mdash; the crafter class <span class="badge b-locked">Locked</span></span>Skilled craftsmen responsible for forging the <strong>sacred, long-lasting bonds with the Nine Divine Aspects.</strong> They take up the profession to become a range of working crafters &mdash; but to become a <strong>full Anitech</strong>, one must <strong>travel with the Aspects within their domains for a full aeon</strong> (an aeon being a year in Vi&rsquo;talitas), learning their ways. The apprenticeship transforms a craftsperson into a <strong>true, dedicated maker of relics.</strong> This training and pilgrimage is undertaken at the <strong>Abbeys of the Aspects</strong> (&sect; Organizations) &mdash; where mechanical skill and sacred belief are taught together. Without an Aspect&rsquo;s materials, an Anitech makes only lesser anima-infused goods, never a true Archevim.</div>
 
-    <div class="card note"><span class="tag">The Nine Abbeys &mdash; one per Aspect <span class="badge b-locked">Locked &middot; New</span></span>Each of the Nine Aspects keeps a <strong>Primary Abbey</strong>, named for the Cipher it defends and housing that Aspect&rsquo;s <strong>Congregation</strong>: <strong>Abbey of Origin</strong> (Congregation of Aspect Genos) &middot; <strong>Abbey of Hallow</strong> (Sacros) &middot; <strong>Abbey of Feii</strong> (Pseudus) &middot; <strong>Abbey of Wylde</strong> (Ecos) &middot; <strong>Abbey of Grymm</strong> (Alphus) &middot; <strong>Abbey of Qhaos</strong> (Tumus) &middot; <strong>Abbey of Arcane</strong> (Delphi) &middot; <strong>Abbey of Ardor</strong> (Voliti) &middot; <strong>Abbey of Aether</strong> (Quintessi). Every Abbey is <strong>kept sacred and secret by its Anitechs</strong> &mdash; so closely guarded that <strong>even Anitechs of other Abbeys do not know where the rest are located.</strong> They are family divided by the three lines, meeting only in the rarest company; where each Abbey <em>dwells</em> is known only to its own. <strong>How the nine sit across the six.</strong> The Abbeys are hidden at <strong>Leypoints inside the Six Veils</strong> &mdash; the stages of the rebirth cycle, ascending through <strong>Elevation, Awakening, Wandering</strong> and descending into <strong>Redemption, Blight, Anathema.</strong> Nine Abbeys spread across six crossings as evenly as the moral order allows, weighted toward the pure: <strong>two each in Elevation, Awakening, and Wandering</strong>; <strong>one each in Redemption, Blight, and Anathema.</strong> The two that hold ground in <strong>Blight and Anathema</strong> &mdash; where Stigmants breed &mdash; are the <strong>heartiest of all the Abbeys</strong>, bastions that endure the corrupt Veils rather than merely dwell in them. Each Abbey sits in the Veil whose spiritual character <strong>answers its Aspect&rsquo;s resonant emotion</strong> &mdash; and while the Veil is known, the <strong>exact Leypoint within it stays secret</strong>, unknown even to other Anitechs.<br><br><strong>Elevation</strong> (transcendence, purpose) &mdash; <strong>Quintessi</strong> (Aether &middot; Identity, Freedom, Purpose) and <strong>Genos</strong> (Origin &middot; Life, Serenity, Awareness).<br><strong>Awakening</strong> (dawning focus, the opening heart) &mdash; <strong>Delphi</strong> (Arcane &middot; Peace, Focus, Grounding) and <strong>Sacros</strong> (Hallow &middot; Love, Compassion).<br><strong>Wandering</strong> (searching, wonder, striving) &mdash; <strong>Pseudus</strong> (Feii &middot; Surprise, Curiosity, Awe) and <strong>Voliti</strong> (Ardor &middot; Strength, Will, Motivation &mdash; the drive that carries the wandering on).<br><strong>Redemption</strong> (the turn back toward light) &mdash; <strong>Ecos</strong> (Wylde &middot; Hope, Joy, Contentment).<br><strong>Blight</strong> (dread, decay) &mdash; <strong>Alphus</strong> (Grymm &middot; Fear, Melancholy) &mdash; a hearty Abbey holding against the very emotion it governs.<br><strong>Anathema</strong> (wrath, the deepest corruption) &mdash; <strong>Tumus</strong> (Qhaos &middot; Anger, Rage, Hatred) &mdash; the heartiest Abbey of all, stationed where its own emotion runs wildest. The dark Aspects are not evil; their Abbeys are the bastions posted where those emotions rage hardest, guarding the Cipher&rsquo;s sanctity in the cruelest ground.</div>
-
-    <div class="card note"><span class="tag">The Anitech&rsquo;s Journey &mdash; found by resonance, not by map <span class="badge b-locked">Locked &middot; New</span></span>Because the exact Leypoints within the Veils are <strong>unknown to nearly all</strong> &mdash; unmarked on any chart, unspoken even between Abbeys &mdash; an aspiring Anitech <strong>cannot be told where their Abbey lies.</strong> They must <strong>find it themselves.</strong> The pilgrimage is the first true test: the craftsperson <strong>chooses an Anima Archetype</strong> and reaches the Abbey only by <strong>resonance</strong> &mdash; connecting with that Anima directly, or communing distantly with its Aspect through <strong>meditation</strong>, until the bond itself draws them to the hidden crossing. Only those whose connection is real ever arrive; the journey <strong>filters for genuine devotion before earnest training begins.</strong> To become an Anitech Master, the pilgrim then travels within the Aspect&rsquo;s domain for a full aeon, learning its ways &mdash; but the finding comes first, and the finding cannot be faked.</div>
     <div class="card payoff claude-made"><span class="tag">Design payoff</span>Generic + Archevims = a viable gear-dependent playstyle. Attunement risk = a built-in equip cost/curse mechanic.</div>
     <div class="card note"><span class="tag">Stigma-charged Archevims <span class="badge b-locked">Locked</span></span>An Archevim <em>can</em> run on <strong>Stigma-charge</strong> &mdash; but it isn&rsquo;t built to, and <strong>breaks down from the strain over time.</strong> A villain&rsquo;s bargain with a built-in cost: cheaper, stronger, quietly damning, self-destroying.</div>
 
@@ -1775,19 +1799,6 @@ Because they follow no strict rule of creation and were <strong>never truly sync
 <div class="card"><span class="tag">Antiarch risks <span class="badge b-locked">Locked &middot; New</span></span>Stigma-charged Antiarchs can <strong>break down over time from the strain</strong> &mdash; and carry real risk when poorly made. Many have bought cheap variants, or ones <strong>too strong for them to handle</strong>, which demand a great deal of the individual&rsquo;s anima.</div>
 <h3>Archevims at Scale <span class="badge b-locked">Locked &middot; New</span></h3>
 <p>Though Archevims often appear as small jewelry and trinkets, they can also be built into <strong>large, complex machines.</strong> The <strong>Ether Vessels</strong> and <strong>HEAT-SR Machines</strong> are themselves considered types of Archevim &mdash; the same principle of stored, synchronized memory, scaled from a ring to a war-machine. <em>(Full mechanics in Technology.)</em></p>
-
-    <h3 style="margin-top:34px">Eventide &mdash; D&rsquo;vita&rsquo;s Balance <span class="badge b-locked">Locked &middot; New</span></h3>
-    <p>Not a Protoarch by origin, though it answers to the class now. <strong>Eventide</strong> was forged for <strong>D&rsquo;vita</strong> in an elder age by <strong>Quintessi</strong> &mdash; the Aspect of Aether itself &mdash; as an instrument of <strong>the Balance</strong>: light and its shadow held in one form. It predates the Archevim classification entirely; a present-day <strong>Anitech has since revitalized it</strong> for this age, and by its capacity and combat purpose it now reads as an Aspect-given <strong>Protoarch</strong> &mdash; the very one Omin carries.</p>
-
-    <div class="card note"><span class="tag">Two forms &mdash; Dusk and Dawn <span class="badge b-locked">Locked &middot; New</span></span>Eventide is a <strong>Balance-weapon</strong> with two faces. In <strong>From Dusk</strong> it takes the shape of a <strong>scythe wreathed in Nether</strong> &mdash; the shadow-half of Aether &mdash; and cuts at the <strong>Anima (Flesh).</strong> In <strong>Until Dawn</strong> it folds the blade and shifts into an <strong>arcane firearm loosing radiant Aether</strong>, which strikes at the <strong>Prima (Soul)</strong> and bites hardest at what is <strong>Stigma-touched.</strong> One weapon, the two registers of a single substance &mdash; exactly the duality D&rsquo;vita was made to embody.</div>
-
-    <div class="card note"><span class="tag">Why it answers to her &mdash; the Nether-scar <span class="badge b-locked">Locked &middot; New</span></span>Few could wield both halves; <strong>Omin can</strong>, because her Nkra is <strong>Aether by Essence and Nether-scarred by the eleven Aeons</strong> she endured in A&rsquo;thule&rsquo;s False Pillars (see her incarnation-fate). The weapon externalizes her own dual nature &mdash; the light she is, and the sliver of dark she carried back. Eventide reads a foe by <strong>Stigma-versus-Anima dominance</strong> and answers in kind: shadow to the fleshly, radiance to the corrupted. It is not a clean instrument for a clean soul; it is <strong>the right instrument for hers.</strong></div>
-
-    <div class="card note"><span class="tag">How it came to her <span class="badge b-locked">Locked &middot; New</span></span>Eventide did not arrive by inheritance papers. It <strong>called to Omin through a memory while she was held in the Undertrade</strong> &mdash; a Recall from a life she could not yet name &mdash; and answering it is <strong>what carried the three siblings out to freedom.</strong> The weapon that armed their escape was her own, from before she was Omin, waiting for her to remember it.</div>
-
-    <div class="card note"><span class="tag">The cost, and the ceiling <span class="badge b-locked">Locked &middot; New</span></span>Eventide obeys Animancy&rsquo;s law: casting is <strong>subtractive</strong>, and Aether is the <strong>uniquely expensive</strong> Cipher &mdash; drawing on Nkra, not merely Anima. Eventide does not hand her power for free; it <strong>holds and steadies what she spends</strong>, a Protoarch&rsquo;s reservoir for a caster who cannot even see her own drain. Its deepest workings &mdash; the sky split into night and day, and <strong>Baneful Ascendence</strong> its highest expression &mdash; cost her in <strong>Nkra</strong>, and lean her toward the <strong>Silver.</strong> <span class="badge b-open">Open</span> &mdash; the tier-by-tier workings, and a possible distinct name for Nether.</div>
-
-    <div class="card note"><span class="tag">Baneful Ascendence &mdash; the scar made sovereign <span class="badge b-locked">Locked &middot; New</span></span>Eventide&rsquo;s highest working summons a <strong>magnificent Empyron</strong> &mdash; a Phoenix of the <strong>Dynaass line</strong>, the Perennial Phoenix from whom Omin&rsquo;s own <strong>Fonixi blood descends.</strong> It rises radiant as her heritage and <strong>shadowed with her Nether</strong>: the light of her lineage and the dark of her scar in one form. This is the crux of it &mdash; <strong>Baneful Ascendence is not a corruption that afflicts her but a darkness she took back as her own.</strong> Growing up in the Asylum, Omin <strong>faced the Nether-scar of the eleven Aeons and made it answer to her</strong> rather than the reverse. What manifests is therefore hers twice over: her ancestral Phoenix, and her mastered wound. Where a lesser soul would be consumed by the dark it carries, Omin <strong>ascends on it.</strong> <span class="badge b-open">Open</span> &mdash; its combat expression, and whether it can act independently of her.</div>
 </section>
 
   <!-- Archevim Record Sheet (interactive) -->
@@ -3492,8 +3503,22 @@ agrees is there &mdash; which is a different problem, and often a worse one.</li
         <li><strong>Unique:</strong> the only Vitalist in the Asylum&rsquo;s history with <strong>no single spiritual guide</strong> &mdash; she communes with many beings beyond the veil.</li>
         <li><strong>Tier 0 fluctuation</strong> keeps her <strong>undetectable</strong> to Medians and Stigmants &mdash; a combat edge.</li>
         <li><strong>Cost:</strong> wakeful-dream events, depression, anxiety; her power often pushes her over the edge.</li>
-        <li><strong>Eventide &mdash; her Protoarch.</strong> Her taught Aether stays utility and perception; her <strong>offense lives in her Archevim.</strong> <strong>Eventide</strong> is D&rsquo;vita&rsquo;s own Balance-weapon, forged by <strong>Quintessi</strong> and revitalized for this age &mdash; a two-formed instrument of radiant <strong>Aether</strong> (Until Dawn) and shadow <strong>Nether</strong> (From Dusk). She can wield both because her Nkra is <strong>Aether by Essence and Nether-scarred</strong> by the eleven Aeons in A&rsquo;thule&rsquo;s Pillars. Its apex, <strong>Baneful Ascendence</strong>, summons a magnificent <strong>Empyron of the Dynaass line</strong> &mdash; her ancestral Phoenix shadowed with the darkness she faced and reclaimed in the Asylum. <em>(Full entry under Archevims.)</em></li>
+        <li><strong>Eventide &mdash; her Protoarch.</strong> Her taught Aether stays utility and perception; her <strong>offense lives in her Archevim.</strong> <strong>Eventide</strong> is D&rsquo;vita&rsquo;s own Balance-weapon, forged by <strong>Quintessi</strong> and revitalized for this age &mdash; a two-formed instrument of radiant <strong>Aether</strong> (Until Dawn) and shadow <strong>Nether</strong> (From Dusk). She can wield both because her Nkra is <strong>Aether by Essence and Nether-scarred</strong> by the eleven Aeons in A&rsquo;thule&rsquo;s Pillars. Its apex, <strong>Baneful Ascendence</strong>, summons a magnificent <strong>Empyron of the Dynaass line</strong> &mdash; her ancestral Phoenix shadowed with the darkness she faced and reclaimed in the Asylum. <em>(Full entry below.)</em></li>
       </ul>
+
+      <h3 style="margin-top:34px">Eventide &mdash; D&rsquo;vita&rsquo;s Balance <span class="badge b-locked">Locked &middot; New</span></h3>
+    <p>Not a Protoarch by origin, though it answers to the class now. <strong>Eventide</strong> was forged for <strong>D&rsquo;vita</strong> in an elder age by <strong>Quintessi</strong> &mdash; the Aspect of Aether itself &mdash; as an instrument of <strong>the Balance</strong>: light and its shadow held in one form. It predates the Archevim classification entirely; a present-day <strong>Anitech has since revitalized it</strong> for this age, and by its capacity and combat purpose it now reads as an Aspect-given <strong>Protoarch</strong> &mdash; the very one Omin carries.</p>
+
+    <div class="card note"><span class="tag">Two forms &mdash; Dusk and Dawn <span class="badge b-locked">Locked &middot; New</span></span>Eventide is a <strong>Balance-weapon</strong> with two faces. In <strong>From Dusk</strong> it takes the shape of a <strong>scythe wreathed in Nether</strong> &mdash; the shadow-half of Aether &mdash; and cuts at the <strong>Anima (Flesh).</strong> In <strong>Until Dawn</strong> it folds the blade and shifts into an <strong>arcane firearm loosing radiant Aether</strong>, which strikes at the <strong>Prima (Soul)</strong> and bites hardest at what is <strong>Stigma-touched.</strong> One weapon, the two registers of a single substance &mdash; exactly the duality D&rsquo;vita was made to embody.</div>
+
+    <div class="card note"><span class="tag">Why it answers to her &mdash; the Nether-scar <span class="badge b-locked">Locked &middot; New</span></span>Few could wield both halves; <strong>Omin can</strong>, because her Nkra is <strong>Aether by Essence and Nether-scarred by the eleven Aeons</strong> she endured in A&rsquo;thule&rsquo;s False Pillars (see her incarnation-fate). The weapon externalizes her own dual nature &mdash; the light she is, and the sliver of dark she carried back. Eventide reads a foe by <strong>Stigma-versus-Anima dominance</strong> and answers in kind: shadow to the fleshly, radiance to the corrupted. It is not a clean instrument for a clean soul; it is <strong>the right instrument for hers.</strong></div>
+
+    <div class="card note"><span class="tag">How it came to her <span class="badge b-locked">Locked &middot; New</span></span>Eventide did not arrive by inheritance papers. It <strong>called to Omin through a memory while she was held in the Undertrade</strong> &mdash; a Recall from a life she could not yet name &mdash; and answering it is <strong>what carried the three siblings out to freedom.</strong> The weapon that armed their escape was her own, from before she was Omin, waiting for her to remember it.</div>
+
+    <div class="card note"><span class="tag">The cost, and the ceiling <span class="badge b-locked">Locked &middot; New</span></span>Eventide obeys Animancy&rsquo;s law: casting is <strong>subtractive</strong>, and Aether is the <strong>uniquely expensive</strong> Cipher &mdash; drawing on Nkra, not merely Anima. Eventide does not hand her power for free; it <strong>holds and steadies what she spends</strong>, a Protoarch&rsquo;s reservoir for a caster who cannot even see her own drain. Its deepest workings &mdash; the sky split into night and day, and <strong>Baneful Ascendence</strong> its highest expression &mdash; cost her in <strong>Nkra</strong>, and lean her toward the <strong>Silver.</strong> <span class="badge b-open">Open</span> &mdash; the tier-by-tier workings, and a possible distinct name for Nether.</div>
+
+    <div class="card note"><span class="tag">Baneful Ascendence &mdash; the scar made sovereign <span class="badge b-locked">Locked &middot; New</span></span>Eventide&rsquo;s highest working summons a <strong>magnificent Empyron</strong> &mdash; a Phoenix of the <strong>Dynaass line</strong>, the Perennial Phoenix from whom Omin&rsquo;s own <strong>Fonixi blood descends.</strong> It rises radiant as her heritage and <strong>shadowed with her Nether</strong>: the light of her lineage and the dark of her scar in one form. This is the crux of it &mdash; <strong>Baneful Ascendence is not a corruption that afflicts her but a darkness she took back as her own.</strong> Growing up in the Asylum, Omin <strong>faced the Nether-scar of the eleven Aeons and made it answer to her</strong> rather than the reverse. What manifests is therefore hers twice over: her ancestral Phoenix, and her mastered wound. Where a lesser soul would be consumed by the dark it carries, Omin <strong>ascends on it.</strong> <span class="badge b-open">Open</span> &mdash; its combat expression, and whether it can act independently of her.</div>
+
       <div class="card" style="margin:8px 0 0; background:var(--bg-2); border-left:3px solid var(--spirit-cy)">
         <span class="tag" style="color:var(--spirit-cy)">Character spine <span class="badge b-locked">Locked</span></span>
         She can <em>see</em> truth but cannot <em>prove</em> it; she <em>knows</em> everyone yet is <em>known</em> by no one; and the truth she most needs &mdash; <strong>what really happened to Ne&rsquo;haris in the war</strong> &mdash; is the one the world insists can&rsquo;t be known. Her quest, isolation, and wound are the same paradox at three scales.
@@ -3676,6 +3701,10 @@ agrees is there &mdash; which is a different problem, and often a worse one.</li
       <span class="stat">Hominus</span><span class="stat">Mark: Augur</span><span class="stat">Median</span><span class="stat">Vitalist</span><span class="stat" style="color:var(--a-ardor)">Ardor</span>
     </div>
 
+    <div class="card note"><span class="tag">The Numbered Squad &mdash; code-named operatives <span class="badge b-locked">Locked &middot; New</span></span>Beyond the named officers, the T.C.T. fields a <strong>numbered strike squad</strong> &mdash; nine operatives known in the field only by <strong>rank-number and code name</strong>, a working shorthand that keeps identities close during Grid defense:<br><br>
+<strong>Wone</strong> &mdash; <em>Claw</em> &middot; <strong>Teww</strong> &mdash; <em>Fang</em> &middot; <strong>Thyree</strong> &mdash; <em>Venom</em> &middot; <strong>Phor</strong> &mdash; <em>Toxin</em> &middot; <strong>Phyve</strong> &mdash; <em>Tusk</em> &middot; <strong>Syxx</strong> &mdash; <em>Gore</em> &middot; <strong>Seyvn</strong> &mdash; <em>Sting</em> &middot; <strong>Eyht</strong> &mdash; <em>Crush</em> &middot; <strong>Nyne</strong> &mdash; <em>Maul</em>.<br><br>
+The numbers are the Trivium&rsquo;s own count (Wone through Nyne, one through nine); the code names run to a single register of teeth, venom, and force &mdash; a squad named for the ways a thing brings down prey. <span class="badge b-open">Open</span> &mdash; each operative&rsquo;s true name, race, and Mark, to be filled as the roster develops.</div>
+
     <h3 style="margin-top:34px">The A.A.A. Institute</h3>
     <div class="gmeta" style="margin-bottom:14px">Asylum for Aberrant Aptitude. Soothsayer Service &mdash; mentors and healers of young Medians.</div>
 
@@ -3807,6 +3836,12 @@ agrees is there &mdash; which is a different problem, and often a worse one.</li
 <p>The <strong>Anitech</strong> Service has <strong>no housing organization</strong> &mdash; Anitechs are <strong>independent by nature</strong>, and no single body holds them all. What the Service does require is <strong>training</strong>, and that is the Abbeys&rsquo; purpose: not employers, but <strong>a network of training grounds</strong> where a craftsperson prepares for the pilgrimage that makes a true Anitech. Each Abbey <strong>blends mechanical training with sacred belief</strong>, readying both mind and skill for the work &mdash; and each is <strong>devoted to a particular Aspect</strong> as its focal point (some to <strong>Genos</strong>, others to the remaining Aspects), so an Abbey&rsquo;s character reflects the Aspect it serves. There are <strong>many Abbeys across Vi&rsquo;talitas.</strong></p>
 <div class="card note"><span class="tag">The one Service open to both <span class="badge b-locked">Locked &middot; New</span></span>Anitech is the <strong>only Service that accepts both Median and Generic.</strong> The reason is structural: the other Services channel an <em>innate caster discipline</em> a Generic cannot wield &mdash; but Anitech is a <strong>learned craft</strong>, a pilgrimage and a skill, not a casting. A Generic can be <strong>taught</strong> the sacred work even if they can never cast it. This makes the Abbeys the one training ground where Median and Generic sit side by side as equals in the same calling. <em>(This is a deliberate exception to the Median-only framing of the Services &mdash; &sect;7.5.)</em></div>
 <div class="card note"><span class="tag">Respectability &amp; the blacklisted <span class="badge b-locked">Locked &middot; New</span></span>To become an Anitech is a <strong>respectable position.</strong> That respect is exactly what makes its loss so heavy: the <strong>blacklisted become taboo</strong> to work with, cut off from Aspect-sanctioned materials and reputable trade alike. This is the road to the <strong>Underarch</strong> (&sect;5) &mdash; a lapsed Anitech, barred from honest craft, forging illicit relics from stolen and dying Matrux.</div>
+
+<div class="card note"><span class="tag">The Nine Primary Abbeys <span class="badge b-locked">Locked &middot; New</span></span>Above the many lesser training halls stand <strong>nine Primary Abbeys</strong> &mdash; one true seat for each Aspect, named for the Cipher it defends and housing that Aspect&rsquo;s <strong>Congregation</strong>: <strong>Abbey of Origin</strong> (Congregation of Aspect Genos), <strong>Abbey of Hallow</strong> (Sacros), <strong>Abbey of Feii</strong> (Pseudus), <strong>Abbey of Wylde</strong> (Ecos), <strong>Abbey of Grymm</strong> (Alphus), <strong>Abbey of Qhaos</strong> (Tumus), <strong>Abbey of Arcane</strong> (Delphi), <strong>Abbey of Ardor</strong> (Voliti), and <strong>Abbey of Aether</strong> (Quintessi). Each is <strong>kept sacred and secret by its own Anitechs</strong> &mdash; so guarded that <strong>even Anitechs of other Abbeys do not know where the rest are located.</strong></div>
+
+<div class="card note"><span class="tag">Hidden in the Six Veils <span class="badge b-locked">Locked &middot; New</span></span>The Primary Abbeys sit at hidden <strong>Leypoints within the Six Veils</strong> &mdash; the stages of the rebirth cycle &mdash; each placed in the Veil whose character answers its Aspect&rsquo;s resonant emotion. <strong>Elevation:</strong> Quintessi (Aether) &amp; Genos (Origin). <strong>Awakening:</strong> Delphi (Arcane) &amp; Sacros (Hallow). <strong>Wandering:</strong> Pseudus (Feii) &amp; Voliti (Ardor). <strong>Redemption:</strong> Ecos (Wylde). <strong>Blight:</strong> Alphus (Grymm). <strong>Anathema:</strong> Tumus (Qhaos). The two that hold the corrupt Veils &mdash; Grymm in Blight, Qhaos in Anathema, where Stigmants breed &mdash; are the <strong>heartiest of all the Abbeys</strong>, bastions guarding the Cipher&rsquo;s sanctity in the cruelest ground. The <strong>Veil is known; the exact Leypoint is not.</strong></div>
+
+<div class="card note"><span class="tag">The Anitech&rsquo;s Journey <span class="badge b-locked">Locked &middot; New</span></span>Because the Leypoints are unmarked and unspoken, an aspiring Anitech <strong>cannot be told where their Abbey lies</strong> &mdash; they must <strong>find it by resonance.</strong> The pilgrim chooses an <strong>Anima Archetype</strong> and reaches the hidden crossing only by connecting with that Anima directly, or communing distantly with its Aspect through <strong>meditation</strong>, until the bond draws them in. Only a true connection ever arrives; the journey <strong>filters for genuine devotion before earnest training begins</strong>, and the finding cannot be faked.</div>
 
 <h3>The Undertrade Exchange <span class="badge b-locked">Locked</span></h3>
 <p>A black market that stole newly orphaned Median children with untapped potential; the unluckiest never died clean deaths, and those who fought to live carried an unshakeable will. The arrival of Stigma reframed Medians from threat to necessity &mdash; but the Exchange&rsquo;s shadow persists. Beyond trafficking, it has been known to use <strong>children in its employ to source Matrux material</strong>, since a Median child is most likely to find it without having to be an Anitech.</p>
@@ -6214,6 +6249,59 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   var start = (location.hash || '').replace('#','');
   if(!entries.some(function(e){ return e.id === start; })) start = entries[0].id;
   show(start, true);
+})();
+</script>
+<script>
+/* In-page tabbing: turn each section.tabbed into a side-rail of its <h3> subsections */
+(function(){
+  function tabify(sec){
+    var kids = Array.prototype.slice.call(sec.children);
+    // Intro nodes stay above the tabs: h2 and the title block divs, until the first h3
+    var firstH3 = sec.querySelector(':scope > h3');
+    if(!firstH3) return; // nothing to tab
+    var intro = [], rest = [], hitH3=false;
+    kids.forEach(function(n){
+      if(n===firstH3) hitH3=true;
+      if(!hitH3) intro.push(n); else rest.push(n);
+    });
+    // Group rest into panels keyed by each h3
+    var groups=[], cur=null;
+    rest.forEach(function(n){
+      if(n.tagName==='H3'){
+        cur={h3:n, nodes:[]}; groups.push(cur);
+      } else if(cur){ cur.nodes.push(n); }
+    });
+    if(groups.length<2) return; // not worth tabbing
+    // Build structure
+    var wrap=document.createElement('div'); wrap.className='tabbed-wrap';
+    var rail=document.createElement('div'); rail.className='tab-rail';
+    var panels=document.createElement('div'); panels.className='tab-panels';
+    groups.forEach(function(g,i){
+      var panel=document.createElement('div'); panel.className='tab-panel'+(i===0?' active':'');
+      panel.appendChild(g.h3); // keep the h3 as the panel heading
+      g.nodes.forEach(function(n){ panel.appendChild(n); });
+      panels.appendChild(panel);
+      // rail button — label from h3 text minus any badge
+      var label=g.h3.cloneNode(true);
+      Array.prototype.forEach.call(label.querySelectorAll('.badge'),function(b){b.remove();});
+      var txt=label.textContent.trim();
+      var btn=document.createElement('button');
+      btn.innerHTML='<span class="tr-num">'+String(i+1).padStart(2,'0')+'</span>'+txt;
+      btn.className=(i===0?'active':'');
+      btn.addEventListener('click',function(){
+        Array.prototype.forEach.call(panels.children,function(p){p.classList.remove('active');});
+        Array.prototype.forEach.call(rail.children,function(b){b.classList.remove('active');});
+        panels.children[i].classList.add('active'); btn.classList.add('active');
+        // scroll section into view top on mobile
+        if(window.innerWidth<=820){ sec.scrollIntoView({behavior:'smooth',block:'start'}); }
+      });
+      rail.appendChild(btn);
+    });
+    wrap.appendChild(rail); wrap.appendChild(panels);
+    // Re-append: keep intro in place, add wrap after
+    sec.appendChild(wrap);
+  }
+  document.querySelectorAll('section.tabbed').forEach(tabify);
 })();
 </script>
 <script>
