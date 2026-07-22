@@ -6334,6 +6334,94 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
   }
   var lexGrid=document.querySelector('#s_lexicon .lx-grid');
   if(lexGrid) tabifyGrid(lexGrid, '.lx-brand', '.lx-bn');
+
+  /* Protagonists (s8): tab by character. Intro lore stays above; each .char card
+     becomes a tab, with trailing .card siblings attached to the current character. */
+  (function(){
+    var s=document.getElementById('s8'); if(!s) return;
+    var kids=Array.prototype.slice.call(s.children);
+    // First .char marks where the tabbed cast begins
+    var firstChar=s.querySelector(':scope > .char');
+    if(!firstChar) return;
+    var startIdx=kids.indexOf(firstChar);
+    var intro=kids.slice(0,startIdx), rest=kids.slice(startIdx);
+    var groups=[], cur=null;
+    rest.forEach(function(n){
+      if(n.classList && n.classList.contains('char')){
+        var cn=n.querySelector('.cname');
+        var name=cn?cn.textContent.trim():'Character';
+        // trim role suffix after em-dash for the tab label
+        var shortName=name.split('\u2014')[0].replace(/\(.*?\)/,'').trim();
+        cur={label:shortName, nodes:[n]}; groups.push(cur);
+      } else if(cur){ cur.nodes.push(n); }
+    });
+    if(groups.length<2) return;
+    var wrap=document.createElement('div'); wrap.className='tabbed-wrap';
+    var rail=document.createElement('div'); rail.className='tab-rail';
+    var panels=document.createElement('div'); panels.className='tab-panels';
+    groups.forEach(function(g,i){
+      var panel=document.createElement('div'); panel.className='tab-panel'+(i===0?' active':'');
+      g.nodes.forEach(function(n){ panel.appendChild(n); });
+      panels.appendChild(panel);
+      var btn=document.createElement('button');
+      btn.innerHTML='<span class="tr-num">'+String(i+1).padStart(2,'0')+'</span>'+g.label;
+      btn.className=(i===0?'active':'');
+      btn.addEventListener('click',function(){
+        Array.prototype.forEach.call(panels.children,function(p){p.classList.remove('active');});
+        Array.prototype.forEach.call(rail.children,function(b){b.classList.remove('active');});
+        panels.children[i].classList.add('active'); btn.classList.add('active');
+        if(window.innerWidth<=820){ s.scrollIntoView({behavior:'smooth',block:'start'}); }
+      });
+      rail.appendChild(btn);
+    });
+    wrap.appendChild(rail); wrap.appendChild(panels);
+    s.appendChild(wrap);
+
+    // Correction: two Amoz cards physically follow Hay'vnn in source, so they
+    // land in Hay'vnn's panel. Move them into Amoz's panel where they belong.
+    var amozPanel=null;
+    Array.prototype.forEach.call(panels.children,function(p){
+      if(p.textContent.indexOf('Amoz Xero')!==-1 && p.querySelector('.cname')) amozPanel=p;
+    });
+    if(amozPanel){
+      Array.prototype.forEach.call(panels.querySelectorAll('.card'),function(card){
+        var t=card.textContent||'';
+        if(t.indexOf('Why Amoz is missing')!==-1 || t.indexOf('What Amoz does not know')!==-1){
+          amozPanel.appendChild(card);
+        }
+      });
+    }
+  })();
+
+  /* Timeline (s_chronicle): tab by the six soul-threads. Overview (table + Age chrons)
+     stays above; each .thread becomes a tab. */
+  (function(){
+    var s=document.getElementById('s_chronicle'); if(!s) return;
+    var threads=Array.prototype.slice.call(s.querySelectorAll(':scope > .thread'));
+    if(threads.length<2) return;
+    var wrap=document.createElement('div'); wrap.className='tabbed-wrap';
+    var rail=document.createElement('div'); rail.className='tab-rail';
+    var panels=document.createElement('div'); panels.className='tab-panels';
+    threads.forEach(function(t,i){
+      var panel=document.createElement('div'); panel.className='tab-panel'+(i===0?' active':'');
+      panel.appendChild(t);
+      panels.appendChild(panel);
+      var nm=t.querySelector('.tname');
+      var label=nm?nm.textContent.trim():('Thread '+(i+1));
+      var btn=document.createElement('button');
+      btn.innerHTML='<span class="tr-num">'+String(i+1).padStart(2,'0')+'</span>'+label;
+      btn.className=(i===0?'active':'');
+      btn.addEventListener('click',function(){
+        Array.prototype.forEach.call(panels.children,function(p){p.classList.remove('active');});
+        Array.prototype.forEach.call(rail.children,function(b){b.classList.remove('active');});
+        panels.children[i].classList.add('active'); btn.classList.add('active');
+        if(window.innerWidth<=820){ wrap.scrollIntoView({behavior:'smooth',block:'start'}); }
+      });
+      rail.appendChild(btn);
+    });
+    wrap.appendChild(rail); wrap.appendChild(panels);
+    s.appendChild(wrap); // threads were removed from their original spot via appendChild
+  })();
 })();
 </script>
 <script>
