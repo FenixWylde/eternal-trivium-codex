@@ -1033,8 +1033,20 @@
   th,td{min-width:90px}
 }
 
-/* ===== In-page tabbed sections (side rail) ===== */
-.tabbed-wrap{display:flex; gap:24px; align-items:flex-start; margin-top:8px}
+/* ===== Nine Abbeys grid box ===== */
+.abbey-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:14px 0 6px}
+.abbey-box{border:1px solid var(--gilt); border-radius:9px; padding:11px 12px;
+  background:linear-gradient(160deg,rgba(255,250,238,.6),rgba(232,219,188,.34))}
+.abbey-box .ab-name{font-family:'Cinzel',serif; font-size:14px; color:#3a2c14; font-weight:600; letter-spacing:.02em}
+.abbey-box .ab-cong{font-family:'Spectral',serif; font-size:12px; color:var(--ink-faint); margin-top:2px; font-style:italic}
+.abbey-box .ab-meta{display:flex; gap:6px; margin-top:8px; flex-wrap:wrap}
+.abbey-box .ab-chip{font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:.08em; text-transform:uppercase;
+  padding:2px 7px; border-radius:11px; border:1px solid var(--gilt); color:#5a4c30}
+.abbey-box .ab-chip.veil{background:rgba(156,124,60,.14)}
+@media (max-width:760px){ .abbey-grid{grid-template-columns:1fr 1fr} }
+@media (max-width:460px){ .abbey-grid{grid-template-columns:1fr} }
+
+/* ===== In-page tabbed sections (side rail) ===== */.tabbed-wrap{display:flex; gap:24px; align-items:flex-start; margin-top:8px}
 .tab-rail{flex:0 0 226px; position:sticky; top:78px; max-height:calc(100vh - 96px); overflow-y:auto;
   border-right:1px solid var(--gilt); padding-right:6px}
 .tab-rail button{display:block; width:100%; text-align:left; background:transparent; border:none;
@@ -1430,10 +1442,6 @@
     <div class="h2sub">The engine, the Nine Ciphers, and soul access</div>
     <div class="title-rule"></div>
 
-    <h3>Anima &mdash; the Source <span class="badge b-locked">Locked</span></h3>
-    <p>Anima is <strong>inherent</strong> and tied to the <strong>intensity of the soul</strong>. One soul lives many lives; each adds experience. The more lives lived, the more powerful the soul and the greater its base <strong>anima pool</strong>. Young souls have little; some have none.</p>
-    <div class="card note"><span class="tag">Origin of Anima <span class="badge b-locked">Locked</span></span>Anima is the <strong>&ldquo;magic&rdquo; substance of the world</strong> &mdash; a natural element permeating the entire <strong>Pneumaverse</strong>, the stuff the <strong>Aegis Grid</strong> is made of and that <strong>A&rsquo;kana&rsquo;s aura radiates.</strong> It originated <strong>from A&rsquo;kana as a gift:</strong> the means to navigate the existence and makeup of a <strong>Soul.</strong> So Animancy is not stolen or transgressive &mdash; it is a <em>birthright of the Pneumaverse</em>, the Great Mother&rsquo;s endowment. (A sacred gift, not a theft.)</div>
-    <div class="card note"><span class="tag">The Eye of the Aegis <span class="badge b-locked">Locked</span></span>Anima is <strong>produced at the Eye of the Aegis</strong> &mdash; the <strong>center and core of Vi&rsquo;talitas</strong>, where the <strong>Great Mother Tree</strong> stands. From this core, Anima wells up and pushes outward through A&rsquo;kana&rsquo;s roots (the Leylines) into the Aegis Grid and the worlds beyond. Because <strong>Vi&rsquo;talitas <em>is</em> Ne&rsquo;haris</strong>, the Eye is the single point where the Tree, the world&rsquo;s core, and the wellspring of all Anima coincide &mdash; the beating heart of the cosmos&rsquo;s soul-economy.</div>
     <h3 style="margin-top:34px">SoulCraft &mdash; the Eversouls&rsquo; Art <span class="badge b-locked">Locked</span></h3>
     <div class="card note"><span class="tag">The old name for Animancy <span class="badge b-locked">Locked</span></span><strong>SoulCraft is the ancient name for Animancy.</strong> Before the present age, the Eversouls did not call their art &ldquo;Animancy&rdquo; &mdash; they called it <strong>SoulCraft.</strong> The two are the same discipline across two ages: what the Eversouls practiced as SoulCraft is what Medians now practice, in diminished form, as Animancy.</div>
     <p>When A&rsquo;kana made the Eversouls, she gifted each a power that <strong>amplifies the Aspect they embody</strong> &mdash; a <strong>SoulCraft:</strong> a personal style of <strong>anima-based attack and expression.</strong> To receive it, an Eversoul undergoes a ritual that <strong>bonds and infuses the craft into an object</strong> &mdash; their <strong>Animatrux</strong>, a living crystallized energy source that serves as the key power-source of that Eversoul, keeping their aura perpetually at arms.</p>
@@ -1443,12 +1451,11 @@
     </ul>
     <div class="card note"><span class="tag">Energy is a flux</span><em>Energy flows; it cannot die &mdash; only transmute and return, trapped and freed at once. All energy issues from the Soul: souls create energy, and energy is soul.</em> To draw out this ancient, primal energy at will is to <strong>bend Aether</strong> &mdash; soul-energy itself.</div>
 
-    <h3 style="margin-top:34px">Auric Remanence &mdash; the Eighth Sense <span class="badge b-locked">Locked</span></h3>
-    <p>Every race on Vi&rsquo;talitas possesses <strong>Auric Remanence</strong> as a literal <em>sense</em> &mdash; alongside sight, sound, scent, taste, touch, movement, body-limit, and message-interpretation. It is the soul&rsquo;s <strong>retained reservoir of past-life experience</strong> &mdash; the residue that remains after each life&rsquo;s field has passed &mdash; and the ability to <strong>identify memories from past lives and call upon them for present use</strong>. It is the sensory faculty that <strong>underlies all memory-casting</strong>: Animancy is Auric Remanence, <em>trained and spent.</em></p>
-    <div class="card payoff claude-made"><span class="tag">How a soul finds its Cipher <span class="badge b-locked">Locked</span></span>Through Auric Remanence, the <strong>soul retains the emotional experiences that left the most defined impressions upon it</strong> across its many lifetimes. Some emotions are <strong>more deeply ingrained</strong> in a given soul than others &mdash; and through that dominant emotional register, the soul becomes <strong>associated with a particular Cipher of Anima.</strong> The <strong>Feii</strong> are its master-teachers, their connection to the Nyph tying the elemental peoples to this lineage.</div>
-
-
-    <h3>The Nkra &mdash; the Soul&rsquo;s Nucleus <span class="badge b-locked">Locked &middot; New</span></h3>
+    <h3>Anima &mdash; the Source <span class="badge b-locked">Locked</span></h3>
+    <p>Anima is <strong>inherent</strong> and tied to the <strong>intensity of the soul</strong>. One soul lives many lives; each adds experience. The more lives lived, the more powerful the soul and the greater its base <strong>anima pool</strong>. Young souls have little; some have none.</p>
+    <div class="card note"><span class="tag">Origin of Anima <span class="badge b-locked">Locked</span></span>Anima is the <strong>&ldquo;magic&rdquo; substance of the world</strong> &mdash; a natural element permeating the entire <strong>Pneumaverse</strong>, the stuff the <strong>Aegis Grid</strong> is made of and that <strong>A&rsquo;kana&rsquo;s aura radiates.</strong> It originated <strong>from A&rsquo;kana as a gift:</strong> the means to navigate the existence and makeup of a <strong>Soul.</strong> So Animancy is not stolen or transgressive &mdash; it is a <em>birthright of the Pneumaverse</em>, the Great Mother&rsquo;s endowment. (A sacred gift, not a theft.)</div>
+    <div class="card note"><span class="tag">The Eye of the Aegis <span class="badge b-locked">Locked</span></span>Anima is <strong>produced at the Eye of the Aegis</strong> &mdash; the <strong>center and core of Vi&rsquo;talitas</strong>, where the <strong>Great Mother Tree</strong> stands. From this core, Anima wells up and pushes outward through A&rsquo;kana&rsquo;s roots (the Leylines) into the Aegis Grid and the worlds beyond. Because <strong>Vi&rsquo;talitas <em>is</em> Ne&rsquo;haris</strong>, the Eye is the single point where the Tree, the world&rsquo;s core, and the wellspring of all Anima coincide &mdash; the beating heart of the cosmos&rsquo;s soul-economy.</div>
+    <h3>The Nkra &mdash; the Nucleus <span class="badge b-locked">Locked &middot; New</span></h3>
     <p>Every soul carries a <strong>Nkra</strong> &mdash; the nucleus of what it is. The Nkra <strong>holds all that soul has ever experienced</strong> across every life it has lived, and it is <strong>what allows rebirth to move forward at all.</strong> Because no two souls have lived the same lives, <strong>no two Nkra are alike</strong>: it is at once a soul&rsquo;s memory, its inheritance, and its signature. The message and the fingerprint are not two things &mdash; the signature <em>is</em> what the message looks like from outside.</p>
 
     <div class="card note"><span class="tag">A&rsquo;kana&rsquo;s gift <span class="badge b-locked">Locked &middot; New</span></span>The Nkra is <strong>universal</strong> &mdash; every soul has one, without exception. The Eversouls held it <strong>sacred</strong>: each soul&rsquo;s gift to existence from <strong>A&rsquo;kana herself</strong>, the Great Mother&rsquo;s portion in every living thing. <em>Nkra</em> is the ancient word for the message a soul carries out of death and into the next life.</div>
@@ -1474,67 +1481,10 @@
 
     <div class="card note"><span class="tag">Medians know the cost <span class="badge b-locked">Locked &middot; New</span></span>This is <strong>not hidden knowledge.</strong> Medians are taught what they are spending and understand it plainly: every deep cast trades a measure of permanent selfhood for present power. The Institutes teach it; veterans carry the proof in their dulled Signets. It is <strong>informed sacrifice, not tragic ignorance</strong> &mdash; and the moral weight of an institution that trains people to spend their own souls is not lost on everyone.</div>
 
-    <h3 style="margin-top:34px">Soul-Tie <span class="badge b-locked">Locked &middot; New</span></h3>
-    <p>A <strong>Soul-Tie</strong> is a binding of one Nkra to another. It is not a vow, an oath, or a working &mdash; it is a <strong>fact about two souls</strong> that exists whether or not either party knows it. Because the Nkra carries across every life, <strong>a Soul-Tie persists through death and rebirth</strong>, unbroken by reincarnation and indifferent to memory: a soul may be Tied to another it cannot name and has never, in this life, met.</p>
+    <h3 style="margin-top:34px">Auric Remanence &mdash; the Eighth Sense <span class="badge b-locked">Locked</span></h3>
+    <p>Every race on Vi&rsquo;talitas possesses <strong>Auric Remanence</strong> as a literal <em>sense</em> &mdash; alongside sight, sound, scent, taste, touch, movement, body-limit, and message-interpretation. It is the soul&rsquo;s <strong>retained reservoir of past-life experience</strong> &mdash; the residue that remains after each life&rsquo;s field has passed &mdash; and the ability to <strong>identify memories from past lives and call upon them for present use</strong>. It is the sensory faculty that <strong>underlies all memory-casting</strong>: Animancy is Auric Remanence, <em>trained and spent.</em></p>
+    <div class="card payoff claude-made"><span class="tag">How a soul finds its Cipher <span class="badge b-locked">Locked</span></span>Through Auric Remanence, the <strong>soul retains the emotional experiences that left the most defined impressions upon it</strong> across its many lifetimes. Some emotions are <strong>more deeply ingrained</strong> in a given soul than others &mdash; and through that dominant emotional register, the soul becomes <strong>associated with a particular Cipher of Anima.</strong> The <strong>Feii</strong> are its master-teachers, their connection to the Nyph tying the elemental peoples to this lineage.</div>
 
-    <div class="group spirit" style="margin-top:14px">
-      <div class="gname"><span class="dot"></span>How Ties behave</div>
-      <div class="gmeta">Nkra-deep, plural, discovered rather than made.</div>
-      <div class="aspect"><div class="an" style="color:var(--spirit)">Discovered, not chosen</div><div class="ad">A Soul-Tie is <strong>found, not formed.</strong> It is already true when it is noticed. Souls have been Tied before birth, and have gone whole lifetimes without ever learning of a Tie they carried.</div></div>
-      <div class="aspect"><div class="an" style="color:var(--spirit)">More than one</div><div class="ad">A soul may hold <strong>several Ties at once</strong>, to different souls, of different characters. They are not exclusive and do not rank against one another.</div></div>
-      <div class="aspect"><div class="an" style="color:var(--spirit)">Persists through lifetimes</div><div class="ad">Death does not sever a Tie. It survives <strong>rebirth, amnesia, and distance</strong> &mdash; a Tie has carried contact across galaxies and across lives.</div></div>
-      <div class="aspect"><div class="an" style="color:var(--spirit)">Breaking is ruinous</div><div class="ad">A Tie <em>can</em> be broken. It is <strong>difficult to accomplish and devastating to the Nkra</strong> &mdash; damage at the level of the nucleus itself, taking <strong>ages to heal.</strong> Almost no one attempts it, and almost no one recovers quickly.</div></div>
-    </div>
-
-    <div class="card note"><span class="tag">Soul-Tied Lovers &mdash; a form, not the rule <span class="badge b-locked">Locked &middot; New</span></span>Where a Soul-Tie runs between lovers, they are called <strong>Soul-Tied Lovers.</strong> This is one shape a Tie may take and not the only one; Ties run between allies, rivals, kin, and strangers as readily as between lovers.</div>
-
-    <div class="card payoff claude-made"><span class="tag">Design payoff</span>Soul-Tie makes <strong>relationship a property of the Nkra</strong> rather than of a lifetime &mdash; which means a character can be bound to someone they have no memory of, and act on a pull they cannot account for. It also supplies a mechanism the plot already needed: <strong>loyalty that outruns allegiance.</strong></div>
-
-    <div class="card note"><span class="tag">Ties on record <span class="badge b-locked">Locked &middot; New</span></span><strong>Omin</strong> (as <strong>D&rsquo;vita</strong>) is Soul-Tied to <strong>Vaine</strong>, and to <strong>Aryx</strong> and <strong>Khires</strong> <span class="badge b-open">Open</span> &mdash; the latter two unrecorded as yet. <strong>Amoz</strong> (as <strong>I&rsquo;n&aacute;cio</strong>) is Soul-Tied to <strong>Hay&rsquo;vnn</strong>, who is in turn Soul-Tied to <strong>Nullus.</strong></div>
-
-    <div class="card note" style="border-left-color:var(--mind)"><span class="tag" style="color:var(--mind)">The Betrayer&rsquo;s house came apart on Ties <span class="badge b-locked">Locked &middot; New</span></span>Both defections among A&rsquo;thule&rsquo;s pure-Stigma children run along Soul-Ties to the other side. <strong>Nullus</strong> is Tied to <strong>Hay&rsquo;vnn</strong>; <strong>Vaine</strong> is Tied to <strong>D&rsquo;vita</strong>, and gave the intel by which <strong>Mulu&rsquo;lizi</strong> was cleansed. This is why the two are the <strong>&ldquo;unplanned wrenches&rdquo;</strong> in a scheme A&rsquo;thule had long prepared: he could account for loyalty and for fear, but <strong>a Soul-Tie is not a thing he made and not a thing he could see.</strong></div>
-
-    <div class="char lead"><div class="cname">Omin and Vaine &mdash; the Tie she gave up seeking <span class="badge b-locked">Locked &middot; New</span></div><p style="margin:0">Omin <strong>remembers none of her past lives.</strong> She knows they exist &mdash; she has always known &mdash; but not <strong>how</strong> to reach them, nor <strong>who</strong> is in them. She looked, for a long time. Then she <strong>gave up seeking.</strong><br><br>Her Ties remained active regardless. <strong>Vaine wanders the Cosmos, wounded</strong>, Tied to a woman who cannot name him. And at the end of the Ghost Wars, <strong>D&rsquo;vita made choices only she knew she had to make &mdash; to Vaine&rsquo;s heartbreak.</strong> Omin&rsquo;s own withholding is not a habit she developed in this life. <strong>It is one she inherited from herself.</strong></p></div>
-
-    <div class="card hook"><span class="tag">Open thread</span>What a Soul-Tie <em>feels</em> like from the inside when unrecognised &mdash; and whether the Ties of one soul can be sensed by another reading their Nkra. <span class="badge b-open">Open</span></div>
-
-    <h3 style="margin-top:34px">Restoratives &mdash; Leywater and the Elixirs <span class="badge b-locked">Locked &middot; New</span></h3>
-    <p>Because both pools can be drawn down, both can be <strong>restored</strong> &mdash; and the trade in restoratives is a fact of Median life. They vary widely in <strong>potency</strong>, and the finest are correspondingly rare.</p>
-
-    <div class="group spirit" style="margin-top:14px">
-      <div class="gname"><span class="dot"></span>Leywater</div>
-      <div class="gmeta">The staple restorative &mdash; liquid drawn where the Ley runs closest.</div>
-      <div class="aspect"><div class="an" style="color:var(--spirit)">What it is</div><div class="ad">Water that <strong>flows closest within Leypoints</strong>, saturated with <strong>Aether Anima</strong> from the Sea of Lights running near the surface there. The nearer the source to a true Leypoint, the richer the draught.</div></div>
-      <div class="aspect"><div class="an" style="color:var(--spirit)">What it does</div><div class="ad">Replenishes <strong>Anima</strong>, and &mdash; unlike ordinary rest &mdash; <strong>heals damage to the Nkra itself</strong>, greying included. It is the reason greying is treatable at all.</div></div>
-      <div class="aspect"><div class="an" style="color:var(--spirit)">Potency varies</div><div class="ad">Not all Leywater is equal. Proximity to the Leypoint, the health of the Ley there, and the age of the draught all tell. <strong>A poor draught restores Anima and little else</strong>; only potent Leywater reaches the Nkra.</div></div>
-    </div>
-
-    <div class="card note" style="border-left-color:var(--mind)"><span class="tag" style="color:var(--mind)">Time-sensitive &mdash; the window closes <span class="badge b-locked">Locked &middot; New</span></span>Restoration of the Nkra is <strong>time-sensitive.</strong> Greying caught early answers readily to Leywater and the colour returns. <strong>Once greying has become severe, restoration grows steadily harder</strong> &mdash; requiring more potent draughts, more of them, and yielding less each time. Past a certain depth a Median cannot be brought fully back at all, and the dullness that remains is the permanent scar the veterans wear. <strong>The permanence of greying is the permanence of greying left too long.</strong></div>
-
-    <div class="card note"><span class="tag">Fading Fatigue <span class="badge b-locked">Locked &middot; New</span></span><strong>Fading Fatigue</strong> is the name for exhaustion reached by spending a great deal of <strong>both Anima and Nkra</strong> &mdash; not merely an empty pool but a Median drawn down to the nucleus. It is the ordinary consequence of hard, sustained work, and in its common form it is <strong>fully remediable: rest and Leywater restore it.</strong> It is what a Median feels at the end of a long day in the field, and what a heavy working costs in minutes rather than years.</div>
-
-    <div class="card note" style="border-left-color:var(--mind)"><span class="tag" style="color:var(--mind)">Permanent Fading Fatigue &mdash; and the silver <span class="badge b-locked">Locked &middot; New</span></span>Sustained past remedy, Fading Fatigue becomes <strong>permanent</strong>, and it shows in the hair. For most Medians the cycle is <strong>natural colour &rarr; the Cipher&rsquo;s hue while casting &rarr; back to natural</strong> &mdash; blonde, chestnut, whatever they were born with. Under Permanent Fading Fatigue <strong>the return stops working.</strong> The Cipher hue still floods through during Recall, but what it settles back into is no longer the natural colour: it is <strong>silver</strong> &mdash; the natural colour lost rather than replaced. Those carrying it go silver <strong>far sooner than other Medians</strong>, and it does not come and go. It is what remains when a Median has spent past the point of return.</div>
-
-    <div class="card payoff claude-made"><span class="tag">Design payoff</span>Two pools with two recovery paths gives casting a <strong>legible economy</strong> &mdash; Anima as the spendable resource, Nkra as the standing health &mdash; while the closing window keeps the stakes intact: greying is survivable if caught, ruinous if ignored. It also makes <strong>Leypoints strategically valuable</strong> rather than merely sacred, and gives the Leywardens a concrete reason to hold ground that has nothing to do with ceremony.</div>
-
-    <h3 style="margin-top:34px">Aether&rsquo;s Cost &mdash; the Vitalist Silver <span class="badge b-locked">Locked &middot; New</span></h3>
-    <p>The <strong>Aether</strong> Cipher is the Soul&rsquo;s own component, and it is <strong>uniquely expensive</strong>: its workings draw not merely on a great deal of <strong>Anima</strong> but on a great deal of <strong>Nkra</strong>. This is why <strong>not every Median of the Aether Cipher can do what the strongest of them do</strong> &mdash; the Cipher is held in common, but the reserve to spend on it is not.</p>
-
-    <div class="card note"><span class="tag">Why Vitalists train harder <span class="badge b-locked">Locked &middot; New</span></span>This is a further reason <strong>Vitalists</strong> are pressed so hard: to sustain Aether they must <strong>train far beyond the ordinary curriculum</strong>, and many are <strong>born giving up a sense</strong> to carry it &mdash; the trade that opens the Unborn to them. The rarity of the Type is not only bloodline. It is also that the work itself is punishing.</div>
-
-    <div class="char lead"><div class="cname">Omin wears it <span class="badge b-locked">Locked &middot; New</span></div><p style="margin:0">Omin&rsquo;s hair is <strong>already silver</strong> &mdash; <strong>silver locs, the sides shaved.</strong> It is among the <strong>first things anyone notices about her</strong>, before the strangeness of her eyes and well before the rank. The natural colour is gone; antique gold still runs through it when she casts, and settles back to silver when she is done.<br><br>The effect is <strong>more intimidating than she would choose</strong>. It announces, to anyone who can read it, exactly how much she has spent of herself &mdash; and she cannot see it, cannot soften it, and did not ask for it to speak first on her behalf.</p></div>
-
-    <div class="card note" style="border-left-color:var(--mind)"><span class="tag" style="color:var(--mind)">The silver &mdash; a mark, not a sentence <span class="badge b-locked">Locked &middot; New</span></span>For many Vitalists the cost settles into <strong>Permanent Fading Fatigue</strong>, and their hair goes <strong>brilliant silver.</strong> It is <strong>not a death sentence.</strong> Vitalists have learned to go on working and to <strong>train alongside their own class of Median</strong>, adapting their practice to what they have left. But the mark is legible to everyone, and <strong>many fear or shun them for it</strong> &mdash; a visible reckoning of how much a person has spent of themselves, worn where it cannot be hidden.</div>
-
-    <div class="card payoff claude-made"><span class="tag">Design payoff</span>The silver gives the world a <strong>visible underclass of the over-spent</strong> &mdash; people marked by their own service and treated worse for it. It also makes Aether legible as the <em>expensive</em> Cipher without weakening it: the ceiling is not talent but <strong>reserve</strong>, which means an Aether Median&rsquo;s limits are a matter of how much soul they have to spend.</div>
-
-    <div class="card hook"><span class="tag">Open thread</span>The wider <strong>Elixir table</strong> &mdash; other restoratives beyond Leywater, their sources, potency grades, and what each reaches. <span class="badge b-open">Open</span></div>
-
-    <div class="card note"><span class="tag">What Silas is actually hunting <span class="badge b-locked">Locked &middot; New</span></span>Silas does not track people across lifetimes; he <strong>tracks Nkra.</strong> The prophecy fragments the siblings carry are held <em>within</em> their Nkra by nature and Path &mdash; which is why assembling the three is the thing he must prevent. His three failures restate cleanly: <strong>Omin and Amoz are illegible</strong>, their Nkra scrambled by the improbable Ra&rsquo;gnn/Fonixi cross; <strong>Ion is invisible</strong>, a Nkra with no prior life accumulated in it and therefore nothing to read.</div>
-
-    <div class="card payoff claude-made"><span class="tag">Design payoff</span>Nkra unifies four systems that were previously described separately &mdash; <strong>Anima&rsquo;s source, the Median/Generic divide, greying, and Silas&rsquo;s soul-scanning</strong> &mdash; under a single named object, without altering any of their locked mechanics. It also raises the stakes of Stigma from madness to <strong>annihilation of continuity</strong>, and hands the world a ready-made social register: shielding as courtesy, flaunting as aggression.</div>
-
-    <div class="card hook"><span class="tag">Open thread</span>Nkra shielding as a <strong>trained skill</strong> &mdash; who teaches it, at what age, and what it means for a Median who <em>cannot</em> shield. <span class="badge b-open">Open</span></div>
 
     <h3>Animate vs. Inanimate Souls <span class="badge b-locked">Locked</span></h3>
     <p>Who can wield Animancy comes down to a soul&rsquo;s <strong>Anima frequency.</strong></p>
@@ -1563,7 +1513,7 @@
     <div class="card note"><span class="tag">Mastery is hard</span>Even an animate soul must discover its <strong>Anima Cipher</strong> (the nine Aspect-Archetypes) and learn to wield it fully. Inanimates who can&rsquo;t cast directly are offered other roles working anima-infused materials &mdash; many build content lives this way.</div>
 
 
-    <h3 style="margin-top:34px">Three Groups, Nine Ciphers <span class="badge b-locked">Locked</span></h3>
+    <h3 style="margin-top:34px">Three Pillars &mdash; Nine Archetypes <span class="badge b-locked">Locked</span></h3>
     <p class="lede">Each group descends from one Paramount and represents a distinct relationship to memory.</p>
     <div class="group mind">
       <div class="gname"><span class="dot"></span>Mind Preservation</div>
@@ -1594,15 +1544,23 @@
       The six outward brands spend memory <em>onto the world</em>; Soul Restoration spends it <em>onto the soul itself</em> &mdash; surgery on the thing doing the surgery. It needs an unusually old or integrated soul, so rarity = soul-age = power = narrative weight, automatically.
     </div>
 
-    <h3>Corruption Vulnerability by Group <span class="badge b-locked">Locked implication</span></h3>
+    <h3>The Divine Aspects <span class="badge b-locked">Locked</span></h3>
+    <p>The Aspects are the <strong>living Essences of the raw materials of existence</strong> &mdash; revered protectors of Anima who dwell in powerful <strong>Leypoints</strong> and fiercely defend them. If a seeker proves <strong>worthy</strong>, they teach the ways of Animancy. Each <strong>guards one of the Nine Ciphers</strong>, the master-teacher at the summit of each discipline. Each Cipher also resonates with a <strong>family of emotion</strong> (the per-Cipher expression of <em>emotion shapes the cast</em>) and surfaces its signets in a <strong>fixed location</strong> &mdash; placement <strong>announces a Median&rsquo;s Cipher</strong>. <strong>Aether is the sole exception</strong>: its signets appear wherever that Median channels best.</p>
     <table>
-      <tr><th>Group</th><th>Relationship to Stigma</th><th>Moral texture</th></tr>
-      <tr><td style="color:var(--mind)">Mind Preservation</td><td>Closest to A&rsquo;thule &mdash; best at <em>detecting</em> Stigma <em>and</em> most tempted by it.</td><td>The betrayer&rsquo;s shadow</td></tr>
-      <tr><td style="color:var(--body)">Vessel Deconstruction</td><td>Falls through exhaustion &amp; recklessness &mdash; a cleaner danger.</td><td>The martyr&rsquo;s inheritance</td></tr>
-      <tr><td style="color:var(--spirit)">Soul Restoration</td><td>The immune system itself.</td><td>The mother&rsquo;s protection</td></tr>
+      <tr><th>Aspect</th><th>Cipher</th><th>Resonant Emotion</th><th>Fueling Memories</th><th>Signet Location</th></tr>
+      <tr><td>Genos</td><td style="color:var(--a-origin-tx)"><strong>Origin</strong></td><td style="color:var(--a-origin-tx)">Life / Growth</td><td>Serenity, Gratitude, Beauty, Awareness</td><td>The <strong>face</strong></td></tr>
+      <tr><td>Sacros</td><td style="color:var(--a-hallow)"><strong>Hallow</strong></td><td style="color:var(--a-hallow)">Love / Passion</td><td>Affection, Desire, Compassion, Sentiment</td><td>The <strong>torso</strong></td></tr>
+      <tr><td>Pseudus</td><td style="color:var(--a-feii-tx)"><strong>Feii</strong></td><td style="color:var(--a-feii-tx)">Surprise / Playfulness</td><td>Excitement, Confusion, Awe, Curiosity</td><td>The <strong>neck</strong></td></tr>
+      <tr><td>Ecos</td><td style="color:var(--a-wylde)"><strong>Wylde</strong></td><td style="color:var(--a-wylde)">Happiness / Contentment</td><td>Delight, Pride, Hope, Joy</td><td>The <strong>hands &amp; feet</strong></td></tr>
+      <tr><td>Alphus</td><td style="color:var(--a-grymm)"><strong>Grymm</strong></td><td style="color:var(--a-grymm)">Fear / Melancholy</td><td>Weakness, Insecurity, Threat, Anxiety</td><td>The <strong>shoulders &amp; shoulderblades</strong></td></tr>
+      <tr><td>Tumus</td><td style="color:var(--a-qhaos-tx)"><strong>Qhaos</strong></td><td style="color:var(--a-qhaos-tx)">Anger / Rage</td><td>Jealousy, Irritation, Resentment, Hatred</td><td>The <strong>back</strong></td></tr>
+      <tr><td>Delphi</td><td style="color:var(--a-arcane)"><strong>Arcane</strong></td><td style="color:var(--a-arcane)">Peace / Focus</td><td>Trust, Safety, Grounding, Peace</td><td>The <strong>forehead, temples, or crown</strong></td></tr>
+      <tr><td>Voliti</td><td style="color:var(--a-ardor)"><strong>Ardor</strong></td><td style="color:var(--a-ardor)">Strength / Willpower</td><td>Motivation, Worth, Faith, Respect</td><td>The <strong>arms &amp; legs</strong></td></tr>
+      <tr><td>Quintessi</td><td style="color:var(--a-aether-tx)"><strong>Aether</strong></td><td style="color:var(--a-aether-tx)">Identity / Autonomy</td><td>Freedom, Creativity, Purpose, Control</td><td><strong>No fixed location</strong></td></tr>
     </table>
+    <div class="card payoff claude-made"><span class="tag">Design payoff</span>Each Cipher has a <strong>master-quest</strong> &mdash; seek its Aspect in a Leypoint, prove worthy, learn the discipline&rsquo;s true depth. The resonances dovetail with casting: <strong>Qhaos</strong> (anger) leans toward <em>intensity/force</em>, <strong>Arcane</strong> (peace) toward <em>precision</em>, exactly as the emotion-tendencies predict. A Median isn&rsquo;t <em>limited</em> to their Cipher&rsquo;s emotions, but those feelings are the <strong>most efficient fuel.</strong></div>
 
-    <h3>Cipher Symbols &mdash; Visual Identity <span class="badge b-locked">Locked</span></h3>
+    <h3>Archetype Ciphers <span class="badge b-locked">Locked</span></h3>
     <p>Each Cipher has a canonical <strong>Signet symbol</strong> and color (palette follows the dimensional coding: Mind cool, Body hot, Soul celestial).</p>
     <table>
       <tr><th>Cipher</th><th>Group</th><th>Color</th><th>Symbol</th></tr>
@@ -1620,23 +1578,7 @@
 
     <div class="card note"><span class="tag">Nether &mdash; the shadow-twin of Aether <span class="badge b-locked">Locked &middot; New</span></span>Where Aether is radiant light &mdash; the substance of the Aegis and A&rsquo;kana&rsquo;s Force &mdash; <strong>Nether is its shadow-half</strong>: the same substance in its dark register, as <strong>night is to day.</strong> It is <strong>not corruption.</strong> Nether belongs to creation&rsquo;s own balance, the dark that completes the light rather than unmaking it &mdash; the &ldquo;Balance&rdquo; of light and shadow within a single spiritual energy. <span class="badge b-open">Open</span> &mdash; a distinct proper name may be wanted, since <strong>Nether</strong> resonates uncomfortably with the <strong>Netherverse</strong>, one of A&rsquo;thule&rsquo;s False Pillars. That resonance is not nothing: Nether wielded carelessly, or by a soul already scarred, sits <strong>one wrong step from the corrupt dark it merely rhymes with.</strong> To command it without falling is the whole difficulty &mdash; and the reason so few can.</div>
 
-    <h3>The Nine Divine Aspects &amp; Ciphers <span class="badge b-locked">Locked</span></h3>
-    <p>The Aspects are the <strong>living Essences of the raw materials of existence</strong> &mdash; revered protectors of Anima who dwell in powerful <strong>Leypoints</strong> and fiercely defend them. If a seeker proves <strong>worthy</strong>, they teach the ways of Animancy. Each <strong>guards one of the Nine Ciphers</strong>, the master-teacher at the summit of each discipline. Each Cipher also resonates with a <strong>family of emotion</strong> (the per-Cipher expression of <em>emotion shapes the cast</em>) and surfaces its signets in a <strong>fixed location</strong> &mdash; placement <strong>announces a Median&rsquo;s Cipher</strong>. <strong>Aether is the sole exception</strong>: its signets appear wherever that Median channels best.</p>
-    <table>
-      <tr><th>Aspect</th><th>Cipher</th><th>Resonant Emotion</th><th>Fueling Memories</th><th>Signet Location</th></tr>
-      <tr><td>Genos</td><td style="color:var(--a-origin-tx)"><strong>Origin</strong></td><td style="color:var(--a-origin-tx)">Life / Growth</td><td>Serenity, Gratitude, Beauty, Awareness</td><td>The <strong>face</strong></td></tr>
-      <tr><td>Sacros</td><td style="color:var(--a-hallow)"><strong>Hallow</strong></td><td style="color:var(--a-hallow)">Love / Passion</td><td>Affection, Desire, Compassion, Sentiment</td><td>The <strong>torso</strong></td></tr>
-      <tr><td>Pseudus</td><td style="color:var(--a-feii-tx)"><strong>Feii</strong></td><td style="color:var(--a-feii-tx)">Surprise / Playfulness</td><td>Excitement, Confusion, Awe, Curiosity</td><td>The <strong>neck</strong></td></tr>
-      <tr><td>Ecos</td><td style="color:var(--a-wylde)"><strong>Wylde</strong></td><td style="color:var(--a-wylde)">Happiness / Contentment</td><td>Delight, Pride, Hope, Joy</td><td>The <strong>hands &amp; feet</strong></td></tr>
-      <tr><td>Alphus</td><td style="color:var(--a-grymm)"><strong>Grymm</strong></td><td style="color:var(--a-grymm)">Fear / Melancholy</td><td>Weakness, Insecurity, Threat, Anxiety</td><td>The <strong>shoulders &amp; shoulderblades</strong></td></tr>
-      <tr><td>Tumus</td><td style="color:var(--a-qhaos-tx)"><strong>Qhaos</strong></td><td style="color:var(--a-qhaos-tx)">Anger / Rage</td><td>Jealousy, Irritation, Resentment, Hatred</td><td>The <strong>back</strong></td></tr>
-      <tr><td>Delphi</td><td style="color:var(--a-arcane)"><strong>Arcane</strong></td><td style="color:var(--a-arcane)">Peace / Focus</td><td>Trust, Safety, Grounding, Peace</td><td>The <strong>forehead, temples, or crown</strong></td></tr>
-      <tr><td>Voliti</td><td style="color:var(--a-ardor)"><strong>Ardor</strong></td><td style="color:var(--a-ardor)">Strength / Willpower</td><td>Motivation, Worth, Faith, Respect</td><td>The <strong>arms &amp; legs</strong></td></tr>
-      <tr><td>Quintessi</td><td style="color:var(--a-aether-tx)"><strong>Aether</strong></td><td style="color:var(--a-aether-tx)">Identity / Autonomy</td><td>Freedom, Creativity, Purpose, Control</td><td><strong>No fixed location</strong></td></tr>
-    </table>
-    <div class="card payoff claude-made"><span class="tag">Design payoff</span>Each Cipher has a <strong>master-quest</strong> &mdash; seek its Aspect in a Leypoint, prove worthy, learn the discipline&rsquo;s true depth. The resonances dovetail with casting: <strong>Qhaos</strong> (anger) leans toward <em>intensity/force</em>, <strong>Arcane</strong> (peace) toward <em>precision</em>, exactly as the emotion-tendencies predict. A Median isn&rsquo;t <em>limited</em> to their Cipher&rsquo;s emotions, but those feelings are the <strong>most efficient fuel.</strong></div>
-
-    <h3>Casting &mdash; Recall &amp; Release <span class="badge b-locked">Locked</span></h3>
+    <h3>Recall, Release &amp; Recovery <span class="badge b-locked">Locked</span></h3>
     <p>A Median casts by <strong>Recalling</strong> a memory (surfacing it through Auric Remanence until its charge is raw) and <strong>Releasing</strong> that charge through a Cipher, which shapes it into an effect &mdash; simply <strong>Recall &rarr; Release.</strong> Memory intensity equals cast intensity. The memory is the <strong>fuel</strong>; the Cipher is the <strong>lens</strong> (any memory can fuel any Cipher). The cost is <strong>felt, not numeric</strong>: Releasing a memory means temporarily losing access to its emotional charge. The act is fundamentally <strong>internal</strong> &mdash; the Median reaches inward rather than relying on an external mechanism.</p>
     <div class="card note"><span class="tag">The visible signature &mdash; the Signets <span class="badge b-locked">Locked</span></span>Casting is <strong>subtractive</strong>, and the signature <em>is</em> the cost made visible. Where other powers add light to the world, Animancy briefly takes light <em>from the caster.</em> Every Median bears <strong>Signets</strong> &mdash; Anima-marks placed on the body at <strong>awakening</strong>, their location <strong>fixed by Cipher</strong> so placement announces a Median&rsquo;s <em>discipline</em> (Origin on the face, Qhaos on the back, etc.; see the Cipher Resonance table). <strong>Aether is the exception</strong>, surfacing where the Median channels best. They lie dormant until casting.</div>
 
@@ -1666,7 +1608,16 @@
     </div>
     <div class="card payoff"><span class="tag">Why it matters <span class="badge b-locked">Locked</span></span>This turns casting from a per-shot transaction into a <strong>resource-managed state</strong> &mdash; a Median chooses <em>when to enter</em> the form, then fights from inside it until their Savvy gives out. Combat gains a rhythm: <strong>ignite &rarr; barrage &rarr; burn down &rarr; recover</strong>. Soul-stamina, not per-cast cost, is the real ceiling on power in a fight.</div>
 
-    <h3 style="margin-top:34px">The Invocation &mdash; Naming the Working <span class="badge b-locked">Locked &middot; New</span></h3>
+    <h3 style="margin-top:34px">The Memory &mdash; Recall <span class="badge b-locked">Locked</span></h3>
+    <p>A memory is not fuel of one flat kind. <strong>Every memory carries an emotion or sensation, and that feeling shapes the cast.</strong> Intensity of memory still sets intensity of effect &mdash; but the <em>character</em> of the feeling steers <em>how</em> that power expresses.</p>
+    <ul class="clean">
+      <li><strong>Tendencies, not a table.</strong> A memory invoking <strong>anger</strong> tends to <strong>increase intensity</strong> (force); one invoking <strong>calm</strong> tends to <strong>increase precision</strong> (control). Other feelings carry their own leanings &mdash; but two angry memories never produce identical spells. <em>(Real rules, human cost, never arithmetic.)</em></li>
+      <li><strong>Casting is autobiographical.</strong> The feeling is the steering, so a Median&rsquo;s magic reflects <em>who they have been.</em> A caster who fights well on rage is a different person from one who fights on grief or joy.</li>
+      <li><strong>Vs. Vitalitas:</strong> attributes are the <strong>baseline</strong>; emotion is the <strong>in-the-moment modulation.</strong> Tenacity sets how hard you <em>can</em> hit; casting on anger is how you <em>lean into</em> it now. They <strong>stack.</strong></li>
+    </ul>
+    <div class="card hook"><span class="tag">The core tension <span class="badge b-locked">Locked</span></span>The most emotionally intense memories are the most <strong>powerful</strong> fuel <em>and</em> the most <strong>dangerous</strong> (see Mania). The best Medians aren&rsquo;t those with the strongest memories &mdash; they&rsquo;re those who can ride strong memories <strong>without drowning.</strong></div>
+
+    <h3 style="margin-top:34px">The Invocation &mdash; Release <span class="badge b-locked">Locked &middot; New</span></h3>
     <p>Recall is <strong>cognitive</strong>. What ignites the state is the act of <em>naming the working in the mind</em> &mdash; and a Median may leave it there, or put it in the mouth. Speaking is not required for the magic to function. It is required for the magic to be <strong>precise.</strong></p>
 
     <div class="card note"><span class="tag">Names are taught, not confessed <span class="badge b-locked">Locked &middot; New</span></span>A working&rsquo;s name is <strong>Institute vocabulary</strong> &mdash; formal, curricular, and shared. <strong>&ldquo;Loving Embrace&rdquo;</strong> is a Hallow spatial ward raising a shield over every ally within roughly ten feet; it is the name of the <em>working</em>, never of the caster&rsquo;s private memory. Two Medians who have never met can both call Loving Embrace, fuel it from wholly different memories, and raise the same shield. <strong>The name points at the effect, not at the wound.</strong> This is why the Institutes can teach Animancy at all: the vocabulary is portable even though the fuel never is.</div>
@@ -1689,14 +1640,30 @@
 
     <div class="card hook"><span class="tag">Open thread</span>Build the <strong>Institute lexicon</strong> &mdash; the standard working-names per Cipher and per Service, the ones every trained Median would know. <em>Loving Embrace</em> (Hallow, defensive spatial ward) is the first entry. <span class="badge b-open">Open</span></div>
 
-    <h3 style="margin-top:34px">The Memory &mdash; Emotion Shapes the Cast <span class="badge b-locked">Locked</span></h3>
-    <p>A memory is not fuel of one flat kind. <strong>Every memory carries an emotion or sensation, and that feeling shapes the cast.</strong> Intensity of memory still sets intensity of effect &mdash; but the <em>character</em> of the feeling steers <em>how</em> that power expresses.</p>
+    <h3>The Stabilizing &mdash; Recovery &amp; Greying <span class="badge b-locked">Locked</span></h3>
     <ul class="clean">
-      <li><strong>Tendencies, not a table.</strong> A memory invoking <strong>anger</strong> tends to <strong>increase intensity</strong> (force); one invoking <strong>calm</strong> tends to <strong>increase precision</strong> (control). Other feelings carry their own leanings &mdash; but two angry memories never produce identical spells. <em>(Real rules, human cost, never arithmetic.)</em></li>
-      <li><strong>Casting is autobiographical.</strong> The feeling is the steering, so a Median&rsquo;s magic reflects <em>who they have been.</em> A caster who fights well on rage is a different person from one who fights on grief or joy.</li>
-      <li><strong>Vs. Vitalitas:</strong> attributes are the <strong>baseline</strong>; emotion is the <strong>in-the-moment modulation.</strong> Tenacity sets how hard you <em>can</em> hit; casting on anger is how you <em>lean into</em> it now. They <strong>stack.</strong></li>
+      <li><strong>Renewable by default</strong> &mdash; charge is exhausted, not destroyed. Rest restores it.</li>
+      <li><strong>Greying</strong> &mdash; drawing too deep, too fast, or too often on one memory keeps the facts but loses the feeling, then eventually the memory itself.</li>
+      <li><strong>Permanent loss</strong> &mdash; overspending past what rest can recover.</li>
+      <li><strong>Old souls</strong> rotate through many memories and last longer; <strong>young souls</strong> grey fast. This is the stamina curve <em>and</em> the power hierarchy in one mechanic.</li>
     </ul>
-    <div class="card hook"><span class="tag">The core tension <span class="badge b-locked">Locked</span></span>The most emotionally intense memories are the most <strong>powerful</strong> fuel <em>and</em> the most <strong>dangerous</strong> (see Mania). The best Medians aren&rsquo;t those with the strongest memories &mdash; they&rsquo;re those who can ride strong memories <strong>without drowning.</strong></div>
+    <div class="card note"><span class="tag">Emotional weight</span>Memory is the only inheritance that survives death (if you stay out of the Ley). To spend memory is to spend your immortality.</div>
+    <div class="card note"><span class="tag">Fading Fatigue <span class="badge b-locked">Locked &middot; New</span></span><strong>Fading Fatigue</strong> is the name for exhaustion reached by spending a great deal of <strong>both Anima and Nkra</strong> &mdash; not merely an empty pool but a Median drawn down to the nucleus. It is the ordinary consequence of hard, sustained work, and in its common form it is <strong>fully remediable: rest and Leywater restore it.</strong> It is what a Median feels at the end of a long day in the field, and what a heavy working costs in minutes rather than years.</div>
+
+    <div class="card note" style="border-left-color:var(--mind)"><span class="tag" style="color:var(--mind)">Permanent Fading Fatigue &mdash; and the silver <span class="badge b-locked">Locked &middot; New</span></span>Sustained past remedy, Fading Fatigue becomes <strong>permanent</strong>, and it shows in the hair. For most Medians the cycle is <strong>natural colour &rarr; the Cipher&rsquo;s hue while casting &rarr; back to natural</strong> &mdash; blonde, chestnut, whatever they were born with. Under Permanent Fading Fatigue <strong>the return stops working.</strong> The Cipher hue still floods through during Recall, but what it settles back into is no longer the natural colour: it is <strong>silver</strong> &mdash; the natural colour lost rather than replaced. Those carrying it go silver <strong>far sooner than other Medians</strong>, and it does not come and go. It is what remains when a Median has spent past the point of return.</div>
+<h3 style="margin-top:34px">Leywater &amp; Elixirs <span class="badge b-locked">Locked &middot; New</span></h3>
+    <p>Because both pools can be drawn down, both can be <strong>restored</strong> &mdash; and the trade in restoratives is a fact of Median life. They vary widely in <strong>potency</strong>, and the finest are correspondingly rare.</p>
+
+    <div class="group spirit" style="margin-top:14px">
+      <div class="gname"><span class="dot"></span>Leywater</div>
+      <div class="gmeta">The staple restorative &mdash; liquid drawn where the Ley runs closest.</div>
+      <div class="aspect"><div class="an" style="color:var(--spirit)">What it is</div><div class="ad">Water that <strong>flows closest within Leypoints</strong>, saturated with <strong>Aether Anima</strong> from the Sea of Lights running near the surface there. The nearer the source to a true Leypoint, the richer the draught.</div></div>
+      <div class="aspect"><div class="an" style="color:var(--spirit)">What it does</div><div class="ad">Replenishes <strong>Anima</strong>, and &mdash; unlike ordinary rest &mdash; <strong>heals damage to the Nkra itself</strong>, greying included. It is the reason greying is treatable at all.</div></div>
+      <div class="aspect"><div class="an" style="color:var(--spirit)">Potency varies</div><div class="ad">Not all Leywater is equal. Proximity to the Leypoint, the health of the Ley there, and the age of the draught all tell. <strong>A poor draught restores Anima and little else</strong>; only potent Leywater reaches the Nkra.</div></div>
+    </div>
+
+    <div class="card note" style="border-left-color:var(--mind)"><span class="tag" style="color:var(--mind)">Time-sensitive &mdash; the window closes <span class="badge b-locked">Locked &middot; New</span></span>Restoration of the Nkra is <strong>time-sensitive.</strong> Greying caught early answers readily to Leywater and the colour returns. <strong>Once greying has become severe, restoration grows steadily harder</strong> &mdash; requiring more potent draughts, more of them, and yielding less each time. Past a certain depth a Median cannot be brought fully back at all, and the dullness that remains is the permanent scar the veterans wear. <strong>The permanence of greying is the permanence of greying left too long.</strong></div>
+<div class="card payoff claude-made"><span class="tag">Design payoff</span>Two pools with two recovery paths gives casting a <strong>legible economy</strong> &mdash; Anima as the spendable resource, Nkra as the standing health &mdash; while the closing window keeps the stakes intact: greying is survivable if caught, ruinous if ignored. It also makes <strong>Leypoints strategically valuable</strong> rather than merely sacred, and gives the Leywardens a concrete reason to hold ground that has nothing to do with ceremony.</div>
 
     <h3 style="margin-top:34px">The Mania &mdash; Losing Oneself to the Memory <span class="badge b-locked">Locked</span></h3>
     <p>Because casting means feeling, a Median can <strong>Recall too much</strong> &mdash; pulling a memory so deep it stops being a tool and becomes a place. They tip into <strong>Mania</strong> (distinct from the Berserker Role). It has <strong>two faces, and the memory&rsquo;s emotion decides which strikes:</strong></p>
@@ -1710,24 +1677,40 @@
     <div class="card hook"><span class="tag">The lasting mark <span class="badge b-locked">Locked</span></span>Not a fixed penalty. Sometimes a memory is <strong>permanently altered or erased.</strong> Sometimes the Median loses <strong>several memories of the same emotion</strong> &mdash; a whole register drained at once (burn through grief, lose grief itself). Sometimes the cost is <strong>time</strong> &mdash; meditation and therapy to heal. The &ldquo;lose a whole emotion&rdquo; outcome is a character arc in a mechanic, and a road toward what Silas became.</div>
     <div class="card lead" style="border-left-color:var(--body)"><span class="tag" style="color:var(--body)">Silas contrast <span class="badge b-locked">Locked</span></span>Mania is the <strong>inverse of Silas.</strong> He is fully Stigmatized yet <strong>self-possessed</strong> &mdash; the one being who <em>doesn&rsquo;t</em> lose himself. A Median lost to Mania is what it looks like to drown in the very thing Silas mastered.</div>
 
-    <h3>Recovery &amp; Greying <span class="badge b-locked">Locked</span></h3>
-    <ul class="clean">
-      <li><strong>Renewable by default</strong> &mdash; charge is exhausted, not destroyed. Rest restores it.</li>
-      <li><strong>Greying</strong> &mdash; drawing too deep, too fast, or too often on one memory keeps the facts but loses the feeling, then eventually the memory itself.</li>
-      <li><strong>Permanent loss</strong> &mdash; overspending past what rest can recover.</li>
-      <li><strong>Old souls</strong> rotate through many memories and last longer; <strong>young souls</strong> grey fast. This is the stamina curve <em>and</em> the power hierarchy in one mechanic.</li>
-    </ul>
-    <div class="card note"><span class="tag">Emotional weight</span>Memory is the only inheritance that survives death (if you stay out of the Ley). To spend memory is to spend your immortality.</div>
+    <h3 style="margin-top:34px">Soul-Ties <span class="badge b-locked">Locked &middot; New</span></h3>
+    <p>A <strong>Soul-Tie</strong> is a binding of one Nkra to another. It is not a vow, an oath, or a working &mdash; it is a <strong>fact about two souls</strong> that exists whether or not either party knows it. Because the Nkra carries across every life, <strong>a Soul-Tie persists through death and rebirth</strong>, unbroken by reincarnation and indifferent to memory: a soul may be Tied to another it cannot name and has never, in this life, met.</p>
 
-    <h3>Prism Walking <span class="badge b-locked">Locked</span></h3>
-    <p>The art of traversing the <strong>Aegis Grid</strong> by moving through the anima-soaked roots of the <strong>Anima Crux</strong> &mdash; the walker moves through light itself. Incredibly swift and demanding; the Eversouls walk without ill effect where others risk far more. Among the living Services, <strong>Veilwalkers and Leywardens</strong> are trained to it.</p>
-    <div class="card note"><span class="tag">Recorded as a Gift <span class="badge b-locked">Locked &middot; New</span></span>Prism Walk is a <strong>Basic Gift of the Aether Cipher</strong>. Its full entry now sits in the <strong>Institute Lexicon</strong> alongside the other taught workings.</div>
+    <div class="group spirit" style="margin-top:14px">
+      <div class="gname"><span class="dot"></span>How Ties behave</div>
+      <div class="gmeta">Nkra-deep, plural, discovered rather than made.</div>
+      <div class="aspect"><div class="an" style="color:var(--spirit)">Discovered, not chosen</div><div class="ad">A Soul-Tie is <strong>found, not formed.</strong> It is already true when it is noticed. Souls have been Tied before birth, and have gone whole lifetimes without ever learning of a Tie they carried.</div></div>
+      <div class="aspect"><div class="an" style="color:var(--spirit)">More than one</div><div class="ad">A soul may hold <strong>several Ties at once</strong>, to different souls, of different characters. They are not exclusive and do not rank against one another.</div></div>
+      <div class="aspect"><div class="an" style="color:var(--spirit)">Persists through lifetimes</div><div class="ad">Death does not sever a Tie. It survives <strong>rebirth, amnesia, and distance</strong> &mdash; a Tie has carried contact across galaxies and across lives.</div></div>
+      <div class="aspect"><div class="an" style="color:var(--spirit)">Breaking is ruinous</div><div class="ad">A Tie <em>can</em> be broken. It is <strong>difficult to accomplish and devastating to the Nkra</strong> &mdash; damage at the level of the nucleus itself, taking <strong>ages to heal.</strong> Almost no one attempts it, and almost no one recovers quickly.</div></div>
+    </div>
 
-      </section>
+    <div class="card note"><span class="tag">Soul-Tied Lovers &mdash; a form, not the rule <span class="badge b-locked">Locked &middot; New</span></span>Where a Soul-Tie runs between lovers, they are called <strong>Soul-Tied Lovers.</strong> This is one shape a Tie may take and not the only one; Ties run between allies, rivals, kin, and strangers as readily as between lovers.</div>
 
-  <!-- 6 -->
-  
-<section id="s_archevims" class="tabbed">
+    <div class="card payoff claude-made"><span class="tag">Design payoff</span>Soul-Tie makes <strong>relationship a property of the Nkra</strong> rather than of a lifetime &mdash; which means a character can be bound to someone they have no memory of, and act on a pull they cannot account for. It also supplies a mechanism the plot already needed: <strong>loyalty that outruns allegiance.</strong></div>
+
+    <div class="card note"><span class="tag">Ties on record <span class="badge b-locked">Locked &middot; New</span></span><strong>Omin</strong> (as <strong>D&rsquo;vita</strong>) is Soul-Tied to <strong>Vaine</strong>, and to <strong>Aryx</strong> and <strong>Khires</strong> <span class="badge b-open">Open</span> &mdash; the latter two unrecorded as yet. <strong>Amoz</strong> (as <strong>I&rsquo;n&aacute;cio</strong>) is Soul-Tied to <strong>Hay&rsquo;vnn</strong>, who is in turn Soul-Tied to <strong>Nullus.</strong></div>
+
+    <div class="card note" style="border-left-color:var(--mind)"><span class="tag" style="color:var(--mind)">The Betrayer&rsquo;s house came apart on Ties <span class="badge b-locked">Locked &middot; New</span></span>Both defections among A&rsquo;thule&rsquo;s pure-Stigma children run along Soul-Ties to the other side. <strong>Nullus</strong> is Tied to <strong>Hay&rsquo;vnn</strong>; <strong>Vaine</strong> is Tied to <strong>D&rsquo;vita</strong>, and gave the intel by which <strong>Mulu&rsquo;lizi</strong> was cleansed. This is why the two are the <strong>&ldquo;unplanned wrenches&rdquo;</strong> in a scheme A&rsquo;thule had long prepared: he could account for loyalty and for fear, but <strong>a Soul-Tie is not a thing he made and not a thing he could see.</strong></div>
+
+    <div class="char lead"><div class="cname">Omin and Vaine &mdash; the Tie she gave up seeking <span class="badge b-locked">Locked &middot; New</span></div><p style="margin:0">Omin <strong>remembers none of her past lives.</strong> She knows they exist &mdash; she has always known &mdash; but not <strong>how</strong> to reach them, nor <strong>who</strong> is in them. She looked, for a long time. Then she <strong>gave up seeking.</strong><br><br>Her Ties remained active regardless. <strong>Vaine wanders the Cosmos, wounded</strong>, Tied to a woman who cannot name him. And at the end of the Ghost Wars, <strong>D&rsquo;vita made choices only she knew she had to make &mdash; to Vaine&rsquo;s heartbreak.</strong> Omin&rsquo;s own withholding is not a habit she developed in this life. <strong>It is one she inherited from herself.</strong></p></div>
+
+    <div class="card hook"><span class="tag">Open thread</span>What a Soul-Tie <em>feels</em> like from the inside when unrecognised &mdash; and whether the Ties of one soul can be sensed by another reading their Nkra. <span class="badge b-open">Open</span></div>
+
+    <h3>Corruption Vulnerability by Group <span class="badge b-locked">Locked implication</span></h3>
+    <table>
+      <tr><th>Group</th><th>Relationship to Stigma</th><th>Moral texture</th></tr>
+      <tr><td style="color:var(--mind)">Mind Preservation</td><td>Closest to A&rsquo;thule &mdash; best at <em>detecting</em> Stigma <em>and</em> most tempted by it.</td><td>The betrayer&rsquo;s shadow</td></tr>
+      <tr><td style="color:var(--body)">Vessel Deconstruction</td><td>Falls through exhaustion &amp; recklessness &mdash; a cleaner danger.</td><td>The martyr&rsquo;s inheritance</td></tr>
+      <tr><td style="color:var(--spirit)">Soul Restoration</td><td>The immune system itself.</td><td>The mother&rsquo;s protection</td></tr>
+    </table>
+  </section>
+
+  <section id="s_archevims" class="tabbed">
 <h2><span class="num"></span> Archevims</h2>
 <div class="h2title">Archevims</div>
 <div class="h2sub">Vessels of Auric Remanence &mdash; the charge of civilization</div>
@@ -3424,6 +3407,14 @@ Because they follow no strict rule of creation and were <strong>never truly sync
 
     <div class="card note"><span class="tag">Beyond the curriculum <span class="badge b-locked">Locked</span></span>The Lexicon holds only the <strong>taught</strong> workings &mdash; the 108 Gifts the Institutes examine. <strong>Exceptional Gifts</strong> are recorded separately, by person rather than by Cipher. <em>(See the Exceptional Gifts tab.)</em></div>
 
+  
+    <h3>Prism Walking <span class="badge b-locked">Locked</span></h3>
+    <p>The art of traversing the <strong>Aegis Grid</strong> by moving through the anima-soaked roots of the <strong>Anima Crux</strong> &mdash; the walker moves through light itself. Incredibly swift and demanding; the Eversouls walk without ill effect where others risk far more. Among the living Services, <strong>Veilwalkers and Leywardens</strong> are trained to it.</p>
+    <div class="card note"><span class="tag">Recorded as a Gift <span class="badge b-locked">Locked &middot; New</span></span>Prism Walk is a <strong>Basic Gift of the Aether Cipher</strong>. Its full entry now sits in the <strong>Institute Lexicon</strong> alongside the other taught workings.</div>
+
+  <!-- 6 -->
+  
+
   </section>
 
 
@@ -3518,6 +3509,28 @@ agrees is there &mdash; which is a different problem, and often a worse one.</li
     <div class="card note"><span class="tag">The cost, and the ceiling <span class="badge b-locked">Locked &middot; New</span></span>Eventide obeys Animancy&rsquo;s law: casting is <strong>subtractive</strong>, and Aether is the <strong>uniquely expensive</strong> Cipher &mdash; drawing on Nkra, not merely Anima. Eventide does not hand her power for free; it <strong>holds and steadies what she spends</strong>, a Protoarch&rsquo;s reservoir for a caster who cannot even see her own drain. Its deepest workings &mdash; the sky split into night and day, and <strong>Baneful Ascendence</strong> its highest expression &mdash; cost her in <strong>Nkra</strong>, and lean her toward the <strong>Silver.</strong> <span class="badge b-open">Open</span> &mdash; the tier-by-tier workings, and a possible distinct name for Nether.</div>
 
     <div class="card note"><span class="tag">Baneful Ascendence &mdash; the scar made sovereign <span class="badge b-locked">Locked &middot; New</span></span>Eventide&rsquo;s highest working summons a <strong>magnificent Empyron</strong> &mdash; a Phoenix of the <strong>Dynaass line</strong>, the Perennial Phoenix from whom Omin&rsquo;s own <strong>Fonixi blood descends.</strong> It rises radiant as her heritage and <strong>shadowed with her Nether</strong>: the light of her lineage and the dark of her scar in one form. This is the crux of it &mdash; <strong>Baneful Ascendence is not a corruption that afflicts her but a darkness she took back as her own.</strong> Growing up in the Asylum, Omin <strong>faced the Nether-scar of the eleven Aeons and made it answer to her</strong> rather than the reverse. What manifests is therefore hers twice over: her ancestral Phoenix, and her mastered wound. Where a lesser soul would be consumed by the dark it carries, Omin <strong>ascends on it.</strong> <span class="badge b-open">Open</span> &mdash; its combat expression, and whether it can act independently of her.</div>
+
+      <h3 style="margin-top:34px">Aether&rsquo;s Cost &mdash; the Vitalist Silver <span class="badge b-locked">Locked &middot; New</span></h3>
+    <p>The <strong>Aether</strong> Cipher is the Soul&rsquo;s own component, and it is <strong>uniquely expensive</strong>: its workings draw not merely on a great deal of <strong>Anima</strong> but on a great deal of <strong>Nkra</strong>. This is why <strong>not every Median of the Aether Cipher can do what the strongest of them do</strong> &mdash; the Cipher is held in common, but the reserve to spend on it is not.</p>
+
+    <div class="card note"><span class="tag">Why Vitalists train harder <span class="badge b-locked">Locked &middot; New</span></span>This is a further reason <strong>Vitalists</strong> are pressed so hard: to sustain Aether they must <strong>train far beyond the ordinary curriculum</strong>, and many are <strong>born giving up a sense</strong> to carry it &mdash; the trade that opens the Unborn to them. The rarity of the Type is not only bloodline. It is also that the work itself is punishing.</div>
+
+    <div class="char lead"><div class="cname">Omin wears it <span class="badge b-locked">Locked &middot; New</span></div><p style="margin:0">Omin&rsquo;s hair is <strong>already silver</strong> &mdash; <strong>silver locs, the sides shaved.</strong> It is among the <strong>first things anyone notices about her</strong>, before the strangeness of her eyes and well before the rank. The natural colour is gone; antique gold still runs through it when she casts, and settles back to silver when she is done.<br><br>The effect is <strong>more intimidating than she would choose</strong>. It announces, to anyone who can read it, exactly how much she has spent of herself &mdash; and she cannot see it, cannot soften it, and did not ask for it to speak first on her behalf.</p></div>
+
+    <div class="card note" style="border-left-color:var(--mind)"><span class="tag" style="color:var(--mind)">The silver &mdash; a mark, not a sentence <span class="badge b-locked">Locked &middot; New</span></span>For many Vitalists the cost settles into <strong>Permanent Fading Fatigue</strong>, and their hair goes <strong>brilliant silver.</strong> It is <strong>not a death sentence.</strong> Vitalists have learned to go on working and to <strong>train alongside their own class of Median</strong>, adapting their practice to what they have left. But the mark is legible to everyone, and <strong>many fear or shun them for it</strong> &mdash; a visible reckoning of how much a person has spent of themselves, worn where it cannot be hidden.</div>
+
+    <div class="card payoff claude-made"><span class="tag">Design payoff</span>The silver gives the world a <strong>visible underclass of the over-spent</strong> &mdash; people marked by their own service and treated worse for it. It also makes Aether legible as the <em>expensive</em> Cipher without weakening it: the ceiling is not talent but <strong>reserve</strong>, which means an Aether Median&rsquo;s limits are a matter of how much soul they have to spend.</div>
+
+    <div class="card hook"><span class="tag">Open thread</span>The wider <strong>Elixir table</strong> &mdash; other restoratives beyond Leywater, their sources, potency grades, and what each reaches. <span class="badge b-open">Open</span></div>
+
+    <div class="card note"><span class="tag">What Silas is actually hunting <span class="badge b-locked">Locked &middot; New</span></span>Silas does not track people across lifetimes; he <strong>tracks Nkra.</strong> The prophecy fragments the siblings carry are held <em>within</em> their Nkra by nature and Path &mdash; which is why assembling the three is the thing he must prevent. His three failures restate cleanly: <strong>Omin and Amoz are illegible</strong>, their Nkra scrambled by the improbable Ra&rsquo;gnn/Fonixi cross; <strong>Ion is invisible</strong>, a Nkra with no prior life accumulated in it and therefore nothing to read.</div>
+
+    <div class="card payoff claude-made"><span class="tag">Design payoff</span>Nkra unifies four systems that were previously described separately &mdash; <strong>Anima&rsquo;s source, the Median/Generic divide, greying, and Silas&rsquo;s soul-scanning</strong> &mdash; under a single named object, without altering any of their locked mechanics. It also raises the stakes of Stigma from madness to <strong>annihilation of continuity</strong>, and hands the world a ready-made social register: shielding as courtesy, flaunting as aggression.</div>
+
+    <div class="card hook"><span class="tag">Open thread</span>Nkra shielding as a <strong>trained skill</strong> &mdash; who teaches it, at what age, and what it means for a Median who <em>cannot</em> shield. <span class="badge b-open">Open</span></div>
+
+    
+
 
       <div class="card" style="margin:8px 0 0; background:var(--bg-2); border-left:3px solid var(--spirit-cy)">
         <span class="tag" style="color:var(--spirit-cy)">Character spine <span class="badge b-locked">Locked</span></span>
@@ -3837,7 +3850,19 @@ The numbers are the Trivium&rsquo;s own count (Wone through Nyne, one through ni
 <div class="card note"><span class="tag">The one Service open to both <span class="badge b-locked">Locked &middot; New</span></span>Anitech is the <strong>only Service that accepts both Median and Generic.</strong> The reason is structural: the other Services channel an <em>innate caster discipline</em> a Generic cannot wield &mdash; but Anitech is a <strong>learned craft</strong>, a pilgrimage and a skill, not a casting. A Generic can be <strong>taught</strong> the sacred work even if they can never cast it. This makes the Abbeys the one training ground where Median and Generic sit side by side as equals in the same calling. <em>(This is a deliberate exception to the Median-only framing of the Services &mdash; &sect;7.5.)</em></div>
 <div class="card note"><span class="tag">Respectability &amp; the blacklisted <span class="badge b-locked">Locked &middot; New</span></span>To become an Anitech is a <strong>respectable position.</strong> That respect is exactly what makes its loss so heavy: the <strong>blacklisted become taboo</strong> to work with, cut off from Aspect-sanctioned materials and reputable trade alike. This is the road to the <strong>Underarch</strong> (&sect;5) &mdash; a lapsed Anitech, barred from honest craft, forging illicit relics from stolen and dying Matrux.</div>
 
-<div class="card note"><span class="tag">The Nine Primary Abbeys <span class="badge b-locked">Locked &middot; New</span></span>Above the many lesser training halls stand <strong>nine Primary Abbeys</strong> &mdash; one true seat for each Aspect, named for the Cipher it defends and housing that Aspect&rsquo;s <strong>Congregation</strong>: <strong>Abbey of Origin</strong> (Congregation of Aspect Genos), <strong>Abbey of Hallow</strong> (Sacros), <strong>Abbey of Feii</strong> (Pseudus), <strong>Abbey of Wylde</strong> (Ecos), <strong>Abbey of Grymm</strong> (Alphus), <strong>Abbey of Qhaos</strong> (Tumus), <strong>Abbey of Arcane</strong> (Delphi), <strong>Abbey of Ardor</strong> (Voliti), and <strong>Abbey of Aether</strong> (Quintessi). Each is <strong>kept sacred and secret by its own Anitechs</strong> &mdash; so guarded that <strong>even Anitechs of other Abbeys do not know where the rest are located.</strong></div>
+<div class="card note"><span class="tag">The Nine Primary Abbeys <span class="badge b-locked">Locked &middot; New</span></span>Above the many lesser training halls stand <strong>nine Primary Abbeys</strong> &mdash; one true seat for each Aspect, named for the Cipher it defends and housing that Aspect&rsquo;s <strong>Congregation</strong>.
+<div class="abbey-grid">
+  <div class="abbey-box"><div class="ab-name">Abbey of Origin</div><div class="ab-cong">Congregation of Aspect Genos</div><div class="ab-meta"><span class="ab-chip">Origin</span><span class="ab-chip veil">Elevation</span></div></div>
+  <div class="abbey-box"><div class="ab-name">Abbey of Hallow</div><div class="ab-cong">Congregation of Aspect Sacros</div><div class="ab-meta"><span class="ab-chip">Hallow</span><span class="ab-chip veil">Awakening</span></div></div>
+  <div class="abbey-box"><div class="ab-name">Abbey of Feii</div><div class="ab-cong">Congregation of Aspect Pseudus</div><div class="ab-meta"><span class="ab-chip">Feii</span><span class="ab-chip veil">Wandering</span></div></div>
+  <div class="abbey-box"><div class="ab-name">Abbey of Wylde</div><div class="ab-cong">Congregation of Aspect Ecos</div><div class="ab-meta"><span class="ab-chip">Wylde</span><span class="ab-chip veil">Redemption</span></div></div>
+  <div class="abbey-box"><div class="ab-name">Abbey of Grymm</div><div class="ab-cong">Congregation of Aspect Alphus</div><div class="ab-meta"><span class="ab-chip">Grymm</span><span class="ab-chip veil">Blight</span></div></div>
+  <div class="abbey-box"><div class="ab-name">Abbey of Qhaos</div><div class="ab-cong">Congregation of Aspect Tumus</div><div class="ab-meta"><span class="ab-chip">Qhaos</span><span class="ab-chip veil">Anathema</span></div></div>
+  <div class="abbey-box"><div class="ab-name">Abbey of Arcane</div><div class="ab-cong">Congregation of Aspect Delphi</div><div class="ab-meta"><span class="ab-chip">Arcane</span><span class="ab-chip veil">Awakening</span></div></div>
+  <div class="abbey-box"><div class="ab-name">Abbey of Ardor</div><div class="ab-cong">Congregation of Aspect Voliti</div><div class="ab-meta"><span class="ab-chip">Ardor</span><span class="ab-chip veil">Wandering</span></div></div>
+  <div class="abbey-box"><div class="ab-name">Abbey of Aether</div><div class="ab-cong">Congregation of Aspect Quintessi</div><div class="ab-meta"><span class="ab-chip">Aether</span><span class="ab-chip veil">Elevation</span></div></div>
+</div>
+Each is <strong>kept sacred and secret by its own Anitechs</strong> &mdash; so guarded that <strong>even Anitechs of other Abbeys do not know where the rest are located.</strong></div>
 
 <div class="card note"><span class="tag">Hidden in the Six Veils <span class="badge b-locked">Locked &middot; New</span></span>The Primary Abbeys sit at hidden <strong>Leypoints within the Six Veils</strong> &mdash; the stages of the rebirth cycle &mdash; each placed in the Veil whose character answers its Aspect&rsquo;s resonant emotion. <strong>Elevation:</strong> Quintessi (Aether) &amp; Genos (Origin). <strong>Awakening:</strong> Delphi (Arcane) &amp; Sacros (Hallow). <strong>Wandering:</strong> Pseudus (Feii) &amp; Voliti (Ardor). <strong>Redemption:</strong> Ecos (Wylde). <strong>Blight:</strong> Alphus (Grymm). <strong>Anathema:</strong> Tumus (Qhaos). The two that hold the corrupt Veils &mdash; Grymm in Blight, Qhaos in Anathema, where Stigmants breed &mdash; are the <strong>heartiest of all the Abbeys</strong>, bastions guarding the Cipher&rsquo;s sanctity in the cruelest ground. The <strong>Veil is known; the exact Leypoint is not.</strong></div>
 
@@ -4080,7 +4105,7 @@ The numbers are the Trivium&rsquo;s own count (Wone through Nyne, one through ni
 
   </section>
 
-  <section id="s_lost" class="tabbed">
+  <section id="s_lost">
     <h2><span class="num"></span> The Lost World &mdash; Ne'haris</h2>
     <div class="h2title">Ne&rsquo;haris</div>
     <div class="h2sub">The Lost World &mdash; the world as it was, before the Ghost Wars</div>
@@ -6421,6 +6446,286 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
     });
     wrap.appendChild(rail); wrap.appendChild(panels);
     s.appendChild(wrap); // threads were removed from their original spot via appendChild
+  })();
+
+  /* Antagonists (s9): tab by character, same as Protagonists. */
+  (function(){
+    var s=document.getElementById('s9'); if(!s) return;
+    var kids=Array.prototype.slice.call(s.children);
+    var firstChar=s.querySelector(':scope > .char');
+    if(!firstChar) return;
+    var startIdx=kids.indexOf(firstChar);
+    var rest=kids.slice(startIdx);
+    var groups=[], cur=null;
+    rest.forEach(function(n){
+      if(n.classList && n.classList.contains('char')){
+        var cn=n.querySelector('.cname');
+        var name=cn?cn.textContent.trim().split('\u2014')[0].replace(/\(.*?\)/,'').trim():'Character';
+        cur={label:name, nodes:[n]}; groups.push(cur);
+      } else if(cur){ cur.nodes.push(n); }
+    });
+    if(groups.length<2) return;
+    var wrap=document.createElement('div'); wrap.className='tabbed-wrap';
+    var rail=document.createElement('div'); rail.className='tab-rail';
+    var panels=document.createElement('div'); panels.className='tab-panels';
+    groups.forEach(function(g,i){
+      var panel=document.createElement('div'); panel.className='tab-panel'+(i===0?' active':'');
+      g.nodes.forEach(function(n){ panel.appendChild(n); });
+      panels.appendChild(panel);
+      var btn=document.createElement('button');
+      btn.innerHTML='<span class="tr-num">'+String(i+1).padStart(2,'0')+'</span>'+g.label;
+      btn.className=(i===0?'active':'');
+      btn.addEventListener('click',function(){
+        Array.prototype.forEach.call(panels.children,function(p){p.classList.remove('active');});
+        Array.prototype.forEach.call(rail.children,function(b){b.classList.remove('active');});
+        panels.children[i].classList.add('active'); btn.classList.add('active');
+        if(window.innerWidth<=820){ s.scrollIntoView({behavior:'smooth',block:'start'}); }
+      });
+      rail.appendChild(btn);
+    });
+    wrap.appendChild(rail); wrap.appendChild(panels);
+    s.appendChild(wrap);
+  })();
+
+  /* Almanac (s_almanac): tab by its H2.secline dividers. Each secline + everything
+     until the next secline becomes one tab. */
+  (function(){
+    var s=document.getElementById('s_almanac'); if(!s) return;
+    var kids=Array.prototype.slice.call(s.children);
+    var firstSec=s.querySelector(':scope > h2.secline');
+    if(!firstSec) return;
+    var startIdx=kids.indexOf(firstSec);
+    var intro=kids.slice(0,startIdx), rest=kids.slice(startIdx);
+    var groups=[], cur=null;
+    rest.forEach(function(n){
+      if(n.tagName==='H2' && n.classList.contains('secline')){
+        cur={h2:n, label:n.textContent.trim(), nodes:[n]}; groups.push(cur);
+      } else if(cur){ cur.nodes.push(n); }
+    });
+    if(groups.length<2) return;
+    var wrap=document.createElement('div'); wrap.className='tabbed-wrap';
+    var rail=document.createElement('div'); rail.className='tab-rail';
+    var panels=document.createElement('div'); panels.className='tab-panels';
+    groups.forEach(function(g,i){
+      var panel=document.createElement('div'); panel.className='tab-panel'+(i===0?' active':'');
+      g.nodes.forEach(function(n){ panel.appendChild(n); });
+      panels.appendChild(panel);
+      var btn=document.createElement('button');
+      btn.innerHTML='<span class="tr-num">'+String(i+1).padStart(2,'0')+'</span>'+g.label;
+      btn.className=(i===0?'active':'');
+      btn.addEventListener('click',function(){
+        Array.prototype.forEach.call(panels.children,function(p){p.classList.remove('active');});
+        Array.prototype.forEach.call(rail.children,function(b){b.classList.remove('active');});
+        panels.children[i].classList.add('active'); btn.classList.add('active');
+        if(window.innerWidth<=820){ s.scrollIntoView({behavior:'smooth',block:'start'}); }
+      });
+      rail.appendChild(btn);
+    });
+    wrap.appendChild(rail); wrap.appendChild(panels);
+    s.appendChild(wrap);
+  })();
+
+  /* Glossary (gloss): tab alphabetically. The single table's term rows are grouped
+     by first letter into one sub-table per letter tab. */
+  (function(){
+    var s=document.getElementById('gloss'); if(!s) return;
+    var table=s.querySelector('table'); if(!table) return;
+    var allRows=Array.prototype.slice.call(table.querySelectorAll('tr'));
+    // Detect a header row (first row whose first cell reads like a header)
+    var header=null, dataRows=allRows;
+    if(allRows.length){
+      var f=allRows[0].querySelector('th, td');
+      if(f && /^term$/i.test(f.textContent.trim())){ header=allRows[0]; dataRows=allRows.slice(1); }
+    }
+    // Bucket rows by first letter
+    var buckets={}, order=[];
+    dataRows.forEach(function(tr){
+      var c=tr.querySelector('td'); if(!c) return;
+      var t=c.textContent.trim(); if(!t) return;
+      var L=t[0].toUpperCase();
+      if(!/[A-Z]/.test(L)) L='#';
+      if(!buckets[L]){ buckets[L]=[]; order.push(L); }
+      buckets[L].push(tr);
+    });
+    order.sort();
+    if(order.length<2) return;
+    var wrap=document.createElement('div'); wrap.className='tabbed-wrap';
+    var rail=document.createElement('div'); rail.className='tab-rail';
+    var panels=document.createElement('div'); panels.className='tab-panels';
+    order.forEach(function(L,i){
+      var panel=document.createElement('div'); panel.className='tab-panel'+(i===0?' active':'');
+      var t2=document.createElement('table'); t2.className=table.className;
+      if(header) t2.appendChild(header.cloneNode(true));
+      buckets[L].forEach(function(tr){ t2.appendChild(tr); });
+      panel.appendChild(t2);
+      panels.appendChild(panel);
+      var btn=document.createElement('button');
+      btn.innerHTML='<span class="tr-num">'+buckets[L].length+'</span>'+L;
+      btn.className=(i===0?'active':'');
+      btn.addEventListener('click',function(){
+        Array.prototype.forEach.call(panels.children,function(p){p.classList.remove('active');});
+        Array.prototype.forEach.call(rail.children,function(b){b.classList.remove('active');});
+        panels.children[i].classList.add('active'); btn.classList.add('active');
+        if(window.innerWidth<=820){ s.scrollIntoView({behavior:'smooth',block:'start'}); }
+      });
+      rail.appendChild(btn);
+    });
+    wrap.appendChild(rail); wrap.appendChild(panels);
+    table.parentNode.insertBefore(wrap, table);
+    table.remove();
+  })();
+
+  /* Pitch landing page: hero stays on top; content cards + Genre h3 become tabs.
+     The .sec-nav (if present) stays below, outside the tabs. */
+  (function(){
+    var s=document.getElementById('pitch'); if(!s) return;
+    var kids=Array.prototype.slice.call(s.children);
+    var heroRule=s.querySelector(':scope > .hero-rule');
+    if(!heroRule) return;
+    var startIdx=kids.indexOf(heroRule)+1;
+    var secNav=s.querySelector(':scope > .sec-nav');
+    var endIdx=secNav?kids.indexOf(secNav):kids.length;
+    var middle=kids.slice(startIdx,endIdx);
+    // Group: each top-level .card or h3 starts a group; following non-card/h3 nodes attach
+    var groups=[], cur=null;
+    middle.forEach(function(n){
+      var isHead=(n.classList&&n.classList.contains('card'))||n.tagName==='H3';
+      if(isHead){
+        var label='';
+        if(n.tagName==='H3'){ var h=n.cloneNode(true); Array.prototype.forEach.call(h.querySelectorAll('.badge'),function(x){x.remove();}); label=h.textContent.trim(); }
+        else { var t=n.querySelector('.tag'); if(t){var tc=t.cloneNode(true);Array.prototype.forEach.call(tc.querySelectorAll('.badge'),function(x){x.remove();});label=tc.textContent.trim();} else label='Card'; }
+        cur={label:label, nodes:[n]}; groups.push(cur);
+      } else if(cur){ cur.nodes.push(n); }
+    });
+    if(groups.length<2) return;
+    var wrap=document.createElement('div'); wrap.className='tabbed-wrap';
+    var rail=document.createElement('div'); rail.className='tab-rail';
+    var panels=document.createElement('div'); panels.className='tab-panels';
+    groups.forEach(function(g,i){
+      var panel=document.createElement('div'); panel.className='tab-panel'+(i===0?' active':'');
+      g.nodes.forEach(function(n){ panel.appendChild(n); });
+      panels.appendChild(panel);
+      var btn=document.createElement('button');
+      btn.innerHTML='<span class="tr-num">'+String(i+1).padStart(2,'0')+'</span>'+g.label;
+      btn.className=(i===0?'active':'');
+      btn.addEventListener('click',function(){
+        Array.prototype.forEach.call(panels.children,function(p){p.classList.remove('active');});
+        Array.prototype.forEach.call(rail.children,function(b){b.classList.remove('active');});
+        panels.children[i].classList.add('active'); btn.classList.add('active');
+        if(window.innerWidth<=820){ s.scrollIntoView({behavior:'smooth',block:'start'}); }
+      });
+      rail.appendChild(btn);
+    });
+    wrap.appendChild(rail); wrap.appendChild(panels);
+    // insert after hero-rule, before sec-nav (or at end)
+    if(secNav) s.insertBefore(wrap, secNav); else s.appendChild(wrap);
+  })();
+
+  /* Roadmap (s11): tab by each .lede-headed checklist group. */
+  (function(){
+    var s=document.getElementById('s11'); if(!s) return;
+    var kids=Array.prototype.slice.call(s.children);
+    var firstLede=s.querySelector(':scope > .lede');
+    if(!firstLede) return;
+    var startIdx=kids.indexOf(firstLede);
+    var rest=kids.slice(startIdx);
+    var groups=[], cur=null;
+    rest.forEach(function(n){
+      if(n.classList && n.classList.contains('lede')){
+        var label=n.textContent.trim().replace(/\.$/,'');
+        cur={label:label, nodes:[n]}; groups.push(cur);
+      } else if(cur){ cur.nodes.push(n); }
+    });
+    if(groups.length<2) return;
+    var wrap=document.createElement('div'); wrap.className='tabbed-wrap';
+    var rail=document.createElement('div'); rail.className='tab-rail';
+    var panels=document.createElement('div'); panels.className='tab-panels';
+    groups.forEach(function(g,i){
+      var panel=document.createElement('div'); panel.className='tab-panel'+(i===0?' active':'');
+      g.nodes.forEach(function(n){ panel.appendChild(n); });
+      panels.appendChild(panel);
+      var btn=document.createElement('button');
+      btn.innerHTML='<span class="tr-num">'+String(i+1).padStart(2,'0')+'</span>'+g.label;
+      btn.className=(i===0?'active':'');
+      btn.addEventListener('click',function(){
+        Array.prototype.forEach.call(panels.children,function(p){p.classList.remove('active');});
+        Array.prototype.forEach.call(rail.children,function(b){b.classList.remove('active');});
+        panels.children[i].classList.add('active'); btn.classList.add('active');
+        if(window.innerWidth<=820){ s.scrollIntoView({behavior:'smooth',block:'start'}); }
+      });
+      rail.appendChild(btn);
+    });
+    wrap.appendChild(rail); wrap.appendChild(panels);
+    s.appendChild(wrap);
+  })();
+
+  /* Ne'haris Lost World (s_lost): tab by h3, but explode the "Lost World" h3's
+     region .group blocks (Ankhara, Nefer, Enixmae) and its outer-regions card
+     into their own tabs. */
+  (function(){
+    var s=document.getElementById('s_lost'); if(!s) return;
+    var kids=Array.prototype.slice.call(s.children);
+    var firstH3=s.querySelector(':scope > h3'); if(!firstH3) return;
+    var startIdx=kids.indexOf(firstH3);
+    var rest=kids.slice(startIdx);
+    // Build ordered list of {label, nodes}
+    var groups=[], cur=null;
+    rest.forEach(function(n){
+      if(n.tagName==='H3'){
+        var h=n.cloneNode(true); Array.prototype.forEach.call(h.querySelectorAll('.badge'),function(x){x.remove();});
+        var label=h.textContent.trim();
+        var isLost=/Lost World/i.test(label);
+        cur={label:label, nodes:[n], lost:isLost}; groups.push(cur);
+      } else if(cur){ cur.nodes.push(n); }
+    });
+    if(groups.length<2) return;
+    // Expand the Lost World group into sub-tabs by .group and the outer card
+    var expanded=[];
+    groups.forEach(function(g){
+      if(!g.lost){ expanded.push(g); return; }
+      // keep the intro <p> (if any) with the first region; split by .group
+      var lead=[]; var regionGroups=[]; var trailingCards=[];
+      g.nodes.forEach(function(n){
+        if(n===g.nodes[0]) return; // the h3 itself, drop (region gname becomes label)
+        if(n.classList && n.classList.contains('group')){
+          var gn=n.querySelector('.gname');
+          var nm=gn?gn.textContent.trim().split('\u2014')[0].split('\u00b7')[0].trim():'Region';
+          regionGroups.push({label:nm, node:n});
+        } else if(n.classList && n.classList.contains('card')){
+          trailingCards.push(n);
+        } else {
+          lead.push(n); // intro paragraph
+        }
+      });
+      regionGroups.forEach(function(rg,idx){
+        var nodes=[rg.node];
+        if(idx===0 && lead.length) nodes=lead.concat(nodes); // attach intro p to first region
+        expanded.push({label:rg.label, nodes:nodes});
+      });
+      if(trailingCards.length){
+        expanded.push({label:'Outer Regions', nodes:trailingCards});
+      }
+    });
+    var wrap=document.createElement('div'); wrap.className='tabbed-wrap';
+    var rail=document.createElement('div'); rail.className='tab-rail';
+    var panels=document.createElement('div'); panels.className='tab-panels';
+    expanded.forEach(function(g,i){
+      var panel=document.createElement('div'); panel.className='tab-panel'+(i===0?' active':'');
+      g.nodes.forEach(function(n){ panel.appendChild(n); });
+      panels.appendChild(panel);
+      var btn=document.createElement('button');
+      btn.innerHTML='<span class="tr-num">'+String(i+1).padStart(2,'0')+'</span>'+g.label;
+      btn.className=(i===0?'active':'');
+      btn.addEventListener('click',function(){
+        Array.prototype.forEach.call(panels.children,function(p){p.classList.remove('active');});
+        Array.prototype.forEach.call(rail.children,function(b){b.classList.remove('active');});
+        panels.children[i].classList.add('active'); btn.classList.add('active');
+        if(window.innerWidth<=820){ s.scrollIntoView({behavior:'smooth',block:'start'}); }
+      });
+      rail.appendChild(btn);
+    });
+    wrap.appendChild(rail); wrap.appendChild(panels);
+    s.appendChild(wrap);
   })();
 })();
 </script>
