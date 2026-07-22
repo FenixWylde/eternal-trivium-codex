@@ -1786,6 +1786,290 @@ Because they follow no strict rule of creation and were <strong>never truly sync
     <div class="card note"><span class="tag">Baneful Ascendence &mdash; the scar made sovereign <span class="badge b-locked">Locked &middot; New</span></span>Eventide&rsquo;s highest working summons a <strong>magnificent Empyron</strong> &mdash; a Phoenix of the <strong>Dynaass line</strong>, the Perennial Phoenix from whom Omin&rsquo;s own <strong>Fonixi blood descends.</strong> It rises radiant as her heritage and <strong>shadowed with her Nether</strong>: the light of her lineage and the dark of her scar in one form. This is the crux of it &mdash; <strong>Baneful Ascendence is not a corruption that afflicts her but a darkness she took back as her own.</strong> Growing up in the Asylum, Omin <strong>faced the Nether-scar of the eleven Aeons and made it answer to her</strong> rather than the reverse. What manifests is therefore hers twice over: her ancestral Phoenix, and her mastered wound. Where a lesser soul would be consumed by the dark it carries, Omin <strong>ascends on it.</strong> <span class="badge b-open">Open</span> &mdash; its combat expression, and whether it can act independently of her.</div>
 </section>
 
+  <!-- Archevim Record Sheet (interactive) -->
+  <section id="s_archevim_sheet">
+    <h2><span class="num"></span> Archevim Record Sheet</h2>
+    <div class="h2sub">Abbeys of the Aspects &mdash; Relic of Record</div>
+    <div class="title-rule"></div>
+    <p>Every true Archevim is archived at the <strong>Abbeys of the Aspects</strong>. This is the record kept on file for one &mdash; its make, its Maker, and the memories bound within. Fill the fields below; class sets the memory capacity, and the Aspect names the Cipher it serves. Use <em>Print / Save PDF</em> for a clean copy, or <em>Copy as text</em> to paste the record into the Codex.</p>
+
+    <style>
+      #s_archevim_sheet .ar-sheet{background:linear-gradient(180deg,rgba(255,250,238,.62),rgba(230,217,185,.34));border:1px solid var(--gilt);border-radius:14px;padding:22px;box-shadow:0 4px 20px -10px rgba(80,55,20,.5);margin:10px 0}
+      #s_archevim_sheet .ar-crest{text-align:center;margin-bottom:6px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--gilt)}
+      #s_archevim_sheet .ar-crest .ar-seal{font-size:22px;letter-spacing:0;display:block;margin-bottom:4px;color:var(--spirit)}
+      #s_archevim_sheet .ar-hr{height:1px;background:linear-gradient(90deg,transparent,var(--gilt),transparent);margin:14px 0}
+      #s_archevim_sheet .ar-grp-label{font-family:'IBM Plex Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.18em;color:var(--spirit);font-weight:600;margin:16px 0 8px;border-bottom:1px dotted var(--gilt);padding-bottom:4px}
+      #s_archevim_sheet .ar-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:12px}
+      #s_archevim_sheet .ar-field{flex:1;min-width:190px}
+      #s_archevim_sheet .ar-field.wide{flex-basis:100%;min-width:100%}
+      #s_archevim_sheet .ar-label{font-family:'IBM Plex Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--gilt);font-weight:600;margin-bottom:5px;display:block}
+      #s_archevim_sheet .ar-input,#s_archevim_sheet .ar-select,#s_archevim_sheet .ar-textarea{width:100%;box-sizing:border-box;background:rgba(255,252,244,.75);border:1px solid var(--gilt);border-radius:7px;padding:8px 10px;font-family:var(--serif),Georgia,serif;font-size:14px;color:var(--ink);outline:none}
+      #s_archevim_sheet .ar-input:focus,#s_archevim_sheet .ar-select:focus,#s_archevim_sheet .ar-textarea:focus{border-color:var(--spirit);box-shadow:0 0 0 2px var(--spirit-cy-soft)}
+      #s_archevim_sheet .ar-textarea{min-height:64px;resize:vertical}
+      #s_archevim_sheet .ar-hint{font-size:11px;color:var(--muted);margin-top:4px;font-style:italic}
+      #s_archevim_sheet .ar-auto{background:rgba(31,122,107,.08);border-style:dashed}
+      #s_archevim_sheet .ar-mem{border:1px solid var(--gilt);border-radius:9px;padding:12px;margin-bottom:10px;background:rgba(255,252,244,.5)}
+      #s_archevim_sheet .ar-mem-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+      #s_archevim_sheet .ar-mem-title{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--spirit);text-transform:uppercase}
+      #s_archevim_sheet .ar-btn{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:var(--spirit);color:#fff;border:none;border-radius:7px;padding:9px 16px;cursor:pointer;transition:opacity .15s}
+      #s_archevim_sheet .ar-btn:hover{opacity:.85}
+      #s_archevim_sheet .ar-btn.ghost{background:transparent;color:var(--spirit);border:1px solid var(--spirit)}
+      #s_archevim_sheet .ar-btn.mini{padding:4px 10px;font-size:10px;background:transparent;color:var(--gilt);border:1px solid var(--gilt)}
+      #s_archevim_sheet .ar-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+      #s_archevim_sheet .ar-cap{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);margin:6px 0 2px}
+      #s_archevim_sheet .ar-cap b{color:var(--spirit)}
+      #s_archevim_sheet .ar-out{white-space:pre-wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;background:rgba(40,28,12,.05);border:1px solid var(--gilt);border-radius:9px;padding:14px;margin-top:14px;display:none;color:var(--ink)}
+      @media print{
+        body *{visibility:hidden!important}
+        #s_archevim_sheet, #s_archevim_sheet *{visibility:visible!important}
+        #s_archevim_sheet{position:absolute;left:0;top:0;width:100%}
+        #s_archevim_sheet .ar-actions,#s_archevim_sheet .ar-out,#s_archevim_sheet .ar-btn{display:none!important}
+        #s_archevim_sheet .ar-input,#s_archevim_sheet .ar-select,#s_archevim_sheet .ar-textarea{border:none;border-bottom:1px solid #999;border-radius:0;background:transparent}
+      }
+    </style>
+
+    <div class="ar-sheet" id="arSheet">
+      <div class="ar-crest"><span class="ar-seal">&#9906;</span>Abbeys of the Aspects &middot; Archevim of Record</div>
+      <div class="ar-hr"></div>
+
+      <div class="ar-grp-label">Identification</div>
+      <div class="ar-row">
+        <div class="ar-field"><label class="ar-label">Name of Relic</label><input class="ar-input" id="arName" placeholder="e.g. Eventide"></div>
+        <div class="ar-field"><label class="ar-label">Also Known As / True Name</label><input class="ar-input" id="arAka" placeholder="former or sacred name (if any)"></div>
+      </div>
+      <div class="ar-row">
+        <div class="ar-field"><label class="ar-label">Shape / Form</label><input class="ar-input" id="arShape" placeholder="ring, scythe-that-folds-to-firearm, pendant…"></div>
+        <div class="ar-field"><label class="ar-label">Task / Purpose</label><input class="ar-input" id="arTask" placeholder="what it is made to do"></div>
+      </div>
+
+      <div class="ar-grp-label">Class &amp; Charge</div>
+      <div class="ar-row">
+        <div class="ar-field">
+          <label class="ar-label">Class</label>
+          <select class="ar-select" id="arClass">
+            <option value="">&mdash; select class &mdash;</option>
+            <option value="Protoarch|Combat|Up to 12 Primary memories (P.A.R.)|12|PAR">Protoarch &mdash; Combat</option>
+            <option value="Transarch|Multiple use; changes shape accordingly|Up to 9 memories, Primary or Basic|9|BOTH">Transarch &mdash; Multi-use / shifting</option>
+            <option value="Underarch|Black-market work; quality varies|Up to 6 Primary memories (P.A.R.)|6|PAR">Underarch &mdash; Black-market</option>
+            <option value="Interarch|Everyday tools &mdash; comms, transport, construction|Up to 3 Basic memories (B.A.R.)|3|BAR">Interarch &mdash; Everyday tool</option>
+            <option value="Semiarch|Disposable, single-use|1 Basic memory (B.A.R.); shatters after use|1|BAR">Semiarch &mdash; Disposable</option>
+            <option value="Antiarch|Controlled defence vs. Stigmant beings|1 Primary + 1 Basic (P.A.R. + B.A.R.)|2|BOTH">Antiarch &mdash; Anti-Stigmant</option>
+          </select>
+          <div class="ar-cap" id="arCap">Capacity &mdash; <b>select a class</b></div>
+        </div>
+        <div class="ar-field">
+          <label class="ar-label">Charge Source</label>
+          <select class="ar-select" id="arCharge">
+            <option>Auric Remanence (standard)</option>
+            <option>Aspect-blessed (Protoarch variant)</option>
+            <option>Stigma-charge (illicit &mdash; self-destroying)</option>
+          </select>
+          <div class="ar-hint">Stigma-charge runs cheaper and stronger but breaks the relic over time.</div>
+        </div>
+      </div>
+
+      <div class="ar-grp-label">Memories Bound Within</div>
+      <div id="arMemList"></div>
+      <button class="ar-btn ghost" id="arAddMem" type="button">+ Bind a Memory</button>
+      <div class="ar-hint" id="arMemCap" style="margin-top:8px"></div>
+
+      <div class="ar-grp-label">The Sacred Bond &mdash; Aspect &amp; Cipher</div>
+      <div class="ar-row">
+        <div class="ar-field">
+          <label class="ar-label">Blessing Aspect</label>
+          <select class="ar-select" id="arAspect">
+            <option value="">&mdash; select Aspect &mdash;</option>
+            <option value="Genos|Origin">Genos &mdash; (Origin)</option>
+            <option value="Sacros|Hallow">Sacros &mdash; (Hallow)</option>
+            <option value="Pseudus|Feii">Pseudus &mdash; (Feii)</option>
+            <option value="Ecos|Wylde">Ecos &mdash; (Wylde)</option>
+            <option value="Alphus|Grymm">Alphus &mdash; (Grymm)</option>
+            <option value="Tumus|Qhaos">Tumus &mdash; (Qhaos)</option>
+            <option value="Delphi|Arcane">Delphi &mdash; (Arcane)</option>
+            <option value="Voliti|Ardor">Voliti &mdash; (Ardor)</option>
+            <option value="Quintessi|Aether">Quintessi &mdash; (Aether)</option>
+          </select>
+        </div>
+        <div class="ar-field">
+          <label class="ar-label">Cipher Served</label>
+          <input class="ar-input ar-auto" id="arCipher" readonly placeholder="set by Aspect">
+        </div>
+      </div>
+
+      <div class="ar-grp-label">The Four Materials</div>
+      <div class="ar-row">
+        <div class="ar-field">
+          <label class="ar-label">Matrux</label>
+          <select class="ar-select" id="arMatrux">
+            <option>White fire-opal Matrux (true)</option>
+            <option>Aspect-given (extraordinary grade)</option>
+            <option>Matrux-Altera (corrupted &mdash; illicit)</option>
+          </select>
+        </div>
+        <div class="ar-field"><label class="ar-label">Matrux Mined At</label>
+          <select class="ar-select" id="arMine">
+            <option>Singing Caves</option>
+            <option>A Leypoint (root-near site)</option>
+            <option>Xenith</option>
+            <option>Bastian</option>
+            <option>Other / unrecorded</option>
+          </select>
+        </div>
+      </div>
+      <div class="ar-row">
+        <div class="ar-field">
+          <label class="ar-label">Grade of Pneu-Steel</label>
+          <select class="ar-select" id="arSteel">
+            <option>Poor</option><option>Common</option><option>Fine</option><option>Superior</option><option>Legendary</option>
+          </select>
+        </div>
+        <div class="ar-field">
+          <label class="ar-label">Hymnstone</label>
+          <select class="ar-select" id="arHymn">
+            <option value="">&mdash; select (matches Cipher) &mdash;</option>
+            <option>Aquamarine</option><option>Rubellite</option><option>Citrine</option>
+            <option>Verdite</option><option>Iolite</option><option>Carnelian</option>
+            <option>Amethyst</option><option>Oxblood</option><option>Amber</option>
+          </select>
+          <div class="ar-hint">Crystallized Eversoul Essence; colour follows the Cipher.</div>
+        </div>
+      </div>
+      <div class="ar-row">
+        <div class="ar-field"><label class="ar-label">Elan Essence (if used)</label><input class="ar-input" id="arElan" placeholder="Spirit Beast part, freely given / ethically harvested"></div>
+      </div>
+
+      <div class="ar-grp-label">The Maker &amp; Provenance</div>
+      <div class="ar-row">
+        <div class="ar-field"><label class="ar-label">Anitech (Crafter)</label><input class="ar-input" id="arMaker" placeholder="name of the crafting Anitech"></div>
+        <div class="ar-field"><label class="ar-label">Abbey of Record</label><input class="ar-input" id="arAbbey" placeholder="which Abbey of the Aspects holds the file"></div>
+      </div>
+      <div class="ar-row">
+        <div class="ar-field"><label class="ar-label">Age / Era Forged</label><input class="ar-input" id="arEra" placeholder="Mythos / Ethos / Vitae; or an Aeon"></div>
+        <div class="ar-field"><label class="ar-label">Bearer of Record</label><input class="ar-input" id="arBearer" placeholder="attuned owner (if any)"></div>
+      </div>
+      <div class="ar-row">
+        <div class="ar-field wide"><label class="ar-label">Notes / History</label><textarea class="ar-textarea" id="arNotes" placeholder="provenance, awakened workings, cautions…"></textarea></div>
+      </div>
+
+      <div class="ar-actions">
+        <button class="ar-btn" id="arPrint" type="button">Print / Save PDF</button>
+        <button class="ar-btn ghost" id="arCopy" type="button">Copy as text</button>
+        <button class="ar-btn ghost" id="arClear" type="button">Clear sheet</button>
+      </div>
+      <div class="ar-out" id="arOut"></div>
+    </div>
+
+    <script>
+    (function(){
+      var root=document.getElementById('s_archevim_sheet'); if(!root) return;
+      var $=function(id){return document.getElementById(id);};
+      var memCapMode='', memCapMax=0;
+
+      function updClass(){
+        var v=$('arClass').value;
+        if(!v){ $('arCap').innerHTML='Capacity &mdash; <b>select a class</b>'; memCapMax=0; memCapMode=''; renderMemCap(); return; }
+        var p=v.split('|'); // name|madefor|capText|max|mode
+        $('arCap').innerHTML='Made for <b>'+p[1]+'</b> &middot; Capacity: <b>'+p[2]+'</b>';
+        memCapMax=parseInt(p[3],10)||0; memCapMode=p[4];
+        renderMemCap();
+      }
+      function memTierOptions(){
+        if(memCapMode==='PAR') return '<option>Primary (P.A.R.)</option>';
+        if(memCapMode==='BAR') return '<option>Basic (B.A.R.)</option>';
+        return '<option>Primary (P.A.R.)</option><option>Basic (B.A.R.)</option>';
+      }
+      function memCount(){return $('arMemList').querySelectorAll('.ar-mem').length;}
+      function renderMemCap(){
+        var c=memCount();
+        var cap=memCapMax?(' of '+memCapMax+' bound'):'';
+        $('arMemCap').textContent = memCapMax? (c+cap+(c>memCapMax?'  \u2014 over capacity for this class!':'')) : 'Select a class to set memory capacity.';
+        $('arMemCap').style.color = (memCapMax && c>memCapMax)? '#a0502e':'';
+        $('arAddMem').style.display = (memCapMax && c>=memCapMax)? 'none':'';
+      }
+      function addMem(){
+        if(memCapMax && memCount()>=memCapMax) return;
+        var wrap=document.createElement('div'); wrap.className='ar-mem';
+        var n=memCount()+1;
+        wrap.innerHTML='<div class="ar-mem-head"><span class="ar-mem-title">Memory '+n+'</span>'+
+          '<button class="ar-btn mini" type="button">remove</button></div>'+
+          '<div class="ar-row"><div class="ar-field"><label class="ar-label">Memory Gift (what it holds)</label>'+
+          '<input class="ar-input" placeholder="the working / emotional charge stored"></div>'+
+          '<div class="ar-field" style="max-width:220px"><label class="ar-label">Tier</label>'+
+          '<select class="ar-select ar-memtier">'+memTierOptions()+'</select></div></div>';
+        wrap.querySelector('.ar-btn.mini').addEventListener('click',function(){wrap.remove();renumber();renderMemCap();});
+        $('arMemList').appendChild(wrap); renderMemCap();
+      }
+      function renumber(){ Array.prototype.forEach.call($('arMemList').querySelectorAll('.ar-mem-title'),function(t,i){t.textContent='Memory '+(i+1);}); }
+
+      $('arClass').addEventListener('change',function(){
+        updClass();
+        // refresh tier options on existing rows
+        Array.prototype.forEach.call($('arMemList').querySelectorAll('.ar-memtier'),function(sel){sel.innerHTML=memTierOptions();});
+      });
+      $('arAddMem').addEventListener('click',addMem);
+      $('arAspect').addEventListener('change',function(){
+        var v=this.value; $('arCipher').value = v? v.split('|')[1] : '';
+      });
+
+      function collect(){
+        var cls=$('arClass').value?$('arClass').value.split('|'):['','','',''];
+        var asp=$('arAspect').value?$('arAspect').value.split('|'):['',''];
+        var mems=[];
+        Array.prototype.forEach.call($('arMemList').querySelectorAll('.ar-mem'),function(m){
+          var g=m.querySelector('.ar-input').value.trim();
+          var t=m.querySelector('.ar-memtier').value;
+          if(g) mems.push('   - '+g+'  ['+t+']');
+        });
+        var L=[];
+        L.push('ABBEYS OF THE ASPECTS \u2014 ARCHEVIM OF RECORD');
+        L.push('==========================================');
+        L.push('Name:        '+($('arName').value||'\u2014'));
+        if($('arAka').value) L.push('True/Alt:    '+$('arAka').value);
+        L.push('Shape:       '+($('arShape').value||'\u2014'));
+        L.push('Task:        '+($('arTask').value||'\u2014'));
+        L.push('');
+        L.push('Class:       '+(cls[0]||'\u2014')+(cls[1]?'  ('+cls[1]+')':''));
+        L.push('Capacity:    '+(cls[2]||'\u2014'));
+        L.push('Charge:      '+$('arCharge').value);
+        L.push('');
+        L.push('Memories Bound ('+mems.length+(cls[3]?'/'+cls[3]:'')+'):');
+        L.push(mems.length?mems.join('\n'):'   \u2014 none recorded \u2014');
+        L.push('');
+        L.push('Aspect:      '+(asp[0]||'\u2014'));
+        L.push('Cipher:      '+($('arCipher').value||'\u2014'));
+        L.push('');
+        L.push('MATERIALS');
+        L.push('Matrux:      '+$('arMatrux').value+'  (mined: '+$('arMine').value+')');
+        L.push('Pneu-Steel:  '+$('arSteel').value+' grade');
+        L.push('Hymnstone:   '+($('arHymn').value||'\u2014'));
+        if($('arElan').value) L.push('Elan Essence:'+$('arElan').value);
+        L.push('');
+        L.push('MAKER & PROVENANCE');
+        L.push('Anitech:     '+($('arMaker').value||'\u2014'));
+        L.push('Abbey:       '+($('arAbbey').value||'\u2014'));
+        L.push('Era Forged:  '+($('arEra').value||'\u2014'));
+        L.push('Bearer:      '+($('arBearer').value||'\u2014'));
+        if($('arNotes').value){L.push('');L.push('Notes:');L.push('   '+$('arNotes').value.replace(/\n/g,'\n   '));}
+        return L.join('\n');
+      }
+      $('arCopy').addEventListener('click',function(){
+        var txt=collect(); var out=$('arOut'); out.style.display='block'; out.textContent=txt;
+        if(navigator.clipboard){navigator.clipboard.writeText(txt).then(function(){
+          var b=$('arCopy'); var o=b.textContent; b.textContent='Copied \u2713'; setTimeout(function(){b.textContent=o;},1400);
+        });}
+      });
+      $('arPrint').addEventListener('click',function(){window.print();});
+      $('arClear').addEventListener('click',function(){
+        root.querySelectorAll('input,textarea').forEach(function(el){el.value='';});
+        $('arClass').value='';$('arAspect').value='';$('arCipher').value='';$('arHymn').value='';
+        $('arMemList').innerHTML=''; updClass(); $('arOut').style.display='none';
+      });
+
+      updClass(); addMem(); // start with one memory row
+    })();
+    </script>
+  </section>
+
   <section id="s6">
     <h2><span class="num"></span> Stigma &amp; Stigmants</h2>
     <div class="h2title">Stigma</div>
@@ -5772,7 +6056,7 @@ if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded'
     {label:'Realm', ids:['s_ley','s_newworld','s_lost','s_almanac','s_best']},
     {label:'Storyview', ids:['s7','s_outline','s_cast','s8','s9']},
     {label:'Society', ids:['s2b','s7b','s_institutes','s_lexicon','s_exceptional','s_orgs']},
-    {label:'Industry', ids:['s_archevims','s_tech']},
+    {label:'Industry', ids:['s_archevims','s_archevim_sheet','s_tech']},
     {label:'Development', ids:['s11','s_palette','s_symbol','s_influences','s10','s_ledger','s_profiles','gloss']}
   ];
   var tbNav = document.getElementById('tbNav');
