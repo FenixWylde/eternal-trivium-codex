@@ -1785,7 +1785,7 @@ Because they follow no strict rule of creation and were <strong>never truly sync
 </section>
 
   <!-- Archevim Record Sheet (interactive) -->
-  <section id="s_archevim_sheet">
+  <section id="s_archevim_sheet" class="printable">
     <h2><span class="num"></span> Archevim Record Sheet</h2>
     <div class="h2sub">Abbeys of the Aspects &mdash; Relic of Record</div>
     <div class="title-rule"></div>
@@ -1818,11 +1818,50 @@ Because they follow no strict rule of creation and were <strong>never truly sync
       #s_archevim_sheet .ar-cap b{color:var(--spirit)}
       #s_archevim_sheet .ar-out{white-space:pre-wrap;font-family:'IBM Plex Mono',monospace;font-size:12px;background:rgba(40,28,12,.05);border:1px solid var(--gilt);border-radius:9px;padding:14px;margin-top:14px;display:none;color:var(--ink)}
       @media print{
-        body *{visibility:hidden!important}
-        #s_archevim_sheet, #s_archevim_sheet *{visibility:visible!important}
-        #s_archevim_sheet{position:absolute;left:0;top:0;width:100%}
-        #s_archevim_sheet .ar-actions,#s_archevim_sheet .ar-out,#s_archevim_sheet .ar-btn{display:none!important}
-        #s_archevim_sheet .ar-input,#s_archevim_sheet .ar-select,#s_archevim_sheet .ar-textarea{border:none;border-bottom:1px solid #999;border-radius:0;background:transparent}
+        /* Generic printable-tool rule. Any section tagged .printable prints on its
+           own; everything else is hidden.
+
+           Two bugs were fixed here. (1) This block used to be hardcoded to
+           #s_archevim_sheet, so printing the character sheet or Soul Ledger blanked
+           them. (2) The app shell pins .main-col to min-height:100vh inside a flex
+           layout, and the old rule positioned the sheet absolutely -- so the paginator
+           only ever saw one viewport and emitted blank pages. Print now unwinds the
+           shell and lets the section flow in normal document order. */
+        html,body{height:auto!important; min-height:0!important; overflow:visible!important;
+          background:#fff!important; color:#1a1a1a!important}
+        .app-layout{display:block!important; min-height:0!important}
+        body.app-mode .main-col,.main-col{
+          max-width:none!important; min-height:0!important; margin:0!important;
+          padding:0!important; background:none!important; box-shadow:none!important;
+          border:none!important}
+
+        /* Hide the shell chrome: nav rails, drawer, masthead, section pager */
+        .tb-nav,.tb-rail,.navtoggle,.mast,.sec-nav,.navsearch,nav.toc{display:none!important}
+
+        /* Show only the active printable tool, in normal flow (never absolute).
+           NOTE: isolation is display-based, not visibility-based. visibility:hidden
+           leaves elements in the layout, and on a tall section (the character sheet
+           is ~6400px) Chromium's paginator then emits blank pages. display:none
+           removes them from layout so pagination works. */
+        body *{visibility:visible!important}
+        body.app-mode section{display:none!important}
+        body.app-mode section.printable.active-section{
+          display:block!important; position:static!important; width:auto!important}
+
+        /* Interactive chrome never belongs on paper */
+        .printable .ar-actions,.printable .ar-out,.printable .ar-btn,
+        .printable .toolbar,.printable .list-actions,.printable .save-state,
+        .printable button{display:none!important}
+
+        /* Form fields print as ruled lines rather than boxes */
+        .printable .ar-input,.printable .ar-select,.printable .ar-textarea,
+        .printable input,.printable select,.printable textarea{
+          border:none;border-bottom:1px solid #999;border-radius:0;background:transparent;
+          -webkit-appearance:none;appearance:none}
+
+        /* Tabbed tools: print every tab, not just the active one */
+        .printable .tab-rail{display:none!important}
+        .printable .tab-panel{display:block!important;break-inside:avoid}
       }
     </style>
 
@@ -4486,7 +4525,7 @@ Each is <strong>kept sacred and secret by its own Anitechs</strong> &mdash; so g
   </section>
 
   <!-- Soul Ledger -->
-  <section id="s_ledger">
+  <section id="s_ledger" class="printable">
     <h2><span class="num"></span> Soul Ledger Sheet</h2>
     <div class="h2title">Soul Ledger Sheet</div>
     <div class="h2sub">The prototype character sheet</div>
@@ -4543,7 +4582,7 @@ Each is <strong>kept sacred and secret by its own Anitechs</strong> &mdash; so g
   </section>
 
   <!-- Character Profiles -->
-  <section id="s_profiles">
+  <section id="s_profiles" class="printable">
     <h2><span class="num"></span> Character Profiles</h2>
     <div class="h2title">Character Profiles</div>
     <div class="h2sub">Interactive Pneumosi profile sheet</div>
