@@ -533,10 +533,11 @@
     /* slide-in drawer holds the grouped nav */
     body.nav-open .tb-nav{
       display:flex; flex-direction:column; align-items:stretch; gap:2px;
-      position:fixed; top:0; right:0; width:78%; max-width:320px; height:100vh; z-index:78;
+      position:fixed; top:0; right:0; width:78%; max-width:320px; z-index:78;
+      height:100vh; height:100dvh; max-height:100vh; max-height:100dvh;
       background:linear-gradient(180deg,#e2d4b2,#d3bf90); border-left:2px solid var(--gilt);
-      padding:64px 16px 30px; overflow-y:auto; box-shadow:-10px 0 40px -10px rgba(80,55,20,.6);
-      -webkit-overflow-scrolling:touch;
+      padding:64px 16px calc(30px + env(safe-area-inset-bottom, 0px)); overflow-y:auto; box-shadow:-10px 0 40px -10px rgba(80,55,20,.6);
+      -webkit-overflow-scrolling:touch; overscroll-behavior:contain;
     }
     body.nav-open .tb-group{width:100%}
     body.nav-open .tb-top{
@@ -3907,6 +3908,19 @@ Each is <strong>kept sacred and secret by its own Anitechs</strong> &mdash; so g
 <div class="card note"><span class="tag">Hidden in the Six Veils <span class="badge b-locked">Locked &middot; New</span></span>The Primary Abbeys sit at hidden <strong>Leypoints within the Six Veils</strong> &mdash; the stages of the rebirth cycle &mdash; each placed in the Veil whose character answers its Aspect&rsquo;s resonant emotion. <strong>Elevation:</strong> Quintessi (Aether) &amp; Genos (Origin). <strong>Awakening:</strong> Delphi (Arcane) &amp; Sacros (Hallow). <strong>Wandering:</strong> Pseudus (Feii) &amp; Voliti (Ardor). <strong>Redemption:</strong> Ecos (Wylde). <strong>Blight:</strong> Alphus (Grymm). <strong>Anathema:</strong> Tumus (Qhaos). The two that hold the corrupt Veils &mdash; Grymm in Blight, Qhaos in Anathema, where Stigmants breed &mdash; are the <strong>heartiest of all the Abbeys</strong>, bastions guarding the Cipher&rsquo;s sanctity in the cruelest ground. The <strong>Veil is known; the exact Leypoint is not.</strong></div>
 
 <div class="card note"><span class="tag">The Anitech&rsquo;s Journey <span class="badge b-locked">Locked &middot; New</span></span>Because the Leypoints are unmarked and unspoken, an aspiring Anitech <strong>cannot be told where their Abbey lies</strong> &mdash; they must <strong>find it by resonance.</strong> The pilgrim chooses an <strong>Anima Archetype</strong> and reaches the hidden crossing only by connecting with that Anima directly, or communing distantly with its Aspect through <strong>meditation</strong>, until the bond draws them in. Only a true connection ever arrives; the journey <strong>filters for genuine devotion before earnest training begins</strong>, and the finding cannot be faked.</div>
+
+<h3>Cults &amp; Orders <span class="badge b-locked">Locked &middot; New</span></h3>
+<p>Faith in Vi&rsquo;talitas gathers, most often, around the <strong>three Paramounts</strong> &mdash; and where it gathers, it hardens. The largest sects each fix upon a single Paramount: <strong>A&rsquo;thule the Father, A&rsquo;kana the Mother, and A&rsquo;thesis the Scattered.</strong> Most are <strong>cults</strong> &mdash; devotion turned instrumental, worship bent toward an aim &mdash; though not all. A quieter, more elusive sect, the <strong>Cult of the Known</strong>, looks past the Paramounts to the <strong>Omneity</strong> itself; that is a matter for later.</p>
+
+<div class="card note"><span class="tag">The Cult of the True Father <span class="badge b-locked">Locked &middot; New</span></span>Worshippers of <strong>A&rsquo;thule</strong>, the Father of Corruption. They believe fervently in his <strong>rise</strong>, and labour to <strong>draw him into this Pillar</strong> so that his work might be fulfilled. <strong>Long persecuted</strong> &mdash; and with reason &mdash; the persecution does nothing to temper them; if anything it sharpens their <strong>radicalism.</strong> Of the three great cults, they are the one the Regency fears by name.</div>
+
+<div class="card note"><span class="tag">The Cult of the Sleeping Mother <span class="badge b-locked">Locked &middot; New</span></span>Worshippers of <strong>A&rsquo;kana</strong>, the Great Mother, whom they hold only to be <strong>sleeping.</strong> They believe she must be <strong>woken and brought back to battle A&rsquo;thule</strong> &mdash; and they are willing to <strong>sacrifice any and all</strong> to see it done. Their devotion is genuine; it is also merciless. To love the Mother, for them, is to spend whatever &mdash; whomever &mdash; her return requires.</div>
+
+<div class="card note"><span class="tag">The Cult of the Scattered One <span class="badge b-locked">Locked &middot; New</span></span>Worshippers of <strong>A&rsquo;thesis</strong>, of Many Eyes &mdash; the Paramount <strong>slain defending A&rsquo;kana</strong>, his substance scattered across the Astroverse. Third and last of the great Paramount cults, they keep the memory of the one who fell.</div>
+
+<div class="card note"><span class="tag">The Order of the Great Mother &mdash; not the Cult <span class="badge b-locked">Locked &middot; New</span></span>Also devoted to <strong>A&rsquo;kana</strong> &mdash; but <strong>not to be confused with the Cult of the Sleeping Mother.</strong> Where the Cult would spend the world to wake her, the Order simply <strong>worships her for her true self</strong> &mdash; all that she stood for, and all she desired for us. Reverence, not resurrection; devotion without the knife. <em>(A note on the word:</em> the <strong>Order</strong> is a devotional body of the faithful. It should not be confused with the nine <strong>Congregations of the Aspects</strong> &mdash; the Anitechs housed at each Abbey &mdash; catalogued above under Abbeys of the Aspects.<em>)</em></div>
+
+<div class="card note claude-made"><span class="tag">The Cult of the Known &mdash; held for later <span class="badge b-open">Open</span></span>A quieter, more <strong>elusive</strong> sect that worships the <strong>Omneity</strong> rather than any single Paramount. <em>Stub only &mdash; reserved for later development.</em></div>
 
 <h3>The Undertrade Exchange <span class="badge b-locked">Locked</span></h3>
 <p>A black market that stole newly orphaned Median children with untapped potential; the unluckiest never died clean deaths, and those who fought to live carried an unshakeable will. The arrival of Stigma reframed Medians from threat to necessity &mdash; but the Exchange&rsquo;s shadow persists. Beyond trafficking, it has been known to use <strong>children in its employ to source Matrux material</strong>, since a Median child is most likely to find it without having to be an Anitech.</p>
